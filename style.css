@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
 #navBarButtons {
   color: #4d602a;
 }
@@ -59,8 +60,6 @@ footer {
   margin-left: 150;
   height: 600;
   width: 500;
-
-  position: fixed;
   right: 15;
   top: 20;
 }
