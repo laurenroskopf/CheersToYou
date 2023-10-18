@@ -1,59 +1,71 @@
 .navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#navBarButtons {
+  color: #4d602a;
 }
 
 .navButtons {
-
-    background-color: #6c883b;
-    color: white;
-    border-width: 0;
-    padding: 10;
-    width: 150;
-    font-size: 18;
-    margin-left: 50;
-    margin-right: 50;
-    border-radius: 10px;
-
-
+  background-color: #6c883b;
+  color: white;
+  border-width: 0;
+  padding: 10;
+  width: 150;
+  font-size: 18;
+  margin-left: 50;
+  margin-right: 50;
+  border-radius: 10px;
 }
 
-
-
 header {
+  background-color: #fadadd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30;
+}
 
-    background-color: #fadadd;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 30;
-
+footer {
+  background-color: #fadadd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30;
 }
 
 #shoppingCart {
-    position: fixed;
-    right: 15;
-    top: 20;
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    font-size: 20;
+  position: fixed;
+  right: 15;
+  top: 20;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 20;
 }
 
 #logo {
-    height: 400;
-    width: 400;
-
+  height: 400;
+  width: 400;
 }
 
 #pennants {
+  margin-top: 250;
+  margin-left: 150;
+  height: 600;
+  width: 500;
 
-    margin-top: 250;
-    margin-left: 150;
-    height: 600;
-    width: 500;
+  position: fixed;
+  right: 15;
+  top: 20;
+}
+
+#logo {
+  height: 350;
+  width: 350;
 }
