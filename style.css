@@ -18,6 +18,12 @@ header {
     position: fixed;
     right: 15;
     top: 20;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 20;
 }
 
 #logo {
