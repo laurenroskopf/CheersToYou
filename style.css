@@ -1,27 +1,35 @@
 #navBarButtons {
-
-    color: #4d602a
+  color: #4d602a;
 }
 
 header {
+  background-color: #fadadd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30;
+}
 
-    background-color: #fadadd;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 30;
-
+footer {
+  background-color: #fadadd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30;
 }
 
 #shoppingCart {
-    position: fixed;
-    right: 15;
-    top: 20;
+  position: fixed;
+  right: 15;
+  top: 20;
 }
 
 #logo {
-    height: 350;
-    width: 350;
+  height: 350;
+  width: 350;
+}
 
+.footer-text {
 }
