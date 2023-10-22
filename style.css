@@ -118,3 +118,21 @@ footer {
   padding: 10px;
   text-align: center;
 }
+
+.no-underline {
+  text-decoration: none;
+}
+
+.center {
+  margin-left: 300;
+  margin-right: 300;
+  margin-top: 50;
+}
+
+.headings-container {
+  display: flex;
+  justify-content: right;
+}
+.container-item {
+  flex: 1;
+}
