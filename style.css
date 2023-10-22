@@ -68,3 +68,21 @@ footer {
   height: 350;
   width: 350;
 }
+
+.no-underline {
+  text-decoration: none;
+}
+
+.center {
+  margin-left: 300;
+  margin-right: 300;
+  margin-top: 50;
+}
+
+.headings-container {
+  display: flex;
+  justify-content: right;
+}
+.container-item {
+  flex: 1;
+}
