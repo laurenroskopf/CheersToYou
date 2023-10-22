@@ -12,9 +12,9 @@
   background-color: #6c883b;
   color: white;
   border-width: 0;
-  padding: 10;
+  padding: 9;
   width: 150;
-  font-size: 18;
+  font-size: 15;
   margin-left: 50;
   margin-right: 50;
   border-radius: 10px;
@@ -53,15 +53,26 @@ footer {
 #logo {
   height: 400;
   width: 400;
+  margin-top: 50;
 }
 
 #pennants {
-  margin-top: 250;
+  margin-top: 200;
   margin-left: 150;
   height: 600;
   width: 500;
   right: 15;
   top: 20;
+}
+
+#materials {
+  margin-left: 750;
+  margin-right: 150;
+  height: 600;
+  width: 500;
+  right: 15;
+  top: 20;
+  padding: 20;
 }
 
 #logo {
