@@ -2,22 +2,7 @@ Cheers To You Website Project
 IS 424
 Group 2
 
-Firebase Link: http://cheers-to-you-eaa8c.firebaseapp.com
-
-Trello Boards
-Sprint 1: https://trello.com/invite/b/z93wsBge/ATTI414015c285010ceca570dbb7ea38aa119A0A3F53/sprint-1
-Project Overview: https://trello.com/invite/b/xxzeju1M/ATTI7e1c624c4bd7d144d3db63028d63d81eE009906B/cheers-to-you-design
-
-Sprint 1 User stories
-
-USER STORY 1:  As a user, I need a well-designed website with the color-scheme and logo of my company. 
-USER STORY 2: As a user, I need to be able to navigate from page to page smoothly. 
-
-Tasks are split up by user story in an attached screenshot (UserStoryTasks_Sprint1) in the sprint 1 folder.
-
-The burndown charts for days 4, 9, and 14 are in attached screenshots in the sprint 1 folder.
-
-The protoypes for the pages we made in Justinmind are also attached as pngs in the sprint 1 folder.
+Trello Board: https://trello.com/invite/b/xxzeju1M/ATTI7e1c624c4bd7d144d3db63028d63d81eE009906B/cheers-to-you-design
 
 Day 1
 
@@ -213,26 +198,3 @@ Kate: None
 Olivia:None
 Abby: None
 Lauren: None
-
-Sprint Review 
-
-What did you learn from doing our first sprint?
-During our first sprint, we learned that it is important to start early and how important the sprint planning process is. At our first team meeting, we divided up the task and discussed the different user stories that we wanted to accomplish during the sprint. By meeting and discussing this upfront we had a unified goal that we could all work for. This was extremely important because it allowed us to understand what everyone was working on and it allowed us to easily discuss progress that was being made at our daily standup meeting. We also learned the importance of branches and how to use them to prevent overwriting other group members' code. We had multiple times where we worked on the project at the same time and without the various branches we created, we would have overwritten each other's code.
-
-What went well? Why?
-It went well working as a team and splitting up tasks and roles to each person, and we all provided help and feedback to each other on the tasks we completed.
-Another thing that went well was the set time we had arranged for our standup meeting. Prior to the sprint, we all agreed on times that our group would be able to meet to discuss how our individual parts are going. Finding times that everyone in the group can meet is difficult due to our different schedules but we were able to find times that work for everyone. Going forward, we plan to keep a similar schedule because of how well it worked for the group. Additionally, if there was every last minute timing conflict that arose, everyone did a great job of communicating these conflicts so we could make the necessary adjustment to our meeting times. 
-We also did a great job communicating with the client and getting her feedback for all the requirements. 
-
-What didn’t go well? Why not?
-The biggest challenge that our team faced was the JustInTime free trial expiring. When this expired, we were unable to make changes to our prototype. For this reason, we could only base our html code on the couple of page prototypes we had already completed prior to the expiration. Another challenge that we faced was getting the link for the site from firebase. Originally, we planned on having Kate deploy the website but for some reason it wouldn’t let us. Olivia was able to deploy the website and get the issues figured out. There were also a lot of specifics with layouts and spacing of features on the website that took time to get buttons/columns/images placed where we wanted. 
-
-How can you make things better next time?
-Both of the situations in which we ran into issues were one time tasks. For this reason, there isn’t much we can do in future sprints to make things go better than they did. Overall, we agreed that we were very pleased with how our sprint turned out and plan to take the same approach on upcoming sprints. The one thing that we plan on changing going forward is planning out our sprint tasks so we can better estimate the workloads of every task. It was hard to determine this in our first print because we did not really remember how long it would take for various tasks to be completed. Now that we have a better understanding of tasks durations, we will be able to better assign tasks going forward.
-
-Are you satisfied with what you already completed?
-We are satisfied with what we completed so far, as we have accomplished all of the user stories that we selected for this sprint. We designed the look of the website with HTML and CSS and created navigation between pages. Now we have a deliverable that we can show our client to get some feedback for our next sprint, which is very important for continuous improvement of the project in future sprints. We used her requirements and communicated with her often to use features she wanted in the website.
-While we have a rough outline of what the website will look like, there are some edits that we did not have enough time to complete. In this sense, we did not complete absolutely everything that we had hoped to, but we will continue to add these changes during the next sprint. 
-
-Which group was invited? What are your observations/notes? Everybody was present?
-Group 1 was invited, everybody was present. We observed that we ran into similar problems as the group we talked to with updating our scrum board and making incremental changes. The other group told us it was good that we were using branches to collaborate on github, instead of just having one branch. We got to learn how their team is approaching documentation, issues with HTML, and overall feedback, which was helpful. 
