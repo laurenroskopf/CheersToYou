@@ -1,63 +1,101 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/46c8df2863.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shopping Cart</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
-</head>
-
-<header>
-  <div id="head">
-    <div class="searchBar">
-      <input type="text" placeholder="Search..." />
-    </div>
-
-    <a href="shoppingcart.html"><button id="shoppingCart">
-        <i class="fa-solid fa-cart-shopping"></i></button></a>
-  </div>
-
-  <div>
-    <center><img id="logo" src="logo.png" alt="logo" /></center>
-  </div>
-  <div class="navigation">
-    <nav>
-      <a href="index.html"><button class="navButtons">HOME</button></a>
-      <a href="products.html"><button class="navButtons">PRODUCTS</button></a>
-      <a href="gallery.html"><button class="navButtons">GALLERY</button></a>
-      <a href="aboutus.html"><button class="navButtons">ABOUT US</button></a>
-    </nav>
-  </div>
-</header>
-
-<body>
-  <div class="center">
-    <div id="heading">
-      <h1 class="title">Your Cart</h1>
-      <div class="headings-container">
-        <p class="container-item">Price</p>
-        <p class="container-item">Quantity</p>
-        <p class="container-item">Total</p>
+  <header>
+    <div id="head">
+      <div class="searchBar">
+        <input type="text" placeholder="Search..." />
       </div>
-      <hr />
+
+      <a href="shoppingcart.html"
+        ><button id="shoppingCart">
+          <i class="fa-solid fa-cart-shopping"></i></button
+      ></a>
     </div>
-  </div>
-</body>
 
-<footer class="navigation">
-  <p class="footer-text">
-    <i class="fa-regular fa-envelope"></i>
-    <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
-  </p>
-  <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
+    <div>
+      <center><img id="logo" src="logo.png" alt="logo" /></center>
+    </div>
+    <div class="navigation">
+      <nav>
+        <a href="index.html"><button class="navButtons">HOME</button></a>
+        <a href="products.html"><button class="navButtons">PRODUCTS</button></a>
+        <a href="gallery.html"><button class="navButtons">GALLERY</button></a>
+        <a href="aboutus.html"><button class="navButtons">ABOUT US</button></a>
+      </nav>
+    </div>
+  </header>
+
+  <body>
+    <div class="center">
+      <div id="heading">
+        <h1 class="title">Your Cart</h1>
+        <div class="heading-container">
+          <p class="heading-container-item">Price</p>
+          <p class="heading-container-item">Quantity</p>
+          <p class="heading-container-item">Total</p>
+        </div>
+        <hr />
+      </div>
+
+      <div class="cart-product-container">
+        <div class="right-container cart-product-container-item">
+          <div class="image-container">
+            <img
+              src="pennants.png"
+              alt="Product 1"
+              class="right-container-item cart-image"
+            />
+          </div>
+
+          <h3 class="right-container-item">Product Name</h3>
+        </div>
+
+        <div class="left-container cart-product-container-item">
+          <div class="left-container-item">$0.00</div>
+          <div class="left-container-item">0</div>
+          <div class="left-container-item">$0.00</div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="subtotal-container">
+        <p class="subtotal-container-item">Subtotal $0.00</p>
+        <p id="subtotal-buttons subtotal-container-item">
+          <button class="sub-button">Continue shopping</button>
+          <button class="sub-button">Check Out</button>
+        </p>
+      </div>
+    </div>
+  </body>
+
+  <footer class="navigation">
     <p class="footer-text">
-      <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+      <i class="fa-regular fa-envelope"></i>
+      <a href="mailto:cheerstoyoudesign.com" class="no-underline"
+        >cheerstoyoudesign@gmail.com</a
+      >
     </p>
-  </a>
-  <p class="footer-text">
-    <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
-  </p>
-</footer>
-
+    <a
+      href="https://www.instagram.com/cheerstoyoudesign/?hl=en"
+      class="no-underline"
+    >
+      <p class="footer-text">
+        <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+      </p>
+    </a>
+    <p class="footer-text">
+      <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
+    </p>
+  </footer>
 </html>

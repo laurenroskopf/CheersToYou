@@ -129,13 +129,79 @@ footer {
   margin-top: 50;
 }
 
-.headings-container {
+.heading-container {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
+  right: 0;
 }
 
 .container-item {
   flex: 1;
+}
+.heading-container-item {
+  margin-left: 30px;
+  font-size: 20;
+  font-weight: bold;
+}
+
+.left-container {
+  display: flex;
+  justify-content: flex-end;
+  right: 0;
+}
+
+.left-container-item {
+  margin-left: 70px;
+  font-size: 20;
+  font-weight: bold;
+}
+
+.right-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.right-container-item {
+  margin-left: 20px;
+}
+
+.image-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.cart-product-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  width: 30%;
+}
+
+.sub-button {
+  color: grey;
+  border-width: 0;
+  padding: 9;
+  width: 150;
+  font-size: 15;
+  margin-left: 50;
+  margin-right: 50;
+}
+
+.subtotal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  right: 0;
+  margin: 5px;
 }
 
 .pro-column {
