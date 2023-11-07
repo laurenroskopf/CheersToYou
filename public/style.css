@@ -109,13 +109,15 @@ footer {
   height: auto;
 }
 
-.textOverlay {
+.overlay-text {
   position: absolute;
-  top: 0%;
-  left: 0%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
+<<<<<<< HEAD:public/style.css
   text-align: center;
 }
 
@@ -210,3 +212,6 @@ footer {
   box-sizing: border-box;
   text-align: center;
 }
+=======
+}
+>>>>>>> Abby:style.css
