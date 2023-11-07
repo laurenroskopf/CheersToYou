@@ -6,7 +6,7 @@
     <title>Gallery </title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <header>
@@ -41,24 +41,34 @@
 </header>
 
 <body>
-
-    <h1>Gallery</h1>
-
-    <div class="gallery">
-        <div class="imageContainer">
-            <img src="materials.jpg">
-            <div class="textOverlay">Image 1 </div>
+    <p class="title has-text-centered pt-5">GALLERY</p>
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child box">
+                        <img src="materials.jpg">
+                    </article>
+                    <article class="tile is-child box">
+                        <img src="pennants.png">
+                    </article>
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child box">
+                        <img src="pennants.png">
+                    </article>
+                    <article class="tile is-child box">
+                        <img src="materials.jpg">
+                    </article>
+                </div>
+            </div>
         </div>
-        <div class="imageContainer">
-            <img src="pennants.png">
-            <div class="textOverlay">Image 2 </div>
-        </div>
-        <div class="imageContainer">
-            <img src="materials.jpg">
-            <div class="textOverlay">Image 3 </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <img src="pennants.png">
+            </article>
         </div>
     </div>
-
 </body>
 
 <footer class="navigation">
