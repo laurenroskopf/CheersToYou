@@ -1,0 +1,120 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#navBarButtons {
+  color: #4d602a;
+}
+
+.navButtons {
+  background-color: #6c883b;
+  color: white;
+  border-width: 0;
+  padding: 9;
+  width: 150;
+  font-size: 15;
+  margin-left: 50;
+  margin-right: 50;
+  border-radius: 10px;
+}
+
+#head {
+  background-color: #fadadd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30;
+}
+
+footer {
+  background-color: #fadadd;
+  opacity: 0.5;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30;
+}
+
+#shoppingCart {
+  position: fixed;
+  right: 15;
+  top: 20;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 20;
+}
+
+#logo {
+  height: 400;
+  width: 400;
+  margin-top: 50;
+}
+
+#pennants {
+  margin-top: 200;
+  margin-left: 150;
+  height: 600;
+  width: 500;
+  right: 15;
+  top: 20;
+}
+
+#materials {
+  margin-left: 750;
+  margin-right: 150;
+  height: 600;
+  width: 500;
+  right: 15;
+  top: 20;
+  padding: 20;
+}
+
+#logo {
+  height: 350;
+  width: 350;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(32.5%, 1fr));
+  gap: 1%;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
