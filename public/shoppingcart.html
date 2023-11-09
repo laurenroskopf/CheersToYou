@@ -1,106 +1,95 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/46c8df2863.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-  </head>
 
-  <header>
-    <div id="head">
-      <div class="searchBar">
-        <input type="text" placeholder="Search..." />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+</head>
 
-      <a href="shoppingcart.html"
-        ><button id="shoppingCart">
-          <i class="fa-solid fa-cart-shopping"></i></button
-      ></a>
+<header>
+  <div id="head">
+    <div class="searchBar">
+      <input type="text" placeholder="Search..." />
     </div>
 
-    <div>
-      <center><img id="logo" src="logo.png" alt="logo" /></center>
+    <a href="shoppingcart.html"><button id="shoppingCart">
+        <i class="fa-solid fa-cart-shopping"></i></button></a>
+  </div>
+
+  <div>
+    <center><img id="logo" src="logo.png" alt="logo" /></center>
+  </div>
+  <div class="navigation">
+    <nav>
+      <a href="index.html"><button class="navButtons">HOME</button></a>
+      <a><button class="navButtons">PRODUCTS</button></a>
+      <a href="gallery.html"><button class="navButtons">GALLERY</button></a>
+      <a href="aboutus.html"><button class="navButtons">ABOUT US</button></a>
+    </nav>
+  </div>
+</header>
+
+<body>
+  <div class="center">
+    <h1 class="title column is-3">Your Cart</h1>
+
+    <div class="block columns">
+      <p class="column is-6"></p>
+      <p class="column">Price</p>
+      <p class="column">Quantity</p>
+      <p class="column">Total</p>
     </div>
-    <div class="navigation">
-      <nav>
-        <a href="index.html"><button class="navButtons">HOME</button></a>
-        <a href="products.html"><button class="navButtons">PRODUCTS</button></a>
-        <a href="gallery.html"><button class="navButtons">GALLERY</button></a>
-        <a href="aboutus.html"><button class="navButtons">ABOUT US</button></a>
-      </nav>
+
+    <div class="box pb-6 pr-0 columns">
+      <div class="column is-2">
+        <figure class="image is-96x96">
+          <img src="pennants.png" alt="Product 1" />
+        </figure>
+      </div>
+      <div class="column is-4">
+        <h3 class="subtitle is-5">Product Name</h3>
+      </div>
+
+      <!-- need to change to js -->
+      <div class="column">$0.00</div>
+      <div class="column">0</div>
+      <div class="column">$0.00</div>
     </div>
-  </header>
 
-  <body>
-    <div class="center">
-      <h1 class="title column is-3">Your Cart</h1>
-
-      <div class="block columns">
-        <p class="column is-6"></p>
-        <p class="column">Price</p>
-        <p class="column">Quantity</p>
-        <p class="column">Total</p>
-      </div>
-
-      <div class="box pb-6 pr-0 columns">
-        <div class="column is-2">
-          <figure class="image is-96x96">
-            <img src="pennants.png" alt="Product 1" />
-          </figure>
-        </div>
-        <div class="column is-4">
-          <h3 class="subtitle is-5">Product Name</h3>
-        </div>
-
-        <!-- need to change to js -->
-        <div class="column">$0.00</div>
-        <div class="column">0</div>
-        <div class="column">$0.00</div>
-      </div>
-
-      <!-- subtotal area -->
-      <div class="columns">
-        <p class="column is-10"></p>
-        <p class="column is-2">Subtotal: 0.00</p>
-      </div>
-
-      <div class="columns p-2">
-        <p class="column is-8"></p>
-        <p class="column">
-          <button class="button">Continue shopping</button>
-        </p>
-        <p class="column">
-          <button class="button has-background-grey-lighter">Check Out</button>
-        </p>
-      </div>
+    <!-- subtotal area -->
+    <div class="columns">
+      <p class="column is-10"></p>
+      <p class="column is-2">Subtotal: 0.00</p>
     </div>
-  </body>
 
-  <footer class="navigation">
-    <p class="footer-text">
-      <i class="fa-regular fa-envelope"></i>
-      <a href="mailto:cheerstoyoudesign.com" class="no-underline"
-        >cheerstoyoudesign@gmail.com</a
-      >
-    </p>
-    <a
-      href="https://www.instagram.com/cheerstoyoudesign/?hl=en"
-      class="no-underline"
-    >
-      <p class="footer-text">
-        <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+    <div class="columns p-2">
+      <p class="column is-8"></p>
+      <p class="column">
+        <button class="button">Continue shopping</button>
       </p>
-    </a>
+      <p class="column">
+        <button class="button has-background-grey-lighter">Check Out</button>
+      </p>
+    </div>
+  </div>
+</body>
+
+<footer class="navigation">
+  <p class="footer-text">
+    <i class="fa-regular fa-envelope"></i>
+    <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
+  </p>
+  <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
     <p class="footer-text">
-      <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
+      <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
     </p>
-  </footer>
+  </a>
+  <p class="footer-text">
+    <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
+  </p>
+</footer>
+
 </html>
