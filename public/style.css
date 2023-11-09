@@ -57,22 +57,20 @@ footer {
 }
 
 #pennants {
-  margin-top: 200;
-  margin-left: 150;
+
+
   height: 600;
   width: 500;
-  right: 15;
-  top: 20;
+  margin-top: 70;
+
 }
 
 #materials {
-  margin-left: 750;
-  margin-right: 150;
+
+
   height: 600;
   width: 500;
-  right: 15;
-  top: 20;
-  padding: 20;
+
 }
 
 #logo {
@@ -139,6 +137,7 @@ footer {
 .container-item {
   flex: 1;
 }
+
 .heading-container-item {
   margin-left: 30px;
   font-size: 20;
