@@ -240,17 +240,7 @@ Which group was invited? What are your observations/notes? Everybody was present
 Group 1 was invited, everybody was present. We observed that we ran into similar problems as the group we talked to with updating our scrum board and making incremental changes. The other group told us it was good that we were using branches to collaborate on github, instead of just having one branch. We got to learn how their team is approaching documentation, issues with HTML, and overall feedback, which was helpful. 
 
 
-Sprint 2 User stories
-
-USER STORY 1: As a user, I need an order request form to see which products have been ordered by each customer and have those products added to cart.
-
-USER STORY 2: As a user, I need a way to allow customers to login to their personal accounts as well as login myself as an administrator to control the site. 
-
-USER STORY 3: As a user, I want a single page app that incorporates Bulma in order to use a well-designed website that is easy to navigate.
-
-USER STORY 4: As a user, I want to have an additional tab called “color help” where users can test our different colors and see a visual of what the colors will look like together.
-
-Day 1
+Sprint 2 Day 1
 
 What are you planning to do today?
 Kate: Create the level 0 diagram
@@ -294,7 +284,7 @@ Lauren: worked on diagrams
 What are you planning to do today?
 Kate: 
 Olivia: Today I plan on working on the Activity Diagrams
-Abby: Working on the ERD diagram 
+Abby: worked on products pages
 Lauren: adding bulma to shopping cart page
 
 Any problems are you facing?
@@ -302,3 +292,22 @@ Kate: testing readme/committing
 Olivia: difficulties with a commit of .ds_store problem still occurring.
 Abby: None
 Lauren: None
+
+Day 4
+What did you do yesterday?
+Kate: 
+Olivia: 
+Abby: worked on products pages
+Lauren: 
+
+What are you planning to do today?
+Kate: 
+Olivia: 
+Abby: starting the modal 
+Lauren: 
+
+Any problems are you facing?
+Kate: 
+Olivia: 
+Abby: None
+Lauren: 
