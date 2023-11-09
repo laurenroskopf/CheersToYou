@@ -8,6 +8,10 @@
       src="https://kit.fontawesome.com/46c8df2863.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
   </head>
 
   <header>
@@ -37,43 +41,44 @@
 
   <body>
     <div class="center">
-      <div id="heading">
-        <h1 class="title">Your Cart</h1>
-        <div class="heading-container">
-          <p class="heading-container-item">Price</p>
-          <p class="heading-container-item">Quantity</p>
-          <p class="heading-container-item">Total</p>
-        </div>
-        <hr />
+      <h1 class="title column is-3">Your Cart</h1>
+
+      <div class="block columns">
+        <p class="column is-6"></p>
+        <p class="column">Price</p>
+        <p class="column">Quantity</p>
+        <p class="column">Total</p>
       </div>
 
-      <div class="cart-product-container">
-        <div class="right-container cart-product-container-item">
-          <div class="image-container">
-            <img
-              src="pennants.png"
-              alt="Product 1"
-              class="right-container-item cart-image"
-            />
-          </div>
-
-          <h3 class="right-container-item">Product Name</h3>
+      <div class="box pb-6 pr-0 columns">
+        <div class="column is-2">
+          <figure class="image is-96x96">
+            <img src="pennants.png" alt="Product 1" />
+          </figure>
+        </div>
+        <div class="column is-4">
+          <h3 class="subtitle is-5">Product Name</h3>
         </div>
 
-        <div class="left-container cart-product-container-item">
-          <div class="left-container-item">$0.00</div>
-          <div class="left-container-item">0</div>
-          <div class="left-container-item">$0.00</div>
-        </div>
+        <!-- need to change to js -->
+        <div class="column">$0.00</div>
+        <div class="column">0</div>
+        <div class="column">$0.00</div>
       </div>
 
-      <hr />
+      <!-- subtotal area -->
+      <div class="columns">
+        <p class="column is-10"></p>
+        <p class="column is-2">Subtotal: 0.00</p>
+      </div>
 
-      <div class="subtotal-container">
-        <p class="subtotal-container-item">Subtotal $0.00</p>
-        <p id="subtotal-buttons subtotal-container-item">
-          <button class="sub-button">Continue shopping</button>
-          <button class="sub-button">Check Out</button>
+      <div class="columns p-2">
+        <p class="column is-8"></p>
+        <p class="column">
+          <button class="button">Continue shopping</button>
+        </p>
+        <p class="column">
+          <button class="button has-background-grey-lighter">Check Out</button>
         </p>
       </div>
     </div>
