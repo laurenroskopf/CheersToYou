@@ -470,20 +470,72 @@
         <div> <br></div>
 
 </body>
-<footer class="navigation navigation has-text-centered is-flex-align-items-flex-end mt-auto">
-        <p class="footer-text">
-                <i class="fa-regular fa-envelope"></i>
-                <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
-        </p>
-        <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
-                <p class="footer-text">
-                        <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
-                </p>
-        </a>
-        <p class="footer-text">
-                <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
-        </p>
-</footer>
+<footer class="footer">
+        <div class="columns has-text-centered">
+          <div class="column">
+            <i class="fa-regular fa-envelope"></i>
+            <a href="mailto:cheerstoyoudesign.com" class="no-underline"
+              >cheerstoyoudesign@gmail.com</a
+            >
+          </div>
+          <div class="column">
+            <a
+              href="https://www.instagram.com/cheerstoyoudesign/?hl=en"
+              class="no-underline"
+            >
+              <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+            </a>
+          </div>
+      
+          <div class="column">
+            <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg,
+            WI
+          </div>
+        </div>
+      </footer>
+      
+      
+      
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+      
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+      
+      <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+      <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+      
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+      
+      <script>
+        // TODO
+        // Copy **only** your firebaseConfig from Google Firebae and add it below
+      
+        // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+      apiKey: "AIzaSyBndEQNJFLsRyo-vtrRNGvcB9LZ8KP2yVM",
+      authDomain: "cheers-to-you-eaa8c.firebaseapp.com",
+      projectId: "cheers-to-you-eaa8c",
+      storageBucket: "cheers-to-you-eaa8c.appspot.com",
+      messagingSenderId: "52423257703",
+      appId: "1:52423257703:web:18a5ffde0161c71d412ec2",
+      measurementId: "G-YPHH42F66T"
+      };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // define authentication variable
+        let auth = firebase.auth();
+        let db = firebase.firestore();
+      
+        // define a storage reference
+        let ref = firebase.storage().ref();
+      </script>
+      <!-- make sure to add your own js file as the last line in index.html file -->
+      <script src="app.js"></script>
 
 
 <script src="app.js"></script>
