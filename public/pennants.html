@@ -1,190 +1,509 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pennants
-    </title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pennants
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
 </head>
 
 <header>
-    <div id="head">
-        <div class="searchBar">
-            <input type="text" placeholder="Search..." />
+        <div id="head">
+                <div class="searchBar">
+                        <input type="text" placeholder="Search..." />
+                </div>
+
+                <a href="shoppingcart.html"><button id="shoppingCart"><i
+                                        class="fa-solid fa-cart-shopping"></i></button></a>
+
         </div>
 
         <a href="shoppingcart.html"><button id="shoppingCart"><i class="fa-solid fa-cart-shopping"></i></button></a>
 
-    </div>
+        </div>
 
-    <div>
-        <center><img id="logo" src="logo.png" alt="logo" /></center>
-    </div>
-    <div class="navigation">
-        <nav>
-            <a href="index.html"><button class="navButtons"> HOME </button></a>
-            <a><button class="navButtons"> PRODUCTS </button></a>
-            <a href="gallery.html"><button class="navButtons"> GALLERY </button></a>
-            <a href="aboutus.html"><button class="navButtons"> ABOUT US </button></a>
+        <div>
+                <center><img id="logo" src="logo.png" alt="logo" /></center>
+        </div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                                data-target="navbarBasicExample">
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                        </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                                <a class="navbar-item" href="index.html">
+                                        Home
+                                </a>
+
+                                <!-- Dropdown -->
+                                <div class="navbar-item has-dropdown is-hoverable">
+                                        <a class="navbar-link">Products</a>
+
+                                        <div class="navbar-dropdown">
+                                                <a class="navbar-item" href="pennants.html">
+                                                        Pennants
+                                                </a>
+                                                <a class="navbar-item" href="banners.html">
+                                                        Banners
+                                                </a>
+                                                <a class="navbar-item" href="garlands.html">
+                                                        Garlands
+                                                </a>
+                                                <a class="navbar-item" href="milestonesets.html">
+                                                        Milestone Sets
+                                                </a>
+                                                <a class="navbar-item" href="framedArt.html">
+                                                        Framed Art
+                                                </a>
+                                                <a class="navbar-item" href="custom.html">
+                                                        Custom Art
+                                                </a>
+                                        </div>
+                                </div>
+                                <!-- End Dropdown -->
+
+                                <a class="navbar-item" href="gallery.html">
+                                        Gallery
+                                </a>
+                                <a class="navbar-item" href="aboutus.html">
+                                        Meet the Maker
+                                </a>
+                        </div>
+
+
+
+                        <div class="navbar-end">
+                                <div class="navbar-item">
+                                        <div class="buttons">
+                                                <a class="button is-primary" href="#">
+                                                        <strong>Sign up</strong>
+                                                </a>
+                                                <a class="button is-light" href="#">
+                                                        Log in
+                                                </a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
         </nav>
-    </div>
+        <div>
+                <center><img id="logo" src="logo.png" alt="logo" /></center>
+        </div>
+        <div class="navigation">
+                <nav>
+                        <a href="index.html"><button class="navButtons"> HOME </button></a>
+                        <a><button class="navButtons"> PRODUCTS </button></a>
+                        <a href="gallery.html"><button class="navButtons"> GALLERY </button></a>
+                        <a href="aboutus.html"><button class="navButtons"> ABOUT US </button></a>
+                </nav>
+        </div>
 
 
 
 </header>
 
+
+
+
 <body>
-    <div><br></div>
-    <div class="container">
-        <div class="column">
-            <img src="pennants.png" width="400" height="500" alt="Pennants">
+        <div><br></div>
+        <div class="container">
+                <div class="column">
+
+                        <img src="pennants.png" width="400" height="500" alt="Pennants">
+                </div>
+                <div class="column">
+                        <h2 style="font-size:xx-large;">Pennants</h2>
+                        <p> &nbsp </p>
+                        <p>
+                                <form>
+                                        <h4>Pennant Color</h4>
+
+                                        <!-- <div class="dropdown is-active">
+                                                        <div class="dropdown-trigger">
+                                                                <button class="button" aria-haspopup="true"
+                                                                        aria-controls="dropdown-menu">
+                                                                        <span>Pennant Color</span>
+                                                                        <span class="icon is-small">
+                                                                                <i class="fas fa-angle-down"
+                                                                                        aria-hidden="true"></i>
+                                                                        </span>
+                                                                </button>
+                                                        </div>
+                                                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+
+
+                                                                                <img src="lavender.png" width="20"
+                                                                                        height="20" alt="lavender">
+                                                                                Lavender
+
+                                                                        </a>
+                                                                        <a class="dropdown-item is-active">
+                                                                                <img src="thistle.png" width="20"
+                                                                                        height="20" alt="thistle">
+                                                                                Thistle
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item">
+                                                                                <img src="opal.png" width="20"
+                                                                                        height="20" alt="opal"> Opal
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item">
+                                                                                <img src="peacock.png" width="20"
+                                                                                        height="20" alt="Peacock">
+                                                                                Peacock
+                                                                        </a>
+
+                                                                        <a href="#" class="dropdown-item">
+                                                                                <img src="aqua.png" width="20"
+                                                                                        height="20" alt="aqua"> Aqua
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="midnight.png" width="20"
+                                                                                        height="20" alt="midnight">
+                                                                                Midnight
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="blue.png" width="20"
+                                                                                        height="20" alt="blue"> Blue
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="saltwater.png" width="20"
+                                                                                        height="20" alt="saltwater">
+                                                                                Saltwater
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="icicle.png" width="20"
+                                                                                        height="20" alt="icicle"> Icicle
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="magenta.png" width="20"
+                                                                                        height="20" alt="magenta">
+                                                                                Magenta
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="flamingo.png" width="20"
+                                                                                        height="20" alt="flamingo">
+                                                                                Flamingo
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="peony.png" width="20"
+                                                                                        height="20" alt="peony"> Peony
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="mustard.png" width="20"
+                                                                                        height="20" alt="mustard">
+                                                                                Mustard
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="ochre.png" width="20"
+                                                                                        height="20" alt="ochre"> Ochre
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="ecru.png" width="20"
+                                                                                        height="20" alt="ecru"> Ecru
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="butter.png" width="20"
+                                                                                        height="20" alt="butter"> Butter
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="dandelion.png" width="20"
+                                                                                        height="20" alt="mustard">
+                                                                                Dandelion
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="black.png" width="20"
+                                                                                        height="20" alt="black"> Black
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="graphite.png" width="20"
+                                                                                        height="20" alt="graphite">
+                                                                                Graphite
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="smoke.png" width="20"
+                                                                                        height="20" alt="smoke"> Smoke
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="silver.png" width="20"
+                                                                                        height="20" alt="silver"> Silver
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="white.png" width="20"
+                                                                                        height="20" alt="white"> White
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="brown.png" width="20"
+                                                                                        height="20" alt="brown"> Brown
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="nutmeg.png" width="20"
+                                                                                        height="20" alt="nutmeg"> Nutmeg
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="latte.png" width="20"
+                                                                                        height="20" alt="latte"> Latte
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="shortbread.png" width="20"
+                                                                                        height="20" alt="shortbread">
+                                                                                Shortbread
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="oatmeal.png" width="20"
+                                                                                        height="20" alt="oatmeal">
+                                                                                Oatmeal
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="rose.png" width="20"
+                                                                                        height="20" alt="rose"> Rose
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="grapefruit.png" width="20"
+                                                                                        height="20" alt="grapefruit">
+                                                                                Grapefruit
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="blush.png" width="20"
+                                                                                        height="20" alt="blush"> Blush
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="crimson.png" width="20"
+                                                                                        height="20" alt="crimson">
+                                                                                Crimson
+                                                                        </a>
+                                                                        <a class="dropdown-item">
+                                                                                <img src="red.png" width="20"
+                                                                                        height="20" alt="red"> Red
+                                                                        </a>
+
+
+                                                                </div>
+                                                        </div>
+                                                </div> -->
+                                        <button class="button p-1 m-0" title="Lavender"><img src="lavender.png"
+                                                        width="20" height="20" alt="Lavender"></button>
+
+                                        <button class="button p-1 m-0" title="Thistle"><img src="thistle.png" width="20"
+                                                        height="20" alt="Thistle"></button>
+                                        <button class="button p-1 m-0" title="Opal"><img src="opal.png" width="20"
+                                                        height="20" alt="opal"></button>
+                                        <button class="button p-1 m-0" title="Peacock"><img src="peacock.png" width="20"
+                                                        height="20" alt="Peacock"></button>
+
+                                        </button>
+                                        <button class="button p-1 m-0" title="Aqua"><img src="aqua.png" width="20"
+                                                        height="20" alt="aqua"></button>
+                                        <button class="button p-1 m-0" title="Midnight"><img src="midnight.png"
+                                                        width="20" height="20" alt="midnight"></button>
+                                        <button class="button p-1 m-0" title="Blue"><img src="blue.png" width="20"
+                                                        height="20" alt="blue"></button>
+                                        <button class="button p-1 m-0" title="Saltwater"><img src="saltwater.png"
+                                                        width="20" height="20" alt="saltwater"></button>
+                                        <button class="button p-1 m-0" title="Icicle"><img src="icicle.png" width="20"
+                                                        height="20" alt="icicle"></button>
+                                        <button class="button p-1 m-0" title="Magenta"><img src="magenta.png" width="20"
+                                                        height="20" alt="magenta"></button>
+                                        <button class="button p-1 m-0" title="Flamingo"><img src="flamingo.png"
+                                                        width="20" height="20" alt="flamingo"></button>
+                                        <button class="button p-1 m-0" title="Peony"><img src="peony.png" width="20"
+                                                        height="20" alt="peony"></button>
+                                        <button class="button p-1 m-0" title="Mustard"><img src="mustard.png" width="20"
+                                                        height="20" alt="mustard"></button>
+                                        <button class="button p-1 m-0" title="Ochre"><img src="ochre.png" width="20"
+                                                        height="20" alt="mustard"></button>
+
+                                        <button class="button p-1 m-0" title="Ecru"><img src="ecru.png" width="20"
+                                                        height="20" alt="mustard"></button>
+                                        <button class="button p-1 m-0" title="Butter"><img src="butter.png" width="20"
+                                                        height="20" alt="butter"></button>
+                                        <button class="button p-1 m-0" title="Dandelion"><img src="dandelion.png"
+                                                        width="20" height="20" alt="mustard"></button>
+                                        <button class="button p-1 m-0" title="Black"><img src="black.png" width="20"
+                                                        height="20" alt="mustard"></button>
+                                        <button class="button p-1 m-0" title="Graphite"><img src="graphite.png"
+                                                        width="20" height="20" alt="mustard"></button>
+                                        <button class="button p-1 m-0" title="Smoke"><img src="smoke.png" width="20"
+                                                        height="20" alt="smoke"></button>
+                                        <button class="button p-1 m-0" title="Silver"><img src="silver.png" width="20"
+                                                        height="20" alt="mustard"></button>
+                                        <button class="button p-1 m-0" title="White"><img src="white.png" width="20"
+                                                        height="20" alt="white"></button>
+                                        <button class="button p-1 m-0" title="Brown"><img src="brown.png" width="20"
+                                                        height="20" alt="brown"></button>
+                                        <button class="button p-1 m-0" title="Nutmeg"><img src="nutmeg.png" width="20"
+                                                        height="20" alt="nutmeg"></button>
+                                        <button class="button p-1 m-0" title="Latte"><img src="latte.png" width="20">
+                                                <button class="button p-1 m-0"><img src="latte.png" width="20"
+                                                                height="20" alt="latte"></button>
+                                                <button class="button p-1 m-0" title="Shortbread"><img
+                                                                src="shortbread.png" width="20" height="20"
+                                                                alt="shortbread"></button>
+                                                <button class="button p-1 m-0" title="Oatmeal"><img src="oatmeal.png"
+                                                                width="20" height="20" alt="oatmeal"></button>
+                                                <button class="button p-1 m-0" title="Rose"><img src="rose.png"
+                                                                width="20" height="20" alt="rose"></button>
+                                                <button class="button p-1 m-0" title="Grapefruit"><img
+                                                                src="grapefruit.png" width="20" height="20"
+                                                                alt="grapefruit"></button>
+                                                <button class="button p-1 m-0" title="Blush"><img src="blush.png"
+                                                                width="20" height="20" alt="blush"></button>
+                                                <button class="button p-1 m-0" title="Crimson"><img src="crimson.png"
+                                                                width="20" height="20" alt="crimson"></button>
+                                                <button class="button p-1 m-0" title="Red"><img src="red.png" width="20"
+                                                                height="20" alt="red"></button>
+                                                <button class="button p-1 m-0" title="Copper"><img src="copper.png"
+                                                                width="20" height="20" alt="copper"></button>
+                                                <button class="button p-1 m-0" title="Marigold"><img src="marigold.png"
+                                                                width="20" height="20" alt="marigold"></button>
+                                                <button class="button p-1 m-0" title="Moss"><img src="moss.png"
+                                                                width="20" height="20" alt="moss"></button>
+                                                <button class="button p-1 m-0" title="Citron"><img src="citron.png"
+                                                                width="20" height="20" alt="Citron"></button>
+                                                <button class="button p-1 m-0" title="Mint"><img src="mint.png"
+                                                                width="20" height="20" alt="mint"></button>
+                                                <button class="button p-1 m-0" title="Sage"><img src="sage.png"
+                                                                width="20" height="20" alt="sage"></button>
+                                                <button class="button p-1 m-0" title="Olive"><img src="olive.png"
+                                                                width="20" height="20" alt="olive"></button>
+                                                <button class="button p-1 m-0" title="Evergreen"><img
+                                                                src="evergreen.png" width="20" height="20"
+                                                                alt="mustard"></button>
+                                                <button class="button p-1 m-0" title="Kelly"><img src="kelly.png"
+                                                                width="20" height="20" alt="kelly"></button>
+                                                <button class="button p-1 m-0" title="Chartreuse"><img
+                                                                src="chartreuse.png" width="20" height="20"
+                                                                alt="chartreuse"></button>
+                                                <p>&nbsp</p>
+                                                <h4>Font Color</h4>
+                                                <button class="button p-1 m-0"><img src="lavender.png" width="20"
+                                                                height="20" alt="lavender"></button>
+                                                <button class="button p-1 m-0"><img src="thistle.png" width="20"
+                                                                height="20" alt="thistle"></button>
+                                                <button class="button p-1 m-0"><img src="opal.png" width="20"
+                                                                height="20" alt="opal"></button>
+                                                <button class="button p-1 m-0"><img src="peacock.png" width="20"
+                                                                height="20" alt="Peacock"></button>
+                                                <button class="button p-1 m-0"><img src="peacock.png" width="20"
+                                                                height="20" alt="Pennants"></button>
+                                                <button class="button p-1 m-0"><img src="aqua.png" width="20"
+                                                                height="20" alt="aqua"></button>
+                                                <button class="button p-1 m-0"><img src="midnight.png" width="20"
+                                                                height="20" alt="midnight"></button>
+                                                <button class="button p-1 m-0"><img src="blue.png" width="20"
+                                                                height="20" alt="blue"></button>
+                                                <button class="button p-1 m-0"><img src="saltwater.png" width="20"
+                                                                height="20" alt="saltwater"></button>
+                                                <button class="button p-1 m-0"><img src="icicle.png" width="20"
+                                                                height="20" alt="icicle"></button>
+                                                <button class="button p-1 m-0"><img src="magenta.png" width="20"
+                                                                height="20" alt="magenta"></button>
+                                                <button class="button p-1 m-0"><img src="flamingo.png" width="20"
+                                                                height="20" alt="flamingo"></button>
+                                                <button class="button p-1 m-0"><img src="peony.png" width="20"
+                                                                height="20" alt="peony"></button>
+                                                <button class="button p-1 m-0"><img src="mustard.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="ochre.png" width="20"
+                                                                height="20" alt="mustard"></button>
+
+                                                <button class="button p-1 m-0"><img src="ecru.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="butter.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="dandelion.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="black.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="graphite.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="smoke.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="silver.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="white.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="brown.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="nutmeg.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="latte.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="shortbread.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="oatmeal.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="rose.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="grapefruit.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="blush.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="crimson.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="red.png" width="20" height="20"
+                                                                alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="copper.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="marigold.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="moss.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="citron.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="mint.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="sage.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="olive.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="evergreen.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="kelly.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <button class="button p-1 m-0"><img src="chartreuse.png" width="20"
+                                                                height="20" alt="mustard"></button>
+                                                <p> &nbsp </p>
+                                                <h4>Personalization</h4>
+                                                <input type="text">
+                                </form>
+
+                                <button>Add to Cart</button>
+                        </p>
+                </div>
         </div>
-        <div class="column">
-            <h2 style="font-size:xx-large;">Pennants</h2>
-            <p>
-                <form>
-                    <h4>Pennant Color</h4>
-                    <button class="button p-1 m-0"><img src="lavender.png" width="20" height="20"
-                            alt="lavender"></button>
-                    <button class="button p-1 m-0"><img src="thistle.png" width="20" height="20" alt="thistle"></button>
-                    <button class="button p-1 m-0"><img src="opal.png" width="20" height="20" alt="opal"></button>
-                    <button class="button p-1 m-0"><img src="peacock.png" width="20" height="20" alt="Peacock"></button>
-                    <button class="button p-1 m-0"><img src="peacock.png" width="20" height="20"
-                            alt="Pennants"></button>
-                    <button class="button p-1 m-0"><img src="aqua.png" width="20" height="20" alt="aqua"></button>
-                    <button class="button p-1 m-0"><img src="midnight.png" width="20" height="20"
-                            alt="midnight"></button>
-                    <button class="button p-1 m-0"><img src="blue.png" width="20" height="20" alt="blue"></button>
-                    <button class="button p-1 m-0"><img src="saltwater.png" width="20" height="20"
-                            alt="saltwater"></button>
-                    <button class="button p-1 m-0"><img src="icicle.png" width="20" height="20" alt="icicle"></button>
-                    <button class="button p-1 m-0"><img src="magenta.png" width="20" height="20" alt="magenta"></button>
-                    <button class="button p-1 m-0"><img src="flamingo.png" width="20" height="20"
-                            alt="flamingo"></button>
-                    <button class="button p-1 m-0"><img src="peony.png" width="20" height="20" alt="peony"></button>
-                    <button class="button p-1 m-0"><img src="mustard.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="ochre.png" width="20" height="20" alt="mustard"></button>
-
-                    <button class="button p-1 m-0"><img src="ecru.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="butter.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="dandelion.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="black.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="graphite.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="smoke.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="silver.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="white.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="brown.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="nutmeg.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="latte.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="shortbread.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="oatmeal.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="rose.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="grapefruit.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="blush.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="crimson.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="red.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="copper.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="marigold.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="moss.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="citron.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="mint.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="sage.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="olive.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="evergreen.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="kelly.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="chartreuse.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <h4>Font Color</h4>
-                    <button class="button p-1 m-0"><img src="lavender.png" width="20" height="20"
-                            alt="lavender"></button>
-                    <button class="button p-1 m-0"><img src="thistle.png" width="20" height="20" alt="thistle"></button>
-                    <button class="button p-1 m-0"><img src="opal.png" width="20" height="20" alt="opal"></button>
-                    <button class="button p-1 m-0"><img src="peacock.png" width="20" height="20" alt="Peacock"></button>
-                    <button class="button p-1 m-0"><img src="peacock.png" width="20" height="20"
-                            alt="Pennants"></button>
-                    <button class="button p-1 m-0"><img src="aqua.png" width="20" height="20" alt="aqua"></button>
-                    <button class="button p-1 m-0"><img src="midnight.png" width="20" height="20"
-                            alt="midnight"></button>
-                    <button class="button p-1 m-0"><img src="blue.png" width="20" height="20" alt="blue"></button>
-                    <button class="button p-1 m-0"><img src="saltwater.png" width="20" height="20"
-                            alt="saltwater"></button>
-                    <button class="button p-1 m-0"><img src="icicle.png" width="20" height="20" alt="icicle"></button>
-                    <button class="button p-1 m-0"><img src="magenta.png" width="20" height="20" alt="magenta"></button>
-                    <button class="button p-1 m-0"><img src="flamingo.png" width="20" height="20"
-                            alt="flamingo"></button>
-                    <button class="button p-1 m-0"><img src="peony.png" width="20" height="20" alt="peony"></button>
-                    <button class="button p-1 m-0"><img src="mustard.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="ochre.png" width="20" height="20" alt="mustard"></button>
-
-                    <button class="button p-1 m-0"><img src="ecru.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="butter.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="dandelion.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="black.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="graphite.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="smoke.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="silver.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="white.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="brown.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="nutmeg.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="latte.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="shortbread.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="oatmeal.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="rose.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="grapefruit.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="blush.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="crimson.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="red.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="copper.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="marigold.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="moss.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="citron.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="mint.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="sage.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="olive.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="evergreen.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="kelly.png" width="20" height="20" alt="mustard"></button>
-                    <button class="button p-1 m-0"><img src="chartreuse.png" width="20" height="20"
-                            alt="mustard"></button>
-                    <h4>Personalization</h4>
-                    <input type="text">
-                </form>
-
-                <button>Add to Cart</button>
-            </p>
-        </div>
-    </div>
-    <div> <br></div>
+        <div> <br></div>
 
 </body>
-<footer class="navigation">
-    <p class="footer-text">
-        <i class="fa-regular fa-envelope"></i>
-        <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
-    </p>
-    <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
+<footer class="navigation navigation has-text-centered is-flex-align-items-flex-end mt-auto">
         <p class="footer-text">
-            <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+                <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
         </p>
-    </a>
-    <p class="footer-text">
-        <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
-    </p>
+        <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
+                <p class="footer-text">
+                        <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+                </p>
+        </a>
+        <p class="footer-text">
+                <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg, WI
+        </p>
 </footer>
+
+
+<script src="app.js"></script>
 
 </html>
