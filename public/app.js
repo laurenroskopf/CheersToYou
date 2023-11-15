@@ -1,7 +1,6 @@
 //Shopping cart html
 
-document.querySelector("#sc-price").innerHTML += ``;
-
+// document.querySelector("#sc-price").innerHTML += ``;
 
 //variables associated with signing up  
 let signupbtn = document.querySelector('#signupbtn');
