@@ -20,14 +20,14 @@
   border-radius: 10px;
 }
 
-#head {
+/* #head {
   background-color: #fadadd;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 30;
-}
+} */
 
 footer {
   background-color: #fadadd;
@@ -37,6 +37,7 @@ footer {
   right: 0;
   padding: 30;
 }
+
 
 #shoppingCart {
   position: fixed;
