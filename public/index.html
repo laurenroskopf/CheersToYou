@@ -1,287 +1,348 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cheers to You Products</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/46c8df2863.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-  </head>
 
-  <header>
-    <div id="head">
-      <a href="shoppingcart.html"
-        ><button id="shoppingCart">
-          <i class="fa-solid fa-cart-shopping"></i></button
-      ></a>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheers to You Products</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+</head>
 
-    <div>
-      <center><img id="logo" src="logo.png" alt="logo" /></center>
+<header>
+  <div id="head">
+    <!-- User Email Shown When Signed In -->
+    <div id="user_email" class="signedin "></div>
+    <!--Sign Up Button-->
+    <div class="button">
+      <a id="signupbtn" class="signedout">Sign Up</a>
     </div>
-    <nav class="navbar is-flex is-justify-content-center" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                      data-target="navbarBasicExample">
-                      <span aria-hidden="true"></span>
-                      <span aria-hidden="true"></span>
-                      <span aria-hidden="true"></span>
-              </a>
-      </div>
-      <div id="navbarBasicExample" class="navbar">
-              <a class="navbar-item" href="index.html">
-                      Home
-              </a>
-              <!-- Dropdown -->
-              <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">Products</a>
-                      <div class="navbar-dropdown">
-                              <a class="navbar-item" href="pennants.html">
-                                      Pennants
-                              </a>
-                              <a class="navbar-item" href="banners.html">
-                                      Banners
-                              </a>
-                              <a class="navbar-item" href="garlands.html">
-                                      Garlands
-                              </a>
-                              <a class="navbar-item" href="milestonesets.html">
-                                      Milestone Sets
-                              </a>
-                              <a class="navbar-item" href="framedArt.html">
-                                      Framed Art
-                              </a>
-                              <a class="navbar-item" href="custom.html">
-                                      Custom Art
-                              </a>
-                      </div>
-              </div>
-              <!-- End Dropdown -->
-              <a class="navbar-item" href="gallery.html">
-                      Gallery
-              </a>
-              <a class="navbar-item" href="aboutus.html">
-                      Meet the Maker
-              </a>
-      </div>
-      <!-- <div class="navbar-item">
-      <div class="buttons">
-      <a class="button is-primary" href="#">
-        <strong>Sign up</strong>
+    <!--Sign In Button-->
+    <div class="button">
+      <a id="signinbtn" class="signedout">Sign In</a>
+    </div>
+    <!--Sign Out Button-->
+    <div class="button">
+      <a id="signoutbtn" class="signedin">Sign Out</a>
+    </div>
+    <a href="shoppingcart.html"><button id="shoppingCart">
+        <i class="fa-solid fa-cart-shopping"></i></button></a>
+  </div>
+
+  <div>
+    <center><img id="logo" src="logo.png" alt="logo" /></center>
+  </div>
+  <nav class="navbar is-flex is-justify-content-center" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
-      <a class="button is-light" href="#">
-        Log in
+    </div>
+    <div id="navbarBasicExample" class="navbar">
+      <a class="navbar-item" href="index.html">
+        Home
       </a>
+      <!-- Dropdown -->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Products</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="pennants.html">
+            Pennants
+          </a>
+          <a class="navbar-item" href="banners.html">
+            Banners
+          </a>
+          <a class="navbar-item" href="garlands.html">
+            Garlands
+          </a>
+          <a class="navbar-item" href="milestonesets.html">
+            Milestone Sets
+          </a>
+          <a class="navbar-item" href="framedArt.html">
+            Framed Art
+          </a>
+          <a class="navbar-item" href="custom.html">
+            Custom Art
+          </a>
+        </div>
       </div>
-    </div> -->
-    </nav>
-  </header>
+      <!-- End Dropdown -->
+      <a class="navbar-item" href="gallery.html">
+        Gallery
+      </a>
+      <a class="navbar-item" href="aboutus.html">
+        Meet the Maker
+      </a>
+    </div>
+  </nav>
+</header>
 
-  <body>
-    <p class="title has-text-centered pt-5">HOME</p>
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <!--Pennants Card-->
-          <div class="card">
-            <!--Pennants Image-->
-            <div class="card-image">
-              <figure class="image is-6by4">
-                <a href="pennants.html"
-                  ><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""
-                /></a>
-              </figure>
-              <!--Pennants Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a href="pennants.html">PENNANTS</a>
-                </p>
-                <hr />
-                <!--Pennants Description-->
-                <p class="">Description</p>
-              </div>
-            </div>
+<body>
+  <!--  Sign Up Modal -->
+  <div class="modal " id="signup_modal">
+    <div class="modal-background" id="signup_modalbg"></div>
+    <div class="modal-content has-background-grey p-1">
+      <!--Sign Up Modal Title -->
+      <h1 class="title has-background-link has-text-white p-5">Sign Up</h1>
+      <!--Sign Up Form-->
+      <form id="signup_form">
+        <!-- Sign Up Email -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <!-- Requires Input Value to be an Email  -->
+            <input class="input" type="email" id="email">
           </div>
-          <br />
-          <!--Milestone Set Card-->
-          <div class="card">
-            <!--PMilestone Set Image-->
-            <div class="card-image">
-              <figure class="image is-6by4">
-                <a href="milestonesets.html"
-                  ><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""
-                /></a>
-              </figure>
-              <!--Milestone Set Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a href="milestonesets.html">MILESTONE SETS</a>
-                </p>
-                <hr />
-                <!--Milestone Set Description-->
-                <p class="">Description</p>
-              </div>
+        </div>
+        <!-- Sign Up Password -->
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <!-- Requires Input Value to be a Password  -->
+            <input class="input" type="password" id="password">
+          </div>
+        </div>
+        <!-- Submit and Clear-->
+        <div class="field is-grouped">
+          <!--Submit-->
+          <div class="control">
+            <button class="button is-link">Submit</button>
+          </div>
+          <!--Clear-->
+          <div class="">
+            <input class="button" type="reset" value="Reset">
+          </div>
+        </div>
+        <!-- Shows Error Message that occur in the Console-->
+        <div class="error has-text-white has-background-danger"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sign In Modal -->
+  <div class="modal" id="signin_modal">
+    <div class="modal-background" id="signin_modalbg"></div>
+    <div class="modal-content has-background-grey p-1">
+      <!--Sign In Modal Title -->
+      <h1 class="title has-background-link has-text-white p-5">Sign In</h1>
+      <!--Sign In Form-->
+      <form id="signin_form">
+        <!-- Email -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <!-- Requires Input Value to be an Email  -->
+            <input class="input" type="email" id="email_">
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <!-- Requires Input Value to be a Password  -->
+            <input class="input" type="password" id="password_">
+          </div>
+        </div>
+        <!-- Submit and Clear-->
+        <div class="field is-grouped">
+          <!--Submit-->
+          <div class="control">
+            <button class="button is-link">Submit</button>
+          </div>
+          <!--Clear-->
+          <div class="">
+            <input class="button" type="reset" value="Reset">
+          </div>
+        </div>
+        <!-- Show any Error Message that appears in the Console -->
+        <div class="error has-text-white has-background-danger"></div>
+      </form>
+    </div>
+  </div>
+  <p class="title has-text-centered pt-5">HOME</p>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <!--Pennants Card-->
+        <div class="card">
+          <!--Pennants Image-->
+          <div class="card-image">
+            <figure class="image is-6by4">
+              <a href="pennants.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+            </figure>
+            <!--Pennants Information-->
+            <div class="card-content">
+              <p class="is-size-4 has-text-centered has-text-weight-bold">
+                <a href="pennants.html">PENNANTS</a>
+              </p>
+              <hr />
+              <!--Pennants Description-->
+              <p class="">Description</p>
             </div>
           </div>
         </div>
-        <div class="column">
-          <!--Garlands Card-->
-          <div class="card">
-            <!--Garlands Image-->
-            <div class="card-image">
-              <figure class="image is-6by4">
-                <a href="garlands.html"
-                  ><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""
-                /></a>
-              </figure>
-              <!--Garlands Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a href="garlands.html">GARLANDS</a>
-                </p>
-                <hr />
-                <!--Garlands Description-->
-                <p class="">Description</p>
-              </div>
-            </div>
-          </div>
-          <br />
-          <!--Milestone Set Card-->
-          <div class="card">
-            <!--PMilestone Set Image-->
-            <div class="card-image">
-              <figure class="image is-6by4">
-                <a href="framedArt.html"
-                  ><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""
-                /></a>
-              </figure>
-              <!--Milestone Set Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a href="framedArt.html">FRAMED ART</a>
-                </p>
-                <hr />
-                <!--Milestone Set Description-->
-                <p class="">Description</p>
-              </div>
+        <br />
+        <!--Milestone Set Card-->
+        <div class="card">
+          <!--PMilestone Set Image-->
+          <div class="card-image">
+            <figure class="image is-6by4">
+              <a href="milestonesets.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+            </figure>
+            <!--Milestone Set Information-->
+            <div class="card-content">
+              <p class="is-size-4 has-text-centered has-text-weight-bold">
+                <a href="milestonesets.html">MILESTONE SETS</a>
+              </p>
+              <hr />
+              <!--Milestone Set Description-->
+              <p class="">Description</p>
             </div>
           </div>
         </div>
-        <div class="column">
-          <!--Banners Card-->
-          <div class="card">
-            <!--Banners Image-->
-            <div class="card-image">
-              <figure class="image is-6by4">
-                <a href="banners.html"
-                  ><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""
-                /></a>
-              </figure>
-              <!--Banners Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a href="banners.html">BANNERS</a>
-                </p>
-                <hr />
-                <!--Banners Description-->
-                <p class="">Description</p>
-              </div>
+      </div>
+      <div class="column">
+        <!--Garlands Card-->
+        <div class="card">
+          <!--Garlands Image-->
+          <div class="card-image">
+            <figure class="image is-6by4">
+              <a href="garlands.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+            </figure>
+            <!--Garlands Information-->
+            <div class="card-content">
+              <p class="is-size-4 has-text-centered has-text-weight-bold">
+                <a href="garlands.html">GARLANDS</a>
+              </p>
+              <hr />
+              <!--Garlands Description-->
+              <p class="">Description</p>
             </div>
           </div>
-          <br />
-          <!--Custom Card-->
-          <div class="card">
-            <!--Custom Image-->
-            <div class="card-image">
-              <figure class="image is-6by4">
-                <a href="custom.html"
-                  ><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""
-                /></a>
-              </figure>
-              <!--Custom Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a href="custom.html">CUSTOM REQUESTS</a>
-                </p>
-                <hr />
-                <!--Custom Description-->
-                <p class="">Description</p>
-              </div>
+        </div>
+        <br />
+        <!--Milestone Set Card-->
+        <div class="card">
+          <!--PMilestone Set Image-->
+          <div class="card-image">
+            <figure class="image is-6by4">
+              <a href="framedArt.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+            </figure>
+            <!--Milestone Set Information-->
+            <div class="card-content">
+              <p class="is-size-4 has-text-centered has-text-weight-bold">
+                <a href="framedArt.html">FRAMED ART</a>
+              </p>
+              <hr />
+              <!--Milestone Set Description-->
+              <p class="">Description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <!--Banners Card-->
+        <div class="card">
+          <!--Banners Image-->
+          <div class="card-image">
+            <figure class="image is-6by4">
+              <a href="banners.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+            </figure>
+            <!--Banners Information-->
+            <div class="card-content">
+              <p class="is-size-4 has-text-centered has-text-weight-bold">
+                <a href="banners.html">BANNERS</a>
+              </p>
+              <hr />
+              <!--Banners Description-->
+              <p class="">Description</p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!--Custom Card-->
+        <div class="card">
+          <!--Custom Image-->
+          <div class="card-image">
+            <figure class="image is-6by4">
+              <a href="custom.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+            </figure>
+            <!--Custom Information-->
+            <div class="card-content">
+              <p class="is-size-4 has-text-centered has-text-weight-bold">
+                <a href="custom.html">CUSTOM REQUESTS</a>
+              </p>
+              <hr />
+              <!--Custom Description-->
+              <p class="">Description</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 
-  <footer class="footer">
-    <div class="columns has-text-centered">
-      <div class="column">
-        <i class="fa-regular fa-envelope"></i>
-        <a href="mailto:cheerstoyoudesign.com" class="no-underline"
-          >cheerstoyoudesign@gmail.com</a
-        >
-      </div>
-      <div class="column">
-        <a
-          href="https://www.instagram.com/cheerstoyoudesign/?hl=en"
-          class="no-underline"
-        >
-          <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
-        </a>
-      </div>
-
-      <div class="column">
-        <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg,
-        WI
-      </div>
+<footer class="footer">
+  <div class="columns has-text-centered">
+    <div class="column">
+      <i class="fa-regular fa-envelope"></i>
+      <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
     </div>
-  </footer>
+    <div class="column">
+      <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
+        <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+      </a>
+    </div>
 
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <div class="column">
+      <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg,
+      WI
+    </div>
+  </div>
+</footer>
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
 
-  <script>
-    // TODO
-    // Copy **only** your firebaseConfig from Google Firebae and add it below
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 
-    // Your web app's Firebase configuration
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyBndEQNJFLsRyo-vtrRNGvcB9LZ8KP2yVM",
-      authDomain: "cheers-to-you-eaa8c.firebaseapp.com",
-      projectId: "cheers-to-you-eaa8c",
-      storageBucket: "cheers-to-you-eaa8c.appspot.com",
-      messagingSenderId: "52423257703",
-      appId: "1:52423257703:web:18a5ffde0161c71d412ec2",
-      measurementId: "G-YPHH42F66T",
-    };
+<script>
+  // TODO
+  // Copy **only** your firebaseConfig from Google Firebae and add it below
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    // define authentication variable
-    let auth = firebase.auth();
-    let db = firebase.firestore();
+  // Your web app's Firebase configuration
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBndEQNJFLsRyo-vtrRNGvcB9LZ8KP2yVM",
+    authDomain: "cheers-to-you-eaa8c.firebaseapp.com",
+    projectId: "cheers-to-you-eaa8c",
+    storageBucket: "cheers-to-you-eaa8c.appspot.com",
+    messagingSenderId: "52423257703",
+    appId: "1:52423257703:web:18a5ffde0161c71d412ec2",
+    measurementId: "G-YPHH42F66T",
+  };
 
-    // define a storage reference
-    let ref = firebase.storage().ref();
-  </script>
-  <!-- make sure to add your own js file as the last line in index.html file -->
-  <script src="app.js"></script>
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // define authentication variable
+  let auth = firebase.auth();
+  let db = firebase.firestore();
+
+  // define a storage reference
+  let ref = firebase.storage().ref();
+</script>
+<!-- make sure to add your own js file as the last line in index.html file -->
+<script src="app.js"></script>
+
 </html>
