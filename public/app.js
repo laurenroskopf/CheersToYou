@@ -148,12 +148,68 @@ let addBtn = document.querySelector('#addBtn');
 
 // })
 
-// //single page app
-// //home page
-// document.getElementById('homepg').addEventListener('click', function () {
-//     var div = document.getElementById('myDiv');
-//     div.classList.add('newClass'); // Adding a new class
-//     // div.classList.remove('oldClass'); // Optionally, you can remove a class
-// });
+//single page app
 
-// //
+// Function to handle showing a specific section and hiding others
+function showSection(sectionId) {
+    var div = document.getElementById(sectionId);
+    div.classList.remove('is-hidden'); // Show the selected section
+
+    // Hide other sections
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id !== sectionId) {
+            section.classList.add('is-hidden'); // Hide other sections
+        }
+    });
+}
+
+//home page
+document.getElementById('homepg').addEventListener('click', () => {
+    showSection('index.html');
+});
+
+//pennants page
+document.getElementById('pennantspg').addEventListener('click', () => {
+    showSection('pennants.html');
+});
+
+//garlands page
+document.getElementById('garlandspg').addEventListener('click', () => {
+    showSection('garlands.html');
+});
+
+//banners page
+document.getElementById('bannerspg').addEventListener('click', () => {
+    showSection('banners.html');
+});
+
+//framed art page
+document.getElementById('framedpg').addEventListener('click', () => {
+    showSection('framedart.html');
+});
+
+//milestonesets page
+document.getElementById('milestonepg').addEventListener('click', () => {
+    showSection('milestonesets.html');
+});
+
+//custom art page
+document.getElementById('custompg').addEventListener('click', () => {
+    showSection('custom.html');
+});
+
+//gallery page
+document.getElementById('gallerypg').addEventListener('click', () => {
+    showSection('gallery.html');
+});
+
+//about us
+document.getElementById('makerpg').addEventListener('click', () => {
+    showSection('aboutus.html');
+});
+
+//shopping cart
+document.getElementById('shoppingCart').addEventListener('click', () => {
+    showSection('shoppingcart.html');
+});
