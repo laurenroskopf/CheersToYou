@@ -99,7 +99,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => {})
+    auth.signOut().then(() => { })
 })
 
 
@@ -147,3 +147,13 @@ let addBtn = document.querySelector('#addBtn');
 
 
 // })
+
+// //single page app
+// //home page
+// document.getElementById('homepg').addEventListener('click', function () {
+//     var div = document.getElementById('myDiv');
+//     div.classList.add('newClass'); // Adding a new class
+//     // div.classList.remove('oldClass'); // Optionally, you can remove a class
+// });
+
+// //
