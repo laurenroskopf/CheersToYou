@@ -183,38 +183,35 @@ let addBtn = document.querySelector('#addBtn');
 // })
 
 //single page app
-let home = document.querySelector('#index.html');
-let pennants = document.querySelector('#pennants.html');
-let homenav = document.querySelector("homepg")
+let home = document.querySelector('#Index');
+let pennants = document.querySelector('#Pennants');
+let homenav = document.querySelector("#homepg")
 let pennantnav = document.querySelector("#pennantspg")
-// let home = document.querySelector('#homepg');
-// let home = document.querySelector('#homepg');
-// let home = document.querySelector('#homepg');
 
 // Function to handle showing a specific section and hiding others
-function showSection(sectionId) {
-    var div = document.getElementById(sectionId);
-    div.classList.add('is-active'); // Show the selected section
-    div.classList.remove('is-hidden');
+// function showSection(sectionId) {
+//     var div = document.getElementById(sectionId);
+//     div.classList.add('is-active'); // Show the selected section
+//     div.classList.remove('is-hidden');
 
-    // Hide other sections
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != sectionId) {
-            section.classList.remove('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
-    });
-}
+//     // Hide other sections
+//     var allSections = document.querySelectorAll('.content'); // Select all sections by class
+//     allSections.forEach((section) => {
+//         if (section.id != sectionId) {
+//             section.classList.remove('is-hidden'); // Hide other sections
+//             section.classList.remove('is-active');
+//         }
+//     });
+// }
 
 //home page
 homenav.addEventListener('click', () => {
     home.classList.add('is-active');
-    home.classList.add('is-hidden');
+    home.classList.remove('is-hidden');
 
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        if (section.id != "home.html") {
+        if (section.id != "Index") {
             section.classList.add('is-hidden'); // Hide other sections
             section.classList.remove('is-active');
         }
@@ -222,12 +219,14 @@ homenav.addEventListener('click', () => {
 });
 
 //pennants page
-pennantsnav.addEventListener('click', () => {
-    home.classList.add('is-active');
+pennantnav.addEventListener('click', () => {
+    pennants.classList.add('is-active');
+    pennants.classList.remove('is-hidden');
 
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        if (section.id != "pennants.html") {
+        console.log(section.id);
+        if (section.id != "Pennants") {
             section.classList.add('is-hidden'); // Hide other sections
             section.classList.remove('is-active');
         }
