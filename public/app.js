@@ -51,15 +51,16 @@ r_e('signup_form').addEventListener('submit', (e) => {
         // show sign up successful message on message bar
         configure_message_bar(`${user.user.email} is successfully created`)
 
-        // reset the form
-        r_e('signup_form').reset();
-
-        // close the modal
-        r_e('signup_modal').classList.remove('is-active');
 
     }).catch(err => {
         signup_modal.querySelector('.error').innerHTML = err.message;
     })
+
+    // reset the form
+    r_e('signup_form').reset();
+
+    // close the modal
+    r_e('signup_modal').classList.add('is-hidden');
 
     //create user in collection Customers
     let p1 = {
@@ -132,10 +133,42 @@ auth.onAuthStateChanged((user) => {
 
         // configure the navigation bar
         configure_nav_bar();
-        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to view reviews</p>`;
-
+        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to place orders</p>`;
     }
 })
+
+// configure the navigation bar
+function configure_nav_bar(user) {
+    let signedin = document.querySelectorAll('.signedin');
+    let signedout = document.querySelectorAll('.signedout');
+
+    // check if user exists
+    if (user) {
+        // show all signedin links
+        signedin.forEach(link => {
+            link.classList.remove('is-hidden');
+        })
+        // hide all signedout links
+        signedout.forEach(link => {
+            link.classList.add('is-hidden');
+        })
+
+    } else {
+        // If user is not found show (signed out or brand new user) show sign in or sign up 
+
+        // show all signedout links
+        signedout.forEach(link => {
+            link.classList.remove('is-hidden');
+        })
+
+        // hide all signedin links
+        signedin.forEach(link => {
+            link.classList.add('is-hidden');
+        })
+
+    }
+
+}
 
 
 // sign-up modal link
@@ -208,144 +241,146 @@ let makernav = document.querySelector('#makerpg');
 let scnav = document.querySelector('#shoppingCart');
 
 //home page
-homenav.addEventListener('click', () => {
-    home.classList.add('is-active');
-    home.classList.remove('is-hidden');
+document.getElementById('homepg').addEventListener('click', () => {
+    showSection('index.html');
+    homenav.addEventListener('click', () => {
+        home.classList.add('is-active');
+        home.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Index") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Index") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//pennants page
-pennantnav.addEventListener('click', () => {
-    pennants.classList.add('is-active');
-    pennants.classList.remove('is-hidden');
+    //pennants page
+    pennantnav.addEventListener('click', () => {
+        pennants.classList.add('is-active');
+        pennants.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Pennants") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Pennants") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//garlands page
-garlandsnav.addEventListener('click', () => {
-    garlands.classList.add('is-active');
-    garlands.classList.remove('is-hidden');
+    //garlands page
+    garlandsnav.addEventListener('click', () => {
+        garlands.classList.add('is-active');
+        garlands.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Garlands") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Garlands") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//banners page
-bannersnav.addEventListener('click', () => {
-    banners.classList.add('is-active');
-    banners.classList.remove('is-hidden');
+    //banners page
+    bannersnav.addEventListener('click', () => {
+        banners.classList.add('is-active');
+        banners.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Banners") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Banners") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//framed art page
-framednav.addEventListener('click', () => {
-    framed.classList.add('is-active');
-    framed.classList.remove('is-hidden');
+    //framed art page
+    framednav.addEventListener('click', () => {
+        framed.classList.add('is-active');
+        framed.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Framed") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Framed") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//milestonesets page
-msnav.addEventListener('click', () => {
-    ms.classList.add('is-active');
-    ms.classList.remove('is-hidden');
+    //milestonesets page
+    msnav.addEventListener('click', () => {
+        ms.classList.add('is-active');
+        ms.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Milestone") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Milestone") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//custom art page
-customnav.addEventListener('click', () => {
-    custom.classList.add('is-active');
-    custom.classList.remove('is-hidden');
+    //custom art page
+    customnav.addEventListener('click', () => {
+        custom.classList.add('is-active');
+        custom.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Custom") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Custom") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//gallery page
-gallerynav.addEventListener('click', () => {
-    gallery.classList.add('is-active');
-    gallery.classList.remove('is-hidden');
+    //gallery page
+    gallerynav.addEventListener('click', () => {
+        gallery.classList.add('is-active');
+        gallery.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Gallery") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Gallery") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//about us
-makernav.addEventListener('click', () => {
-    maker.classList.add('is-active');
-    maker.classList.remove('is-hidden');
+    //about us
+    makernav.addEventListener('click', () => {
+        maker.classList.add('is-active');
+        maker.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "Maker") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "Maker") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
-//shopping cart
-scnav.addEventListener('click', () => {
-    sc.classList.add('is-active');
-    sc.classList.remove('is-hidden');
+    //shopping cart
+    scnav.addEventListener('click', () => {
+        sc.classList.add('is-active');
+        sc.classList.remove('is-hidden');
 
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "ShoppingCart") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
+        var allSections = document.querySelectorAll('.content'); // Select all sections by class
+        allSections.forEach((section) => {
+            if (section.id != "ShoppingCart") {
+                section.classList.add('is-hidden'); // Hide other sections
+                section.classList.remove('is-active');
+            }
+        });
     });
-});
 
 //contact cart
 // document.getElementById('shoppingCart').addEventListener('click', () => {
