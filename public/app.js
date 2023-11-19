@@ -183,6 +183,13 @@ let addBtn = document.querySelector('#addBtn');
 // })
 
 //single page app
+let home = document.querySelector('#index.html');
+let pennants = document.querySelector('#pennants.html');
+let homenav = document.querySelector("homepg")
+let pennantnav = document.querySelector("#pennantspg")
+// let home = document.querySelector('#homepg');
+// let home = document.querySelector('#homepg');
+// let home = document.querySelector('#homepg');
 
 // Function to handle showing a specific section and hiding others
 function showSection(sectionId) {
@@ -201,13 +208,30 @@ function showSection(sectionId) {
 }
 
 //home page
-document.getElementById('homepg').addEventListener('click', () => {
-    showSection('index.html');
+homenav.addEventListener('click', () => {
+    home.classList.add('is-active');
+    home.classList.add('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "home.html") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //pennants page
-document.getElementById('pennantspg').addEventListener('click', () => {
-    showSection('pennants.html');
+pennantsnav.addEventListener('click', () => {
+    home.classList.add('is-active');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "pennants.html") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //garlands page
