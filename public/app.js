@@ -187,13 +187,15 @@ let addBtn = document.querySelector('#addBtn');
 // Function to handle showing a specific section and hiding others
 function showSection(sectionId) {
     var div = document.getElementById(sectionId);
-    div.classList.remove('is-hidden'); // Show the selected section
+    div.classList.add('is-active'); // Show the selected section
+    div.classList.remove('is-hidden');
 
     // Hide other sections
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        if (section.id !== sectionId) {
-            section.classList.add('is-hidden'); // Hide other sections
+        if (section.id != sectionId) {
+            section.classList.remove('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
         }
     });
 }
