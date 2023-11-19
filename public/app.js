@@ -183,26 +183,29 @@ let addBtn = document.querySelector('#addBtn');
 // })
 
 //single page app
+//variables for divs
 let home = document.querySelector('#Index');
 let pennants = document.querySelector('#Pennants');
+let garlands = document.querySelector('#Garlands');
+let banners = document.querySelector('#Banners');
+let ms = document.querySelector('#Milestone');
+let framed = document.querySelector('#Framed');
+let custom = document.querySelector('#Custom');
+let gallery = document.querySelector('#Gallery');
+let maker = document.querySelector('#Maker');
+let sc = document.querySelector('#ShoppingCart');
+
+//variables for navbar
 let homenav = document.querySelector("#homepg")
 let pennantnav = document.querySelector("#pennantspg")
-
-// Function to handle showing a specific section and hiding others
-// function showSection(sectionId) {
-//     var div = document.getElementById(sectionId);
-//     div.classList.add('is-active'); // Show the selected section
-//     div.classList.remove('is-hidden');
-
-//     // Hide other sections
-//     var allSections = document.querySelectorAll('.content'); // Select all sections by class
-//     allSections.forEach((section) => {
-//         if (section.id != sectionId) {
-//             section.classList.remove('is-hidden'); // Hide other sections
-//             section.classList.remove('is-active');
-//         }
-//     });
-// }
+let garlandsnav = document.querySelector('#garlandspg');
+let bannersnav = document.querySelector('#bannerspg');
+let msnav = document.querySelector('#milestonepg');
+let framednav = document.querySelector('#framedpg');
+let customnav = document.querySelector('#custompg');
+let gallerynav = document.querySelector('#gallerypg');
+let makernav = document.querySelector('#makerpg');
+let scnav = document.querySelector('#shoppingCart');
 
 //home page
 homenav.addEventListener('click', () => {
@@ -225,7 +228,6 @@ pennantnav.addEventListener('click', () => {
 
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        console.log(section.id);
         if (section.id != "Pennants") {
             section.classList.add('is-hidden'); // Hide other sections
             section.classList.remove('is-active');
@@ -234,41 +236,118 @@ pennantnav.addEventListener('click', () => {
 });
 
 //garlands page
-document.getElementById('garlandspg').addEventListener('click', () => {
-    showSection('garlands.html');
+garlandsnav.addEventListener('click', () => {
+    garlands.classList.add('is-active');
+    garlands.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Garlands") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //banners page
-document.getElementById('bannerspg').addEventListener('click', () => {
-    showSection('banners.html');
+bannersnav.addEventListener('click', () => {
+    banners.classList.add('is-active');
+    banners.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Banners") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //framed art page
-document.getElementById('framedpg').addEventListener('click', () => {
-    showSection('framedart.html');
+framednav.addEventListener('click', () => {
+    framed.classList.add('is-active');
+    framed.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Framed") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //milestonesets page
-document.getElementById('milestonepg').addEventListener('click', () => {
-    showSection('milestonesets.html');
+msnav.addEventListener('click', () => {
+    ms.classList.add('is-active');
+    ms.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Milestone") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //custom art page
-document.getElementById('custompg').addEventListener('click', () => {
-    showSection('custom.html');
+customnav.addEventListener('click', () => {
+    custom.classList.add('is-active');
+    custom.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Custom") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //gallery page
-document.getElementById('gallerypg').addEventListener('click', () => {
-    showSection('gallery.html');
+gallerynav.addEventListener('click', () => {
+    gallery.classList.add('is-active');
+    gallery.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Gallery") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //about us
-document.getElementById('makerpg').addEventListener('click', () => {
-    showSection('aboutus.html');
+makernav.addEventListener('click', () => {
+    maker.classList.add('is-active');
+    maker.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Maker") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
 
 //shopping cart
-document.getElementById('shoppingCart').addEventListener('click', () => {
-    showSection('shoppingcart.html');
+scnav.addEventListener('click', () => {
+    sc.classList.add('is-active');
+    sc.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "ShoppingCart") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
 });
+
+//contact cart
+// document.getElementById('shoppingCart').addEventListener('click', () => {
+//     showSection('shoppingcart.html');
+// });
