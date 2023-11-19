@@ -103,6 +103,40 @@ r_e('signoutbtn').addEventListener('click', () => {
 })
 
 
+// track user authentication status with onauthstatechanged
+auth.onAuthStateChanged((user) => {
+    // check if user signed in or out
+    if (user) {
+        // show sign in successful message on message bar
+        configure_message_bar(`${auth.currentUser.email} is successfully signed in`)
+
+        // show user email in navigation bar
+        r_e('user_email').innerHTML = auth.currentUser.email;
+
+        // configure main column content
+        configure_content(user);
+
+        // configure the navigation bar
+        configure_nav_bar(user);
+
+    } //if user signed out
+    else {
+        // show sign out message to user on message bar
+        configure_message_bar("You signed out successfully")
+
+        // remove user email from navigation bar
+        r_e('user_email').innerHTML = "";
+
+        // configure main column content
+        configure_content();
+
+        // configure the navigation bar
+        configure_nav_bar();
+        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to view reviews</p>`;
+
+    }
+})
+
 
 // sign-up modal link
 signupbtn.addEventListener('click', () => {
