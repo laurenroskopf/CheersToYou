@@ -51,15 +51,16 @@ r_e('signup_form').addEventListener('submit', (e) => {
         // show sign up successful message on message bar
         configure_message_bar(`${user.user.email} is successfully created`)
 
-        // reset the form
-        r_e('signup_form').reset();
-
-        // close the modal
-        r_e('signup_modal').classList.remove('is-active');
 
     }).catch(err => {
         signup_modal.querySelector('.error').innerHTML = err.message;
     })
+
+    // reset the form
+    r_e('signup_form').reset();
+
+    // close the modal
+    r_e('signup_modal').classList.add('is-hidden');
 
     //create user in collection Customers
     let p1 = {
@@ -99,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
@@ -132,10 +133,42 @@ auth.onAuthStateChanged((user) => {
 
         // configure the navigation bar
         configure_nav_bar();
-        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to view reviews</p>`;
-
+        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to place orders</p>`;
     }
 })
+
+// configure the navigation bar
+function configure_nav_bar(user) {
+    let signedin = document.querySelectorAll('.signedin');
+    let signedout = document.querySelectorAll('.signedout');
+
+    // check if user exists
+    if (user) {
+        // show all signedin links
+        signedin.forEach(link => {
+            link.classList.remove('is-hidden');
+        })
+        // hide all signedout links
+        signedout.forEach(link => {
+            link.classList.add('is-hidden');
+        })
+
+    } else {
+        // If user is not found show (signed out or brand new user) show sign in or sign up 
+
+        // show all signedout links
+        signedout.forEach(link => {
+            link.classList.remove('is-hidden');
+        })
+
+        // hide all signedin links
+        signedin.forEach(link => {
+            link.classList.add('is-hidden');
+        })
+
+    }
+
+}
 
 
 // sign-up modal link
@@ -183,55 +216,29 @@ let addBtn = document.querySelector('#addBtn');
 // })
 
 //single page app
-let home = document.querySelector('#index.html');
-let pennants = document.querySelector('#pennants.html');
-let homenav = document.querySelector("homepg")
-let pennantnav = document.querySelector("#pennantspg")
-// let home = document.querySelector('#homepg');
-// let home = document.querySelector('#homepg');
-// let home = document.querySelector('#homepg');
 
 // Function to handle showing a specific section and hiding others
 function showSection(sectionId) {
     var div = document.getElementById(sectionId);
-    div.classList.add('is-active'); // Show the selected section
-    div.classList.remove('is-hidden');
+    div.classList.remove('is-hidden'); // Show the selected section
 
     // Hide other sections
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        if (section.id != sectionId) {
-            section.classList.remove('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
+        if (section.id !== sectionId) {
+            section.classList.add('is-hidden'); // Hide other sections
         }
     });
 }
 
 //home page
-homenav.addEventListener('click', () => {
-    home.classList.add('is-active');
-    home.classList.add('is-hidden');
-
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "home.html") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
-    });
+document.getElementById('homepg').addEventListener('click', () => {
+    showSection('index.html');
 });
 
 //pennants page
-pennantsnav.addEventListener('click', () => {
-    home.classList.add('is-active');
-
-    var allSections = document.querySelectorAll('.content'); // Select all sections by class
-    allSections.forEach((section) => {
-        if (section.id != "pennants.html") {
-            section.classList.add('is-hidden'); // Hide other sections
-            section.classList.remove('is-active');
-        }
-    });
+document.getElementById('pennantspg').addEventListener('click', () => {
+    showSection('pennants.html');
 });
 
 //garlands page
