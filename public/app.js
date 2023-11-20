@@ -120,6 +120,8 @@ auth.onAuthStateChanged((user) => {
         // configure the navigation bar
         configure_nav_bar(user);
 
+        r_e('must_signin').classList.add("is-hidden");
+
     } //if user signed out
     else {
         // show sign out message to user on message bar
@@ -133,8 +135,9 @@ auth.onAuthStateChanged((user) => {
 
         // configure the navigation bar
         configure_nav_bar();
-        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to submit orders</p>`;
+
         r_e('checkout').classList.add('is-hidden');
+        r_e('must_signin').classList.add("is-active");
     }
 })
 
