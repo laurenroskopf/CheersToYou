@@ -614,6 +614,7 @@ function del_doc(id) {
 let addToCartPen = document.querySelector("#addPennant");
 let addToCartBan = document.querySelector("#addBanner");
 let addToCartGar = document.querySelector("#addGarland");
+let addToCartMS = document.querySelector("#addMS");
 
 addToCartPen.addEventListener("click", () => {
     let orderItem = {
@@ -665,6 +666,24 @@ addToCartGar.addEventListener("click", () => {
 
     //reset the form
     document.querySelector("#garPersonal").value = "";
+
+});
+
+addToCartMS.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#msColor").value,
+        color2: document.querySelector("#fontColorMS").value,
+        customization: document.querySelector("#msPersonal").value,
+        productType: "Milestone Set",
+        price: 55
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#msPersonal").value = "";
 
 });
 
