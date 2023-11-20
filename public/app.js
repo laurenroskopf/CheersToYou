@@ -114,8 +114,8 @@ auth.onAuthStateChanged((user) => {
         // show user email in navigation bar
         r_e('user_email').innerHTML = auth.currentUser.email;
 
-        // configure main column content
-        configure_content(user);
+        // // configure main column content
+        // configure_content(user);
 
         // configure the navigation bar
         configure_nav_bar(user);
@@ -128,12 +128,13 @@ auth.onAuthStateChanged((user) => {
         // remove user email from navigation bar
         r_e('user_email').innerHTML = "";
 
-        // configure main column content
-        configure_content();
+        // // configure main column content
+        // configure_content();
 
         // configure the navigation bar
         configure_nav_bar();
-        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to place orders</p>`;
+        r_e('must_signin').innerHTML = `<p class="has-text-white is-size-3 has-text-centered">Please sign-in to submit orders</p>`;
+        r_e('checkout').classList.add('is-hidden');
     }
 })
 
@@ -738,8 +739,8 @@ db.collection("OrderItems")
     });
 
 //contact us form 
-r_e('contactme_form').addEventListener('click', () => {
-    // e.preventDefault(); //prevent default behaviour of browser (no page refresh)
+r_e('contactme_form').addEventListener('click', (e) => {
+    e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
     //create user in collection Customers
     let m1 = {
