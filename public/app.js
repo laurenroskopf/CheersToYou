@@ -631,9 +631,7 @@ db.collection("OrderItems")
             </div>
     
             <!-- need to change to js -->
-            <div class="column">$0.00</div>
-            <div class="column">0</div>
-            <div class="column">$0.00</div>
+            <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
           </div>`
         })
 
