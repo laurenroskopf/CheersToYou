@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => {})
+    auth.signOut().then(() => { })
 })
 
 
@@ -637,8 +637,8 @@ db.collection("OrderItems")
     
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-          </div>
-          <button onclick="del_doc('${doc.id}')" class="is-pulled-right">X</button>`
+            <button onclick="del_doc('${doc.id}')" class="is-pulled-right">X</button>
+          </div>`
         })
 
         document.querySelector("#cart").innerHTML += html;
