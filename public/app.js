@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
@@ -136,7 +136,6 @@ auth.onAuthStateChanged((user) => {
         // configure the navigation bar
         configure_nav_bar();
 
-        r_e('checkout').classList.add('is-hidden');
         r_e('must_signin').classList.add("is-active");
     }
 })
