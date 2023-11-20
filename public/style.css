@@ -37,6 +37,14 @@ footer {
   padding: 30;
 }
 
+#message_bar {
+  background-color: #d0bc8c;
+}
+
+#must_signin {
+  background-color:
+    #828c59;
+}
 
 #shoppingCart {
 
