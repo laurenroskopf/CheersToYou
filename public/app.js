@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => {})
+    auth.signOut().then(() => { })
 })
 
 
@@ -256,7 +256,8 @@ let homecust1 = document.querySelector('#homecust1');
 
 //home page
 
-homenav.addEventListener('click', () => {
+homenav.addEventListener('click', (event) => {
+    event.preventDefault();
     home.classList.add('is-active');
     home.classList.remove('is-hidden');
 
@@ -270,7 +271,8 @@ homenav.addEventListener('click', () => {
 });
 
 //pennants page
-pennantnav.addEventListener('click', () => {
+pennantnav.addEventListener('click', (event) => {
+    event.preventDefault();
     pennants.classList.add('is-active');
     pennants.classList.remove('is-hidden');
 
@@ -284,7 +286,8 @@ pennantnav.addEventListener('click', () => {
 });
 
 //garlands page
-garlandsnav.addEventListener('click', () => {
+garlandsnav.addEventListener('click', (event) => {
+    event.preventDefault();
     garlands.classList.add('is-active');
     garlands.classList.remove('is-hidden');
 
@@ -298,7 +301,8 @@ garlandsnav.addEventListener('click', () => {
 });
 
 //banners page
-bannersnav.addEventListener('click', () => {
+bannersnav.addEventListener('click', (event) => {
+    event.preventDefault();
     banners.classList.add('is-active');
     banners.classList.remove('is-hidden');
 
@@ -312,7 +316,8 @@ bannersnav.addEventListener('click', () => {
 });
 
 //framed art page
-framednav.addEventListener('click', () => {
+framednav.addEventListener('click', (event) => {
+    event.preventDefault();
     framed.classList.add('is-active');
     framed.classList.remove('is-hidden');
 
@@ -326,7 +331,8 @@ framednav.addEventListener('click', () => {
 });
 
 //milestonesets page
-msnav.addEventListener('click', () => {
+msnav.addEventListener('click', (event) => {
+    event.preventDefault();
     ms.classList.add('is-active');
     ms.classList.remove('is-hidden');
 
@@ -340,7 +346,8 @@ msnav.addEventListener('click', () => {
 });
 
 //custom art page
-customnav.addEventListener('click', () => {
+customnav.addEventListener('click', (event) => {
+    event.preventDefault();
     custom.classList.add('is-active');
     custom.classList.remove('is-hidden');
 
@@ -354,7 +361,8 @@ customnav.addEventListener('click', () => {
 });
 
 //gallery page
-gallerynav.addEventListener('click', () => {
+gallerynav.addEventListener('click', (event) => {
+    event.preventDefault();
     gallery.classList.add('is-active');
     gallery.classList.remove('is-hidden');
 
@@ -368,7 +376,8 @@ gallerynav.addEventListener('click', () => {
 });
 
 //about us
-makernav.addEventListener('click', () => {
+makernav.addEventListener('click', (event) => {
+    event.preventDefault();
     maker.classList.add('is-active');
     maker.classList.remove('is-hidden');
 
@@ -382,7 +391,8 @@ makernav.addEventListener('click', () => {
 });
 
 //shopping cart
-scnav.addEventListener('click', () => {
+scnav.addEventListener('click', (event) => {
+    event.preventDefault();
     sc.classList.add('is-active');
     sc.classList.remove('is-hidden');
 
@@ -397,7 +407,8 @@ scnav.addEventListener('click', () => {
 
 //home page picture links
 //pennants page
-homepen.addEventListener('click', () => {
+homepen.addEventListener('click', (event) => {
+    event.preventDefault();
     pennants.classList.add('is-active');
     pennants.classList.remove('is-hidden');
 
@@ -411,7 +422,8 @@ homepen.addEventListener('click', () => {
 });
 
 //garlands page
-homegar.addEventListener('click', () => {
+homegar.addEventListener('click', (event) => {
+    event.preventDefault();
     garlands.classList.add('is-active');
     garlands.classList.remove('is-hidden');
 
@@ -425,7 +437,8 @@ homegar.addEventListener('click', () => {
 });
 
 //banners page
-homeban.addEventListener('click', () => {
+homeban.addEventListener('click', (event) => {
+    event.preventDefault();
     banners.classList.add('is-active');
     banners.classList.remove('is-hidden');
 
@@ -439,7 +452,8 @@ homeban.addEventListener('click', () => {
 });
 
 //framed art page
-homeframe.addEventListener('click', () => {
+homeframe.addEventListener('click', (event) => {
+    event.preventDefault();
     framed.classList.add('is-active');
     framed.classList.remove('is-hidden');
 
@@ -453,7 +467,8 @@ homeframe.addEventListener('click', () => {
 });
 
 //milestonesets page
-homems.addEventListener('click', () => {
+homems.addEventListener('click', (event) => {
+    event.preventDefault();
     ms.classList.add('is-active');
     ms.classList.remove('is-hidden');
 
@@ -467,7 +482,8 @@ homems.addEventListener('click', () => {
 });
 
 //custom art page
-homecust.addEventListener('click', () => {
+homecust.addEventListener('click', (event) => {
+    event.preventDefault();
     custom.classList.add('is-active');
     custom.classList.remove('is-hidden');
 
@@ -482,7 +498,8 @@ homecust.addEventListener('click', () => {
 
 //home page word links
 //pennants page
-homepen1.addEventListener('click', () => {
+homepen1.addEventListener('click', (event) => {
+    event.preventDefault();
     pennants.classList.add('is-active');
     pennants.classList.remove('is-hidden');
 
@@ -496,7 +513,8 @@ homepen1.addEventListener('click', () => {
 });
 
 //garlands page
-homegar1.addEventListener('click', () => {
+homegar1.addEventListener('click', (event) => {
+    event.preventDefault();
     garlands.classList.add('is-active');
     garlands.classList.remove('is-hidden');
 
@@ -510,7 +528,8 @@ homegar1.addEventListener('click', () => {
 });
 
 //banners page
-homeban1.addEventListener('click', () => {
+homeban1.addEventListener('click', (event) => {
+    event.preventDefault();
     banners.classList.add('is-active');
     banners.classList.remove('is-hidden');
 
@@ -524,7 +543,8 @@ homeban1.addEventListener('click', () => {
 });
 
 //framed art page
-homeframe1.addEventListener('click', () => {
+homeframe1.addEventListener('click', (event) => {
+    event.preventDefault();
     framed.classList.add('is-active');
     framed.classList.remove('is-hidden');
 
@@ -538,7 +558,8 @@ homeframe1.addEventListener('click', () => {
 });
 
 //milestonesets page
-homems1.addEventListener('click', () => {
+homems1.addEventListener('click', (event) => {
+    event.preventDefault();
     ms.classList.add('is-active');
     ms.classList.remove('is-hidden');
 
@@ -552,7 +573,8 @@ homems1.addEventListener('click', () => {
 });
 
 //custom art page
-homecust1.addEventListener('click', () => {
+homecust1.addEventListener('click', (event) => {
+    event.preventDefault();
     custom.classList.add('is-active');
     custom.classList.remove('is-hidden');
 
@@ -573,7 +595,7 @@ let addToCart = document.querySelector("#addPennant");
 addToCart.addEventListener("click", () => {
     let orderItem = {
         color1: document.querySelector("#penColor").value,
-        color2: parseInt(document.querySelector("#fontColorPen").value),
+        color2: document.querySelector("#fontColorPen").value,
         customization: document.querySelector("#penPersonal").value,
         productType: "Pennant",
         price: 50
