@@ -240,6 +240,20 @@ let gallerynav = document.querySelector('#gallerypg');
 let makernav = document.querySelector('#makerpg');
 let scnav = document.querySelector('#shoppingCart');
 
+//variables for home page
+let homepen = document.querySelector("#homepen")
+let homegar = document.querySelector('#homegar');
+let homeban = document.querySelector('#homeban');
+let homems = document.querySelector('#homems');
+let homeframe = document.querySelector('#homeframe');
+let homecust = document.querySelector('#homecust');
+let homepen1 = document.querySelector("#homepen1")
+let homegar1 = document.querySelector('#homegar1');
+let homeban1 = document.querySelector('#homeban1');
+let homems1 = document.querySelector('#homems1');
+let homeframe1 = document.querySelector('#homeframe1');
+let homecust1 = document.querySelector('#homecust1');
+
 //home page
 
 homenav.addEventListener('click', () => {
@@ -381,7 +395,172 @@ scnav.addEventListener('click', () => {
     });
 });
 
-//contact cart
-// document.getElementById('shoppingCart').addEventListener('click', () => {
-//     showSection('shoppingcart.html');
-// });
+//home page picture links
+//pennants page
+homepen.addEventListener('click', () => {
+    pennants.classList.add('is-active');
+    pennants.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "pen") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//garlands page
+homegar.addEventListener('click', () => {
+    garlands.classList.add('is-active');
+    garlands.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Garlands") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//banners page
+homeban.addEventListener('click', () => {
+    banners.classList.add('is-active');
+    banners.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Banners") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//framed art page
+homeframe.addEventListener('click', () => {
+    framed.classList.add('is-active');
+    framed.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Framed") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//milestonesets page
+homems.addEventListener('click', () => {
+    ms.classList.add('is-active');
+    ms.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Milestone") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//custom art page
+homecust.addEventListener('click', () => {
+    custom.classList.add('is-active');
+    custom.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Custom") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//home page word links
+//pennants page
+homepen1.addEventListener('click', () => {
+    pennants.classList.add('is-active');
+    pennants.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "pen") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//garlands page
+homegar1.addEventListener('click', () => {
+    garlands.classList.add('is-active');
+    garlands.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Garlands") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//banners page
+homeban1.addEventListener('click', () => {
+    banners.classList.add('is-active');
+    banners.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Banners") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//framed art page
+homeframe1.addEventListener('click', () => {
+    framed.classList.add('is-active');
+    framed.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Framed") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//milestonesets page
+homems1.addEventListener('click', () => {
+    ms.classList.add('is-active');
+    ms.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Milestone") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+//custom art page
+homecust1.addEventListener('click', () => {
+    custom.classList.add('is-active');
+    custom.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "Custom") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
