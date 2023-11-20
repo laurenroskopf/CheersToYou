@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => {})
+    auth.signOut().then(() => { })
 })
 
 
@@ -218,7 +218,7 @@ let addBtn = document.querySelector('#addBtn');
 //single page app
 //variables for divs
 let home = document.querySelector('#Index');
-let pennants = document.querySelector('#Pennants');
+let pennants = document.querySelector('#pen');
 let garlands = document.querySelector('#Garlands');
 let banners = document.querySelector('#Banners');
 let ms = document.querySelector('#Milestone');
@@ -262,7 +262,7 @@ pennantnav.addEventListener('click', () => {
 
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        if (section.id != "Pennants") {
+        if (section.id != "pen") {
             section.classList.add('is-hidden'); // Hide other sections
             section.classList.remove('is-active');
         }
