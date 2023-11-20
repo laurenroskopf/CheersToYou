@@ -608,3 +608,35 @@ addToCart.addEventListener("click", () => {
     document.querySelector("#penPersonal").value = "";
 
 });
+
+db.collection("OrderItems")
+    .get()
+    .then((data) => {
+        console.log(data.docs[0].data().color1);
+
+        let docs = data.docs;
+        let html = ``;
+        docs.forEach((doc) => {
+            html += `<div class="box pb-6 pr-0 columns">
+            <div class="column is-2">
+              <figure class="image is-96x96">
+                <img src="pennants.png" alt="Product 1" />
+              </figure>
+            </div>
+            <div class="column is-4">
+              <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+              <p>Color 1: ${doc.data().color1}</p>
+              <p>Color 2: ${doc.data().color2}</p>
+              <p>Customization: ${doc.data().customization}</p>
+            </div>
+    
+            <!-- need to change to js -->
+            <div class="column">$0.00</div>
+            <div class="column">0</div>
+            <div class="column">$0.00</div>
+          </div>`
+        })
+
+        document.querySelector("#cart").innerHTML += html;
+
+    });
