@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
@@ -227,6 +227,7 @@ let custom = document.querySelector('#Custom');
 let gallery = document.querySelector('#Gallery');
 let maker = document.querySelector('#Maker');
 let shop = document.querySelector('#Shopping');
+let contactme = document.querySelector('#ContactMe');
 
 //variables for navbar
 let homenav = document.querySelector("#homepg")
@@ -239,6 +240,7 @@ let customnav = document.querySelector('#custompg');
 let gallerynav = document.querySelector('#gallerypg');
 let makernav = document.querySelector('#makerpg');
 let scnav = document.querySelector('#shoppingCart');
+let cmnav = document.querySelector('#contactmepg');
 
 //variables for home page
 let homepen = document.querySelector("#homepen")
@@ -391,8 +393,24 @@ makernav.addEventListener('click', () => {
     });
 });
 
+//contact me
+makernav.addEventListener('click', () => {
+
+    contactme.classList.add('is-active');
+    contactme.classList.remove('is-hidden');
+
+    var allSections = document.querySelectorAll('.content'); // Select all sections by class
+    allSections.forEach((section) => {
+        if (section.id != "ContactMe") {
+            section.classList.add('is-hidden'); // Hide other sections
+            section.classList.remove('is-active');
+        }
+    });
+});
+
+
 //shopping cart
-scnav.addEventListener('click', () => {
+cmnav.addEventListener('click', () => {
     shop.classList.add('is-active');
     shop.classList.remove('is-hidden');
 
