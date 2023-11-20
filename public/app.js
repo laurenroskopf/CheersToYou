@@ -256,7 +256,8 @@ let homecust1 = document.querySelector('#homecust1');
 
 //home page
 
-homenav.addEventListener('click', () => {
+homenav.addEventListener('click', (event) => {
+    event.preventDefault();
 
     home.classList.add('is-active');
     home.classList.remove('is-hidden');
