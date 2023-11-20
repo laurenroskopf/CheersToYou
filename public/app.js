@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
@@ -737,4 +737,28 @@ db.collection("OrderItems")
 
     });
 
+//contact us form 
+r_e('contactme_form').addEventListener('click', () => {
+    // e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
+    //create user in collection Customers
+    let m1 = {
+        Name: r_e('name_cmf').value,
+        Email: r_e('email_cmf').value,
+        Phone: r_e('phone_cmf').value,
+        Message: r_e('message_cmf').value,
+    }
+
+    console.log(m1);
+
+    db.collection("ContactForm").add(m1)
+
+
+    //reset the form
+    r_e('name_cmf').value = "",
+        r_e('email_cmf').value = "",
+        r_e('phone_cmf').value = "",
+        r_e('message_cmf').value = ""
+
+
+});
