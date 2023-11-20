@@ -47,7 +47,7 @@ r_e('signup_form').addEventListener('submit', (e) => {
 
     // Ceate the user in firebase
     auth.createUserWithEmailAndPassword(email, password).then((user) => {
-
+        r_e('message_bar').classList.remove('is-hidden');
         // show sign up successful message on message bar
         configure_message_bar(`${user.user.email} is successfully created`)
 
@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
