@@ -611,9 +611,10 @@ function del_doc(id) {
 }
 
 
-let addToCart = document.querySelector("#addPennant");
+let addToCartPen = document.querySelector("#addPennant");
+let addToCartBan = document.querySelector("#addBanner");
 
-addToCart.addEventListener("click", () => {
+addToCartPen.addEventListener("click", () => {
     let orderItem = {
         color1: document.querySelector("#penColor").value,
         color2: document.querySelector("#fontColorPen").value,
@@ -628,6 +629,24 @@ addToCart.addEventListener("click", () => {
 
     //reset the form
     document.querySelector("#penPersonal").value = "";
+
+});
+
+addToCartBan.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#banColor").value,
+        color2: document.querySelector("#fontColorBan").value,
+        customization: document.querySelector("#banPersonal").value,
+        productType: "Banner",
+        price: 30
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#banPersonal").value = "";
 
 });
 
@@ -661,3 +680,5 @@ db.collection("OrderItems")
         document.querySelector("#cart").innerHTML += html;
 
     });
+
+
