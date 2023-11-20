@@ -611,9 +611,13 @@ function del_doc(id) {
 }
 
 
-let addToCart = document.querySelector("#addPennant");
+let addToCartPen = document.querySelector("#addPennant");
+let addToCartBan = document.querySelector("#addBanner");
+let addToCartGar = document.querySelector("#addGarland");
+let addToCartMS = document.querySelector("#addMS");
+let addToCartCust = document.querySelector("#addCustom");
 
-addToCart.addEventListener("click", () => {
+addToCartPen.addEventListener("click", () => {
     let orderItem = {
         color1: document.querySelector("#penColor").value,
         color2: document.querySelector("#fontColorPen").value,
@@ -628,6 +632,77 @@ addToCart.addEventListener("click", () => {
 
     //reset the form
     document.querySelector("#penPersonal").value = "";
+
+});
+
+addToCartBan.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#banColor").value,
+        color2: document.querySelector("#fontColorBan").value,
+        customization: document.querySelector("#banPersonal").value,
+        productType: "Banner",
+        price: 30
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#banPersonal").value = "";
+
+});
+
+addToCartGar.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#garColor").value,
+        customization: document.querySelector("#garPersonal").value,
+        productType: "Garland",
+        price: 45
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#garPersonal").value = "";
+
+});
+
+addToCartMS.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#msColor").value,
+        color2: document.querySelector("#fontColorMS").value,
+        customization: document.querySelector("#msPersonal").value,
+        productType: "Milestone Set",
+        price: 55
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#msPersonal").value = "";
+
+});
+
+addToCartCust.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#custColor").value,
+        color2: document.querySelector("#fontColorCust").value,
+        customization: document.querySelector("#CustPersonal").value,
+        productType: "Custom Request",
+        price: 70
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#custPersonal").value = "";
 
 });
 
@@ -661,3 +736,5 @@ db.collection("OrderItems")
         document.querySelector("#cart").innerHTML += html;
 
     });
+
+
