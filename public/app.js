@@ -615,6 +615,7 @@ let addToCartPen = document.querySelector("#addPennant");
 let addToCartBan = document.querySelector("#addBanner");
 let addToCartGar = document.querySelector("#addGarland");
 let addToCartMS = document.querySelector("#addMS");
+let addToCartCust = document.querySelector("#addCustom");
 
 addToCartPen.addEventListener("click", () => {
     let orderItem = {
@@ -684,6 +685,24 @@ addToCartMS.addEventListener("click", () => {
 
     //reset the form
     document.querySelector("#msPersonal").value = "";
+
+});
+
+addToCartCust.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#custColor").value,
+        color2: document.querySelector("#fontColorCust").value,
+        customization: document.querySelector("#CustPersonal").value,
+        productType: "Custom Request",
+        price: 70
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#custPersonal").value = "";
 
 });
 
