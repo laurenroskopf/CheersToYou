@@ -227,7 +227,7 @@ let custom = document.querySelector('#Custom');
 let gallery = document.querySelector('#Gallery');
 let maker = document.querySelector('#Maker');
 let shop = document.querySelector('#Shopping');
-let contactme = document.querySelector('#ContactMe');
+let contact = document.querySelector('#Contact');
 
 //variables for navbar
 let homenav = document.querySelector("#homepg")
@@ -240,7 +240,7 @@ let customnav = document.querySelector('#custompg');
 let gallerynav = document.querySelector('#gallerypg');
 let makernav = document.querySelector('#makerpg');
 let scnav = document.querySelector('#shoppingCart');
-let cmnav = document.querySelector('#contactmepg');
+let contactnav = document.querySelector('#contactpg');
 
 //variables for home page
 let homepen = document.querySelector("#homepen")
@@ -394,14 +394,13 @@ makernav.addEventListener('click', () => {
 });
 
 //contact me
-makernav.addEventListener('click', () => {
-
-    contactme.classList.add('is-active');
-    contactme.classList.remove('is-hidden');
+contactnav.addEventListener('click', () => {
+    contact.classList.add('is-active');
+    contact.classList.remove('is-hidden');
 
     var allSections = document.querySelectorAll('.content'); // Select all sections by class
     allSections.forEach((section) => {
-        if (section.id != "ContactMe") {
+        if (section.id != "Contact") {
             section.classList.add('is-hidden'); // Hide other sections
             section.classList.remove('is-active');
         }
