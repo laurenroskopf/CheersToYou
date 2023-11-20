@@ -637,7 +637,7 @@ db.collection("OrderItems")
     
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-            <button onclick="del_doc('${doc.id}')" class="is-pulled-right">X</button>
+            <button onclick="del_doc('${doc.id}')" class="button is-danger is-pulled-right">X</button>
           </div>`
         })
 

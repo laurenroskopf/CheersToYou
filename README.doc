@@ -449,3 +449,39 @@ Kate: none
 Olivia:none
 Abby: error message bar
 Lauren: None
+
+Sprint 2 Review
+
+What did you learn from doing our second sprint?
+
+During our second sprint we learned how to turn a prototype and ideas from the client into a functioning, dynamic product. We learned how to add in different aspects of front-end functionality, like switching between pages, adding various buttons for different customization options and adding modals to allow the user to sign up/sign in. 
+
+We also learned the importance of having a solid database design in the background. By creating various diagrams and talking to the user about what data they will need to access, we were able to design and adjust a NoSQL database in firebase that will be incorporated into various aspects of the website, like customers, orders and reviews. 
+
+Finally, we learned about flexibility and that adjustments may need to be made during the sprint, in addition to between sprints. Team members sometimes adjusted their tasks to help complete some of the more urgent tasks. This was crucial for us in completing our second sprint. In addition, it is important to be willing to re-prioritize some tasks. For example, we needed to move our task of creating a single page app to a higher priority because other tasks, like adding javascript depended on this. 
+
+
+What did go well? Why?
+
+Our communication throughout the sprint was very good. We kept each other updated daily on what we were working on and what we needed help with. This likely went well because we had set the expectation that we were going to do daily updates in the last sprint, and so this was easy to keep up with this sprint. We communicated with the client very well and have followed mostly every request she has had. 
+
+
+What didn’t go well? Why not?
+
+One thing that did not go well was following the timing and tasks that were assigned to each team member. As all of us have busy schedules, it was difficult to find enough time everyday to make good progress on the project.
+
+Adding in javascript was also a challenge this sprint. The team spent a lot of time trying to figure out how to connect the database to the website in meaningful ways. From this, we found that the single page app needed to be implemented earlier than expected, which changed the timeline. This may have also contributed to the lack of progress mentioned earlier. JavaScript was also difficult to attach to every event and button. 
+
+
+How can you make things better next time?
+
+Next sprint we will try to map the timeline more accurately and allow more time for each task. We will discuss with the client to find out what her top priorities are and focus on those, instead of worrying about other extra ideas. 
+
+
+Are you satisfied with what you already completed?
+
+I think we would like to be further along, especially since there is only one sprint left. We were hoping to have all the necessities completed on our website and leave touching up/extra features for sprint 3. 
+
+Which group was invited? What are your observations/notes? Everybody was present?
+
+We met with both groups. 
