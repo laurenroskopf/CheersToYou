@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => {})
+    auth.signOut().then(() => { })
 })
 
 
@@ -621,7 +621,9 @@ let addToCartGar = document.querySelector("#addGarland");
 let addToCartMS = document.querySelector("#addMS");
 let addToCartCust = document.querySelector("#addCustom");
 
-addToCartPen.addEventListener("click", () => {
+addToCartPen.addEventListener("click", (event) => {
+    event.preventDefault();
+
     let orderItem = {
         color1: document.querySelector("#penColor").value,
         color2: document.querySelector("#fontColorPen").value,
@@ -639,7 +641,9 @@ addToCartPen.addEventListener("click", () => {
 
 });
 
-addToCartBan.addEventListener("click", () => {
+addToCartBan.addEventListener("click", (event) => {
+    event.preventDefault();
+
     let orderItem = {
         color1: document.querySelector("#banColor").value,
         color2: document.querySelector("#fontColorBan").value,
@@ -657,7 +661,9 @@ addToCartBan.addEventListener("click", () => {
 
 });
 
-addToCartGar.addEventListener("click", () => {
+addToCartGar.addEventListener("click", (event) => {
+    event.preventDefault();
+
     let orderItem = {
         color1: document.querySelector("#garColor").value,
         customization: document.querySelector("#garPersonal").value,
@@ -674,7 +680,9 @@ addToCartGar.addEventListener("click", () => {
 
 });
 
-addToCartMS.addEventListener("click", () => {
+addToCartMS.addEventListener("click", (event) => {
+    event.preventDefault();
+
     let orderItem = {
         color1: document.querySelector("#msColor").value,
         color2: document.querySelector("#fontColorMS").value,
@@ -692,7 +700,9 @@ addToCartMS.addEventListener("click", () => {
 
 });
 
-addToCartCust.addEventListener("click", () => {
+addToCartCust.addEventListener("click", (event) => {
+    event.preventDefault();
+
     let orderItem = {
         color1: document.querySelector("#custColor").value,
         color2: document.querySelector("#fontColorCust").value,
