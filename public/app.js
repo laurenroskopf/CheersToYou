@@ -579,7 +579,7 @@ addToCart.addEventListener("click", () => {
         price: 50
     };
 
-    db.collection("Order Items")
+    db.collection("OrderItems")
         .add(orderItem)
         .then(() => alert("Added to Cart!"));
 
