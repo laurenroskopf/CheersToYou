@@ -10,241 +10,774 @@
 </head>
 
 <header>
+  <!-- Pop Up Message Bar -->
+  <div id="message_bar" class="p-3 has-background-danger has-text-centered has-text-black is-hidden"></div>
+
   <div id="head">
-
-    <a href="shoppingcart.html"><button id="shoppingCart">
-        <i class="fa-solid fa-cart-shopping"></i></button></a>
+    <!-- User Email Shown When Signed In -->
+    <div id="user_email" class="signedin">
+    </div>
+    <!--Sign Up Button-->
+    <div class="button">
+      <a id="signupbtn" class="signedout">Sign Up</a>
+    </div>
+    <!--Sign In Button-->
+    <div class="button">
+      <a id="signinbtn" class="signedout">Sign In</a>
+    </div>
+    <!--Sign Out Button-->
+    <div class="button">
+      <a id="signoutbtn" class="signedin">Sign Out</a>
+    </div>
+    <button id="shoppingCart">
+      <i class="fa-solid fa-cart-shopping"></i></button>
   </div>
-
 
   <div>
     <center><img id="logo" src="logo.png" alt="logo" /></center>
   </div>
-</header>
-
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="index.html">
+  <nav class="navbar is-flex is-justify-content-center" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar">
+      <a class="navbar-item" id="homepg">
         Home
       </a>
-
       <!-- Dropdown -->
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">Products</a>
-
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="pennants.html">
+          <a class="navbar-item" id="pennantspg">
             Pennants
           </a>
-          <a class="navbar-item" href="banners.html">
+          <a class="navbar-item" id="bannerspg">
             Banners
           </a>
-          <a class="navbar-item" href="garlands.html">
+          <a class="navbar-item" id="garlandspg">
             Garlands
           </a>
-          <a class="navbar-item" href="milestonesets.html">
+          <a class="navbar-item" id="milestonepg">
             Milestone Sets
           </a>
-          <a class="navbar-item" href="framedArt.html">
+          <a class="navbar-item" id="framedpg">
             Framed Art
           </a>
-          <a class="navbar-item" href="custom.html">
+          <a class="navbar-item" id="custompg">
             Custom Art
           </a>
         </div>
       </div>
       <!-- End Dropdown -->
-
-      <a class="navbar-item" href="gallery.html">
+      <a class="navbar-item" id="gallerypg">
         Gallery
       </a>
-      <a class="navbar-item" href="aboutus.html">
+      <a class="navbar-item" id="makerpg">
         Meet the Maker
       </a>
-    </div>
-
-
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary" href="#">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light" href="#">
-            Log in
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<body>
-  <p class="title has-text-centered pt-5"> HOME</p>
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-
-        <!--Pennants Card-->
-        <div class="card">
-          <!--Pennants Image-->
-          <div class="card-image">
-            <figure class="image is-6by4">
-              <a href="pennants.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""></a>
-            </figure>
-            <!--Pennants Information-->
-            <div class="card-content">
-              <p class="is-size-4 has-text-centered has-text-weight-bold">
-                <a href="pennants.html">PENNANTS</a> </p>
-              <hr>
-              <!--Pennants Description-->
-              <p class=""> Description
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <br>
-        <!--Milestone Set Card-->
-        <div class="card">
-          <!--PMilestone Set Image-->
-          <div class="card-image">
-            <figure class="image is-6by4">
-              <a href="milestonesets.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""></a>
-            </figure>
-            <!--Milestone Set Information-->
-            <div class="card-content">
-              <p class="is-size-4 has-text-centered has-text-weight-bold">
-                <a href="milestonesets.html">MILESTONE SETS</a> </p>
-              <hr>
-              <!--Milestone Set Description-->
-              <p class=""> Description
-
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="column">
-
-        <!--Garlands Card-->
-        <div class="card">
-          <!--Garlands Image-->
-          <div class="card-image">
-            <figure class="image is-6by4">
-              <a href="garlands.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""></a>
-            </figure>
-            <!--Garlands Information-->
-            <div class="card-content">
-              <p class="is-size-4 has-text-centered has-text-weight-bold">
-                <a href="garlands.html">GARLANDS</a> </p>
-              <hr>
-              <!--Garlands Description-->
-              <p class=""> Description
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <br>
-        <!--Milestone Set Card-->
-        <div class="card">
-          <!--PMilestone Set Image-->
-          <div class="card-image">
-            <figure class="image is-6by4">
-              <a href="framedArt.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""></a>
-            </figure>
-            <!--Milestone Set Information-->
-            <div class="card-content">
-              <p class="is-size-4 has-text-centered has-text-weight-bold">
-                <a href="framedArt.html">FRAMED ART</a> </p>
-              <hr>
-              <!--Milestone Set Description-->
-              <p class=""> Description
-
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="column">
-
-        <!--Banners Card-->
-        <div class="card">
-          <!--Banners Image-->
-          <div class="card-image">
-            <figure class="image is-6by4">
-              <a href="banners.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""></a>
-            </figure>
-            <!--Banners Information-->
-            <div class="card-content">
-              <p class="is-size-4 has-text-centered has-text-weight-bold">
-                <a href="banners.html">BANNERS</a></p>
-              <hr>
-              <!--Banners Description-->
-              <p class=""> Description
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <br>
-        <!--Custom Card-->
-        <div class="card">
-          <!--Custom Image-->
-          <div class="card-image">
-            <figure class="image is-6by4">
-              <a href="custom.html"><img src="./imagesCheersToYou/IMG_0695.jpg" alt=""></a>
-            </figure>
-            <!--Custom Information-->
-            <div class="card-content">
-              <p class="is-size-4 has-text-centered has-text-weight-bold">
-                <a href="custom.html">CUSTOM REQUESTS</a> </p>
-              <hr>
-              <!--Custom Description-->
-              <p class=""> Description
-
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
-
-
-<footer class="footer">
-  <div class="columns has-text-centered">
-    <div class="column">
-      <i class="fa-regular fa-envelope"></i>
-      <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
-    </div>
-    <div class="column">
-      <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
-        <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+      <a class="navbar-item" id="contactpg">
+        Contact Me
       </a>
     </div>
+  </nav>
+</header>
 
-    <div class="column">
-      <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg,
-      WI
+<body>
+  <!--  Sign Up Modal -->
+  <div class="modal " id="signup_modal">
+    <div class="modal-background" id="signup_modalbg"></div>
+    <div class="modal-content has-background-grey-lighter p-1">
+      <!--Sign Up Modal Title -->
+      <h1 class="title p-5">Sign Up</h1>
+      <!--Sign Up Form-->
+      <form id="signup_form">
+        <!-- First Name -->
+        <div class="field">
+          <label class="label">First Name</label>
+          <div class="control">
+            <input class="input" type="text" id="firstname">
+          </div>
+        </div>
+        <!-- Last Name -->
+        <div class="field">
+          <label class="label">Last Name</label>
+          <div class="control">
+            <input class="input" type="text" id="lastname">
+          </div>
+        </div>
+        <!-- Sign Up Email -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <!-- Requires Input Value to be an Email  -->
+            <input class="input" type="email" id="email">
+          </div>
+        </div>
+        <!-- Sign Up Phone number -->
+        <div class="field">
+          <label class="label">Phone Number</label>
+          <div class="control">
+            <!-- Requires Input Value to be an Email  -->
+            <input class="input" type="number" id="phonenumber">
+          </div>
+        </div>
+        <!-- Address -->
+        <div class="field">
+          <label class="label">Address</label>
+          <div class="control">
+            <input class="input" type="text" id="address">
+          </div>
+        </div>
+        <!-- Sign Up Password -->
+        <div class="field">
+          <label class="label">Set Password</label>
+          <div class="control">
+            <!-- Requires Input Value to be a Password  -->
+            <input class="input" type="password" id="password">
+          </div>
+        </div>
+
+        <!-- Submit and Clear-->
+        <div class="field is-grouped">
+          <!--Submit-->
+          <div class="control">
+            <button class="button" is="submit">Submit</button>
+          </div>
+          <!--Clear-->
+          <div class="">
+            <input class="button" type="reset" value="Reset">
+          </div>
+        </div>
+        <!-- Shows Error Message that occur in the Console-->
+        <div class="error has-text-white has-background-danger"></div>
+      </form>
     </div>
   </div>
-</footer>
+
+  <!-- Sign In Modal -->
+  <div class="modal" id="signin_modal">
+    <div class="modal-background" id="signin_modalbg"></div>
+    <div class="modal-content has-background-grey-lighter p-1">
+      <!--Sign In Modal Title -->
+      <h1 class="title p-5">Sign In</h1>
+      <!--Sign In Form-->
+      <form id="signin_form">
+        <!-- Email -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <!-- Requires Input Value to be an Email  -->
+            <input class="input" type="email" id="email_">
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <!-- Requires Input Value to be a Password  -->
+            <input class="input" type="password" id="password_">
+          </div>
+        </div>
+        <!-- Submit and Clear-->
+        <div class="field is-grouped">
+          <!--Submit-->
+          <div class="control">
+            <button class="button">Submit</button>
+          </div>
+          <!--Clear-->
+          <div class="">
+            <input class="button" type="reset" value="Reset">
+          </div>
+        </div>
+        <!-- Show any Error Message that appears in the Console -->
+        <div class="error has-text-white has-background-danger"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- index.html content -->
+  <div id="Index" class="content">
+    <p class="title has-text-centered pt-5">HOME</p>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <!--Pennants Card-->
+          <div class="card">
+            <!--Pennants Image-->
+            <div class="card-image">
+              <figure class="image is-6by4">
+                <a id="homepen" href="#"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+              </figure>
+              <!--Pennants Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homepen1" href="#">PENNANTS</a>
+                </p>
+                <hr />
+                <!--Pennants Description-->
+                <p class="">Description</p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!--Milestone Set Card-->
+          <div class="card">
+            <!--PMilestone Set Image-->
+            <div class="card-image">
+              <figure class="image is-6by4">
+                <a id="homems" href="#"><img src="./imagesCheersToYou/IMG_6862.jpg" alt="" /></a>
+              </figure>
+              <!--Milestone Set Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homems1" href="#">MILESTONE SETS</a>
+                </p>
+                <hr />
+                <!--Milestone Set Description-->
+                <p class="">Description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <!--Garlands Card-->
+          <div class="card">
+            <!--Garlands Image-->
+            <div class="card-image">
+              <figure class="image is-6by4">
+                <a id="homegar" href="#"><img src="./imagesCheersToYou/IMG_6074.jpg" alt="" /></a>
+              </figure>
+              <!--Garlands Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homegar1" href="#">GARLANDS</a>
+                </p>
+                <hr />
+                <!--Garlands Description-->
+                <p class="">Description</p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!-- <!-Framed Art Card-->
+          <div class="card">
+            <!--Framed Art Image-->
+            <div class="card-image">
+              <figure class="image is-6by4">
+                <a id="homeframe" href="#"><img src="./imagesCheersToYou/IMG_5405.jpg" alt="" /></a>
+              </figure>
+              <!--Framed Art Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homeframe1" href="#">FRAMED ART</a>
+                </p>
+                <hr />
+                <!--Framed Art Description-->
+                <p class="">Description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <!--Banners Card-->
+          <div class="card">
+            <!--Banners Image-->
+            <div class="card-image">
+              <figure class="image is-6by4">
+                <a id="homeban" href="#"><img src="./imagesCheersToYou/IMG_7408.jpg" alt="" /></a>
+              </figure>
+              <!--Banners Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homeban1" href="#">BANNERS</a>
+                </p>
+                <hr />
+                <!--Banners Description-->
+                <p class="">Description</p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!--Custom Card-->
+          <div class="card">
+            <!--Custom Image-->
+            <div class="card-image">
+              <figure class="image is-6by4">
+                <a id="homecust" href="#"><img src="./imagesCheersToYou/IMG_2599.jpg" alt="" /></a>
+              </figure>
+              <!--Custom Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homecust1" href="#">CUSTOM REQUESTS</a>
+                </p>
+                <hr />
+                <!--Custom Description-->
+                <p class="">Description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pennant.html content -->
+  <div id="pen" class="content is-hidden">
+    <div><br></div>
+    <div class="container">
+      <div class="column">
+        <img src="materials.jpg" width="400" height="500" alt="Pennants">
+      </div>
+      <div class="column">
+        <h2>Pennants</h2>
+        <p>
+          <form>
+            <h4>Pennant Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="penColor">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+
+            <h4>Font Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="fontColorPen">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+            <h4>Personalization</h4>
+            <input id="penPersonal" class="input" type="text">
+
+            <button id="addPennant" class="button"> Add to Cart</button>
+            <img src="allColors.png" alt="colors" width="500" height="500">
+        </p>
+      </div>
+    </div>
+    <div> <br></div>
+  </div>
+
+
+  <!-- banners.html content -->
+  <div id="Banners" class="content is-hidden">
+    <div><br></div>
+    <div class="container">
+      <div class="column">
+        <img src="materials.jpg" width="400" height="500" alt="Banners">
+      </div>
+      <div class="column">
+        <h2>Banners</h2>
+        <p>
+          <form>
+            <h4>Banner Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="banColor">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+
+            <h4>Font Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="fontColorBan">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+            <h4>Personalization</h4>
+            <input id="banPersonal" class="input" type="text">
+
+            <button id="addBanner" class="button"> Add to Cart</button>
+            <img src="allColors.png" alt="colors" width="500" height="500">
+        </p>
+      </div>
+    </div>
+    <div> <br></div>
+  </div>
+
+  <!-- garlands.html content -->
+  <div id="Garlands" class=" content is-hidden">
+    <div><br></div>
+    <div class="container">
+      <div class="column">
+        <img src="materials.jpg" width="400" height="500" alt="Garlands">
+      </div>
+      <div class="column">
+        <h2>Garlands</h2>
+        <p>
+          <form>
+            <h4>Garland Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="garColor">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+            <h4>Personalization</h4>
+            <input id="garPersonal" class="input" type="text">
+
+            <button id="addGarland" class="button"> Add to Cart</button>
+            <img src="allColors.png" alt="colors" width="500" height="500">
+        </p>
+      </div>
+    </div>
+    <div> <br></div>
+  </div>
+
+  <div id="Milestone" class="content is-hidden">
+    <div><br></div>
+    <div class="container">
+      <div class="column">
+        <img src="materials.jpg" width="400" height="500" alt="Banners">
+      </div>
+      <div class="column">
+        <h2>Milestone Sets</h2>
+        <p>
+          <form>
+            <h4>Milstone Set Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="msColor">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+
+            <h4>Font Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="fontColorMS">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+            <h4>Personalization</h4>
+            <input id="msPersonal" class="input" type="text">
+
+            <button id="addMS" class="button"> Add to Cart</button>
+            <img src="allColors.png" alt="colors" width="500" height="500">
+        </p>
+      </div>
+    </div>
+    <div> <br></div>
+  </div>
+
+  <!-- framedart.html content -->
+  <div id="Framed" class="content is-hidden">
+    <div><br></div>
+    <div class="container">
+      <div class="column">
+        <img src="materials.jpg" width="400" height="500" alt="Garlands">
+      </div>
+      <div class="column">
+        <h2>Framed Art ~ Coming Soon</h2>
+        <p></p>
+      </div>
+    </div>
+    <div> <br></div>
+  </div>
+
+  <!-- custom.html content -->
+  <div id="Custom" class="content is-hidden">
+    <div><br></div>
+    <div class="container">
+      <div class="column">
+        <img src="materials.jpg" width="400" height="500" alt="Garlands">
+      </div>
+      <div class="column">
+        <h2>Custom Requests</h2>
+        <p>
+          <form>
+            <h4>Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="custColor">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+            <h4>Font Color</h4>
+
+            <div class="control">
+              <div class="select">
+                <select id="fontColorCust">
+                  <option>Lavender</option>
+                  <option>Thistle</option>
+                  <option>Opal</option>
+                  <option>Peacock</option>
+                  <option>Aqua</option>
+                </select>
+              </div>
+            </div>
+            <h4>Personalization</h4>
+            <input id="custPersonal" class="input" type="text">
+
+            <button id="addCustom" class="button"> Add to Cart</button>
+            <img src="allColors.png" alt="colors" width="500" height="500">
+        </p>
+      </div>
+    </div>
+    <div> <br></div>
+  </div>
+
+  <!-- gallery.html content -->
+  <div id="Gallery" class="content is-hidden">
+    <p class="title has-text-centered pt-5">GALLERY</p>
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_0695.jpg" />
+            </article>
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_2599.jpg" />
+            </article>
+          </div>
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_4178.jpg" />
+            </article>
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_4174.jpg" />
+            </article>
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_6064.jpg" />
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_7340.jpg" />
+            </article>
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_6155.jpg" />
+            </article>
+          </div>
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_5405.jpg" />
+            </article>
+            <article class="tile is-child box">
+              <img src="./imagesCheersToYou/IMG_8750.jpg" />
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- aboutus.html content -->
+  <div id="Maker" class="content is-hidden">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-6 ml-5 mt-4 mb-5">
+          <img src="alice.png" alt="Alice">
+        </div>
+        <div class="column mr-5 mt-4 mb-5">
+          <p class="title">MEET THE MAKER</p>
+          <p>Hey there! I’m Alice- artist and maker
+            located in Cedarburg, WI.<br> <br>
+            I create a modern version of a vintage
+            classic- hand-lettered pennants & garlands- made from premium wool blend
+            felts.
+            <br>
+            <br>Need a unique gift? Decorating for a celebration? Adding a personal
+            touch to a
+            space?<br><br>Everything is
+            designed to raise the ordinary to a little “extra”ordinary!
+            <br><br>When I’m not behind my sewing machine, I’m busy being a teacher,
+            a traveler, and a mom.
+            I’m
+            always looking
+            for ways to celebrate and cheer for the people I love- so much joy❤️
+            <br><br>Cheers to YOU!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- contact us form content -->
+  <div id="Contact" class="content is-hidden">
+    <div class="p-4">
+      <p class="title has-text-centered">CONTACT ME</p>
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="">
+          <input class="input" type="text">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="">
+          <input class="input" type="email">
+
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Phone Number</label>
+        <div class="">
+          <input class="input" type="email">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Message</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Add message here"></textarea>
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- shoppingcart.html content -->
+  <div id="Shopping" class="content is-hidden">
+    <div class="center">
+      <h1 class="title column is-3">Your Cart</h1>
+
+      <div class="block columns">
+        <p class="column is-6"></p>
+        <p class="column sc-price">Price</p>
+      </div>
+
+      <div id="cart">
+      </div>
+
+      <!-- subtotal area -->
+      <div class="columns">
+        <p class="column is-10"></p>
+        <p class="column is-2">Subtotal: 0.00</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer">
+    <div class="columns has-text-centered">
+      <div class="column">
+        <i class="fa-regular fa-envelope"></i>
+        <a href="mailto:cheerstoyoudesign.com" class="no-underline">cheerstoyoudesign@gmail.com</a>
+      </div>
+      <div class="column">
+        <a href="https://www.instagram.com/cheerstoyoudesign/?hl=en" class="no-underline">
+          <i class="fa-brands fa-instagram"></i> cheerstoyoudesign
+        </a>
+      </div>
+
+      <div class="column">
+        <i class="fa-solid fa-location-dot"></i> Alice Galaszewski, Cedarburg,
+        WI
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+  <script>
+    // TODO
+    // Copy **only** your firebaseConfig from Google Firebae and add it below
+
+    // Your web app's Firebase configuration
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBndEQNJFLsRyo-vtrRNGvcB9LZ8KP2yVM",
+      authDomain: "cheers-to-you-eaa8c.firebaseapp.com",
+      projectId: "cheers-to-you-eaa8c",
+      storageBucket: "cheers-to-you-eaa8c.appspot.com",
+      messagingSenderId: "52423257703",
+      appId: "1:52423257703:web:18a5ffde0161c71d412ec2",
+      measurementId: "G-YPHH42F66T",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // define authentication variable
+    let auth = firebase.auth();
+    let db = firebase.firestore();
+
+    // define a storage reference
+    let ref = firebase.storage().ref();
+  </script>
+  <!-- make sure to add your own js file as the last line in index.html file -->
+  <script src="app.js"></script>
+</body>
 
 </html>
