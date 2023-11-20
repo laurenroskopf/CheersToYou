@@ -613,6 +613,7 @@ function del_doc(id) {
 
 let addToCartPen = document.querySelector("#addPennant");
 let addToCartBan = document.querySelector("#addBanner");
+let addToCartGar = document.querySelector("#addGarland");
 
 addToCartPen.addEventListener("click", () => {
     let orderItem = {
@@ -647,6 +648,23 @@ addToCartBan.addEventListener("click", () => {
 
     //reset the form
     document.querySelector("#banPersonal").value = "";
+
+});
+
+addToCartGar.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#garColor").value,
+        customization: document.querySelector("#garPersonal").value,
+        productType: "Garland",
+        price: 45
+    };
+
+    db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#garPersonal").value = "";
 
 });
 
