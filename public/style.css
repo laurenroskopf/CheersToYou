@@ -20,14 +20,13 @@
   border-radius: 10px;
 }
 
-/* #head {
-  background-color: #fadadd;
-  position: fixed;
+#head {
+  background-color: #828c59;
   top: 0;
   left: 0;
   right: 0;
-  padding: 30;
-} */
+  padding: 20;
+}
 
 footer {
   background-color: #fadadd;
@@ -40,15 +39,9 @@ footer {
 
 
 #shoppingCart {
-  position: fixed;
-  right: 15;
-  top: 20;
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  font-size: 20;
+
+  color: white;
+
 }
 
 #logo {
