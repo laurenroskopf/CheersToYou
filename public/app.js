@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => {})
+    auth.signOut().then(() => { })
 })
 
 
@@ -410,7 +410,7 @@ makernav.addEventListener('click', () => {
 
 
 //shopping cart
-cmnav.addEventListener('click', () => {
+scnav.addEventListener('click', () => {
     shop.classList.add('is-active');
     shop.classList.remove('is-hidden');
 
