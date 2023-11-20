@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
@@ -563,4 +563,27 @@ homecust1.addEventListener('click', () => {
             section.classList.remove('is-active');
         }
     });
+});
+
+
+//adding order to shopping cart 
+
+let addToCart = document.querySelector("#addPennant");
+
+addToCart.addEventListener("click", () => {
+    let orderItem = {
+        color1: document.querySelector("#penColor").value,
+        color2: parseInt(document.querySelector("#fontColorPen").value),
+        customization: document.querySelector("#penPersonal").value,
+        productType: "Pennant",
+        price: 50
+    };
+
+    db.collection("Order Items")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+
+    //reset the form
+    document.querySelector("#penPersonal").value = "";
+
 });
