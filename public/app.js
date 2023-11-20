@@ -148,7 +148,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-    auth.signOut().then(() => { });
+    auth.signOut().then(() => {});
 });
 
 // track user authentication status with onauthstatechanged
@@ -787,9 +787,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
     //reset the form
     (r_e("name_cmf").value = ""),
-        (r_e("email_cmf").value = ""),
-        (r_e("phone_cmf").value = ""),
-        (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
