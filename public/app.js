@@ -834,3 +834,7 @@ r_e("venmo-modalbg").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo-modal").classList.add("is-hidden");
 });
+
+r_e("checkout").addEventListener("click", (event) => {
+  r_e("venmo-modal").classList.add("is-active");
+});
