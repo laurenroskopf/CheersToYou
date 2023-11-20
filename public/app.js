@@ -100,7 +100,7 @@ r_e('signin_form').addEventListener('submit', (e) => {
 
 // sign out user
 r_e('signoutbtn').addEventListener('click', () => {
-    auth.signOut().then(() => { })
+    auth.signOut().then(() => {})
 })
 
 
@@ -736,5 +736,3 @@ db.collection("OrderItems")
         document.querySelector("#cart").innerHTML += html;
 
     });
-
-
