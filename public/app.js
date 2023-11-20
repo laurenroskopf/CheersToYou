@@ -121,6 +121,7 @@ auth.onAuthStateChanged((user) => {
         configure_nav_bar(user);
 
         r_e('must_signin').classList.add("is-hidden");
+        r_e('checkout').classList.remove("is-hidden");
 
     } //if user signed out
     else {
@@ -137,6 +138,8 @@ auth.onAuthStateChanged((user) => {
         configure_nav_bar();
 
         r_e('must_signin').classList.add("is-active");
+        r_e('checkout').classList.add("is-hidden");
+
     }
 })
 
