@@ -836,3 +836,8 @@ r_e("checkout").addEventListener("click", (event) => {
     event.preventDefault();
     r_e("venmo_modal").classList.add("is-active");
 });
+
+// Show all items added to cart by current user
+r_e('myreviews').addEventListener('click', () => {
+    load_data('reviews', 'content', 'user_email', auth.currentUser.email);
+})
