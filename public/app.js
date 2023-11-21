@@ -33,37 +33,32 @@ function load_data(coll, loc, field, val) {
         // html reference
         html = "";
         // loop through the documents array
-        documents.forEach((doc) => {
-            //create review box on html
-            html += `<div class="box">`;
-            // check if current user email matches email stored on the document
 
-            if (auth.currentUser.email == doc.data().user_email) {
-                // show button to delete if post was created by current user
-                html += `<h1 class="title">${doc.data().title
-                    } <button class="button is-size-5 is-pulled-right is-white has-text-danger-dark" onclick="del_doc('reviews', '${doc.id
-                    }')"> <i class="fa-solid fa-trash-can is-size-4"></i></button> </h1>`; // add the review title inside an h1 and trash can image on right side of div
-            } else {
-                // hide button to delete if post was not created by current user
-                html += `<h1 class="title is-size-4">${doc.data().title} </h1>`; // add the review title inside an h1
-            }
-            //add review posted by user to review box
-            html += `<p class="  p-2">Posted by User: ${doc.data().user_email}</p>`;
-            //add line between the user and the review content
-            html += `<hr>`;
-            //add review content to review box
-            html += `<p>${doc.data().desc}</p>`;
-            //end review box
-            html += `</div>`;
-        });
+        if (auth.currentUser.email == doc.data().user_email) {
+            documents.forEach((doc) => {
+                //create review box on html
 
-        // ensure the loc div is not hidden
-        r_e(loc).classList.remove("is-hidden");
+                alert("Hi");
+                html += `<test>`;
 
-        // show on the content div
-        r_e(loc).innerHTML = html;
-    });
-}
+
+                //add review posted by user to review box
+                html += `<p class="  p-2">Posted by User: ${doc.data().user_email}</p>`;
+
+                //add line between the user and the review content
+                html += `<hr>`;
+                //add review content to review box
+                html += `<p>${doc.data().desc}</p>`;
+                //end review box
+                html += `</div>`;
+            });
+
+
+            // show on the content div
+            r_e(loc).innerHTML = html;
+        };
+    })
+};
 
 // configure the message bar
 function configure_message_bar(msg) {
@@ -756,7 +751,7 @@ db.collection("OrderItems")
               <p>Color 2: ${doc.data().color2}</p>
               <p>Customization: ${doc.data().customization}</p>
             </div>
-    
+
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
                 2
@@ -837,7 +832,7 @@ r_e("checkout").addEventListener("click", (event) => {
     r_e("venmo_modal").classList.add("is-active");
 });
 
-// Show all items added to cart by current user
-r_e('myreviews').addEventListener('click', () => {
-    load_data('reviews', 'content', 'user_email', auth.currentUser.email);
-})
+// Show all Reviews posted by current user
+r_e('shoppingCart').addEventListener('click', () => {
+    load_data('OrderItems', 'cart', 'user_email', auth.currentUser.email);
+});
