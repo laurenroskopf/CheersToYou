@@ -696,6 +696,7 @@ addToCartPen.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+    email: auth.currentUser.email,
     color1: document.querySelector("#penColor").value,
     color2: document.querySelector("#fontColorPen").value,
     customization: document.querySelector("#penPersonal").value,
@@ -715,6 +716,7 @@ addToCartBan.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+    email: auth.currentUser.email,
     color1: document.querySelector("#banColor").value,
     color2: document.querySelector("#fontColorBan").value,
     customization: document.querySelector("#banPersonal").value,
@@ -734,6 +736,7 @@ addToCartGar.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+    email: auth.currentUser.email,
     color1: document.querySelector("#garColor").value,
     customization: document.querySelector("#garPersonal").value,
     productType: "Garland",
@@ -752,6 +755,7 @@ addToCartMS.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+    email: auth.currentUser.email,
     color1: document.querySelector("#msColor").value,
     color2: document.querySelector("#fontColorMS").value,
     customization: document.querySelector("#msPersonal").value,
@@ -771,6 +775,7 @@ addToCartCust.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+    email: auth.currentUser.email,
     color1: document.querySelector("#custColor").value,
     color2: document.querySelector("#fontColorCust").value,
     customization: document.querySelector("#CustPersonal").value,
