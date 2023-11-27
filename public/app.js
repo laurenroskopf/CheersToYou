@@ -18,45 +18,45 @@ function r_e(id) {
 }
 
 // Get the documents from the Reviews Collection in Firebase
-function load_data(coll, loc, field, val) {
-  // check if we pass all 4 arguments
-  let query = "";
+// function load_data(coll, loc, field, val) {
+//   // check if we pass all 4 arguments
+//   let query = "";
 
-  if (field && val) {
-    query = db.collection(coll).where(field, "==", val);
-  } else {
-    query = db.collection(coll);
-  }
+//   if (field && val) {
+//     query = db.collection(coll).where(field, "==", val);
+//   } else {
+//     query = db.collection(coll);
+//   }
 
-  query.get().then((res) => {
-    let documents = res.docs;
-    // html reference
-    html = "";
-    // loop through the documents array
+//   query.get().then((res) => {
+//     let documents = res.docs;
+//     // html reference
+//     html = "";
+//     // loop through the documents array
 
-    if (auth.currentUser.email == doc.data().user_email) {
-      documents.forEach((doc) => {
-        //create review box on html
+//     if (auth.currentUser.email == doc.data().user_email) {
+//       documents.forEach((doc) => {
+//         //create review box on html
 
-        alert("Hi");
-        html += `<test>`;
+//         alert("Hi");
+//         html += `<test>`;
 
-        //add review posted by user to review box
-        html += `<p class="  p-2">Posted by User: ${doc.data().user_email}</p>`;
+//         //add review posted by user to review box
+//         html += `<p class="  p-2">Posted by User: ${doc.data().user_email}</p>`;
 
-        //add line between the user and the review content
-        html += `<hr>`;
-        //add review content to review box
-        html += `<p>${doc.data().desc}</p>`;
-        //end review box
-        html += `</div>`;
-      });
+//         //add line between the user and the review content
+//         html += `<hr>`;
+//         //add review content to review box
+//         html += `<p>${doc.data().desc}</p>`;
+//         //end review box
+//         html += `</div>`;
+//       });
 
-      // show on the content div
-      r_e(loc).innerHTML = html;
-    }
-  });
-}
+//       // show on the content div
+//       r_e(loc).innerHTML = html;
+//     }
+//   });
+// }
 
 // configure the message bar
 function configure_message_bar(msg) {
@@ -742,7 +742,8 @@ db.collection("OrderItems")
     let docs = data.docs;
     let html = ``;
     docs.forEach((doc) => {
-      html += `<div class="box pb-6 m-3 pr-0 columns">
+      if (auth.currentUser.email == doc.data().email) {
+        html += `<div class="box pb-6 m-3 pr-0 columns">
             <div class="column is-2">
               <figure class="image is-square">
                 <img src="pennants.png" alt="Product 1" />
@@ -763,8 +764,8 @@ db.collection("OrderItems")
               doc.id
             }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
-    });
-
+      }
+    })
     document.querySelector("#cart").innerHTML += html;
   });
 
@@ -836,7 +837,7 @@ r_e("checkout").addEventListener("click", (event) => {
   r_e("venmo_modal").classList.add("is-active");
 });
 
-// Show all Reviews posted by current user
-r_e("shoppingCart").addEventListener("click", () => {
-  load_data("OrderItems", "cart", "user_email", auth.currentUser.email);
-});
+// // Show all Reviews posted by current user
+// r_e("shoppingCart").addEventListener("click", () => {
+//   load_data("OrderItems", "cart", "user_email", auth.currentUser.email);
+// });
