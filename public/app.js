@@ -58,6 +58,8 @@ function load_data(coll, loc, field, val) {
   });
 }
 
+
+
 // configure the message bar
 function configure_message_bar(msg) {
   // enforce message bar being visible
@@ -141,7 +143,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
 });
 
 // track user authentication status with onauthstatechanged
@@ -267,6 +269,9 @@ let gallery = document.querySelector("#Gallery");
 let maker = document.querySelector("#Maker");
 let shop = document.querySelector("#Shopping");
 let contact = document.querySelector("#Contact");
+//admin divs
+let orders = document.querySelector("#Orders");
+let contactreq = document.querySelector("#Contactreq");
 
 //variables for navbar
 let homenav = document.querySelector("#homepg");
@@ -280,6 +285,9 @@ let gallerynav = document.querySelector("#gallerypg");
 let makernav = document.querySelector("#makerpg");
 let scnav = document.querySelector("#shoppingCart");
 let contactnav = document.querySelector("#contactpg");
+//admin nav bar
+let ordernav = document.querySelector("#orderpg");
+let contactreqnav = document.querySelector("#contactreqpg");
 
 //variables for home page
 let homepen = document.querySelector("#homepen");
@@ -294,6 +302,21 @@ let homeban1 = document.querySelector("#homeban1");
 let homems1 = document.querySelector("#homems1");
 let homeframe1 = document.querySelector("#homeframe1");
 let homecust1 = document.querySelector("#homecust1");
+
+//admin navbar transformations
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    if (auth.currentUser.email == "alice28512@gmail.com") {
+      //add navbar for orders & contact form 
+      ordernav.classList.add("is-active");
+      ordernav.classList.remove("is-hidden");
+      contactreqnav.classList.add("is-active");
+      contactreqnav.classList.remove("is-hidden");
+      console.log("admin logged in")
+      //update = part 2
+    }
+  }
+})
 
 //home page
 
@@ -622,6 +645,38 @@ homecust1.addEventListener("click", () => {
   });
 });
 
+//orders admin page
+ordernav.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  orders.classList.add("is-active");
+  orders.classList.remove("is-hidden");
+
+  var allSections = document.querySelectorAll(".content"); // Select all sections by class
+  allSections.forEach((section) => {
+    if (section.id != "Order") {
+      section.classList.add("is-hidden"); // Hide other sections
+      section.classList.remove("is-active");
+    }
+  });
+});
+
+//contact form requests admin page
+contactreqnav.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  contactreq.classList.add("is-active");
+  contactreq.classList.remove("is-hidden");
+
+  var allSections = document.querySelectorAll(".content"); // Select all sections by class
+  allSections.forEach((section) => {
+    if (section.id != "Contactreq") {
+      section.classList.add("is-hidden"); // Hide other sections
+      section.classList.remove("is-active");
+    }
+  });
+});
+
 //adding order to shopping cart
 
 function del_doc(id) {
@@ -752,11 +807,10 @@ db.collection("OrderItems")
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-              2
-            )}</div>
-            <div onclick="del_doc('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+        2
+      )}</div>
+            <div onclick="del_doc('${doc.id
+        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
 
@@ -781,9 +835,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -835,3 +889,4 @@ r_e("checkout").addEventListener("click", (event) => {
 r_e("shoppingCart").addEventListener("click", () => {
   load_data("OrderItems", "cart", "user_email", auth.currentUser.email);
 });
+
