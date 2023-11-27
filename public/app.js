@@ -144,6 +144,10 @@ r_e("signin_form").addEventListener("submit", (e) => {
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
   auth.signOut().then(() => { });
+  ordernav.classList.remove("is-active");
+  ordernav.classList.add("is-hidden");
+  contactreqnav.classList.remove("is-active");
+  contactreqnav.classList.add("is-hidden");
 });
 
 // track user authentication status with onauthstatechanged
@@ -654,7 +658,7 @@ ordernav.addEventListener("click", (event) => {
 
   var allSections = document.querySelectorAll(".content"); // Select all sections by class
   allSections.forEach((section) => {
-    if (section.id != "Order") {
+    if (section.id != "Orders") {
       section.classList.add("is-hidden"); // Hide other sections
       section.classList.remove("is-active");
     }
