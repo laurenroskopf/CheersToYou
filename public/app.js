@@ -835,3 +835,11 @@ r_e("checkout").addEventListener("click", (event) => {
 r_e("shoppingCart").addEventListener("click", () => {
   load_data("OrderItems", "cart", "user_email", auth.currentUser.email);
 });
+
+
+//Carousel
+bulmaCarousel.attach('#slider', {
+  slidesToScroll: 1,
+  slidesToShow: 1,
+  infinite: true,
+});
