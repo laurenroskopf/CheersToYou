@@ -517,32 +517,32 @@ USER STORY 2:
 Day 1
 
 What are you planning to do today?
-Kate: 
+Kate: I will start creating admin capabilities
 Olivia: I will be starting to add the admin buttons for the owner to change product types.
 Abby: I plan to work on the user cart to make sure only the current users orders appear
 Lauren: 
 
 Any problems are you facing?
-Kate: 
+Kate: None
 Olivia: No
 Abby: Nope
 Lauren:
 
 Day 2
 What did you do yesterday?
-Kate: 
+Kate: I started working on admin capabailities, specifically with the orders and contact form requests
 Olivia: Yesterday I helped implement the admin authentication and have certain buttons show up.
 Abby: fixed the function that loaded the user's order data
 Lauren: 
 
 What are you planning to do today?
-Kate: 
+Kate: I plan on getting data from the database to populate the pages I made yesterday
 Olivia: Today I plan to continue adding buttons/data that only admin can see.
 Abby: Try to create a arousel for the various products pages
 Lauren: 
 
 Any problems are you facing?
-Kate: 
+Kate: None
 Olivia: None
 Abby: NONE
 Lauren: 
