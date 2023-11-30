@@ -856,7 +856,6 @@ db.collection("ContactForm")
 
     })
     document.querySelector("#Contactreq").innerHTML += html;
-    docs.reload()
   });
 
 
