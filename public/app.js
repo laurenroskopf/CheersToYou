@@ -814,14 +814,24 @@ r_e("checkout").addEventListener("click", (event) => {
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
+  const ordersData = [];
+
   db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
     .then((order) => {
       order.forEach((doc) => {
-        // add from orderitems to orders
-        db.collection("Orders").add(doc.data());
-        // delete from orderitems
-        db.collection("OrderItems").doc(doc.id).delete();
+        // Push each order's data into the array
+        ordersData.push(doc.data());
       });
+      console.log(ordersData)
+
+      db.collection("Orders").add({
+        combinedData: ordersData, // Store the combined orders' data in a single field
+      })
+      console.log("added to db")
+
+      order.forEach((doc) => {
+        db.collection("OrderItems").doc(doc.id).delete();
+      })
     })
     .catch((error) => {
       console.error('Error getting documents: ', error);
