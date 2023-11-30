@@ -1,7 +1,5 @@
 //Shopping cart html
 
-// document.querySelector("#sc-price").innerHTML += ``;
-
 //variables associated with signing up
 let signupbtn = document.querySelector("#signupbtn");
 let signup_modal = document.querySelector("#signup_modal");
@@ -16,47 +14,6 @@ let signin_modalbg = document.querySelector("#signin_modalbg");
 function r_e(id) {
   return document.querySelector(`#${id}`);
 }
-
-// Get the documents from the Reviews Collection in Firebase
-// function load_data(coll, loc, field, val) {
-//   // check if we pass all 4 arguments
-//   let query = "";
-
-//   if (field && val) {
-//     query = db.collection(coll).where(field, "==", val);
-//   } else {
-//     query = db.collection(coll);
-//   }
-
-//   query.get().then((res) => {
-//     let documents = res.docs;
-//     // html reference
-//     html = "";
-//     // loop through the documents array
-
-//     if (auth.currentUser.email == doc.data().user_email) {
-//       documents.forEach((doc) => {
-//         //create review box on html
-
-//         alert("Hi");
-//         html += `<test>`;
-
-//         //add review posted by user to review box
-//         html += `<p class="  p-2">Posted by User: ${doc.data().user_email}</p>`;
-
-//         //add line between the user and the review content
-//         html += `<hr>`;
-//         //add review content to review box
-//         html += `<p>${doc.data().desc}</p>`;
-//         //end review box
-//         html += `</div>`;
-//       });
-
-//       // show on the content div
-//       r_e(loc).innerHTML = html;
-//     }
-//   });
-// }
 
 // configure the message bar
 function configure_message_bar(msg) {
@@ -141,7 +98,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -815,10 +772,10 @@ db.collection("OrderItems")
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-        2
-      )}</div>
+          2
+        )}</div>
             <div onclick="del_doc('${doc.id
-        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       }
     })
@@ -843,9 +800,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -893,7 +850,21 @@ r_e("checkout").addEventListener("click", (event) => {
   r_e("venmo_modal").classList.add("is-active");
 });
 
-// // Show all Reviews posted by current user
-// r_e("shoppingCart").addEventListener("click", () => {
-//   load_data("OrderItems", "cart", "user_email", auth.currentUser.email);
-// });
+r_e("order_agree").addEventListener("click", (e) => {
+  e.preventDefault(); //prevent default behaviour of browser (no page refresh)
+
+  db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
+    .then((order) => {
+      order.forEach((doc) => {
+        // add from orderitems to orders
+        db.collection("Orders").add(doc.data());
+        // delete from orderitems
+        db.collection("OrderItems").doc(doc.id).delete();
+      });
+    })
+    .catch((error) => {
+      console.error('Error getting documents: ', error);
+    });
+});
+
+
