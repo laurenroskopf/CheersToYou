@@ -135,7 +135,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -151,9 +151,6 @@ auth.onAuthStateChanged((user) => {
       `${auth.currentUser.email} is successfully signed in`
     );
 
-    // show user email in navigation bar
-    r_e("user_email").innerHTML = auth.currentUser.email;
-
     // // configure main column content
     // configure_content(user);
 
@@ -167,8 +164,6 @@ auth.onAuthStateChanged((user) => {
     // show sign out message to user on message bar
     configure_message_bar("You signed out successfully");
 
-    // remove user email from navigation bar
-    r_e("user_email").innerHTML = "";
 
     // // configure main column content
     // configure_content();
@@ -828,9 +823,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
