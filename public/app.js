@@ -638,6 +638,7 @@ function del_doc(id) {
     .doc(id)
     .delete()
     .then(() => alert("Product deleted"));
+  load_sc_data();
 }
 
 let addToCartPen = document.querySelector("#addPennant");
@@ -901,4 +902,6 @@ r_e("order_agree").addEventListener("click", (e) => {
     .catch((error) => {
       console.error("Error getting documents: ", error);
     });
+
+  alert("Thanks for Ordering from Cheers to You!")
 });
