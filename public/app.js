@@ -811,19 +811,18 @@ r_e("contactme_form").addEventListener("click", (e) => {
 let subtotal = 0;
 
 //adding total to modal
-// db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
-//   .then((order) => {
-//     let total = 0;
-//     order.forEach((doc) => {
-//       total += doc.data().price;
-//     });
-//     console.log(total);
-//     document.querySelector(
-//       "#venmo_total"
-//     ).innerHTML += `<h6 class ="m-5 is-size-4"><b>
-// Your total is $${total}
-// <b></h6>`;
-//   });
+auth.onAuthStateChanged((user) => {
+  db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
+    .then((order) => {
+      let total = 0;
+      order.forEach((doc) => {
+        total += doc.data().price;
+      });
+      document.querySelector(
+        "#venmo_total"
+      ).innerHTML += `<h6 class ="m-5 is-size-4"><b>Your total is $${total}<b></h6>`;
+    })
+})
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
