@@ -714,6 +714,7 @@ addToCartCust.addEventListener("click", (event) => {
   document.querySelector("#custPersonal").value = "";
 });
 
+// shopping cart data
 db.collection("OrderItems")
   .get()
   .then((data) => {
@@ -745,6 +746,39 @@ db.collection("OrderItems")
     })
     document.querySelector("#cart").innerHTML += html;
   });
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+}
+
+//load contact us form data 
+db.collection("ContactForm")
+  .get()
+  .then((data) => {
+    let docs = data.docs;
+    let html = ``;
+    docs.forEach((doc) => {
+      html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column">
+              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+              <p>Email: ${doc.data().Email}</p>
+              <p> Phone: ${doc.data().Phone}</p>
+              <p> Message: ${doc.data().Message}</p>
+            </div>
+
+            <!-- need to change to js -->
+
+            <div onclick="del_docreq('${doc.id
+        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          </div>`;
+
+    })
+    document.querySelector("#Contactreq").innerHTML += html;
+  });
+
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
