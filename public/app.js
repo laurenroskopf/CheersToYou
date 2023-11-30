@@ -41,10 +41,9 @@ function load_sc_data() {
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-              2
-            )}</div>
-            <div onclick="del_doc('${
-              doc.id
+            2
+          )}</div>
+            <div onclick="del_doc('${doc.id
             }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
         }
@@ -136,7 +135,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -769,11 +768,10 @@ db.collection("OrderItems")
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-              2
-            )}</div>
-            <div onclick="del_doc('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          2
+        )}</div>
+            <div onclick="del_doc('${doc.id
+          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       }
     });
@@ -804,9 +802,8 @@ db.collection("ContactForm")
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${doc.id
+        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
     document.querySelector("#Contactreq").innerHTML += html;
@@ -882,16 +879,24 @@ r_e("checkout").addEventListener("click", (event) => {
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
-  db.collection("OrderItems")
-    .where("email", "==", auth.currentUser.email)
-    .get()
+  const ordersData = [];
+
+  db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
     .then((order) => {
       order.forEach((doc) => {
-        // add from orderitems to orders
-        db.collection("Orders").add(doc.data());
-        // delete from orderitems
-        db.collection("OrderItems").doc(doc.id).delete();
+        // Push each order's data into the array
+        ordersData.push(doc.data());
       });
+      console.log(ordersData)
+
+      db.collection("Orders").add({
+        combinedData: ordersData, // Store the combined orders' data in a single field
+      })
+      console.log("added to db")
+
+      order.forEach((doc) => {
+        db.collection("OrderItems").doc(doc.id).delete();
+      })
     })
     .catch((error) => {
       console.error("Error getting documents: ", error);
