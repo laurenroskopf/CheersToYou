@@ -407,19 +407,7 @@ msnav.addEventListener("click", () => {
   });
 });
 
-//custom art page
-customnav.addEventListener("click", () => {
-  custom.classList.add("is-active");
-  custom.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Custom") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //gallery page
 gallerynav.addEventListener("click", () => {
@@ -548,19 +536,7 @@ homems.addEventListener("click", () => {
   });
 });
 
-//custom art page
-homecust.addEventListener("click", () => {
-  custom.classList.add("is-active");
-  custom.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Custom") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //home page word links
 //pennants page
@@ -633,19 +609,7 @@ homems1.addEventListener("click", () => {
   });
 });
 
-//custom art page
-homecust1.addEventListener("click", () => {
-  custom.classList.add("is-active");
-  custom.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Custom") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //orders admin page
 ordernav.addEventListener("click", (event) => {
