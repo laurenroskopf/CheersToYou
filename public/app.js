@@ -227,26 +227,6 @@ signin_modalbg.addEventListener("click", () => {
 //variables for adding to cart
 let addBtn = document.querySelector("#addBtn");
 
-// addBtn.addEventListener('click', () => {
-//     alert("hello");
-
-//     // let person = {
-//     //     name: document.querySelector("#name").value,
-//     //     age: parseInt(document.querySelector("#age").value),
-//     //     color: document.querySelector("#favcolor").value
-
-//     // }
-
-//     // //console.log(person);
-//     // db.collection('people')
-//     //     .add(person)
-//     //     .then(() => alert("new person added"));
-//     // //.then only executes after add has finished.
-//     // document.querySelector("#name").value = "";
-//     // document.querySelector("#age").value = "";
-
-// })
-
 //single page app
 //variables for divs
 let home = document.querySelector("#Index");
