@@ -1301,17 +1301,22 @@
 
   <!-- modal for checkout -->
   <div id="venmo_modal" class="modal">
-    <div class="modal-background" id="venmo_modalbg">
+    <div class="modal-background" id="venmo_modalbg"></div>
       <div class="modal-content has-background-white p-3">
         <!--Sign Up Modal Title -->
         <h1 class="title p-5">Payment Confirmation</h1>
 
         <div id="venmo_total">
         </div>
+
         <img src="venmo_icon.png" class="image is-32x32 ml-5">
         <h6 class="m-5 is-size-5">
           Please Venmo the total to @cheerstoyoudesign!
         </h6>
+        <h6 class = "m-5 is-size-5">Enter your Venmo:</h6>
+        <div class="control m-5">
+          <input class="input" type="text" id="user_venmo">
+        </div>
         <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
         <div class="columns">
           <div class="column is-8"></div>
@@ -1320,7 +1325,7 @@
         </div>
 
       </div>
-    </div>
+    
   </div>
 
   <div id="Orders" class="content is-hidden">
