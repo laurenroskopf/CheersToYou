@@ -520,32 +520,32 @@ What are you planning to do today?
 Kate: I will start creating admin capabilities
 Olivia: I will be starting to add the admin buttons for the owner to change product types.
 Abby: I plan to work on the user cart to make sure only the current users orders appear
-Lauren: 
+Lauren: I plan to work on showing only the users products in the cart
 
 Any problems are you facing?
 Kate: None
 Olivia: No
 Abby: Nope
-Lauren:
+Lauren: No
 
 Day 2
 What did you do yesterday?
 Kate: I started working on admin capabailities, specifically with the orders and contact form requests
 Olivia: Yesterday I helped implement the admin authentication and have certain buttons show up.
 Abby: fixed the function that loaded the user's order data
-Lauren: 
+Lauren: I allowed only the users data to be shown in the cart
 
 What are you planning to do today?
 Kate: I plan on getting data from the database to populate the pages I made yesterday
 Olivia: Today I plan to continue adding buttons/data that only admin can see.
 Abby: Try to create a arousel for the various products pages
-Lauren: 
+Lauren: Change format of shopping cart
 
 Any problems are you facing?
 Kate: None
 Olivia: None
 Abby: NONE
-Lauren: 
+Lauren: None
 
 Day 3
 
@@ -553,20 +553,20 @@ What did you do yesterday?
 Kate:
 Olivia: Yesterday I continued with admin features for the products.
 Abby:
-Lauren:
+Lauren: Changed format of shopping cart
 
 What are you planning to do today?
 Kate:
 Olivia: Today I plan to continue adding the admin capabilities to change product styles/images
 Abby:
-Lauren:
+Lauren: Work on refresh/load data function
 
 
 Any problems are you facing?
 Kate:
 Olivia: None
 Abby:
-Lauren:
+Lauren: Can't figure out refresh function
 
 Day 4
 
@@ -574,19 +574,19 @@ What did you do yesterday?
 Kate:
 Olivia:Yesterday I added abilities for admin to change product names / features
 Abby:
-Lauren:
+Lauren: Worked on load data function
 
 What are you planning to do today?
 Kate:
 Olivia: Today I plan to allow the admin to change product details descriptions
 Abby:
-Lauren:
+Lauren: Edit the names of product details in database
 
 Any problems are you facing?
 Kate:
 Olivia: none
 Abby:
-Lauren:
+Lauren: None
 
 Day 5
 
@@ -594,16 +594,16 @@ What did you do yesterday?
 Kate:
 Olivia:
 Abby:
-Lauren:
+Lauren: Edit the names of product details
 
 What are you planning to do today?
 Kate:
 Olivia: 
 Abby:
-Lauren:
+Lauren: Fix product details in shopping cart
 
 Any problems are you facing?
 Kate:
 Olivia: 
 Abby:
-Lauren:
+Lauren: None
