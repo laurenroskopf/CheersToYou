@@ -219,6 +219,11 @@ footer {
   border: none;
 }
 
+.modal-content {
+  background-color: #828c59;
+  border-radius: 25px;
+}
+
 #slider .card-content {
   max-width: 98%;
 }
@@ -254,7 +259,6 @@ footer {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
 
 .numbertext {
   color: #f2f2f2;
