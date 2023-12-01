@@ -14,10 +14,6 @@
   <div id="message_bar" class="p-3 has-text-centered has-text-black is-hidden"></div>
 
   <div id="head">
-    <!-- User Email Shown When Signed In -->
-    <div class="signedin">
-      <div id="user_email"> </div>
-    </div>
     <!--Sign Up Button-->
     <div class="button signedout">
       <a id="signupbtn" class="signedout has-text-black">Sign Up</a>
@@ -70,10 +66,6 @@
           <a class="navbar-item" id="milestonepg">
             Milestone Sets
           </a>
-          <a class="navbar-item" id="framedpg">
-            Framed Art
-          </a>
-
         </div>
       </div>
       <!-- End Dropdown -->
@@ -216,7 +208,7 @@
     <br>
   </div>
   <div id="Index" class="content">
-    <div class="container">
+    <div class="container p-6">
       <div class="columns">
         <div class="column">
           <!--Pennants Card-->
@@ -235,76 +227,16 @@
                 <!--Pennants Description-->
                 <p class="">In your home, as a gift, at a party, everyday is a good day to spread a little cheer!
                 </p>
-
-              </div>
-            </div>
-          </div>
-          <br />
-          <!--Milestone Set Card-->
-          <div class="card">
-            <!--PMilestone Set Image-->
-            <div class="card-image">
-              <figure class="image is-6by4 pt-5">
-                <a id="homems" href="#"><img src="./imagesCheersToYou/IMG_6862.jpg" alt="" /></a>
-              </figure>
-              <!--Milestone Set Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a id="homems1" href="#" class="has-text-black">MILESTONE SETS</a>
-                </p>
-                <hr />
-                <!--Milestone Set Description-->
-                <p class="">Description</p>
+                <br>
+                <br>
+                <br>
+                <br>
               </div>
             </div>
           </div>
         </div>
+        <!--Banners Card-->
         <div class="column">
-          <!--Garlands Card-->
-          <div class="card">
-            <!--Garlands Image-->
-            <div class="card-image">
-              <figure class="image is-6by4 pt-5">
-                <a id="homegar" href="#"><img src="./imagesCheersToYou/IMG_6074.jpg" alt="" /></a>
-              </figure>
-              <!--Garlands Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a id="homegar1" href="#" class="has-text-black">GARLANDS</a>
-                </p>
-                <hr />
-                <!--Garlands Description-->
-                <p class="">Celebrate the everyday with this colorful, felt garland.
-                  It’s the perfect finishing touch in a nursery, bedroom, or playroom!
-                  Coordinate with a Name Pennant to create a custom set.
-
-                </p>
-                <p>Wouldn’t this be darling as a party/event decoration too? The possibilities are endless!</p>
-              </div>
-            </div>
-          </div>
-          <br />
-          <!-- <!-Framed Art Card-->
-          <div class="card">
-            <!--Framed Art Image-->
-            <div class="card-image">
-              <figure class="image is-6by4 pt-5">
-                <a id="homeframe" href="#"><img src="./imagesCheersToYou/IMG_5405.jpg" alt="" /></a>
-              </figure>
-              <!--Framed Art Information-->
-              <div class="card-content">
-                <p class="is-size-4 has-text-centered has-text-weight-bold">
-                  <a id="homeframe1" href="#" class="has-text-black">FRAMED ART</a>
-                </p>
-                <hr />
-                <!--Framed Art Description-->
-                <p class="">Description</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <!--Banners Card-->
           <div class="card">
             <!--Banners Image-->
             <div class="card-image">
@@ -330,11 +262,64 @@
               </div>
             </div>
           </div>
-          <br />
-
         </div>
       </div>
+      <div class="columns">
+
+        <div class="column">
+          <!--Garlands Card-->
+          <div class="card">
+            <!--Garlands Image-->
+            <div class="card-image">
+              <figure class="image is-6by4 pt-5">
+                <a id="homegar" href="#"><img src="./imagesCheersToYou/IMG_6074.jpg" alt="" /></a>
+              </figure>
+              <!--Garlands Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homegar1" href="#" class="has-text-black">GARLANDS</a>
+                </p>
+                <hr />
+                <!--Garlands Description-->
+                <p class="">Celebrate the everyday with this colorful, felt garland.
+                  It’s the perfect finishing touch in a nursery, bedroom, or playroom!
+                  Coordinate with a Name Pennant to create a custom set.
+
+                </p>
+                <p>Wouldn’t this be darling as a party/event decoration too? The possibilities are endless!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Milestone Set Card-->
+        <div class="column">
+          <div class="card">
+            <!--Milestone Set Image-->
+            <div class="card-image">
+              <figure class="image is-6by4 pt-5">
+                <a id="homems" href="#"><img src="./imagesCheersToYou/IMG_6862.jpg" alt="" /></a>
+              </figure>
+              <!--Milestone Set Information-->
+              <div class="card-content">
+                <p class="is-size-4 has-text-centered has-text-weight-bold">
+                  <a id="homems1" href="#" class="has-text-black">MILESTONE SETS</a>
+                </p>
+                <hr />
+                <!--Milestone Set Description-->
+                <p class="">Description</p>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
   </div>
 
   <!-- pennant.html content -->
@@ -342,7 +327,7 @@
   <div id="pen" class="content is-hidden">
     <div class="signedout signInBar has-text-white">
       <p class="has-text-centered ">
-        Please sign in to checkout!
+        Please sign in to add to cart!
       </p>
     </div>
     <div><br></div>
@@ -1358,53 +1343,44 @@
       <br>
     </div>
 
-    <div class="tile is-ancestor">
-      <div class="tile is-vertical">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_8361.jpg" />
-            </article>
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_2599.jpg" />
-            </article>
-          </div>
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_4178.jpg" />
-            </article>
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_4174.jpg" />
-            </article>
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_6064.jpg" />
-            </article>
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_6081.jpg" />
-            </article>
-
-          </div>
-        </div>
+    <div class="container">
+      <div class="column is-vertical">
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_8361.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_2599.jpg" />
+        </article>
       </div>
-      <div class="tile is-parent">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_7340.jpg" />
-            </article>
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_6155.jpg" />
-            </article>
-          </div>
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_5405.jpg" />
-            </article>
-            <article class="tile is-child box">
-              <img src="./imagesCheersToYou/IMG_8750.jpg" />
-            </article>
-          </div>
-        </div>
+      <div class="column is-vertical">
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_4178.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_4174.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_6064.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_6081.jpg" />
+        </article>
+      </div>
+      <div class="tile is-vertical">
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_7340.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_6155.jpg" />
+        </article>
+      </div>
+      <div class="column is-vertical">
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_5405.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_8750.jpg" />
+        </article>
       </div>
     </div>
   </div>
@@ -1419,7 +1395,9 @@
     <div class="container">
       <div class="columns">
         <div class="column is-6 ml-5 mt-4 mb-5">
-          <img src="alice.png" alt="Alice">
+          <figure class="image is-3by3 pl-6 pr-6 pb-6">
+            <img src="alice.png" alt="Alice">
+          </figure>
         </div>
         <div class="column mr-5 mt-4 mb-5">
           <p class="title">MEET THE MAKER</p>
@@ -1438,7 +1416,8 @@
             I’m
             always looking
             for ways to celebrate and cheer for the people I love- so much joy❤️
-            <br><br>Cheers to YOU!
+            <br><br>
+            <p class="has-text-weight-bold">Cheers to YOU!</p>
           </p>
         </div>
       </div>
@@ -1455,7 +1434,7 @@
     </div>
     <div class="p-4">
       <p class="title has-text-centered">CONTACT ME</p>
-      <p>Submit Questions, Concerns, or Custom Art Requests</p>
+      <p class="has-text-centered has-text-weight-bold">Submit Questions, Concerns, or Custom Art Requests</p>
       <form>
         <div class="field">
           <label class="label">Name</label>
@@ -1555,7 +1534,7 @@
   <div id="Orders" class="content is-hidden">
 
 
-    <h1>Orders</h1>
+    <h1 class="has-text-centered">Orders</h1>
 
 
   </div>
@@ -1563,7 +1542,7 @@
   <div id="Contactreq" class="content is-hidden">
 
 
-    <h1>Contact Form Requests</h1>
+    <h1 class="has-text-centered">Contact Form Requests</h1>
 
 
 

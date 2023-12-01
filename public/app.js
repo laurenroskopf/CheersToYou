@@ -15,6 +15,43 @@ function r_e(id) {
   return document.querySelector(`#${id}`);
 }
 
+function load_sc_data() {
+  db.collection("OrderItems")
+    .get()
+    .then((data) => {
+      let docs = data.docs;
+      let html = ``;
+      docs.forEach((doc) => {
+        console.log(auth.currentUser.email);
+        console.log(doc.data().email);
+        console.log(doc.data().customization);
+        if (auth.currentUser.email == doc.data().email) {
+          html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column is-2">
+              <figure class="image is-square">
+                <img src="pennants.png" alt="Product 1" />
+              </figure>
+            </div>
+            <div class="column is-4">
+              <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+              <p>Color 1: ${doc.data().color1}</p>
+              <p>Color 2: ${doc.data().color2}</p>
+              <p>Customization: ${doc.data().customization}</p>
+            </div>
+
+            <!-- need to change to js -->
+            <div class="column">$${parseFloat(doc.data().price).toFixed(
+            2
+          )}</div>
+            <div onclick="del_doc('${doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          </div>`;
+        }
+      });
+      document.querySelector("#cart").innerHTML += html;
+    });
+}
+
 // configure the message bar
 function configure_message_bar(msg) {
   // enforce message bar being visible
@@ -98,7 +135,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -114,9 +151,6 @@ auth.onAuthStateChanged((user) => {
       `${auth.currentUser.email} is successfully signed in`
     );
 
-    // show user email in navigation bar
-    r_e("user_email").innerHTML = auth.currentUser.email;
-
     // // configure main column content
     // configure_content(user);
 
@@ -130,8 +164,6 @@ auth.onAuthStateChanged((user) => {
     // show sign out message to user on message bar
     configure_message_bar("You signed out successfully");
 
-    // remove user email from navigation bar
-    r_e("user_email").innerHTML = "";
 
     // // configure main column content
     // configure_content();
@@ -195,26 +227,6 @@ signin_modalbg.addEventListener("click", () => {
 //variables for adding to cart
 let addBtn = document.querySelector("#addBtn");
 
-// addBtn.addEventListener('click', () => {
-//     alert("hello");
-
-//     // let person = {
-//     //     name: document.querySelector("#name").value,
-//     //     age: parseInt(document.querySelector("#age").value),
-//     //     color: document.querySelector("#favcolor").value
-
-//     // }
-
-//     // //console.log(person);
-//     // db.collection('people')
-//     //     .add(person)
-//     //     .then(() => alert("new person added"));
-//     // //.then only executes after add has finished.
-//     // document.querySelector("#name").value = "";
-//     // document.querySelector("#age").value = "";
-
-// })
-
 //single page app
 //variables for divs
 let home = document.querySelector("#Index");
@@ -266,16 +278,16 @@ let homecust1 = document.querySelector("#homecust1");
 auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
-      //add navbar for orders & contact form 
+      //add navbar for orders & contact form
       ordernav.classList.add("is-active");
       ordernav.classList.remove("is-hidden");
       contactreqnav.classList.add("is-active");
       contactreqnav.classList.remove("is-hidden");
-      console.log("admin logged in")
+      console.log("admin logged in");
       //update = part 2
     }
   }
-})
+});
 
 //home page
 
@@ -363,8 +375,6 @@ msnav.addEventListener("click", () => {
     }
   });
 });
-
-
 
 //gallery page
 gallerynav.addEventListener("click", () => {
@@ -493,8 +503,6 @@ homems.addEventListener("click", () => {
   });
 });
 
-
-
 //home page word links
 //pennants page
 homepen1.addEventListener("click", () => {
@@ -566,8 +574,6 @@ homems1.addEventListener("click", () => {
   });
 });
 
-
-
 //orders admin page
 ordernav.addEventListener("click", (event) => {
   event.preventDefault();
@@ -607,6 +613,7 @@ function del_doc(id) {
     .doc(id)
     .delete()
     .then(() => alert("Product deleted"));
+  load_sc_data();
 }
 
 let addToCartPen = document.querySelector("#addPennant");
@@ -714,6 +721,7 @@ addToCartCust.addEventListener("click", (event) => {
   document.querySelector("#custPersonal").value = "";
 });
 
+// shopping cart data
 db.collection("OrderItems")
   .get()
   .then((data) => {
@@ -742,8 +750,39 @@ db.collection("OrderItems")
           }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       }
-    })
+    });
     document.querySelector("#cart").innerHTML += html;
+  });
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+}
+
+//load contact us form data
+db.collection("ContactForm")
+  .get()
+  .then((data) => {
+    let docs = data.docs;
+    let html = ``;
+    docs.forEach((doc) => {
+      html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column">
+              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+              <p>Email: ${doc.data().Email}</p>
+              <p> Phone: ${doc.data().Phone}</p>
+              <p> Message: ${doc.data().Message}</p>
+            </div>
+
+            <!-- need to change to js -->
+
+            <div onclick="del_docreq('${doc.id
+        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          </div>`;
+    });
+    document.querySelector("#Contactreq").innerHTML += html;
   });
 
 //contact us form
@@ -764,9 +803,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -776,7 +815,9 @@ let subtotal = 0;
 
 //adding total to modal
 auth.onAuthStateChanged((user) => {
-  db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
+  db.collection("OrderItems")
+    .where("email", "==", auth.currentUser.email)
+    .get()
     .then((order) => {
       let total = 0;
       order.forEach((doc) => {
@@ -785,8 +826,8 @@ auth.onAuthStateChanged((user) => {
       document.querySelector(
         "#venmo_total"
       ).innerHTML += `<h6 class ="m-5 is-size-4"><b>Your total is $${total}<b></h6>`;
-    })
-})
+    });
+});
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
@@ -814,18 +855,28 @@ r_e("checkout").addEventListener("click", (event) => {
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
+  const ordersData = [];
+
   db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
     .then((order) => {
       order.forEach((doc) => {
-        // add from orderitems to orders
-        db.collection("Orders").add(doc.data());
-        // delete from orderitems
-        db.collection("OrderItems").doc(doc.id).delete();
+        // Push each order's data into the array
+        ordersData.push(doc.data());
       });
+      console.log(ordersData)
+
+      db.collection("Orders").add({
+        combinedData: ordersData, // Store the combined orders' data in a single field
+      })
+      console.log("added to db")
+
+      order.forEach((doc) => {
+        db.collection("OrderItems").doc(doc.id).delete();
+      })
     })
     .catch((error) => {
-      console.error('Error getting documents: ', error);
+      console.error("Error getting documents: ", error);
     });
+
+  alert("Thanks for Ordering from Cheers to You!")
 });
-
-
