@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
 </head>
 
 <header>
@@ -57,7 +58,7 @@
           <a class="navbar-item" id="pennantspg">
             Pennants
           </a>
-          <a class="navbar-item" id="bannerspg">
+          <a class="navbar-item" id="buntingpg">
             Buntings
           </a>
           <a class="navbar-item" id="garlandspg">
@@ -336,7 +337,38 @@
     <div><br></div>
     <div class="container">
       <div class="column">
-        <img src="./imagesCheersToYou/IMG_6289.jpg" width="400" height="500" alt="Pennants">
+        <section>
+          <div id="slider">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by5 is-covered">
+                  <img src="./imagesCheersToYou/IMG_0714.jpg" alt="" />
+                </figure>
+              </div>
+              <div class="card-content slider-text ">
+              </div>
+            </div>
+            <div class="card ">
+              <div class="card-image">
+                <figure class="image is-4by5 is-covered">
+                  <img src="./imagesCheersToYou/IMG_3786.jpg" alt="" />
+                </figure>
+              </div>
+              <div class="card-content slider-text ">
+              </div>
+            </div>
+            <div class="card ">
+              <div class="card-image">
+                <p class="image is-4by5 is-covered">
+                  <img src="./imagesCheersToYou/IMG_6064.jpg" alt="" />
+                </p>
+              </div>
+              <div class="card-content slider-text ">
+              </div>
+            </div>
+
+          </div>
+        </section>
       </div>
       <div class="column">
         <h2>Pennants</h2>
@@ -511,7 +543,7 @@
 
 
   <!-- banners.html content -->
-  <div id="Banners" class="content is-hidden">
+  <div id="Buntings" class="content is-hidden">
     <div class="signedout signInBar has-text-white">
       <p class="has-text-centered ">
         Please sign in to checkout!
@@ -526,11 +558,11 @@
         <h2>Buntings</h2>
         <p>
           <form>
-            <h4>Bunting Color 1</h4>
+            <h4>Flag Color 1</h4>
 
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="bColor1">
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -576,10 +608,11 @@
                 </select>
               </div>
             </div>
-            <h4>Bunting Color 2</h4>
+            <h4>Flag Color 2</h4>
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="bColor2">
+                  <option>No Flag Color 2</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -625,10 +658,11 @@
                 </select>
               </div>
             </div>
-            <h4>Bunting Color 3</h4>
+            <h4>Flag Color 3</h4>
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="bColor3">
+                  <option>No Flag Color 3</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -674,61 +708,11 @@
                 </select>
               </div>
             </div>
-            <h4>Bunting Color 4</h4>
+            <h4>Flag Color 4</h4>
             <div class="control">
               <div class="select">
-                <select id="garColor">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
-              </div>
-            </div>
-
-            <h4>Letter Color</h4>
-
-            <div class="control">
-              <div class="select">
-                <select id="fontColorBan">
+                <select id="bColor4">
+                  <option>No Flag Color 4</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -778,17 +762,16 @@
 
             <div class="control">
               <div class="select">
-                <select id="fontColorBan">
+                <select id="bLetterType">
                   <option>CAPITAL</option>
                   <option>lowercase</option>
 
                 </select>
               </div>
             </div>
-            <h4>Personalization</h4>
-            <input id="banPersonal" class="input" type="text">
+            <br>
 
-            <button id="addBanner" class="signedin button"> Add to Cart</button>
+            <button id="addBunting" class="signedin button"> Add to Cart</button>
             <img src="allColors.png" alt="colors" width="500" height="500">
             <p class="has-text-weight-bold is-italic">Details:</p>
 
@@ -835,11 +818,11 @@
         <h2>Garlands</h2>
         <p>
           <form>
-            <h4>Garland Color 1</h4>
+            <h4>Flag Color 1</h4>
 
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="gColor1">
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -885,10 +868,11 @@
                 </select>
               </div>
             </div>
-            <h4>Garland Color 2</h4>
+            <h4>Flag Color 2</h4>
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="gColor2">
+                  <option>No Flag Color 2</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -934,10 +918,11 @@
                 </select>
               </div>
             </div>
-            <h4>Garland Color 3</h4>
+            <h4>Flag Color 3</h4>
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="gColor3">
+                  <option>No Flag Color 3</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -983,10 +968,11 @@
                 </select>
               </div>
             </div>
-            <h4>Garland Color 4</h4>
+            <h4>Flag Color 4</h4>
             <div class="control">
               <div class="select">
-                <select id="garColor">
+                <select id="gColor4">
+                  <option>No Flag Color 4</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -1080,110 +1066,6 @@
         <h2>Milestone Sets</h2>
         <p>
           <form>
-            <h4>Milestone Set Color</h4>
-
-            <div class="control">
-              <div class="select">
-                <select id="msColor">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
-              </div>
-            </div>
-
-            <h4>Font Color</h4>
-
-            <div class="control">
-              <div class="select">
-                <select id="fontColorMS">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
-              </div>
-            </div>
-            <h4>Personalization</h4>
-            <input id="msPersonal" class="input" type="text">
-
             <button id="addMS" class="signedin button"> Add to Cart</button>
             <img src="allColors.png" alt="colors" width="500" height="500">
         </p>
@@ -1192,152 +1074,6 @@
     <div> <br></div>
   </div>
 
-  <!-- framedart.html content -->
-  <div id="Framed" class="content is-hidden">
-    <div class="signedout signInBar has-text-white">
-      <p class="has-text-centered ">
-        Please sign in to checkout!
-      </p>
-    </div>
-    <div><br></div>
-    <div class="container">
-      <div class="column">
-        <img src="materials.jpg" width="400" height="500" alt="Garlands">
-      </div>
-      <div class="column">
-        <h2>Framed Art ~ Coming Soon</h2>
-        <p></p>
-      </div>
-    </div>
-    <div> <br></div>
-  </div>
-
-  <!-- custom.html content -->
-  <div id="Custom" class="content is-hidden">
-    <div class="signedout signInBar has-text-white">
-      <p class="has-text-centered ">
-        Please sign in to checkout!
-      </p>
-    </div>
-    <div><br></div>
-    <div class="container">
-      <div class="column">
-        <img src="materials.jpg" width="400" height="500" alt="Garlands">
-      </div>
-      <div class="column">
-        <h2>Custom Requests</h2>
-        <p>
-          <form>
-            <h4>Color</h4>
-
-            <div class="control">
-              <div class="select">
-                <select id="custColor">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
-              </div>
-            </div>
-            <h4>Font Color</h4>
-
-            <div class="control">
-              <div class="select">
-                <select id="fontColorCust">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
-              </div>
-            </div>
-            <h4>Personalization</h4>
-            <input id="custPersonal" class="input" type="text">
-
-            <button id="addCustom" class="signedin button"> Add to Cart</button>
-            <img src="allColors.png" alt="colors" width="500" height="500">
-        </p>
-      </div>
-    </div>
-    <div> <br></div>
-  </div>
 
   <!-- gallery.html content -->
   <div id="Gallery" class="content is-hidden">
@@ -1438,6 +1174,7 @@
     <div class="p-4">
       <p class="title has-text-centered">CONTACT ME</p>
       <p class="has-text-centered has-text-weight-bold">Submit Questions, Concerns, or Custom Art Requests</p>
+      <p class="has-text-centered is-italic">All Fields Required</p>
       <form>
         <div class="field">
           <label class="label">Name</label>
@@ -1457,7 +1194,7 @@
         <div class="field">
           <label class="label">Phone Number</label>
           <div class="">
-            <input class="input" type="number" id="phone_cmf">
+            <input class="input" type="tel" id="phone_cmf">
           </div>
         </div>
         <div class="field">
@@ -1611,6 +1348,15 @@
   </script>
   <!-- make sure to add your own js file as the last line in index.html file -->
   <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  <script>
+    bulmaCarousel.attach('#slider', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true,
+      autoplay: false,
+    });
+  </script>
 </body>
 
 </html>
