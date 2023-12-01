@@ -226,7 +226,9 @@
         <div class="column">
           <!--Pennants Card-->
           <div class="card">
+
             <!--Pennants Image-->
+
             <div class="card-image">
               <figure class="image is-6by4 pt-5">
                 <a id="homepen" href="#"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
@@ -238,7 +240,9 @@
                 </p>
                 <hr />
                 <!--Pennants Description-->
-                <p class="">In your home, as a gift, at a party, everyday is a good day to spread a little cheer!
+                <button class="btn btn-primary" onclick="saveChanges('pennant_home_edit')">Save</button>
+                <p id="pennant_home_edit">In your home, as a gift, at a party, everyday is a good day to spread a little
+                  cheer!
                 </p>
                 <br>
                 <br>
@@ -1175,7 +1179,10 @@
         </div>
         <div class="column mr-5 mt-4 mb-5">
           <p class="title">MEET THE MAKER</p>
-          <p>Hey there! I’m Alice- artist and maker
+
+          <button class="btn btn-primary" onclick="saveChanges('maker_edit')">Save</button>
+
+          <p id="maker_edit">Hey there! I’m Alice- artist and maker
             located in Cedarburg, WI.<br> <br>
             I create a modern version of a vintage
             classic- hand-lettered pennants & garlands- made from premium wool blend
