@@ -41,10 +41,9 @@ function load_sc_data() {
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-              2
-            )}</div>
-            <div onclick="del_doc('${
-              doc.id
+            2
+          )}</div>
+            <div onclick="del_doc('${doc.id
             }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
         }
@@ -136,7 +135,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -711,13 +710,9 @@ db.collection("OrderItems")
               <p>${product_html(doc)}</p>
             </div>
 
-            <!-- need to change to js -->
-            <div class="column">$${parseFloat(doc.data().price).toFixed(
-              2
-            )}</div>
-            <div onclick="del_doc('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
+            <div onclick="del_doc('${doc.id
+          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       }
     });
@@ -748,13 +743,37 @@ db.collection("ContactForm")
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${doc.id
+        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
     document.querySelector("#Contactreq").innerHTML += html;
   });
+
+//load orders data
+// db.collection("Orders")
+//   .get()
+//   .then((data) => {
+//     let docs = data.docs;
+//     let html = ``;
+//     docs.forEach((doc) => {
+//       html += `<div class="box pb-6 m-3 pr-0 columns">
+//           <div class="column">
+//             <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+//             <p>Email: ${doc.data().email}</p>`
+//       doc.forEach((item) => {
+//         html += `<div class="column is-4">
+//                     <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+//                     <p>${product_html(doc)}</p>
+//                     </div>`
+//       })
+//       html += ` </div >
+//         <div onclick="del_docreq('${doc.id
+//         }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+//         </div > `;
+//     });
+//     document.querySelector("#adminOrders").innerHTML += html;
+//   });
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -796,7 +815,7 @@ auth.onAuthStateChanged((user) => {
       });
       document.querySelector(
         "#venmo_total"
-      ).innerHTML += `<h6 class ="m-5 is-size-4"><b>Your total is $${total}<b></h6>`;
+      ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
     });
 });
 
