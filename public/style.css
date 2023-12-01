@@ -218,3 +218,8 @@ footer {
   background-color: white;
   border: none;
 }
+
+.modal-content {
+  background-color: #828c59;
+  border-radius: 25px;
+}
