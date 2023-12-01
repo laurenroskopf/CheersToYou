@@ -159,6 +159,7 @@ auth.onAuthStateChanged((user) => {
 
     r_e("must_signin").classList.add("is-hidden");
     r_e("checkout").classList.remove("is-hidden");
+    r_e("account").classList.add("is-active");
   } //if user signed out
   else {
     // show sign out message to user on message bar
