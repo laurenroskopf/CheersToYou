@@ -27,8 +27,23 @@
     <div class="button signedin">
       <a id="signoutbtn" class="signedin has-text-black">Sign Out</a>
     </div>
+    <!-- account button -->
+    <div id="accountbutton" class="button is-pulled-right signedin ml-3">
+      <a id="accountpg" class="signedin has-text-black">Account</a>
+    </div>
+    <!-- requests button for admin -->
+    <div id="contactbutton"class="button is-pulled-right ml-3 is-hidden">
+      <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
+    </div>
+    <!-- orders button for admin -->
+    <div id="orderbutton" class="button is-pulled-right ml-3 is-hidden">
+      <a id="orderpg" class=" has-text-black">Orders</a>
+    </div>
+    <!-- shopping cart button -->
     <div class="is-pulled-right is-clickable p-2" id="shoppingCart">
-      <i class="fa-solid fa-cart-shopping is-size-4"></i></div>
+      <i class="fa-solid fa-cart-shopping is-size-4"></i>
+    </div>
+    
   </div>
 
   <div>
@@ -79,12 +94,6 @@
       <a class="navbar-item has-text-black" id="contactpg">
         Contact Me
       </a>
-      <a class="navbar-item has-text-black is-hidden" id="orderpg">
-        Orders
-      </a>
-      <a class="navbar-item has-text-black is-hidden" id="contactreqpg">
-        Contact Form Requests
-      </a>
     </div>
   </nav>
 </header>
@@ -93,28 +102,28 @@
   <!--  Sign Up Modal -->
   <div class="modal " id="signup_modal">
     <div class="modal-background" id="signup_modalbg"></div>
-    <div class="modal-content has-background-grey-lighter p-1">
+    <div class="modal-content p-4 is-rounded">
       <!--Sign Up Modal Title -->
-      <h1 class="title p-5">Sign Up</h1>
+      <h1 class="title pt-5 has-text-white">Sign Up</h1>
       <!--Sign Up Form-->
       <form id="signup_form">
         <!-- First Name -->
         <div class="field">
-          <label class="label">First Name</label>
+          <label class="label has-text-white">First Name</label>
           <div class="control">
             <input class="input" type="text" id="firstname">
           </div>
         </div>
         <!-- Last Name -->
         <div class="field">
-          <label class="label">Last Name</label>
+          <label class="label has-text-white">Last Name</label>
           <div class="control">
             <input class="input" type="text" id="lastname">
           </div>
         </div>
         <!-- Sign Up Email -->
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label has-text-white">Email</label>
           <div class="control">
             <!-- Requires Input Value to be an Email  -->
             <input class="input" type="email" id="email">
@@ -122,28 +131,29 @@
         </div>
         <!-- Sign Up Phone number -->
         <div class="field">
-          <label class="label">Phone Number</label>
+          <label class="label has-text-white">Phone Number</label>
           <div class="control">
             <!-- Requires Input Value to be an Email  -->
             <input class="input" type="number" id="phonenumber">
           </div>
         </div>
-        <!-- Address -->
+        <!-- Address
         <div class="field">
           <label class="label">Address</label>
           <div class="control">
             <input class="input" type="text" id="address">
           </div>
-        </div>
+        </div> -->
         <!-- Sign Up Password -->
         <div class="field">
-          <label class="label">Set Password</label>
+          <label class="label has-text-white">Set Password</label>
           <div class="control">
             <!-- Requires Input Value to be a Password  -->
             <input class="input" type="password" id="password">
           </div>
         </div>
-
+        <br>
+        <br>
         <!-- Submit and Clear-->
         <div class="field is-grouped">
           <!--Submit-->
@@ -164,14 +174,14 @@
   <!-- Sign In Modal -->
   <div class="modal" id="signin_modal">
     <div class="modal-background" id="signin_modalbg"></div>
-    <div class="modal-content has-background-grey-lighter p-1">
+    <div class="modal-content p-4">
       <!--Sign In Modal Title -->
-      <h1 class="title p-5">Sign In</h1>
+      <h1 class="title pt-5 has-text-white">Sign In</h1>
       <!--Sign In Form-->
       <form id="signin_form">
         <!-- Email -->
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label has-text-white">Email</label>
           <div class="control">
             <!-- Requires Input Value to be an Email  -->
             <input class="input" type="email" id="email_">
@@ -179,12 +189,14 @@
         </div>
         <!-- Password -->
         <div class="field">
-          <label class="label">Password</label>
+          <label class="label has-text-white">Password</label>
           <div class="control">
             <!-- Requires Input Value to be a Password  -->
             <input class="input" type="password" id="password_">
           </div>
         </div>
+        <br>
+        <br>
         <!-- Submit and Clear-->
         <div class="field is-grouped">
           <!--Submit-->
@@ -1064,7 +1076,33 @@
         <p>
           <form>
             <button id="addMS" class="signedin button"> Add to Cart</button>
-            <img src="allColors.png" alt="colors" width="500" height="500">
+            <p class="has-text-weight-bold is-italic"> Details</p>
+            <p> Month to month you can track your little one’s growth with this adorable set.
+            </p>
+
+            <p>Use the numbers each month until baby turns one.  
+              After that, just add the “I’m” piece and you’ll be able to use the number set year after year on their birthday!
+              </p>
+
+            <p>Set includes:
+              Numbers 1-11 and Pennant 7x12 inches
+              </p>
+            <p>All numbers are white with a colored backing.
+              Pennant is 3-ply so it can be held or simply lay next to your baby for pictures.
+              Numbers adhere by one sided velcro.
+               </p>
+
+            <p>
+             For custom colors, please use the Contact form.
+            </p>
+            <p class="has-text-weight-bold is-italic">This product is intended for decorative purposes only - it is not
+              a toy.
+              Please hang out of the reach of children.
+            </p>
+            <p class="has-text-weight-bold is-italic">
+              Actual colors may differ slightly from colors on your screen due to different screen resolutions and color
+              depths.
+            </p>
         </p>
       </div>
     </div>
@@ -1171,6 +1209,7 @@
     <div class="p-4">
       <p class="title has-text-centered">CONTACT ME</p>
       <p class="has-text-centered has-text-weight-bold">Submit Questions, Concerns, or Custom Art Requests</p>
+      <p class="has-text-centered is-italic">All Fields Required</p>
       <form>
         <div class="field">
           <label class="label">Name</label>
@@ -1190,7 +1229,7 @@
         <div class="field">
           <label class="label">Phone Number</label>
           <div class="">
-            <input class="input" type="number" id="phone_cmf">
+            <input class="input" type="tel" id="phone_cmf">
           </div>
         </div>
         <div class="field">
@@ -1242,20 +1281,42 @@
     <div class="column is-2"></div>
   </div>
 
+  <!--account content -->
+  <div id="Account" class="content is-hidden">
+    <div>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="container">
+        <div class="mr-5 mt-4 mb-5">
+          <p class="title">Account Details</p>
+          <div id="details">
+            <p>Account Details will go here</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
 
   <!-- modal for checkout -->
   <div id="venmo_modal" class="modal">
-    <div class="modal-background" id="venmo_modalbg">
+    <div class="modal-background" id="venmo_modalbg"></div>
       <div class="modal-content has-background-white p-3">
         <!--Sign Up Modal Title -->
         <h1 class="title p-5">Payment Confirmation</h1>
 
         <div id="venmo_total">
         </div>
+
         <img src="venmo_icon.png" class="image is-32x32 ml-5">
         <h6 class="m-5 is-size-5">
           Please Venmo the total to @cheerstoyoudesign!
         </h6>
+        <h6 class = "m-5 is-size-5">Enter your Venmo:</h6>
+        <div class="control m-5">
+          <input class="input" type="text" id="user_venmo">
+        </div>
         <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
         <div class="columns">
           <div class="column is-8"></div>
@@ -1264,13 +1325,14 @@
         </div>
 
       </div>
-    </div>
+    
   </div>
 
   <div id="Orders" class="content is-hidden">
 
 
     <h1 class="has-text-centered">Orders</h1>
+    <div id="adminOrders"></div>
 
 
   </div>

@@ -173,11 +173,11 @@ auth.onAuthStateChanged((user) => {
 
     r_e("must_signin").classList.add("is-hidden");
     r_e("checkout").classList.remove("is-hidden");
+    r_e("account").classList.add("is-active");
   } //if user signed out
   else {
     // show sign out message to user on message bar
     configure_message_bar("You signed out successfully");
-
 
     // // configure main column content
     // configure_content();
@@ -187,6 +187,7 @@ auth.onAuthStateChanged((user) => {
 
     r_e("must_signin").classList.add("is-active");
     r_e("checkout").classList.add("is-hidden");
+    r_e("account").classList.add("is-hidden");
   }
 });
 
@@ -255,6 +256,8 @@ let contact = document.querySelector("#Contact");
 //admin divs
 let orders = document.querySelector("#Orders");
 let contactreq = document.querySelector("#Contactreq");
+//account div
+let account = document.querySelector("#Account");
 
 //variables for navbar
 let homenav = document.querySelector("#homepg");
@@ -266,9 +269,13 @@ let gallerynav = document.querySelector("#gallerypg");
 let makernav = document.querySelector("#makerpg");
 let scnav = document.querySelector("#shoppingCart");
 let contactnav = document.querySelector("#contactpg");
-//admin nav bar
+//admin buttons
 let ordernav = document.querySelector("#orderpg");
+let orderbut = document.querySelector("#orderbutton");
 let contactreqnav = document.querySelector("#contactreqpg");
+let contactbut = document.querySelector("#contactbutton");
+//account button
+let accountnav = document.querySelector("#accountpg");
 
 //variables for home page
 let homepen = document.querySelector("#homepen");
@@ -285,11 +292,11 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
       //add navbar for orders & contact form
-      ordernav.classList.add("is-active");
-      ordernav.classList.remove("is-hidden");
-      contactreqnav.classList.add("is-active");
-      contactreqnav.classList.remove("is-hidden");
-      console.log("admin logged in");
+      orderbut.classList.add("is-active");
+      orderbut.classList.remove("is-hidden");
+      contactbut.classList.add("is-active");
+      contactbut.classList.remove("is-hidden");
+      r_e("accountbutton").classList.add("is-hidden")
       //update = part 2
     }
   }
@@ -353,7 +360,6 @@ buntingnav.addEventListener("click", () => {
     }
   });
 });
-
 
 //milestonesets page
 msnav.addEventListener("click", () => {
@@ -419,6 +425,19 @@ scnav.addEventListener("click", () => {
   var allSections = document.querySelectorAll(".content"); // Select all sections by class
   allSections.forEach((section) => {
     if (section.id != "Shopping") {
+      section.classList.add("is-hidden"); // Hide other sections
+      section.classList.remove("is-active");
+    }
+  });
+});
+
+accountnav.addEventListener("click", () => {
+  account.classList.add("is-active");
+  account.classList.remove("is-hidden");
+
+  var allSections = document.querySelectorAll(".content"); // Select all sections by class
+  allSections.forEach((section) => {
+    if (section.id != "Account") {
       section.classList.add("is-hidden"); // Hide other sections
       section.classList.remove("is-active");
     }
@@ -525,7 +544,6 @@ homeban1.addEventListener("click", () => {
   });
 });
 
-
 //milestonesets page
 homems1.addEventListener("click", () => {
   ms.classList.add("is-active");
@@ -593,8 +611,9 @@ addToCartPen.addEventListener("click", (event) => {
 
   let orderItem = {
     email: auth.currentUser.email,
-    color1: document.querySelector("#penColor").value,
-    color2: document.querySelector("#fontColorPen").value,
+    pennantColor: document.querySelector("#penColor").value,
+    edgeColor: document.querySelector("#edgeColorPen").value,
+    fontColor: document.querySelector("#fontColorPen").value,
     customization: document.querySelector("#penPersonal").value,
     productType: "Pennant",
     price: 50,
@@ -622,7 +641,7 @@ addToCartBun.addEventListener("click", (event) => {
     price: 40,
   };
 
-  console.log(orderItem)
+  console.log(orderItem);
 
   db.collection("OrderItems")
     .add(orderItem)
@@ -661,25 +680,32 @@ addToCartMS.addEventListener("click", (event) => {
     .then(() => alert("Added to Cart!"));
 });
 
-addToCartCust.addEventListener("click", (event) => {
-  event.preventDefault();
+function product_html(doc) {
+  html = "";
+  if (doc.data().productType == "Pennant") {
+    html += `<p>Pennant Color: ${doc.data().pennantColor}</p>
+    <p>Edge Color: ${doc.data().edgeColor}</p>
+    <p>Font Color: ${doc.data().fontColor}<p>
+    <p>Customization: ${doc.data().customization}</p>`;
+  }
 
-  let orderItem = {
-    email: auth.currentUser.email,
-    color1: document.querySelector("#custColor").value,
-    color2: document.querySelector("#fontColorCust").value,
-    customization: document.querySelector("#CustPersonal").value,
-    productType: "Custom Request",
-    price: 70,
-  };
+  if (doc.data().productType == "Bunting") {
+    html += `<p>Flag Color 1: ${doc.data().color1}</p>
+    <p>Flag Color 2: ${doc.data().color2}</p>
+    <p>Flag Color 3: ${doc.data().color3}<p>
+    <p>Flag Color 4: ${doc.data().color4}<p>
+    <p>Letter Type: ${doc.data().letterType}</p>`;
+  }
 
-  db.collection("OrderItems")
-    .add(orderItem)
-    .then(() => alert("Added to Cart!"));
+  if (doc.data().productType == "Garland") {
+    html += `<p>Flag Color 1: ${doc.data().color1}</p>
+    <p>Flag Color 2: ${doc.data().color2}</p>
+    <p>Flag Color 3: ${doc.data().color3}<p>
+    <p>Flag Color 4: ${doc.data().color4}<p>`;
+  }
 
-  //reset the form
-  document.querySelector("#custPersonal").value = "";
-});
+  return html;
+}
 
 // shopping cart data
 db.collection("OrderItems")
@@ -697,15 +723,10 @@ db.collection("OrderItems")
             </div>
             <div class="column is-4">
               <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-              <p>Color 1: ${doc.data().color1}</p>
-              <p>Color 2: ${doc.data().color2}</p>
-              <p>Customization: ${doc.data().customization}</p>
+              <p>${product_html(doc)}</p>
             </div>
 
-            <!-- need to change to js -->
-            <div class="column">$${parseFloat(doc.data().price).toFixed(
-          2
-        )}</div>
+            <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
             <div onclick="del_doc('${doc.id
           }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
@@ -745,6 +766,31 @@ db.collection("ContactForm")
     document.querySelector("#Contactreq").innerHTML += html;
   });
 
+//load orders data
+// db.collection("Orders")
+//   .get()
+//   .then((data) => {
+//     let docs = data.docs;
+//     let html = ``;
+//     docs.forEach((doc) => {
+//       html += `<div class="box pb-6 m-3 pr-0 columns">
+//           <div class="column">
+//             <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+//             <p>Email: ${doc.data().email}</p>`
+//       doc.forEach((item) => {
+//         html += `<div class="column is-4">
+//                     <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+//                     <p>${product_html(doc)}</p>
+//                     </div>`
+//       })
+//       html += ` </div >
+//         <div onclick="del_docreq('${doc.id
+//         }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+//         </div > `;
+//     });
+//     document.querySelector("#adminOrders").innerHTML += html;
+//   });
+
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
@@ -757,9 +803,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
     Message: r_e("message_cmf").value,
   };
 
-  console.log(m1);
-
-  db.collection("ContactForm").add(m1);
+  db.collection("ContactForm")
+    .add(m1)
+    .then(() => alert("Request Submitted!"));
 
   //reset the form
   (r_e("name_cmf").value = ""),
@@ -785,7 +831,7 @@ auth.onAuthStateChanged((user) => {
       });
       document.querySelector(
         "#venmo_total"
-      ).innerHTML += `<h6 class ="m-5 is-size-4"><b>Your total is $${total}<b></h6>`;
+      ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
     });
 });
 
@@ -817,49 +863,53 @@ r_e("order_agree").addEventListener("click", (e) => {
 
   const ordersData = [];
 
-  db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
+  db.collection("OrderItems")
+    .where("email", "==", auth.currentUser.email)
+    .get()
     .then((order) => {
       order.forEach((doc) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
       });
-      console.log(ordersData)
+      console.log(ordersData);
 
       db.collection("Orders").add({
         combinedData: ordersData, // Store the combined orders' data in a single field
-      })
-      console.log("added to db")
+        createdAt: Date.now(),
+        user_venmo: r_e("user_venmo").value,
+      });
+      console.log("added to db");
 
       order.forEach((doc) => {
         db.collection("OrderItems").doc(doc.id).delete();
-      })
+      });
     })
     .catch((error) => {
       console.error("Error getting documents: ", error);
     });
 
-  alert("Thanks for Ordering from Cheers to You!")
+  alert("Thanks for Ordering from Cheers to You!");
 });
 
 var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("item-slide");
   if (n > slides.length) {
-    slideIndex = 1
+    slideIndex = 1;
   }
   if (n < 1) {
-    slideIndex = slides.length
+    slideIndex = slides.length;
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
