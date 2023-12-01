@@ -255,9 +255,11 @@ let gallerynav = document.querySelector("#gallerypg");
 let makernav = document.querySelector("#makerpg");
 let scnav = document.querySelector("#shoppingCart");
 let contactnav = document.querySelector("#contactpg");
-//admin nav bar
+//admin buttons
 let ordernav = document.querySelector("#orderpg");
+let orderbut = document.querySelector("#orderbutton");
 let contactreqnav = document.querySelector("#contactreqpg");
+let contactbut = document.querySelector("#contactbutton");
 //account button
 let accountnav = document.querySelector("#accountpg");
 
@@ -276,11 +278,11 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
       //add navbar for orders & contact form
-      ordernav.classList.add("is-active");
-      ordernav.classList.remove("is-hidden");
-      contactreqnav.classList.add("is-active");
-      contactreqnav.classList.remove("is-hidden");
-      console.log("admin logged in");
+      orderbut.classList.add("is-active");
+      orderbut.classList.remove("is-hidden");
+      contactbut.classList.add("is-active");
+      contactbut.classList.remove("is-hidden");
+      r_e("accountbutton").classList.add("is-hidden")
       //update = part 2
     }
   }

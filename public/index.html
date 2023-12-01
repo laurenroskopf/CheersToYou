@@ -28,8 +28,16 @@
       <a id="signoutbtn" class="signedin has-text-black">Sign Out</a>
     </div>
     <!-- account button -->
-    <div class="button is-pulled-right signedin ml-3">
+    <div id="accountbutton" class="button is-pulled-right signedin ml-3">
       <a id="accountpg" class="signedin has-text-black">Account</a>
+    </div>
+    <!-- requests button for admin -->
+    <div id="contactbutton"class="button is-pulled-right ml-3 is-hidden">
+      <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
+    </div>
+    <!-- orders button for admin -->
+    <div id="orderbutton" class="button is-pulled-right ml-3 is-hidden">
+      <a id="orderpg" class=" has-text-black">Orders</a>
     </div>
     <!-- shopping cart button -->
     <div class="is-pulled-right is-clickable p-2" id="shoppingCart">
@@ -85,12 +93,6 @@
       </a>
       <a class="navbar-item has-text-black" id="contactpg">
         Contact Me
-      </a>
-      <a class="navbar-item has-text-black is-hidden" id="orderpg">
-        Orders
-      </a>
-      <a class="navbar-item has-text-black is-hidden" id="contactreqpg">
-        Contact Form Requests
       </a>
     </div>
   </nav>
