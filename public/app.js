@@ -135,7 +135,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -232,10 +232,8 @@ let addBtn = document.querySelector("#addBtn");
 let home = document.querySelector("#Index");
 let pennants = document.querySelector("#pen");
 let garlands = document.querySelector("#Garlands");
-let banners = document.querySelector("#Banners");
+let buntings = document.querySelector("#Buntings");
 let ms = document.querySelector("#Milestone");
-let framed = document.querySelector("#Framed");
-let custom = document.querySelector("#Custom");
 let gallery = document.querySelector("#Gallery");
 let maker = document.querySelector("#Maker");
 let shop = document.querySelector("#Shopping");
@@ -248,10 +246,8 @@ let contactreq = document.querySelector("#Contactreq");
 let homenav = document.querySelector("#homepg");
 let pennantnav = document.querySelector("#pennantspg");
 let garlandsnav = document.querySelector("#garlandspg");
-let bannersnav = document.querySelector("#bannerspg");
+let buntingnav = document.querySelector("#buntingpg");
 let msnav = document.querySelector("#milestonepg");
-let framednav = document.querySelector("#framedpg");
-let customnav = document.querySelector("#custompg");
 let gallerynav = document.querySelector("#gallerypg");
 let makernav = document.querySelector("#makerpg");
 let scnav = document.querySelector("#shoppingCart");
@@ -265,14 +261,10 @@ let homepen = document.querySelector("#homepen");
 let homegar = document.querySelector("#homegar");
 let homeban = document.querySelector("#homeban");
 let homems = document.querySelector("#homems");
-let homeframe = document.querySelector("#homeframe");
-let homecust = document.querySelector("#homecust");
 let homepen1 = document.querySelector("#homepen1");
 let homegar1 = document.querySelector("#homegar1");
 let homeban1 = document.querySelector("#homeban1");
 let homems1 = document.querySelector("#homems1");
-let homeframe1 = document.querySelector("#homeframe1");
-let homecust1 = document.querySelector("#homecust1");
 
 //admin navbar transformations
 auth.onAuthStateChanged((user) => {
@@ -335,32 +327,19 @@ garlandsnav.addEventListener("click", () => {
 });
 
 //banners page
-bannersnav.addEventListener("click", () => {
-  banners.classList.add("is-active");
-  banners.classList.remove("is-hidden");
+buntingnav.addEventListener("click", () => {
+  buntings.classList.add("is-active");
+  buntings.classList.remove("is-hidden");
 
   var allSections = document.querySelectorAll(".content"); // Select all sections by class
   allSections.forEach((section) => {
-    if (section.id != "Banners") {
+    if (section.id != "Buntings") {
       section.classList.add("is-hidden"); // Hide other sections
       section.classList.remove("is-active");
     }
   });
 });
 
-//framed art page
-framednav.addEventListener("click", () => {
-  framed.classList.add("is-active");
-  framed.classList.remove("is-hidden");
-
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Framed") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //milestonesets page
 msnav.addEventListener("click", () => {
@@ -475,20 +454,6 @@ homeban.addEventListener("click", () => {
   });
 });
 
-//framed art page
-homeframe.addEventListener("click", () => {
-  framed.classList.add("is-active");
-  framed.classList.remove("is-hidden");
-
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Framed") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
-
 //milestonesets page
 homems.addEventListener("click", () => {
   ms.classList.add("is-active");
@@ -546,19 +511,6 @@ homeban1.addEventListener("click", () => {
   });
 });
 
-//framed art page
-homeframe1.addEventListener("click", () => {
-  framed.classList.add("is-active");
-  framed.classList.remove("is-hidden");
-
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Framed") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //milestonesets page
 homems1.addEventListener("click", () => {
@@ -617,7 +569,7 @@ function del_doc(id) {
 }
 
 let addToCartPen = document.querySelector("#addPennant");
-let addToCartBan = document.querySelector("#addBanner");
+let addToCartBun = document.querySelector("#addBunting");
 let addToCartGar = document.querySelector("#addGarland");
 let addToCartMS = document.querySelector("#addMS");
 let addToCartCust = document.querySelector("#addCustom");
@@ -642,24 +594,25 @@ addToCartPen.addEventListener("click", (event) => {
   document.querySelector("#penPersonal").value = "";
 });
 
-addToCartBan.addEventListener("click", (event) => {
+addToCartBun.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
     email: auth.currentUser.email,
-    color1: document.querySelector("#banColor").value,
-    color2: document.querySelector("#fontColorBan").value,
-    customization: document.querySelector("#banPersonal").value,
-    productType: "Banner",
-    price: 30,
+    color1: document.querySelector("#bcolor1").value,
+    color2: document.querySelector("#bcolor2").value,
+    color3: document.querySelector("#bcolor3").value,
+    color4: document.querySelector("#bcolor4").value,
+    letterType: document.querySelector("#bLetterType").value,
+    productType: "Bunting",
+    price: 40,
   };
+
+  console.log(orderItem)
 
   db.collection("OrderItems")
     .add(orderItem)
     .then(() => alert("Added to Cart!"));
-
-  //reset the form
-  document.querySelector("#banPersonal").value = "";
 });
 
 addToCartGar.addEventListener("click", (event) => {
@@ -803,9 +756,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
