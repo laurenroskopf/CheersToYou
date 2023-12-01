@@ -174,6 +174,7 @@ auth.onAuthStateChanged((user) => {
 
     r_e("must_signin").classList.add("is-active");
     r_e("checkout").classList.add("is-hidden");
+    r_e("account").classList.add("is-hidden");
   }
 });
 
@@ -242,6 +243,8 @@ let contact = document.querySelector("#Contact");
 //admin divs
 let orders = document.querySelector("#Orders");
 let contactreq = document.querySelector("#Contactreq");
+//account div
+let account = document.querySelector("#Account");
 
 //variables for navbar
 let homenav = document.querySelector("#homepg");
@@ -256,6 +259,8 @@ let contactnav = document.querySelector("#contactpg");
 //admin nav bar
 let ordernav = document.querySelector("#orderpg");
 let contactreqnav = document.querySelector("#contactreqpg");
+//account button
+let accountnav = document.querySelector("#accountpg");
 
 //variables for home page
 let homepen = document.querySelector("#homepen");
@@ -406,6 +411,19 @@ scnav.addEventListener("click", () => {
   var allSections = document.querySelectorAll(".content"); // Select all sections by class
   allSections.forEach((section) => {
     if (section.id != "Shopping") {
+      section.classList.add("is-hidden"); // Hide other sections
+      section.classList.remove("is-active");
+    }
+  });
+});
+
+accountnav.addEventListener("click", () => {
+  account.classList.add("is-active");
+  account.classList.remove("is-hidden");
+
+  var allSections = document.querySelectorAll(".content"); // Select all sections by class
+  allSections.forEach((section) => {
+    if (section.id != "Account") {
       section.classList.add("is-hidden"); // Hide other sections
       section.classList.remove("is-active");
     }
