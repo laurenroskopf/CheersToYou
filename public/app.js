@@ -52,6 +52,20 @@ function load_sc_data() {
     });
 }
 
+//update doc 
+function update_doc(ele, id) {
+
+  let inputs = ele.parentNode.querySelectorAll("input");
+
+  inputs[0].type = "text";
+  inputs[1].type = "text";
+
+  db.collection("people").doc(id).update({
+    name: inputs[0].value,
+    color: inputs[1].value,
+  });
+}
+
 // configure the message bar
 function configure_message_bar(msg) {
   // enforce message bar being visible
@@ -135,7 +149,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -749,9 +763,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
