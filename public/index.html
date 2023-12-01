@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://kit.fontawesome.com/46c8df2863.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
 </head>
 
 <header>
@@ -333,7 +334,38 @@
     <div><br></div>
     <div class="container">
       <div class="column">
-        <img src="./imagesCheersToYou/IMG_6289.jpg" width="400" height="500" alt="Pennants">
+        <section>
+          <div id="slider">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by5 is-covered">
+                  <img src="./imagesCheersToYou/IMG_0714.jpg" alt="" />
+                </figure>
+              </div>
+              <div class="card-content slider-text ">
+              </div>
+            </div>
+            <div class="card ">
+              <div class="card-image">
+                <figure class="image is-4by5 is-covered">
+                  <img src="./imagesCheersToYou/IMG_3786.jpg" alt="" />
+                </figure>
+              </div>
+              <div class="card-content slider-text ">
+              </div>
+            </div>
+            <div class="card ">
+              <div class="card-image">
+                <p class="image is-4by5 is-covered">
+                  <img src="./imagesCheersToYou/IMG_6064.jpg" alt="" />
+                </p>
+              </div>
+              <div class="card-content slider-text ">
+              </div>
+            </div>
+
+          </div>
+        </section>
       </div>
       <div class="column">
         <h2>Pennants</h2>
@@ -1608,6 +1640,15 @@
   </script>
   <!-- make sure to add your own js file as the last line in index.html file -->
   <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  <script>
+    bulmaCarousel.attach('#slider', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true,
+      autoplay: false,
+    });
+  </script>
 </body>
 
 </html>
