@@ -41,9 +41,10 @@ function load_sc_data() {
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-            2
-          )}</div>
-            <div onclick="del_doc('${doc.id
+              2
+            )}</div>
+            <div onclick="del_doc('${
+              doc.id
             }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
         }
@@ -135,7 +136,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -163,7 +164,6 @@ auth.onAuthStateChanged((user) => {
   else {
     // show sign out message to user on message bar
     configure_message_bar("You signed out successfully");
-
 
     // // configure main column content
     // configure_content();
@@ -340,7 +340,6 @@ buntingnav.addEventListener("click", () => {
   });
 });
 
-
 //milestonesets page
 msnav.addEventListener("click", () => {
   ms.classList.add("is-active");
@@ -511,7 +510,6 @@ homeban1.addEventListener("click", () => {
   });
 });
 
-
 //milestonesets page
 homems1.addEventListener("click", () => {
   ms.classList.add("is-active");
@@ -579,8 +577,9 @@ addToCartPen.addEventListener("click", (event) => {
 
   let orderItem = {
     email: auth.currentUser.email,
-    color1: document.querySelector("#penColor").value,
-    color2: document.querySelector("#fontColorPen").value,
+    pennantColor: document.querySelector("#penColor").value,
+    edgeColor: document.querySelector("#edgeColorPen").value,
+    fontColor: document.querySelector("#fontColorPen").value,
     customization: document.querySelector("#penPersonal").value,
     productType: "Pennant",
     price: 50,
@@ -608,7 +607,7 @@ addToCartBun.addEventListener("click", (event) => {
     price: 40,
   };
 
-  console.log(orderItem)
+  console.log(orderItem);
 
   db.collection("OrderItems")
     .add(orderItem)
@@ -647,7 +646,6 @@ addToCartMS.addEventListener("click", (event) => {
     .then(() => alert("Added to Cart!"));
 });
 
-
 // shopping cart data
 db.collection("OrderItems")
   .get()
@@ -671,10 +669,11 @@ db.collection("OrderItems")
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-          2
-        )}</div>
-            <div onclick="del_doc('${doc.id
-          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+              2
+            )}</div>
+            <div onclick="del_doc('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       }
     });
@@ -705,8 +704,9 @@ db.collection("ContactForm")
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${doc.id
-        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
     document.querySelector("#Contactreq").innerHTML += html;
@@ -723,7 +723,6 @@ r_e("contactme_form").addEventListener("click", (e) => {
     Phone: r_e("phone_cmf").value,
     Message: r_e("message_cmf").value,
   };
-
 
   db.collection("ContactForm")
     .add(m1)
@@ -785,49 +784,51 @@ r_e("order_agree").addEventListener("click", (e) => {
 
   const ordersData = [];
 
-  db.collection("OrderItems").where('email', '==', auth.currentUser.email).get()
+  db.collection("OrderItems")
+    .where("email", "==", auth.currentUser.email)
+    .get()
     .then((order) => {
       order.forEach((doc) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
       });
-      console.log(ordersData)
+      console.log(ordersData);
 
       db.collection("Orders").add({
         combinedData: ordersData, // Store the combined orders' data in a single field
-      })
-      console.log("added to db")
+      });
+      console.log("added to db");
 
       order.forEach((doc) => {
         db.collection("OrderItems").doc(doc.id).delete();
-      })
+      });
     })
     .catch((error) => {
       console.error("Error getting documents: ", error);
     });
 
-  alert("Thanks for Ordering from Cheers to You!")
+  alert("Thanks for Ordering from Cheers to You!");
 });
 
 var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("item-slide");
   if (n > slides.length) {
-    slideIndex = 1
+    slideIndex = 1;
   }
   if (n < 1) {
-    slideIndex = slides.length
+    slideIndex = slides.length;
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
