@@ -646,6 +646,33 @@ addToCartMS.addEventListener("click", (event) => {
     .then(() => alert("Added to Cart!"));
 });
 
+function product_html(doc) {
+  html = "";
+  if (doc.data().productType == "Pennant") {
+    html += `<p>Pennant Color: ${doc.data().pennantColor}</p>
+    <p>Edge Color: ${doc.data().edgeColor}</p>
+    <p>Font Color: ${doc.data().fontColor}<p>
+    <p>Customization: ${doc.data().customization}</p>`;
+  }
+
+  if (doc.data().productType == "Bunting") {
+    html += `<p>Flag Color 1: ${doc.data().color1}</p>
+    <p>Flag Color 2: ${doc.data().color2}</p>
+    <p>Flag Color 3: ${doc.data().color3}<p>
+    <p>Flag Color 4: ${doc.data().color4}<p>
+    <p>Letter Type: ${doc.data().letterType}</p>`;
+  }
+
+  if (doc.data().productType == "Garland") {
+    html += `<p>Flag Color 1: ${doc.data().color1}</p>
+    <p>Flag Color 2: ${doc.data().color2}</p>
+    <p>Flag Color 3: ${doc.data().color3}<p>
+    <p>Flag Color 4: ${doc.data().color4}<p>`;
+  }
+
+  return html;
+}
+
 // shopping cart data
 db.collection("OrderItems")
   .get()
@@ -662,9 +689,7 @@ db.collection("OrderItems")
             </div>
             <div class="column is-4">
               <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-              <p>Color 1: ${doc.data().color1}</p>
-              <p>Color 2: ${doc.data().color2}</p>
-              <p>Customization: ${doc.data().customization}</p>
+              <p>${product_html(doc)}</p>
             </div>
 
             <!-- need to change to js -->
