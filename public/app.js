@@ -638,19 +638,13 @@ addToCartMS.addEventListener("click", (event) => {
 
   let orderItem = {
     email: auth.currentUser.email,
-    color1: document.querySelector("#msColor").value,
-    color2: document.querySelector("#fontColorMS").value,
-    customization: document.querySelector("#msPersonal").value,
     productType: "Milestone Set",
-    price: 55,
+    price: 48,
   };
 
   db.collection("OrderItems")
     .add(orderItem)
     .then(() => alert("Added to Cart!"));
-
-  //reset the form
-  document.querySelector("#msPersonal").value = "";
 });
 
 addToCartCust.addEventListener("click", (event) => {
