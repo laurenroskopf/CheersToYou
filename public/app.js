@@ -620,18 +620,17 @@ addToCartGar.addEventListener("click", (event) => {
 
   let orderItem = {
     email: auth.currentUser.email,
-    color1: document.querySelector("#garColor").value,
-    customization: document.querySelector("#garPersonal").value,
+    color1: document.querySelector("#gColor1").value,
+    color2: document.querySelector("#gColor2").value,
+    color3: document.querySelector("#gColor3").value,
+    color4: document.querySelector("#gColor4").value,
     productType: "Garland",
-    price: 45,
+    price: 28,
   };
 
   db.collection("OrderItems")
     .add(orderItem)
     .then(() => alert("Added to Cart!"));
-
-  //reset the form
-  document.querySelector("#garPersonal").value = "";
 });
 
 addToCartMS.addEventListener("click", (event) => {
