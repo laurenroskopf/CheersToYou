@@ -647,25 +647,6 @@ addToCartMS.addEventListener("click", (event) => {
     .then(() => alert("Added to Cart!"));
 });
 
-addToCartCust.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  let orderItem = {
-    email: auth.currentUser.email,
-    color1: document.querySelector("#custColor").value,
-    color2: document.querySelector("#fontColorCust").value,
-    customization: document.querySelector("#CustPersonal").value,
-    productType: "Custom Request",
-    price: 70,
-  };
-
-  db.collection("OrderItems")
-    .add(orderItem)
-    .then(() => alert("Added to Cart!"));
-
-  //reset the form
-  document.querySelector("#custPersonal").value = "";
-});
 
 // shopping cart data
 db.collection("OrderItems")
@@ -743,9 +724,10 @@ r_e("contactme_form").addEventListener("click", (e) => {
     Message: r_e("message_cmf").value,
   };
 
-  console.log(m1);
 
-  db.collection("ContactForm").add(m1);
+  db.collection("ContactForm")
+    .add(m1)
+    .then(() => alert("Request Submitted!"));
 
   //reset the form
   (r_e("name_cmf").value = ""),
