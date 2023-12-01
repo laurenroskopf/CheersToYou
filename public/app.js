@@ -859,6 +859,8 @@ r_e("order_agree").addEventListener("click", (e) => {
 
       db.collection("Orders").add({
         combinedData: ordersData, // Store the combined orders' data in a single field
+        createdAt: Date.now(),
+        user_venmo: r_e("user_venmo").value,
       });
       console.log("added to db");
 
