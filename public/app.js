@@ -429,6 +429,7 @@ makernav.addEventListener("click", () => {
 
 //contact me
 contactnav.addEventListener("click", () => {
+  console.log("contact nav w no issues")
   contact.classList.add("is-active");
   contact.classList.remove("is-hidden");
 
@@ -439,6 +440,7 @@ contactnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  console.log("contact nav w no issues")
 });
 
 //shopping cart
