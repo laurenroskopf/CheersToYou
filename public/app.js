@@ -149,7 +149,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -769,32 +769,37 @@ function product_html(doc) {
 }
 
 // shopping cart data
-db.collection("OrderItems")
-  .get()
-  .then((data) => {
-    let docs = data.docs;
-    let html = ``;
-    docs.forEach((doc) => {
-      if (auth.currentUser.email == doc.data().email) {
-        html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column is-2">
-              <figure class="image is-square">
-                <img src="pennants.png" alt="Product 1" />
-              </figure>
-            </div>
-            <div class="column is-4">
-              <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-              <p>${product_html(doc)}</p>
-            </div>
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    db.collection("OrderItems")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let html = ``;
+        docs.forEach((doc) => {
+          if (auth.currentUser.email == doc.data().email) {
+            html += `<div class="box pb-6 m-3 pr-0 columns">
+              <div class="column is-2">
+                <figure class="image is-square">
+                  <img src="pennants.png" alt="Product 1" />
+                </figure>
+              </div>
+              <div class="column is-4">
+                <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+                <p>${product_html(doc)}</p>
+              </div>
+  
+              <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
+              <div onclick="del_doc('${doc.id
+              }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            </div>`;
+          }
+        });
+        document.querySelector("#cart").innerHTML += html;
+      });
+  }
+})
 
-            <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-            <div onclick="del_doc('${doc.id
-          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
-      }
-    });
-    document.querySelector("#cart").innerHTML += html;
-  });
 
 function del_docreq(id) {
   db.collection("ContactForm")
@@ -827,30 +832,6 @@ db.collection("ContactForm")
     document.querySelector("#Contactreq").innerHTML += html;
   });
 
-//load orders data
-// db.collection("Orders")
-//   .get()
-//   .then((data) => {
-//     let docs = data.docs;
-//     let html = ``;
-//     docs.forEach((doc) => {
-//       html += `<div class="box pb-6 m-3 pr-0 columns">
-//           <div class="column">
-//             <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
-//             <p>Email: ${doc.data().email}</p>`
-//       doc.forEach((item) => {
-//         html += `<div class="column is-4">
-//                     <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-//                     <p>${product_html(doc)}</p>
-//                     </div>`
-//       })
-//       html += ` </div >
-//         <div onclick="del_docreq('${doc.id
-//         }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-//         </div > `;
-//     });
-//     document.querySelector("#adminOrders").innerHTML += html;
-//   });
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -870,9 +851,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -882,19 +863,21 @@ let subtotal = 0;
 
 //adding total to modal
 auth.onAuthStateChanged((user) => {
-  db.collection("OrderItems")
-    .where("email", "==", auth.currentUser.email)
-    .get()
-    .then((order) => {
-      let total = 0;
-      order.forEach((doc) => {
-        total += doc.data().price;
+  if (user) {
+    db.collection("OrderItems")
+      .where("email", "==", auth.currentUser.email)
+      .get()
+      .then((order) => {
+        let total = 0;
+        order.forEach((doc) => {
+          total += doc.data().price;
+        });
+        document.querySelector(
+          "#venmo_total"
+        ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
       });
-      document.querySelector(
-        "#venmo_total"
-      ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
-    });
-});
+  }
+})
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
