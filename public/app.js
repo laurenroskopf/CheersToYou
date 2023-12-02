@@ -316,9 +316,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-edit_stuff('maker_edit');
 
-edit_stuff('pennant_home_edit');
 
 
 
