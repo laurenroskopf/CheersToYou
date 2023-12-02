@@ -544,19 +544,7 @@ homeban.addEventListener("click", () => {
   });
 });
 
-//framed art page
-homeframe.addEventListener("click", () => {
-  framed.classList.add("is-active");
-  framed.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Framed") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //milestonesets page
 homems.addEventListener("click", () => {
@@ -615,19 +603,7 @@ homeban1.addEventListener("click", () => {
   });
 });
 
-//framed art page
-homeframe1.addEventListener("click", () => {
-  framed.classList.add("is-active");
-  framed.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Framed") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-});
 
 //milestonesets page
 homems1.addEventListener("click", () => {
