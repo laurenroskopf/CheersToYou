@@ -842,9 +842,11 @@ r_e("order_agree").addEventListener("click", (e) => {
       });
       console.log(ordersData);
 
+      const date = new Date();
+
       db.collection("Orders").add({
         combinedData: ordersData, // Store the combined orders' data in a single field
-        createdAt: Date.now(),
+        createdAt: date,
         user_venmo: r_e("user_venmo").value,
       });
       console.log("added to db");
@@ -876,28 +878,27 @@ auth.onAuthStateChanged((user) => {
       })
       document.querySelector("#details").innerHTML += html;
     })
-    // //display customer orders
-    // db.collection("Orders")
-    //   .get()
-    //   .then((data) => {
-    //     let docs = data.docs;
-    //     let html = ``;
-    //     docs.forEach((doc) => {
-    //       if (auth.currentUser.email == doc.data().email) {
-    //         html += `<div class="box pb-6 m-3 pr-0 columns">
-    //           <div class="column is-4">
-    //             <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-    //             <p>${product_html(doc)}</p>
-    //           </div>
+    //display customer orders
+    db.collection("Orders")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let html = ``;
+        docs.forEach((doc) => {
+          if (auth.currentUser.email == doc.data().email) {
+            html += `<div class="box pb-6 m-3 pr-0 columns">
+              <div class="column is-4">
+                <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+                <p>${product_html(doc)}</p>
+              </div>
 
-    //           <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-    //           <div onclick="del_doc('${doc.id
-    //           }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-    //         </div>`;
-    //       }
-    //     });
-    //     document.querySelector("#details").innerHTML += html;
-    //   });
+              <div class="column">Total: $${parseFloat(doc.data().price).toFixed(2)}</div>
+              <div onclick="del_doc('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            </div>`;
+          }
+        });
+        document.querySelector("#details").innerHTML += html;
+      });
 
 
   }
