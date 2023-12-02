@@ -296,43 +296,8 @@ let homecust1 = document.querySelector("#homecust1");
 
 
 
-function edit_stuff(identify) {
-  var text = document.getElementById(identify);
-  var myData = "";
-  var postData = window.localStorage.getItem("save");
-  var reset = text.innerHTML;
-  // if no data
-  if (postData == null || postData == '') {
-    myData = text.innerHTML;
-    // store default value
-    window.localStorage.setItem("save", myData);
-    // make it placeholder style
-    text.classList.remove('changed');
-
-  } else {
-    // if there is a value post it
-    text.innerHTML = postData;
-    // make dark text
-    text.classList.add('changed');
-  }
 
 
-}
-
-function saveChanges(identify) {
-  // store the current value
-  var myData = "";
-  identify1 = document.getElementById(identify);
-  myData = identify1.innerHTML;
-  // local store the value
-  window.localStorage.setItem("save", myData);
-  identify1.classList.add('changed');
-
-}
-
-
-var maker_edit = document.getElementById('maker_edit');
-var pennant_home_edit = document.getElementById('pennant_home_edit');
 
 
 
@@ -340,8 +305,7 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
       //add navbar for orders & contact form
-      maker_edit.contentEditable = "true";
-      pennant_home_edit.contentEditable = "true";
+
       orderbut.classList.add("is-active");
       orderbut.classList.remove("is-hidden");
       contactbut.classList.add("is-active");
@@ -352,9 +316,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-edit_stuff('maker_edit');
 
-edit_stuff('pennant_home_edit');
 
 
 
