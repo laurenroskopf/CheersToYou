@@ -149,7 +149,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -312,6 +312,10 @@ auth.onAuthStateChanged((user) => {
       contactbut.classList.add("is-active");
       contactbut.classList.remove("is-hidden");
       r_e("accountbutton").classList.add("is-hidden")
+      r_e("maker_edit_div").classList.add('is-active');
+      r_e("maker_edit_div").classList.remove('is-hidden');
+      r_e("maker_title_div").classList.remove('is-hidden');
+      r_e("maker_title_div").classList.add('is-active');
       //update = part 2
     }
   }
@@ -814,9 +818,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -841,6 +845,63 @@ auth.onAuthStateChanged((user) => {
       });
   }
 })
+
+
+//submit edits to maker page
+r_e("submit_maker_title_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection('Admin_Edits').doc('maker_body_edit').update({
+
+    title: document.querySelector('#maker_title_edits').value,
+
+  })
+
+
+  db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+    (doc) => {
+
+      document.querySelector('#maker_title_section').innerHTML = `<p class="title">${doc.data().title}</p>`
+
+    }
+  )
+
+});
+
+db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+  (doc) => {
+
+    document.querySelector('#maker_title_section').innerHTML = `<p class="title">${doc.data().title}</p>`
+  }
+)
+
+
+r_e("submit_maker_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection('Admin_Edits').doc('maker_body_edit').update({
+
+    message: document.querySelector('#maker_edits').value,
+
+  })
+
+
+  db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+    (doc) => {
+
+      document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+
+    }
+  )
+
+});
+
+db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+  (doc) => {
+
+    document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+  }
+)
+
+
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
