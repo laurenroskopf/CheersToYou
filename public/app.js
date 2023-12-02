@@ -15,43 +15,6 @@ function r_e(id) {
   return document.querySelector(`#${id}`);
 }
 
-function load_sc_data() {
-  db.collection("OrderItems")
-    .get()
-    .then((data) => {
-      let docs = data.docs;
-      let html = ``;
-      docs.forEach((doc) => {
-        console.log(auth.currentUser.email);
-        console.log(doc.data().email);
-        console.log(doc.data().customization);
-        if (auth.currentUser.email == doc.data().email) {
-          html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column is-2">
-              <figure class="image is-square">
-                <img src="pennants.png" alt="Product 1" />
-              </figure>
-            </div>
-            <div class="column is-4">
-              <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-              <p>Color 1: ${doc.data().color1}</p>
-              <p>Color 2: ${doc.data().color2}</p>
-              <p>Customization: ${doc.data().customization}</p>
-            </div>
-
-            <!-- need to change to js -->
-            <div class="column">$${parseFloat(doc.data().price).toFixed(
-            2
-          )}</div>
-            <div onclick="del_doc('${doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
-        }
-      });
-      document.querySelector("#cart").innerHTML += html;
-    });
-}
-
 //update doc 
 function update_doc(ele, id) {
 
@@ -621,7 +584,6 @@ function del_doc(id) {
     .doc(id)
     .delete()
     .then(() => alert("Product deleted"));
-  load_sc_data();
 }
 
 let addToCartPen = document.querySelector("#addPennant");
@@ -897,6 +859,49 @@ r_e("order_agree").addEventListener("click", (e) => {
 
   alert("Thanks for Ordering from Cheers to You!");
 });
+
+// account details
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    //display order details
+    db.collection("Customers").get().then((data) => {
+      let docs = data.docs
+      let html = ``
+      docs.forEach((doc) => {
+        if (auth.currentUser.email == doc.data().UserEmail) {
+          html += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
+          <p>Email: ${doc.data().UserEmail}</p>
+          <p>Phone Number: ${doc.data().PhoneNumber}</p>`
+        }
+      })
+      document.querySelector("#details").innerHTML += html;
+    })
+    // //display customer orders
+    // db.collection("Orders")
+    //   .get()
+    //   .then((data) => {
+    //     let docs = data.docs;
+    //     let html = ``;
+    //     docs.forEach((doc) => {
+    //       if (auth.currentUser.email == doc.data().email) {
+    //         html += `<div class="box pb-6 m-3 pr-0 columns">
+    //           <div class="column is-4">
+    //             <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+    //             <p>${product_html(doc)}</p>
+    //           </div>
+
+    //           <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
+    //           <div onclick="del_doc('${doc.id
+    //           }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+    //         </div>`;
+    //       }
+    //     });
+    //     document.querySelector("#details").innerHTML += html;
+    //   });
+
+
+  }
+})
 
 var slideIndex = 1;
 showSlides(slideIndex);
