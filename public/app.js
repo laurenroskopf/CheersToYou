@@ -694,7 +694,7 @@ addToCartBun.addEventListener("click", (event) => {
     color4: document.querySelector("#bcolor4").value,
     letterType: document.querySelector("#bLetterType").value,
     productType: "Bunting",
-    size: document.querySelector("#buntText").value,
+    message: document.querySelector("#buntText").value,
     price: getPrice(document.querySelector("#buntText").value),
   };
 
