@@ -716,8 +716,8 @@ addToCartGar.addEventListener("click", (event) => {
     color3: document.querySelector("#gColor3").value,
     color4: document.querySelector("#gColor4").value,
     productType: "Garland",
-    size: document.querySelector("#gtext").value,
-    price: getPrice2(document.querySelector("#gtext").value)
+    size: document.querySelector("#garSize").value,
+    price: getPrice2(document.querySelector("#garSize").value)
   };
 
   db.collection("OrderItems")
