@@ -176,10 +176,11 @@ r_e("signin_form").addEventListener("submit", (e) => {
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
   auth.signOut().then(() => {});
-  ordernav.classList.remove("is-active");
-  ordernav.classList.add("is-hidden");
-  contactreqnav.classList.remove("is-active");
-  contactreqnav.classList.add("is-hidden");
+  orderbut.classList.remove("is-active");
+  orderbut.classList.add("is-hidden");
+  contactbut.classList.remove("is-active");
+  contactbut.classList.add("is-hidden");
+  r_e("accountbutton").classList.remove("is-hidden")
 });
 
 // track user authentication status with onauthstatechanged
@@ -337,6 +338,10 @@ auth.onAuthStateChanged((user) => {
       contactbut.classList.add("is-active");
       contactbut.classList.remove("is-hidden");
       r_e("accountbutton").classList.add("is-hidden")
+      r_e("maker_edit_div").classList.add('is-active');
+      r_e("maker_edit_div").classList.remove('is-hidden');
+      r_e("maker_title_div").classList.remove('is-hidden');
+      r_e("maker_title_div").classList.add('is-active');
       //update = part 2
     }
   }
@@ -450,6 +455,7 @@ makernav.addEventListener("click", () => {
 
 //contact me
 contactnav.addEventListener("click", () => {
+  console.log("contact nav w no issues")
   contact.classList.add("is-active");
   contact.classList.remove("is-hidden");
 
@@ -460,6 +466,7 @@ contactnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  console.log("contact nav w no issues")
 });
 
 //shopping cart
@@ -760,32 +767,37 @@ function product_html(doc) {
 }
 
 // shopping cart data
-db.collection("OrderItems")
-  .get()
-  .then((data) => {
-    let docs = data.docs;
-    let html = ``;
-    docs.forEach((doc) => {
-      if (auth.currentUser.email == doc.data().email) {
-        html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column is-2">
-              <figure class="image is-square">
-                <img src="pennants.png" alt="Product 1" />
-              </figure>
-            </div>
-            <div class="column is-4">
-              <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-              <p>${product_html(doc)}</p>
-            </div>
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    db.collection("OrderItems")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let html = ``;
+        docs.forEach((doc) => {
+          if (auth.currentUser.email == doc.data().email) {
+            html += `<div class="box pb-6 m-3 pr-0 columns">
+              <div class="column is-2">
+                <figure class="image is-square">
+                  <img src="pennants.png" alt="Product 1" />
+                </figure>
+              </div>
+              <div class="column is-4">
+                <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+                <p>${product_html(doc)}</p>
+              </div>
+  
+              <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
+              <div onclick="del_doc('${doc.id
+              }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            </div>`;
+          }
+        });
+        document.querySelector("#cart").innerHTML += html;
+      });
+  }
+})
 
-            <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-            <div onclick="del_doc('${doc.id
-          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
-      }
-    });
-    document.querySelector("#cart").innerHTML += html;
-  });
 
 function del_docreq(id) {
   db.collection("ContactForm")
@@ -818,30 +830,6 @@ db.collection("ContactForm")
     document.querySelector("#Contactreq").innerHTML += html;
   });
 
-//load orders data
-// db.collection("Orders")
-//   .get()
-//   .then((data) => {
-//     let docs = data.docs;
-//     let html = ``;
-//     docs.forEach((doc) => {
-//       html += `<div class="box pb-6 m-3 pr-0 columns">
-//           <div class="column">
-//             <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
-//             <p>Email: ${doc.data().email}</p>`
-//       doc.forEach((item) => {
-//         html += `<div class="column is-4">
-//                     <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-//                     <p>${product_html(doc)}</p>
-//                     </div>`
-//       })
-//       html += ` </div >
-//         <div onclick="del_docreq('${doc.id
-//         }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-//         </div > `;
-//     });
-//     document.querySelector("#adminOrders").innerHTML += html;
-//   });
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -873,19 +861,78 @@ let subtotal = 0;
 
 //adding total to modal
 auth.onAuthStateChanged((user) => {
-  db.collection("OrderItems")
-    .where("email", "==", auth.currentUser.email)
-    .get()
-    .then((order) => {
-      let total = 0;
-      order.forEach((doc) => {
-        total += doc.data().price;
+  if (user) {
+    db.collection("OrderItems")
+      .where("email", "==", auth.currentUser.email)
+      .get()
+      .then((order) => {
+        let total = 0;
+        order.forEach((doc) => {
+          total += doc.data().price;
+        });
+        document.querySelector(
+          "#venmo_total"
+        ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
       });
-      document.querySelector(
-        "#venmo_total"
-      ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
-    });
+  }
+})
+
+
+//submit edits to maker page
+r_e("submit_maker_title_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection('Admin_Edits').doc('maker_body_edit').update({
+
+    title: document.querySelector('#maker_title_edits').value,
+
+  })
+
+
+  db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+    (doc) => {
+
+      document.querySelector('#maker_title_section').innerHTML = `<p class="title">${doc.data().title}</p>`
+
+    }
+  )
+
 });
+
+db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+  (doc) => {
+
+    document.querySelector('#maker_title_section').innerHTML = `<p class="title">${doc.data().title}</p>`
+  }
+)
+
+
+r_e("submit_maker_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection('Admin_Edits').doc('maker_body_edit').update({
+
+    message: document.querySelector('#maker_edits').value,
+
+  })
+
+
+  db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+    (doc) => {
+
+      document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+
+    }
+  )
+
+});
+
+db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+  (doc) => {
+
+    document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+  }
+)
+
+
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
