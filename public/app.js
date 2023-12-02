@@ -150,10 +150,11 @@ r_e("signin_form").addEventListener("submit", (e) => {
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
   auth.signOut().then(() => { });
-  ordernav.classList.remove("is-active");
-  ordernav.classList.add("is-hidden");
-  contactreqnav.classList.remove("is-active");
-  contactreqnav.classList.add("is-hidden");
+  orderbut.classList.remove("is-active");
+  orderbut.classList.add("is-hidden");
+  contactbut.classList.remove("is-active");
+  contactbut.classList.add("is-hidden");
+  r_e("accountbutton").classList.remove("is-hidden")
 });
 
 // track user authentication status with onauthstatechanged
