@@ -111,6 +111,8 @@ r_e("signup_form").addEventListener("submit", (e) => {
   // close the modal
   r_e("signup_modal").classList.add("is-hidden");
 
+
+
   //create user in collection Customers
   let p1 = {
     FirstName: firstname,
@@ -122,6 +124,30 @@ r_e("signup_form").addEventListener("submit", (e) => {
 
   db.collection("Customers").add(p1);
 });
+
+//garland price function 
+function getPrice(item) {
+  if (item === 'Cheers ($40)') {
+    return 40;
+  } else if (item === 'Congrats ($47)') {
+    return 47;
+  } else if (item === 'Happy Birthday ($62)') {
+    return 62;
+  } else {
+    return 62;
+  }
+}
+
+//buntings price function
+function getPrice2(item) {
+  if (item === '3 ft. ($28)') {
+    return 28;
+  } else if (item === '6 ft. ($34)') {
+    return 34;
+  } else {
+    return 40;
+  }
+}
 
 // sign in user
 r_e("signin_form").addEventListener("submit", (e) => {
@@ -661,7 +687,8 @@ addToCartBun.addEventListener("click", (event) => {
     color4: document.querySelector("#bcolor4").value,
     letterType: document.querySelector("#bLetterType").value,
     productType: "Bunting",
-    price: 40,
+    size: document.querySelector("#buntText").value,
+    price: getPrice(document.querySelector("#buntText").value),
   };
 
   console.log(orderItem);
@@ -675,13 +702,15 @@ addToCartGar.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+
     email: auth.currentUser.email,
     color1: document.querySelector("#gColor1").value,
     color2: document.querySelector("#gColor2").value,
     color3: document.querySelector("#gColor3").value,
     color4: document.querySelector("#gColor4").value,
     productType: "Garland",
-    price: 28,
+    size: document.querySelector("#gtext").value,
+    price: getPrice2(document.querySelector("#gtext").value)
   };
 
   db.collection("OrderItems")
