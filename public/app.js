@@ -753,14 +753,16 @@ function product_html(doc) {
     <p>Flag Color 2: ${doc.data().color2}</p>
     <p>Flag Color 3: ${doc.data().color3}<p>
     <p>Flag Color 4: ${doc.data().color4}<p>
-    <p>Letter Type: ${doc.data().letterType}</p>`;
+    <p>Letter Type: ${doc.data().letterType}</p>
+    <p>Message: ${doc.data().message}</p>`;
   }
 
   if (doc.data().productType == "Garland") {
     html += `<p>Flag Color 1: ${doc.data().color1}</p>
     <p>Flag Color 2: ${doc.data().color2}</p>
     <p>Flag Color 3: ${doc.data().color3}<p>
-    <p>Flag Color 4: ${doc.data().color4}<p>`;
+    <p>Flag Color 4: ${doc.data().color4}<p>
+    <p>Size: ${doc.data().size}<p>`;
   }
 
   return html;
