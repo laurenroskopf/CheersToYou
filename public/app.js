@@ -785,12 +785,17 @@ auth.onAuthStateChanged((user) => {
                 </figure>
               </div>
               <div class="column is-4">
-                <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+                <h3 id="type"class="subtitle is-5">${
+                  doc.data().productType
+                }</h3>
                 <p>${product_html(doc)}</p>
               </div>
   
-              <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-              <div onclick="del_doc('${doc.id
+              <div class="column">$${parseFloat(doc.data().price).toFixed(
+                2
+              )}</div>
+              <div onclick="del_doc('${
+                doc.id
               }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
             </div>`;
           }
@@ -798,8 +803,7 @@ auth.onAuthStateChanged((user) => {
         document.querySelector("#cart").innerHTML += html;
       });
   }
-})
-
+});
 
 function del_docreq(id) {
   db.collection("ContactForm")
@@ -825,13 +829,13 @@ db.collection("ContactForm")
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${doc.id
-        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
     document.querySelector("#Contactreq").innerHTML += html;
   });
-
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -868,17 +872,16 @@ auth.onAuthStateChanged((user) => {
       .where("email", "==", auth.currentUser.email)
       .get()
       .then((order) => {
-        let total = 0;
+        let total = 8;
         order.forEach((doc) => {
           total += doc.data().price;
         });
         document.querySelector(
           "#venmo_total"
-        ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
+        ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
       });
   }
-})
-
+});
 //updates to home page 
 // r_e("submit_maker_edits").addEventListener("click", (event) => {
 //   event.preventDefault();
@@ -911,58 +914,68 @@ auth.onAuthStateChanged((user) => {
 //submit edits to maker page
 r_e("submit_maker_title_edits").addEventListener("click", (event) => {
   event.preventDefault();
-  db.collection('Admin_Edits').doc('maker_body_edit').update({
+  db.collection("Admin_Edits")
+    .doc("maker_body_edit")
+    .update({
+      title: document.querySelector("#maker_title_edits").value,
+    });
 
-    title: document.querySelector('#maker_title_edits').value,
-
-  })
-
-
-  db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-    (doc) => {
-
-      document.querySelector('#maker_title_section').innerHTML = `<p class="title">${doc.data().title}</p>`
-
-    }
-  )
-
+  db.collection("Admin_Edits")
+    .doc("maker_body_edit")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#maker_title_section"
+      ).innerHTML = `<p class="title">${doc.data().title}</p>`;
+    });
 });
 
-db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-  (doc) => {
-
-    document.querySelector('#maker_title_section').innerHTML = `<p class="title">${doc.data().title}</p>`
-  }
-)
-
+db.collection("Admin_Edits")
+  .doc("maker_body_edit")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#maker_title_section"
+    ).innerHTML = `<p class="title">${doc.data().title}</p>`;
+  });
 
 r_e("submit_maker_edits").addEventListener("click", (event) => {
   event.preventDefault();
-  db.collection('Admin_Edits').doc('maker_body_edit').update({
+  db.collection("Admin_Edits")
+    .doc("maker_body_edit")
+    .update({
+      message: document.querySelector("#maker_edits").value,
+    });
 
-    message: document.querySelector('#maker_edits').value,
-
-  })
-
-
-  db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-    (doc) => {
-
-      document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
-
-    }
-  )
-
+  db.collection("Admin_Edits")
+    .doc("maker_body_edit")
+    .get()
+    .then((doc) => {
+      document.querySelector("#maker_section").innerHTML = `<p>${
+        doc.data().message
+      }</p>`;
+    });
 });
 
-db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-  (doc) => {
+db.collection("Admin_Edits")
+  .doc("maker_body_edit")
+  .get()
+  .then((doc) => {
+    document.querySelector("#maker_section").innerHTML = `<p>${
+      doc.data().message
+    }</p>`;
+  });
 
-    document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
-  }
-)
+//shipping modal
+r_e("checkout").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-active");
+});
 
-
+r_e("back_button").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-hidden");
+});
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
@@ -972,7 +985,7 @@ r_e("order_agree").addEventListener("click", (event) => {
 });
 
 //back or exit
-r_e("back_button").addEventListener("click", (event) => {
+r_e("payment_back_button").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo_modal").classList.add("is-hidden");
 });
@@ -982,9 +995,22 @@ r_e("venmo_modalbg").addEventListener("click", (event) => {
   r_e("venmo_modal").classList.add("is-hidden");
 });
 
-r_e("checkout").addEventListener("click", (event) => {
+r_e("shipping_modalbg").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-hidden");
+});
+let address = "";
+let city = "";
+let state = "";
+let zip = "";
+r_e("shipping_submit").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo_modal").classList.add("is-active");
+  r_e("address_modal").classList.add("is-hidden");
+  address = r_e("order_address").value;
+  city = r_e("order_city").value;
+  state = r_e("order_state").value;
+  zip = r_e("order_zip").value;
 });
 
 r_e("order_agree").addEventListener("click", (e) => {
@@ -1000,12 +1026,20 @@ r_e("order_agree").addEventListener("click", (e) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
       });
-      console.log(ordersData);
-
+      let total = 8;
+      order.forEach((doc) => {
+        total += doc.data().price;
+      });
+      const date = new Date();
       db.collection("Orders").add({
         combinedData: ordersData, // Store the combined orders' data in a single field
-        createdAt: Date.now(),
+        createdAt: date,
         user_venmo: r_e("user_venmo").value,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        total: total,
       });
       console.log("added to db");
 
