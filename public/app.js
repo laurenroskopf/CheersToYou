@@ -41,9 +41,10 @@ function load_sc_data() {
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-            2
-          )}</div>
-            <div onclick="del_doc('${doc.id
+              2
+            )}</div>
+            <div onclick="del_doc('${
+              doc.id
             }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
         }
@@ -52,9 +53,8 @@ function load_sc_data() {
     });
 }
 
-//update doc 
+//update doc
 function update_doc(ele, id) {
-
   let inputs = ele.parentNode.querySelectorAll("input");
 
   inputs[0].type = "text";
@@ -149,7 +149,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   ordernav.classList.remove("is-active");
   ordernav.classList.add("is-hidden");
   contactreqnav.classList.remove("is-active");
@@ -289,18 +289,6 @@ let homems1 = document.querySelector("#homems1");
 let homeframe1 = document.querySelector("#homeframe1");
 let homecust1 = document.querySelector("#homecust1");
 
-
-
-
-
-
-
-
-
-
-
-
-
 auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
@@ -310,16 +298,11 @@ auth.onAuthStateChanged((user) => {
       orderbut.classList.remove("is-hidden");
       contactbut.classList.add("is-active");
       contactbut.classList.remove("is-hidden");
-      r_e("accountbutton").classList.add("is-hidden")
+      r_e("accountbutton").classList.add("is-hidden");
       //update = part 2
     }
   }
 });
-
-
-
-
-
 
 //home page
 
@@ -506,8 +489,6 @@ homeban.addEventListener("click", () => {
   });
 });
 
-
-
 //milestonesets page
 homems.addEventListener("click", () => {
   ms.classList.add("is-active");
@@ -564,8 +545,6 @@ homeban1.addEventListener("click", () => {
     }
   });
 });
-
-
 
 //milestonesets page
 homems1.addEventListener("click", () => {
@@ -747,12 +726,17 @@ auth.onAuthStateChanged((user) => {
                 </figure>
               </div>
               <div class="column is-4">
-                <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
+                <h3 id="type"class="subtitle is-5">${
+                  doc.data().productType
+                }</h3>
                 <p>${product_html(doc)}</p>
               </div>
   
-              <div class="column">$${parseFloat(doc.data().price).toFixed(2)}</div>
-              <div onclick="del_doc('${doc.id
+              <div class="column">$${parseFloat(doc.data().price).toFixed(
+                2
+              )}</div>
+              <div onclick="del_doc('${
+                doc.id
               }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
             </div>`;
           }
@@ -760,8 +744,7 @@ auth.onAuthStateChanged((user) => {
         document.querySelector("#cart").innerHTML += html;
       });
   }
-})
-
+});
 
 function del_docreq(id) {
   db.collection("ContactForm")
@@ -787,13 +770,13 @@ db.collection("ContactForm")
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${doc.id
-        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
     document.querySelector("#Contactreq").innerHTML += html;
   });
-
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -830,16 +813,27 @@ auth.onAuthStateChanged((user) => {
       .where("email", "==", auth.currentUser.email)
       .get()
       .then((order) => {
-        let total = 0;
+        let total = 8;
         order.forEach((doc) => {
           total += doc.data().price;
         });
         document.querySelector(
           "#venmo_total"
-        ).innerHTML += `< h6 class ="m-5 is-size-4" > <b>Your total is $${total}<b></h6>`;
+        ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
       });
   }
-})
+});
+
+//shipping modal
+r_e("checkout").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-active");
+});
+
+r_e("back_button").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-hidden");
+});
 
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
@@ -849,7 +843,7 @@ r_e("order_agree").addEventListener("click", (event) => {
 });
 
 //back or exit
-r_e("back_button").addEventListener("click", (event) => {
+r_e("payment_back_button").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo_modal").classList.add("is-hidden");
 });
@@ -859,9 +853,18 @@ r_e("venmo_modalbg").addEventListener("click", (event) => {
   r_e("venmo_modal").classList.add("is-hidden");
 });
 
-r_e("checkout").addEventListener("click", (event) => {
+let address = "";
+let city = "";
+let state = "";
+let zip = "";
+r_e("shipping_submit").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo_modal").classList.add("is-active");
+  r_e("address_modal").classList.add("is-hidden");
+  address = r_e("order_address").value;
+  city = r_e("order_city").value;
+  state = r_e("order_state").value;
+  zip = r_e("order_zip").value;
 });
 
 r_e("order_agree").addEventListener("click", (e) => {
@@ -883,6 +886,10 @@ r_e("order_agree").addEventListener("click", (e) => {
         combinedData: ordersData, // Store the combined orders' data in a single field
         createdAt: Date.now(),
         user_venmo: r_e("user_venmo").value,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
       });
       console.log("added to db");
 
