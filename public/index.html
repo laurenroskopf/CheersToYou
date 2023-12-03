@@ -32,12 +32,14 @@
       <a id="accountpg" class="signedin has-text-black">Account</a>
     </div>
     <!-- requests button for admin -->
-    <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
-      <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
-    </div>
+      <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
+       <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
+      </div>
+    
+    
     <!-- orders button for admin -->
     <div id="orderbutton" class="button is-pulled-right ml-3 is-hidden">
-      <a id="orderpg" class=" has-text-black">Orders</a>
+      <a id="orderpg" class="has-text-black">Orders</a>
     </div>
     <!-- shopping cart button -->
     <div class="is-pulled-right is-clickable p-2" id="shoppingCart">
@@ -771,6 +773,17 @@
                 </select>
               </div>
             </div>
+            <h4>Message</h4>
+            <div class="control">
+              <div class="select">
+                <select id="buntText">
+                  <option>Happy Birthday ($62)</option>
+                  <option>Let’s Celebrate ($62)</option>
+                  <option>Congrats ($47)</option>
+                  <option>Cheers ($40)</option>
+                </select>
+              </div>
+            </div>
             <h4>Letter Type</h4>
 
             <div class="control">
@@ -1030,39 +1043,52 @@
                   <option>Chartreuse</option>
                 </select>
               </div>
+              <h4>Size</h4>
+              <div class="control">
+                <div class="select">
+                  <select id="garSize">
+                    <option>3 ft. ($28)</option>
+                    <option>6 ft. ($34)</option>
+                    <option>9 ft. ($40)</option>
+                  </select>
+                </div>
+              </div>
+              <br>
+              <button id="addGarland" class="signedin button"> Add to Cart</button>
+              <img src="allColors.png" alt="colors" width="500" height="500">
+              <p class="has-text-weight-bold is-italic"> Details</p>
+              <p> Choose 1-4 colors to create a garland that’s exclusively yours.
+                The colors will be arranged in the number order that you choose.
+              </p>
+
+              <p>Garlands are strung on natural white, cotton cording and come in 3 lengths:
+                3 feet (8 flags) - 6 feet (16 flags) - 9 feet (24 flags)</p>
+
+              <p>Each flag is made with double thickness and measures 4 x 6 inches.</p>
+              <p>Flags can be repositioned on the cotton cording if you like a little space between them.
+                1 ft of extra cording is left at each end for customization and hanging. </p>
+
+              <p>
+                If you need a different length or additional colors, please send me a message using the Contact form.
+              </p>
+              <p class="has-text-weight-bold is-italic">This product is intended for decorative purposes only - it is
+                not
+                a toy.
+                Please hang out of the reach of children.
+              </p>
+              <p class="has-text-weight-bold is-italic">
+                Actual colors may differ slightly from colors on your screen due to different screen resolutions and
+                color
+                depths.
+              </p>
             </div>
-            <br>
-            <button id="addGarland" class="signedin button"> Add to Cart</button>
-            <img src="allColors.png" alt="colors" width="500" height="500">
-            <p class="has-text-weight-bold is-italic"> Details</p>
-            <p> Choose 1-4 colors to create a garland that’s exclusively yours.
-              The colors will be arranged in the number order that you choose.
-            </p>
-
-            <p>Garlands are strung on natural white, cotton cording and come in 3 lengths:
-              3 feet (8 flags) - 6 feet (16 flags) - 9 feet (24 flags)</p>
-
-            <p>Each flag is made with double thickness and measures 4 x 6 inches.</p>
-            <p>Flags can be repositioned on the cotton cording if you like a little space between them.
-              1 ft of extra cording is left at each end for customization and hanging. </p>
-
-            <p>
-              If you need a different length or additional colors, please send me a message using the Contact form.
-            </p>
-            <p class="has-text-weight-bold is-italic">This product is intended for decorative purposes only - it is not
-              a toy.
-              Please hang out of the reach of children.
-            </p>
-            <p class="has-text-weight-bold is-italic">
-              Actual colors may differ slightly from colors on your screen due to different screen resolutions and color
-              depths.
-            </p>
-
+          </form>
         </p>
       </div>
     </div>
     <div> <br></div>
   </div>
+
   <!-- Milestone page -->
   <div id="Milestone" class="content is-hidden">
     <div class="signedout signInBar has-text-white">
@@ -1123,20 +1149,23 @@
     </div>
 
     <div class="container">
-      <div class="column is-vertical">
+      <div class="tile is-vertical p-3">
         <article class="tile box">
           <img src="./imagesCheersToYou/IMG_8361.jpg" />
         </article>
         <article class="tile box">
           <img src="./imagesCheersToYou/IMG_2599.jpg" />
         </article>
-      </div>
-      <div class="column is-vertical">
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_4178.jpg" />
+          <img src="./imagesCheersToYou/IMG_6053.jpg" />
         </article>
+      </div>
+      <div class="tile is-vertical p-3">
         <article class="tile box">
           <img src="./imagesCheersToYou/IMG_4174.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_4178.jpg" />
         </article>
         <article class="tile box">
           <img src="./imagesCheersToYou/IMG_6064.jpg" />
@@ -1145,20 +1174,26 @@
           <img src="./imagesCheersToYou/IMG_6081.jpg" />
         </article>
       </div>
-      <div class="tile is-vertical">
+      <div class="tile is-vertical p-3">
         <article class="tile box">
           <img src="./imagesCheersToYou/IMG_7340.jpg" />
         </article>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_6155.jpg" />
+          <img src="./imagesCheersToYou/IMG_5429.jpg" />
+        </article>
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_6289.jpg" />
         </article>
       </div>
-      <div class="column is-vertical">
+      <div class="tile is-vertical p-3">
+        <article class="tile box">
+          <img src="./imagesCheersToYou/IMG_4146.jpg" />
+        </article>
         <article class="tile box">
           <img src="./imagesCheersToYou/IMG_5405.jpg" />
         </article>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_8750.jpg" />
+          <img src="./imagesCheersToYou/IMG_6129.jpg" />
         </article>
       </div>
     </div>
@@ -1320,7 +1355,42 @@
   </div>
 
 
-  <!-- modal for checkout -->
+  <!-- shipping address modal  -->
+  <div class="modal" id="address_modal">
+    <div class="modal-background" id="shipping_modalbg"></div>
+    <div class="modal-content has-background-white p-3">
+      <h1 class="title p-5">Shipping Address</h1>
+    <h6 class="m-5 is-size-5">
+      Please enter the address you would like your items shipped to.
+    </h6>
+    <p class = "m-5"><b>Address</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_address">
+    </div>
+  
+    <p class = "m-5"><b>City</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_city">
+    </div>
+    <p class = "m-5"><b>State</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_state">
+    </div>
+    <p class = "m-5"><b>Zip Code</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_zip">
+    </div>
+    <div class="columns">
+      <div class="column is-8"></div>
+      <button id="back_button" class="button m-2">Back</button>
+      <button id="shipping_submit" class="button m-2 has-background-grey-lighter">Next</button>
+    </div>
+    </div>
+    
+  </div>
+
+
+  <!-- venmo modal -->
   <div id="venmo_modal" class="modal">
     <div class="modal-background" id="venmo_modalbg"></div>
     <div class="modal-content has-background-white p-3">
@@ -1338,16 +1408,19 @@
       <div class="control m-5">
         <input class="input" type="text" id="user_venmo">
       </div>
+      <p class = "m-5">*Please note $8 has been added on to your total to account for shipping</p>
       <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
       <div class="columns">
         <div class="column is-8"></div>
-        <button id="back_button" class="button m-2">Back</button>
+        <button id="payment_back_button" class="button m-2">Back</button>
         <button id="order_agree" class="button m-2 has-background-grey-lighter">Agree</button>
       </div>
 
     </div>
 
   </div>
+
+
 
   <div id="Orders" class="content is-hidden">
 
