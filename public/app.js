@@ -914,6 +914,17 @@ db.collection("Admin_Edits")
     }</p>`;
   });
 
+//shipping modal
+r_e("checkout").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-active");
+});
+
+r_e("back_button").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-hidden");
+});
+
 //accept payment
 r_e("order_agree").addEventListener("click", (event) => {
   event.preventDefault();
@@ -932,6 +943,10 @@ r_e("venmo_modalbg").addEventListener("click", (event) => {
   r_e("venmo_modal").classList.add("is-hidden");
 });
 
+r_e("shipping_modalbg").addEventListener("click", (event) => {
+  event.preventDefault();
+  r_e("address_modal").classList.add("is-hidden");
+});
 let address = "";
 let city = "";
 let state = "";
