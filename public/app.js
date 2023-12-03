@@ -879,6 +879,34 @@ auth.onAuthStateChanged((user) => {
   }
 })
 
+//updates to home page 
+// r_e("submit_maker_edits").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   db.collection('Admin_Edits').doc('maker_body_edit').update({
+
+//     message: document.querySelector('#maker_edits').value,
+
+//   })
+
+
+//   db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+//     (doc) => {
+
+//       document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+
+//     }
+//   )
+
+// });
+
+// db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+//   (doc) => {
+
+//     document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+//   }
+// )
+
+
 
 //submit edits to maker page
 r_e("submit_maker_title_edits").addEventListener("click", (event) => {
