@@ -880,16 +880,20 @@ r_e("order_agree").addEventListener("click", (e) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
       });
-      console.log(ordersData);
-
+      let total = 8;
+      order.forEach((doc) => {
+        total += doc.data().price;
+      });
+      const date = new Date();
       db.collection("Orders").add({
         combinedData: ordersData, // Store the combined orders' data in a single field
-        createdAt: Date.now(),
+        createdAt: date,
         user_venmo: r_e("user_venmo").value,
         address: address,
         city: city,
         state: state,
         zip: zip,
+        total: total,
       });
       console.log("added to db");
 
