@@ -859,6 +859,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
+
 //submit edits to maker page
 r_e("submit_maker_title_edits").addEventListener("click", (event) => {
   event.preventDefault();
