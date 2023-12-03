@@ -32,9 +32,11 @@
       <a id="accountpg" class="signedin has-text-black">Account</a>
     </div>
     <!-- requests button for admin -->
-    <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
-      <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
-    </div>
+      <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
+       <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
+      </div>
+    
+    
     <!-- orders button for admin -->
     <div id="orderbutton" class="button is-pulled-right ml-3 is-hidden">
       <a id="orderpg" class="has-text-black">Orders</a>
@@ -1349,7 +1351,42 @@
   </div>
 
 
-  <!-- modal for checkout -->
+  <!-- shipping address modal  -->
+  <div class="modal" id="address_modal">
+    <div class="modal-background" id="shipping_modalbg"></div>
+    <div class="modal-content has-background-white p-3">
+      <h1 class="title p-5">Shipping Address</h1>
+    <h6 class="m-5 is-size-5">
+      Please enter the address you would like your items shipped to.
+    </h6>
+    <p class = "m-5"><b>Address</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_address">
+    </div>
+  
+    <p class = "m-5"><b>City</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_city">
+    </div>
+    <p class = "m-5"><b>State</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_state">
+    </div>
+    <p class = "m-5"><b>Zip Code</b></p>
+    <div class="control m-5">
+      <input class="input" type="text" id="order_zip">
+    </div>
+    <div class="columns">
+      <div class="column is-8"></div>
+      <button id="back_button" class="button m-2">Back</button>
+      <button id="shipping_submit" class="button m-2 has-background-grey-lighter">Next</button>
+    </div>
+    </div>
+    
+  </div>
+
+
+  <!-- venmo modal -->
   <div id="venmo_modal" class="modal">
     <div class="modal-background" id="venmo_modalbg"></div>
     <div class="modal-content has-background-white p-3">
@@ -1367,16 +1404,19 @@
       <div class="control m-5">
         <input class="input" type="text" id="user_venmo">
       </div>
+      <p class = "m-5">*Please note $8 has been added on to your total to account for shipping</p>
       <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
       <div class="columns">
         <div class="column is-8"></div>
-        <button id="back_button" class="button m-2">Back</button>
+        <button id="payment_back_button" class="button m-2">Back</button>
         <button id="order_agree" class="button m-2 has-background-grey-lighter">Agree</button>
       </div>
 
     </div>
 
   </div>
+
+
 
   <div id="Orders" class="content is-hidden">
 
