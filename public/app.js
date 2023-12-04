@@ -15,43 +15,6 @@ function r_e(id) {
   return document.querySelector(`#${id}`);
 }
 
-function load_sc_data() {
-  db.collection("OrderItems")
-    .get()
-    .then((data) => {
-      let docs = data.docs;
-      let html = ``;
-      docs.forEach((doc) => {
-        console.log(auth.currentUser.email);
-        console.log(doc.data().email);
-        console.log(doc.data().customization);
-        if (auth.currentUser.email == doc.data().email) {
-          html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column is-2">
-              <figure class="image is-square">
-                <img src="pennants.png" alt="Product 1" />
-              </figure>
-            </div>
-            <div class="column is-4">
-              <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-              <p>Color 1: ${doc.data().color1}</p>
-              <p>Color 2: ${doc.data().color2}</p>
-              <p>Customization: ${doc.data().customization}</p>
-            </div>
-
-            <!-- need to change to js -->
-            <div class="column">$${parseFloat(doc.data().price).toFixed(
-            2
-          )}</div>
-            <div onclick="del_doc('${doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
-        }
-      });
-      document.querySelector("#cart").innerHTML += html;
-    });
-}
-
 //update doc 
 function update_doc(ele, id) {
 
@@ -175,7 +138,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -669,7 +632,14 @@ function del_doc(id) {
     .doc(id)
     .delete()
     .then(() => alert("Product deleted"));
-  load_sc_data();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order deleted"));
 }
 
 let addToCartPen = document.querySelector("#addPennant");
@@ -801,17 +771,15 @@ auth.onAuthStateChanged((user) => {
                 </figure>
               </div>
               <div class="column is-4">
-                <h3 id="type"class="subtitle is-5">${
-                  doc.data().productType
-                }</h3>
+                <h3 id="type"class="subtitle is-5">${doc.data().productType
+              }</h3>
                 <p>${product_html(doc)}</p>
               </div>
   
               <div class="column">$${parseFloat(doc.data().price).toFixed(
                 2
               )}</div>
-              <div onclick="del_doc('${
-                doc.id
+              <div onclick="del_doc('${doc.id
               }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
             </div>`;
           }
@@ -845,9 +813,8 @@ db.collection("ContactForm")
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${doc.id
+        }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
     });
     document.querySelector("#Contactreq").innerHTML += html;
@@ -871,9 +838,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1210,9 +1177,8 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
     .doc("maker_body_edit")
     .get()
     .then((doc) => {
-      document.querySelector("#maker_section").innerHTML = `<p>${
-        doc.data().message
-      }</p>`;
+      document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
+        }</p>`;
     });
   document.querySelector("#maker_edits").value = "";
 });
@@ -1221,9 +1187,8 @@ db.collection("Admin_Edits")
   .doc("maker_body_edit")
   .get()
   .then((doc) => {
-    document.querySelector("#maker_section").innerHTML = `<p>${
-      doc.data().message
-    }</p>`;
+    document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
+      }</p>`;
   });
 
 //shipping modal
@@ -1273,6 +1238,7 @@ r_e("shipping_submit").addEventListener("click", (event) => {
   zip = r_e("order_zip").value;
 });
 
+//submitted orders to db
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
@@ -1313,6 +1279,131 @@ r_e("order_agree").addEventListener("click", (e) => {
 
   alert("Thanks for Ordering from Cheers to You!");
 });
+
+function completed_product_html(doc) {
+  html = "";
+  if (doc.productType == "Pennant") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Pennant Color: ${doc.pennantColor}</p>
+    <p>Edge Color: ${doc.edgeColor}</p>
+    <p>Font Color: ${doc.fontColor}<p>
+    <p>Customization: ${doc.customization}</p>`;
+  }
+
+  if (doc.productType == "Bunting") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Letter Type: ${doc.letterType}</p>
+    <p>Message: ${doc.message}</p>`;
+  }
+
+  if (doc.productType == "Garland") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Size: ${doc.size}<p>`;
+  }
+
+  if (doc.productType == "Milestone Set") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>`
+  }
+
+  return html;
+}
+
+// account details
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    //display order details
+    db.collection("Customers").get().then((data) => {
+      let docs = data.docs
+      let custhtml = ``
+      docs.forEach((doc) => {
+        if (auth.currentUser.email == doc.data().UserEmail) {
+          custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
+          <p>Email: ${doc.data().UserEmail}</p>
+          <p>Phone Number: ${doc.data().PhoneNumber}</p>`
+        }
+      })
+      document.querySelector("#details").innerHTML += custhtml;
+    }).catch((error) => {
+      console.error("Error getting documents: ", error);
+    });
+
+    //display customer orders
+    db.collection("Orders")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let orderhtml = `<h3>Order Details</h3>`;
+        docs.forEach((doc) => {
+          if (auth.currentUser.email == doc.data().combinedData[0].email) {
+            orderhtml += `<div class="box">
+              <div>
+                <h3 id="type"class="subtitle is-5">Order</h3>    
+              </div>
+            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc.data().createdAt.toDate().getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+              <div>Total: $${doc.data().total}</div>
+              <div>Venmo: @${doc.data().user_venmo}</div>
+              <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${doc.data().zip}</div>
+              <br>`
+            let items = doc.data().combinedData
+            items.forEach((item) => {
+              orderhtml += `<p>${completed_product_html(item)}</p>`
+            })
+            orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Cancel Order</div>
+            </div>
+            </div>`;
+          }
+        });
+        document.querySelector("#details").innerHTML += orderhtml;
+      }).catch((error) => {
+        console.error("Error getting documents: ", error);
+      });
+  }
+})
+
+// order details for admin account
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    //display customer orders
+    db.collection("Orders")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let orderhtml = ``;
+        docs.forEach((doc) => {
+          //still need to get customer name from customer db
+          orderhtml += `<div class="box">
+            <div>
+            <h3 id="type"class="subtitle is-5">Order</h3>    
+            </div>
+            <div>Customer Name:</div>
+            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc.data().createdAt.toDate().getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+            <div>Email: ${doc.data().combinedData[0].email}</div>
+            <div>Total: $${doc.data().total}</div>
+            <div>Venmo: @${doc.data().user_venmo}</div>
+            <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${doc.data().zip}</div>
+            <br>`
+          let items = doc.data().combinedData
+          items.forEach((item) => {
+            orderhtml += `<p>${completed_product_html(item)}</p>`
+          })
+          orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Order Completed!</div>
+            </div>
+            </div>`;
+        })
+        document.querySelector("#adminOrders").innerHTML += orderhtml;
+      }).catch((error) => {
+        console.error("Error getting documents: ", error);
+      });
+  }
+})
 
 var slideIndex = 1;
 showSlides(slideIndex);
