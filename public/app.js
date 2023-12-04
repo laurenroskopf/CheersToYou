@@ -41,10 +41,9 @@ function load_sc_data() {
 
             <!-- need to change to js -->
             <div class="column">$${parseFloat(doc.data().price).toFixed(
-              2
-            )}</div>
-            <div onclick="del_doc('${
-              doc.id
+            2
+          )}</div>
+            <div onclick="del_doc('${doc.id
             }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
         }
@@ -53,8 +52,9 @@ function load_sc_data() {
     });
 }
 
-//update doc
+//update doc 
 function update_doc(ele, id) {
+
   let inputs = ele.parentNode.querySelectorAll("input");
 
   inputs[0].type = "text";
@@ -111,6 +111,8 @@ r_e("signup_form").addEventListener("submit", (e) => {
   // close the modal
   r_e("signup_modal").classList.add("is-hidden");
 
+
+
   //create user in collection Customers
   let p1 = {
     FirstName: firstname,
@@ -123,13 +125,13 @@ r_e("signup_form").addEventListener("submit", (e) => {
   db.collection("Customers").add(p1);
 });
 
-//garland price function
+//garland price function 
 function getPrice(item) {
-  if (item === "Cheers ($40)") {
+  if (item === 'Cheers ($40)') {
     return 40;
-  } else if (item === "Congrats ($47)") {
+  } else if (item === 'Congrats ($47)') {
     return 47;
-  } else if (item === "Happy Birthday ($62)") {
+  } else if (item === 'Happy Birthday ($62)') {
     return 62;
   } else {
     return 62;
@@ -138,9 +140,9 @@ function getPrice(item) {
 
 //buntings price function
 function getPrice2(item) {
-  if (item === "3 ft. ($28)") {
+  if (item === '3 ft. ($28)') {
     return 28;
-  } else if (item === "6 ft. ($34)") {
+  } else if (item === '6 ft. ($34)') {
     return 34;
   } else {
     return 40;
@@ -178,7 +180,7 @@ r_e("signoutbtn").addEventListener("click", () => {
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
   contactbut.classList.add("is-hidden");
-  r_e("accountbutton").classList.remove("is-hidden");
+  r_e("accountbutton").classList.remove("is-hidden")
 });
 
 // track user authentication status with onauthstatechanged
@@ -314,6 +316,18 @@ let homems1 = document.querySelector("#homems1");
 let homeframe1 = document.querySelector("#homeframe1");
 let homecust1 = document.querySelector("#homecust1");
 
+
+
+
+
+
+
+
+
+
+
+
+
 auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
@@ -323,15 +337,20 @@ auth.onAuthStateChanged((user) => {
       orderbut.classList.remove("is-hidden");
       contactbut.classList.add("is-active");
       contactbut.classList.remove("is-hidden");
-      r_e("accountbutton").classList.add("is-hidden");
-      r_e("maker_edit_div").classList.add("is-active");
-      r_e("maker_edit_div").classList.remove("is-hidden");
-      r_e("maker_title_div").classList.remove("is-hidden");
-      r_e("maker_title_div").classList.add("is-active");
+      r_e("accountbutton").classList.add("is-hidden")
+      r_e("maker_edit_div").classList.add('is-active');
+      r_e("maker_edit_div").classList.remove('is-hidden');
+      r_e("maker_title_div").classList.remove('is-hidden');
+      r_e("maker_title_div").classList.add('is-active');
       //update = part 2
     }
   }
 });
+
+
+
+
+
 
 //home page
 
@@ -436,7 +455,7 @@ makernav.addEventListener("click", () => {
 
 //contact me
 contactnav.addEventListener("click", () => {
-  console.log("contact nav w no issues");
+  console.log("contact nav w no issues")
   contact.classList.add("is-active");
   contact.classList.remove("is-hidden");
 
@@ -447,7 +466,7 @@ contactnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
-  console.log("contact nav w no issues");
+  console.log("contact nav w no issues")
 });
 
 //shopping cart
@@ -520,6 +539,8 @@ homeban.addEventListener("click", () => {
   });
 });
 
+
+
 //milestonesets page
 homems.addEventListener("click", () => {
   ms.classList.add("is-active");
@@ -576,6 +597,8 @@ homeban1.addEventListener("click", () => {
     }
   });
 });
+
+
 
 //milestonesets page
 homems1.addEventListener("click", () => {
@@ -686,6 +709,7 @@ addToCartGar.addEventListener("click", (event) => {
   event.preventDefault();
 
   let orderItem = {
+
     email: auth.currentUser.email,
     color1: document.querySelector("#gColor1").value,
     color2: document.querySelector("#gColor2").value,
@@ -693,7 +717,7 @@ addToCartGar.addEventListener("click", (event) => {
     color4: document.querySelector("#gColor4").value,
     productType: "Garland",
     size: document.querySelector("#garSize").value,
-    price: getPrice2(document.querySelector("#garSize").value),
+    price: getPrice2(document.querySelector("#garSize").value)
   };
 
   db.collection("OrderItems")
@@ -831,9 +855,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -858,6 +882,35 @@ auth.onAuthStateChanged((user) => {
       });
   }
 });
+//updates to home page 
+// r_e("submit_maker_edits").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   db.collection('Admin_Edits').doc('maker_body_edit').update({
+
+//     message: document.querySelector('#maker_edits').value,
+
+//   })
+
+
+//   db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+//     (doc) => {
+
+//       document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+
+//     }
+//   )
+
+// });
+
+// db.collection('Admin_Edits').doc('maker_body_edit').get().then(
+//   (doc) => {
+
+//     document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+//   }
+// )
+
+
+
 
 
 
