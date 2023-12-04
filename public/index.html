@@ -32,11 +32,11 @@
       <a id="accountpg" class="signedin has-text-black">Account</a>
     </div>
     <!-- requests button for admin -->
-      <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
-       <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
-      </div>
-    
-    
+    <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
+      <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
+    </div>
+
+
     <!-- orders button for admin -->
     <div id="orderbutton" class="button is-pulled-right ml-3 is-hidden">
       <a id="orderpg" class="has-text-black">Orders</a>
@@ -388,162 +388,176 @@
       <div class="column">
         <h2>Pennants</h2>
         <p>
+          <p id="pennant_price"></p>
           <form>
-            <h4>Pennant Color</h4>
 
-            <div class="control">
-              <div class="select">
-                <select id="penColor">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
+            <div class="columns">
+              <div class="column">
+                <h4>Pennant Color</h4>
+
+                <div class="control">
+                  <div class="select">
+                    <select id="penColor">
+                      <option value="none" selected disabled hidden>Select an Option</option>
+                      <option>Lavender</option>
+                      <option>Thistle</option>
+                      <option>Opal</option>
+                      <option>Peacock</option>
+                      <option>Aqua</option>
+                      <option>Midnight</option>
+                      <option>Blue</option>
+                      <option>Saltwater</option>
+                      <option>Icicle</option>
+                      <option>Magenta</option>
+                      <option>Flamingo</option>
+                      <option>Peony</option>
+                      <option>Mustard</option>
+                      <option>Ochre</option>
+                      <option>Ecru</option>
+                      <option>Butter</option>
+                      <option>Dandelion</option>
+                      <option>Black</option>
+                      <option>Graphite</option>
+                      <option>Smoke</option>
+                      <option>Silver</option>
+                      <option>White</option>
+                      <option>Brown</option>
+                      <option>Nutmeg</option>
+                      <option>Latte</option>
+                      <option>Shortbread</option>
+                      <option>Oatmeal</option>
+                      <option>Rose</option>
+                      <option>Grapefruit</option>
+                      <option>Blush</option>
+                      <option>Crimson</option>
+                      <option>Red</option>
+                      <option>Copper</option>
+                      <option>Marigold</option>
+                      <option>Moss</option>
+                      <option>Citron</option>
+                      <option>Mint</option>
+                      <option>Sage</option>
+                      <option>Olive</option>
+                      <option>Evergreen</option>
+                      <option>Kelly</option>
+                      <option>Chartreuse</option>
 
 
 
-                </select>
+                    </select>
+                  </div>
+
+                </div>
               </div>
 
-            </div>
+              <div class="column">
+                <h4>Edge Color</h4>
+                <div class="control">
+                  <div class="select">
+                    <select id="edgeColorPen">
+                      <option value="none" selected disabled hidden>Select an Option</option>
+                      <option>Lavender</option>
+                      <option>Thistle</option>
+                      <option>Opal</option>
+                      <option>Peacock</option>
+                      <option>Aqua</option>
+                      <option>Midnight</option>
+                      <option>Blue</option>
+                      <option>Saltwater</option>
+                      <option>Icicle</option>
+                      <option>Magenta</option>
+                      <option>Flamingo</option>
+                      <option>Peony</option>
+                      <option>Mustard</option>
+                      <option>Ochre</option>
+                      <option>Ecru</option>
+                      <option>Butter</option>
+                      <option>Dandelion</option>
+                      <option>Black</option>
+                      <option>Graphite</option>
+                      <option>Smoke</option>
+                      <option>Silver</option>
+                      <option>White</option>
+                      <option>Brown</option>
+                      <option>Nutmeg</option>
+                      <option>Latte</option>
+                      <option>Shortbread</option>
+                      <option>Oatmeal</option>
+                      <option>Rose</option>
+                      <option>Grapefruit</option>
+                      <option>Blush</option>
+                      <option>Crimson</option>
+                      <option>Red</option>
+                      <option>Copper</option>
+                      <option>Marigold</option>
+                      <option>Moss</option>
+                      <option>Citron</option>
+                      <option>Mint</option>
+                      <option>Sage</option>
+                      <option>Olive</option>
+                      <option>Evergreen</option>
+                      <option>Kelly</option>
+                      <option>Chartreuse</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
-            <h4>Edge Color</h4>
+              <div class="column">
+                <h4>Font Color</h4>
 
-            <div class="control">
-              <div class="select">
-                <select id="edgeColorPen">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
+                <div class="control">
+                  <div class="select">
+                    <select id="fontColorPen">
+                      <option value="none" selected disabled hidden>Select an Option</option>
+                      <option>Lavender</option>
+                      <option>Thistle</option>
+                      <option>Opal</option>
+                      <option>Peacock</option>
+                      <option>Aqua</option>
+                      <option>Midnight</option>
+                      <option>Blue</option>
+                      <option>Saltwater</option>
+                      <option>Icicle</option>
+                      <option>Magenta</option>
+                      <option>Flamingo</option>
+                      <option>Peony</option>
+                      <option>Mustard</option>
+                      <option>Ochre</option>
+                      <option>Ecru</option>
+                      <option>Butter</option>
+                      <option>Dandelion</option>
+                      <option>Black</option>
+                      <option>Graphite</option>
+                      <option>Smoke</option>
+                      <option>Silver</option>
+                      <option>White</option>
+                      <option>Brown</option>
+                      <option>Nutmeg</option>
+                      <option>Latte</option>
+                      <option>Shortbread</option>
+                      <option>Oatmeal</option>
+                      <option>Rose</option>
+                      <option>Grapefruit</option>
+                      <option>Blush</option>
+                      <option>Crimson</option>
+                      <option>Red</option>
+                      <option>Copper</option>
+                      <option>Marigold</option>
+                      <option>Moss</option>
+                      <option>Citron</option>
+                      <option>Mint</option>
+                      <option>Sage</option>
+                      <option>Olive</option>
+                      <option>Evergreen</option>
+                      <option>Kelly</option>
+                      <option>Chartreuse</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-            <h4>Font Color</h4>
 
-            <div class="control">
-              <div class="select">
-                <select id="fontColorPen">
-                  <option>Lavender</option>
-                  <option>Thistle</option>
-                  <option>Opal</option>
-                  <option>Peacock</option>
-                  <option>Aqua</option>
-                  <option>Midnight</option>
-                  <option>Blue</option>
-                  <option>Saltwater</option>
-                  <option>Icicle</option>
-                  <option>Magenta</option>
-                  <option>Flamingo</option>
-                  <option>Peony</option>
-                  <option>Mustard</option>
-                  <option>Ochre</option>
-                  <option>Ecru</option>
-                  <option>Butter</option>
-                  <option>Dandelion</option>
-                  <option>Black</option>
-                  <option>Graphite</option>
-                  <option>Smoke</option>
-                  <option>Silver</option>
-                  <option>White</option>
-                  <option>Brown</option>
-                  <option>Nutmeg</option>
-                  <option>Latte</option>
-                  <option>Shortbread</option>
-                  <option>Oatmeal</option>
-                  <option>Rose</option>
-                  <option>Grapefruit</option>
-                  <option>Blush</option>
-                  <option>Crimson</option>
-                  <option>Red</option>
-                  <option>Copper</option>
-                  <option>Marigold</option>
-                  <option>Moss</option>
-                  <option>Citron</option>
-                  <option>Mint</option>
-                  <option>Sage</option>
-                  <option>Olive</option>
-                  <option>Evergreen</option>
-                  <option>Kelly</option>
-                  <option>Chartreuse</option>
-                </select>
-              </div>
-            </div>
 
             <h4>Personalization</h4>
             <input id="penPersonal" class="input" type="text">
@@ -578,6 +592,7 @@
             <div class="control">
               <div class="select">
                 <select id="bColor1">
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -627,6 +642,7 @@
             <div class="control">
               <div class="select">
                 <select id="bColor2">
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>No Flag Color 2</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
@@ -677,6 +693,7 @@
             <div class="control">
               <div class="select">
                 <select id="bColor3">
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>No Flag Color 3</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
@@ -727,6 +744,7 @@
             <div class="control">
               <div class="select">
                 <select id="bColor4">
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>No Flag Color 4</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
@@ -777,6 +795,7 @@
             <div class="control">
               <div class="select">
                 <select id="buntText">
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>Happy Birthday ($62)</option>
                   <option>Let’s Celebrate ($62)</option>
                   <option>Congrats ($47)</option>
@@ -849,6 +868,7 @@
             <div class="control">
               <div class="select">
                 <select id="gColor1">
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -898,7 +918,7 @@
             <div class="control">
               <div class="select">
                 <select id="gColor2">
-                  <option>No Flag Color 2</option>
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -948,7 +968,7 @@
             <div class="control">
               <div class="select">
                 <select id="gColor3">
-                  <option>No Flag Color 3</option>
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -998,7 +1018,7 @@
             <div class="control">
               <div class="select">
                 <select id="gColor4">
-                  <option>No Flag Color 4</option>
+                  <option value="none" selected disabled hidden>Select an Option</option>
                   <option>Lavender</option>
                   <option>Thistle</option>
                   <option>Opal</option>
@@ -1047,6 +1067,7 @@
               <div class="control">
                 <div class="select">
                   <select id="garSize">
+                    <option value="none" selected disabled hidden>Select an Option</option>
                     <option>3 ft. ($28)</option>
                     <option>6 ft. ($34)</option>
                     <option>9 ft. ($40)</option>
@@ -1360,33 +1381,33 @@
     <div class="modal-background" id="shipping_modalbg"></div>
     <div class="modal-content has-background-white p-3">
       <h1 class="title p-5">Shipping Address</h1>
-    <h6 class="m-5 is-size-5">
-      Please enter the address you would like your items shipped to.
-    </h6>
-    <p class = "m-5"><b>Address</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_address">
+      <h6 class="m-5 is-size-5">
+        Please enter the address you would like your items shipped to.
+      </h6>
+      <p class="m-5"><b>Address</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_address">
+      </div>
+
+      <p class="m-5"><b>City</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_city">
+      </div>
+      <p class="m-5"><b>State</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_state">
+      </div>
+      <p class="m-5"><b>Zip Code</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_zip">
+      </div>
+      <div class="columns">
+        <div class="column is-8"></div>
+        <button id="back_button" class="button m-2">Back</button>
+        <button id="shipping_submit" class="button m-2 has-background-grey-lighter">Next</button>
+      </div>
     </div>
-  
-    <p class = "m-5"><b>City</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_city">
-    </div>
-    <p class = "m-5"><b>State</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_state">
-    </div>
-    <p class = "m-5"><b>Zip Code</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_zip">
-    </div>
-    <div class="columns">
-      <div class="column is-8"></div>
-      <button id="back_button" class="button m-2">Back</button>
-      <button id="shipping_submit" class="button m-2 has-background-grey-lighter">Next</button>
-    </div>
-    </div>
-    
+
   </div>
 
 
@@ -1408,7 +1429,7 @@
       <div class="control m-5">
         <input class="input" type="text" id="user_venmo">
       </div>
-      <p class = "m-5">*Please note $8 has been added on to your total to account for shipping</p>
+      <p class="m-5">*Please note $8 has been added on to your total to account for shipping</p>
       <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
       <div class="columns">
         <div class="column is-8"></div>
