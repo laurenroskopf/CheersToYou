@@ -618,6 +618,14 @@ function del_doc(id) {
     .then(() => alert("Product deleted"));
 }
 
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order deleted"));
+}
+
 let addToCartPen = document.querySelector("#addPennant");
 let addToCartBun = document.querySelector("#addBunting");
 let addToCartGar = document.querySelector("#addGarland");
@@ -971,6 +979,7 @@ r_e("shipping_submit").addEventListener("click", (event) => {
   zip = r_e("order_zip").value;
 });
 
+//submitted orders to db
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
@@ -1012,45 +1021,91 @@ r_e("order_agree").addEventListener("click", (e) => {
   alert("Thanks for Ordering from Cheers to You!");
 });
 
+function completed_product_html(doc) {
+  html = "";
+  if (doc.productType == "Pennant") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Pennant Color: ${doc.pennantColor}</p>
+    <p>Edge Color: ${doc.edgeColor}</p>
+    <p>Font Color: ${doc.fontColor}<p>
+    <p>Customization: ${doc.customization}</p>`;
+  }
+
+  if (doc.productType == "Bunting") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Letter Type: ${doc.letterType}</p>
+    <p>Message: ${doc.message}</p>`;
+  }
+
+  if (doc.productType == "Garland") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Size: ${doc.size}<p>`;
+  }
+
+  if (doc.productType == "Milestone Set") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>`
+  }
+
+  return html;
+}
+
 // account details
 auth.onAuthStateChanged((user) => {
   if (user) {
     //display order details
     db.collection("Customers").get().then((data) => {
       let docs = data.docs
-      let html = ``
+      let custhtml = ``
       docs.forEach((doc) => {
         if (auth.currentUser.email == doc.data().UserEmail) {
-          html += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
+          custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
           <p>Email: ${doc.data().UserEmail}</p>
           <p>Phone Number: ${doc.data().PhoneNumber}</p>`
         }
       })
-      document.querySelector("#details").innerHTML += html;
-    })
+      document.querySelector("#details").innerHTML += custhtml;
+    }).catch((error) => {
+      console.error("Error getting documents: ", error);
+    });
+
     //display customer orders
     db.collection("Orders")
       .get()
       .then((data) => {
         let docs = data.docs;
-        let html = ``;
+        let orderhtml = `<h3>Order Details</h3>`;
         docs.forEach((doc) => {
-          if (auth.currentUser.email == doc.data().email) {
-            html += `<div class="box pb-6 m-3 pr-0 columns">
-              <div class="column is-4">
-                <h3 id="type"class="subtitle is-5">${doc.data().productType}</h3>
-                <p>${product_html(doc)}</p>
+          if (auth.currentUser.email == doc.data().combinedData[0].email) {
+            orderhtml += `<div class="box">
+              <div>
+                <h3 id="type"class="subtitle is-5">Order</h3>    
               </div>
-
-              <div class="column">Total: $${parseFloat(doc.data().price).toFixed(2)}</div>
-              <div onclick="del_doc('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc.data().createdAt.toDate().getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+              <div>Total: $${doc.data().total}</div>
+              <div>Venmo: @${doc.data().user_venmo}</div>
+              <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${doc.data().zip}</div>
+              <br>`
+            let items = doc.data().combinedData
+            items.forEach((item) => {
+              orderhtml += `<p>${completed_product_html(item)}</p>`
+            })
+            orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Cancel Order</div>
+            </div>
             </div>`;
           }
         });
-        document.querySelector("#details").innerHTML += html;
+        document.querySelector("#details").innerHTML += orderhtml;
+      }).catch((error) => {
+        console.error("Error getting documents: ", error);
       });
-
-
   }
 })
 
