@@ -123,6 +123,24 @@ r_e("signup_form").addEventListener("submit", (e) => {
   db.collection("Customers").add(p1);
 });
 
+function getSelectedButton(button_label) {
+  // var ele = document.getElementsByName(button_label);
+  // if (ele[0].checked) {
+  //   return "Option 1";
+  // }
+  // if (ele[1].checked) {
+  //   return "Option 2";
+  // }
+  // if (ele[2].checked) {
+  //   return "Option 3";
+  // }
+  // if (ele[3].checked) {
+  //   return "Option 4";
+  // } else {
+  // }
+  //  document.getElementById("result").innerHTML = "Choosen: "+ele[i].value;
+}
+
 //garland price function
 function getPrice(item) {
   if (item === "Cheers ($40)") {
@@ -673,26 +691,124 @@ addToCartPen.addEventListener("click", (event) => {
 // // //reset the form
 // document.querySelector("#penPersonal").value = "";
 
+function bunting_info() {
+  let radio_buttons = document.getElementsByName("bunt-choice");
+  let letter_type = document.getElementsByName("letters");
+  let letters = "";
+  if (letter_type[0].checked) {
+    letters = "UPPERCASE";
+  }
+  if (letter_type[1].checked) {
+    letters = "lowercase";
+  }
+  if (radio_buttons[0].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[0];
+        let message = doc.data().options[0];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bcolor1").value,
+          color2: document.querySelector("#bcolor2").value,
+          color3: document.querySelector("#bcolor3").value,
+          color4: document.querySelector("#bcolor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[1].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[1];
+        let message = doc.data().options[1];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bcolor1").value,
+          color2: document.querySelector("#bcolor2").value,
+          color3: document.querySelector("#bcolor3").value,
+          color4: document.querySelector("#bcolor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[2].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[2];
+        let message = doc.data().options[2];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bcolor1").value,
+          color2: document.querySelector("#bcolor2").value,
+          color3: document.querySelector("#bcolor3").value,
+          color4: document.querySelector("#bcolor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[3].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[3];
+        let message = doc.data().options[3];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bcolor1").value,
+          color2: document.querySelector("#bcolor2").value,
+          color3: document.querySelector("#bcolor3").value,
+          color4: document.querySelector("#bcolor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else {
+    alert("Please select message!");
+  }
+}
+
 addToCartBun.addEventListener("click", (event) => {
   event.preventDefault();
-
-  let orderItem = {
-    email: auth.currentUser.email,
-    color1: document.querySelector("#bcolor1").value,
-    color2: document.querySelector("#bcolor2").value,
-    color3: document.querySelector("#bcolor3").value,
-    color4: document.querySelector("#bcolor4").value,
-    letterType: document.querySelector("#bLetterType").value,
-    productType: "Bunting",
-    message: document.querySelector("#buntText").value,
-    price: getPrice(document.querySelector("#buntText").value),
-  };
-
-  console.log(orderItem);
-
-  db.collection("OrderItems")
-    .add(orderItem)
-    .then(() => alert("Added to Cart!"));
+  bunting_info();
 });
 
 addToCartGar.addEventListener("click", (event) => {
@@ -1079,7 +1195,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#bunt_option1"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="bunt-choice">
    ${doc.data().options[0]} ($${doc.data().prices[0]})`;
   });
 
@@ -1089,7 +1205,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#bunt_option2"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="bunt-choice">
    ${doc.data().options[1]} ($${doc.data().prices[1]})`;
   });
 
@@ -1099,7 +1215,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#bunt_option3"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="bunt-choice">
    ${doc.data().options[2]} ($${doc.data().prices[2]})`;
   });
 
@@ -1109,7 +1225,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#bunt_option4"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="bunt-choice">
    ${doc.data().options[3]} ($${doc.data().prices[3]})`;
   });
 
