@@ -1356,7 +1356,7 @@ auth.onAuthStateChanged((user) => {
             items.forEach((item) => {
               orderhtml += `<p>${completed_product_html(item)}</p>`
             })
-            orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Cancel Order</div>
+            orderhtml += `
             </div>
             </div>`;
           }
