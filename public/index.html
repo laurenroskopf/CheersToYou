@@ -32,11 +32,11 @@
       <a id="accountpg" class="signedin has-text-black">Account</a>
     </div>
     <!-- requests button for admin -->
-      <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
-       <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
-      </div>
-    
-    
+    <div id="contactbutton" class="button is-pulled-right ml-3 is-hidden">
+      <a id="contactreqpg" class="has-text-black">Contact Form Requests</a>
+    </div>
+
+
     <!-- orders button for admin -->
     <div id="orderbutton" class="button is-pulled-right ml-3 is-hidden">
       <a id="orderpg" class="has-text-black">Orders</a>
@@ -242,9 +242,20 @@
                 </p>
                 <hr />
                 <!--Pennants Description-->
+                <p id="pennant_home_section"></p>
+                <div class="is-hidden" id="pennant_home_edit_div">
+                  <div class="field ">
 
-                <p id="pennant_home_edit">In your home, as a gift, at a party, everyday is a good day to spread a little
-                  cheer!
+                    <div class="control">
+                      <textarea class="textarea"
+                        placeholder="Add new description here. Type <br> to make paragraph breaks."
+                        id="pennant_home_edits"></textarea>
+                    </div>
+                  </div>
+                  <button class="button" id="submit_pennant_home_edits">Submit New Pennant Description</button>
+                </div>
+
+
                 </p>
                 <br>
                 <br>
@@ -254,29 +265,37 @@
             </div>
           </div>
         </div>
-        <!--Banners Card-->
+        <!--Buntings Card-->
         <div class="column">
           <div class="card">
-            <!--Banners Image-->
+            <!--Buntings Image-->
             <div class="card-image">
               <figure class="image is-6by4 pt-5">
                 <a id="homeban" href="#"><img src="./imagesCheersToYou/IMG_7408.jpg" alt="" /></a>
               </figure>
-              <!--Banners Information-->
+              <!--Buntings Information-->
               <div class="card-content">
                 <p class="is-size-4 has-text-centered has-text-weight-bold">
                   <a id="homeban1" href="#" class="has-text-black">BUNTINGS</a>
                 </p>
                 <hr />
-                <!--Banners Description-->
-                <p class="">It’s someone’s birthday? Got the job? Passed the test?
+                <!--Buntings Description-->
+
+                <p id="bunting_home_section">It’s someone’s birthday? Got the job? Passed the test?
                   Make a happy day even happier with these cheerful buntings! </p>
-                <p>
-                  Handmade to order using a beautiful rainbow of colors..
-                </p>
-                <p>
-                  The start of a family tradition - you’ll be ready to celebrate year after year!
-                </p>
+
+                <div class="is-hidden" id="bunting_home_edit_div">
+                  <div class="field ">
+
+                    <div class="control">
+                      <textarea class="textarea"
+                        placeholder="Add new description here. Type <br> to make paragraph breaks."
+                        id="bunting_home_edits"></textarea>
+                    </div>
+                  </div>
+                  <button class="button" id="submit_bunting_home_edits">Submit New Buntings Description</button>
+                </div>
+
                 </p>
               </div>
             </div>
@@ -300,12 +319,23 @@
                 </p>
                 <hr />
                 <!--Garlands Description-->
-                <p class="">Celebrate the everyday with this colorful, felt garland.
+                <p id="garland_home_section">Celebrate the everyday with this colorful, felt garland.
                   It’s the perfect finishing touch in a nursery, bedroom, or playroom!
                   Coordinate with a Name Pennant to create a custom set.
 
                 </p>
-                <p>Wouldn’t this be darling as a party/event decoration too? The possibilities are endless!</p>
+                <div class="is-hidden" id="garland_home_edit_div">
+                  <div class="field ">
+
+                    <div class="control">
+                      <textarea class="textarea"
+                        placeholder="Add new description here. Type <br> to make paragraph breaks."
+                        id="garland_home_edits"></textarea>
+                    </div>
+                  </div>
+                  <button class="button" id="submit_garland_home_edits">Submit New Garlands Description</button>
+                </div>
+
               </div>
             </div>
           </div>
@@ -326,7 +356,20 @@
                 </p>
                 <hr />
                 <!--Milestone Set Description-->
-                <p class="">Description</p>
+                <p id="milestone_home_section">Description</p>
+                <br>
+                <div class="is-hidden" id="milestone_home_edit_div">
+                  <div class="field ">
+
+                    <div class="control">
+                      <textarea class="textarea"
+                        placeholder="Add new description here. Type <br> to make paragraph breaks."
+                        id="milestone_home_edits"></textarea>
+                    </div>
+                  </div>
+                  <button class="button" id="submit_milestone_home_edits">Submit New Milestone Description</button>
+                </div>
+
                 <br>
                 <br>
                 <br>
@@ -549,6 +592,20 @@
             <input id="penPersonal" class="input" type="text">
             <img src="allColors.png" alt="colors" width="500" height="500">
             <button id="addPennant" class="signedin button"> Add to Cart</button>
+            <br><br>
+            <p id="pennant_body_section">Details</p>
+            <div class="is-hidden" id="pennant_product_edit_div">
+              <div class="field ">
+
+                <div class="control">
+                  <textarea class="textarea" placeholder="Add new description here. Type <br> to make paragraph breaks."
+                    id="pennant_product_edits"></textarea>
+                </div>
+              </div>
+              <button class="button" id="submit_pennant_product_edits">Submit New Pennant Description</button>
+            </div>
+
+
 
         </p>
       </div>
@@ -557,7 +614,7 @@
   </div>
 
 
-  <!-- banners.html content -->
+  <!-- buntings.html content -->
   <div id="Buntings" class="content is-hidden">
     <div class="signedout signInBar has-text-white">
       <p class="has-text-centered ">
@@ -799,29 +856,25 @@
 
             <button id="addBunting" class="signedin button"> Add to Cart</button>
             <img src="allColors.png" alt="colors" width="500" height="500">
-            <p class="has-text-weight-bold is-italic">Details:</p>
+            <br>
 
-            <p>Flag colors will be as pictured and all letters are white.
-              Choose all capital letters or all lowercase letters.</p>
-            <p>
-              Each flag is made with double thickness and measures 4 x 6 inches.</p>
-            <p>
-              Flags are strung on natural, white cotton cording and can be repositioned if you like a little space
-              between them.
-              1 ft of extra cording is left at each end for customization and hanging.
-            </p>
-            <p>
-              *If you would like different words/name or color palette, please use Contact form to create a custom
-              order.
-            </p>
-            <p class="has-text-weight-bold is-italic">
-              This product is intended for decorative purposes only - it is not a toy.
-              Please hang out of the reach of children.
-            </p>
-            <p class="has-text-weight-bold is-italic">
-              Actual colors may differ slightly from colors on your screen due to different screen resolutions and color
-              depths.
-            </p>
+
+            <br>
+            <p class="has-text-weight-bold is-italic">Details:</p>
+            <br>
+            <p id="bunting_product_section"> </p>
+            <br>
+            <div class="is-hidden" id="bunting_product_edit_div">
+              <div class="field ">
+
+                <div class="control">
+                  <textarea class="textarea" placeholder="Add new description here. Type <br> to make paragraph breaks."
+                    id="bunting_product_edits"></textarea>
+                </div>
+              </div>
+              <button class="button" id="submit_bunting_product_edits">Submit New Buntings Description</button>
+            </div>
+
         </p>
       </div>
     </div>
@@ -1057,26 +1110,27 @@
               <button id="addGarland" class="signedin button"> Add to Cart</button>
               <img src="allColors.png" alt="colors" width="500" height="500">
               <p class="has-text-weight-bold is-italic"> Details</p>
-              <p> Choose 1-4 colors to create a garland that’s exclusively yours.
-                The colors will be arranged in the number order that you choose.
-              </p>
+              <br>
+              <p id="garland_product_section"></p>
+              <br>
+              <div class="is-hidden" id="garland_product_edit_div">
+                <div class="field ">
 
-              <p>Garlands are strung on natural white, cotton cording and come in 3 lengths:
-                3 feet (8 flags) - 6 feet (16 flags) - 9 feet (24 flags)</p>
-
-              <p>Each flag is made with double thickness and measures 4 x 6 inches.</p>
-              <p>Flags can be repositioned on the cotton cording if you like a little space between them.
-                1 ft of extra cording is left at each end for customization and hanging. </p>
-
-              <p>
-                If you need a different length or additional colors, please send me a message using the Contact form.
-              </p>
-              <p class="has-text-weight-bold is-italic">This product is intended for decorative purposes only - it is
+                  <div class="control">
+                    <textarea class="textarea"
+                      placeholder="Add new description here. Type <br> to make paragraph breaks."
+                      id="garland_product_edits"></textarea>
+                  </div>
+                </div>
+                <button class="button" id="submit_garland_product_edits">Submit New Garlands Description</button>
+              </div>
+              <p class="has-text-weight-bold is-italic is-small">This product is intended for decorative purposes only -
+                it is
                 not
                 a toy.
                 Please hang out of the reach of children.
               </p>
-              <p class="has-text-weight-bold is-italic">
+              <p class="has-text-weight-bold is-italic is-small">
                 Actual colors may differ slightly from colors on your screen due to different screen resolutions and
                 color
                 depths.
@@ -1107,33 +1161,23 @@
           <form>
             <button id="addMS" class="signedin button"> Add to Cart</button>
             <p class="has-text-weight-bold is-italic"> Details</p>
-            <p> Month to month you can track your little one’s growth with this adorable set.
-            </p>
+            <br>
+            <p id="milestone_product_section"></p>
+            <div class="is-hidden" id="milestone_product_edit_div">
+              <div class="field ">
 
-            <p>Use the numbers each month until baby turns one.
-              After that, just add the “I’m” piece and you’ll be able to use the number set year after year on their
-              birthday!
-            </p>
+                <div class="control">
+                  <textarea class="textarea" placeholder="Add new description here. Type <br> to make paragraph breaks."
+                    id="milestone_product_edits"></textarea>
+                </div>
+              </div>
+              <button class="button" id="submit_milestone_product_edits">Submit New Milestone Description</button>
+            </div>
 
-            <p>Set includes:
-              Numbers 1-11 and Pennant 7x12 inches
-            </p>
-            <p>All numbers are white with a colored backing.
-              Pennant is 3-ply so it can be held or simply lay next to your baby for pictures.
-              Numbers adhere by one sided velcro.
-            </p>
 
-            <p>
-              For custom colors, please use the Contact form.
-            </p>
-            <p class="has-text-weight-bold is-italic">This product is intended for decorative purposes only - it is not
-              a toy.
-              Please hang out of the reach of children.
-            </p>
-            <p class="has-text-weight-bold is-italic">
-              Actual colors may differ slightly from colors on your screen due to different screen resolutions and color
-              depths.
-            </p>
+
+
+
         </p>
       </div>
     </div>
@@ -1360,33 +1404,33 @@
     <div class="modal-background" id="shipping_modalbg"></div>
     <div class="modal-content has-background-white p-3">
       <h1 class="title p-5">Shipping Address</h1>
-    <h6 class="m-5 is-size-5">
-      Please enter the address you would like your items shipped to.
-    </h6>
-    <p class = "m-5"><b>Address</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_address">
+      <h6 class="m-5 is-size-5">
+        Please enter the address you would like your items shipped to.
+      </h6>
+      <p class="m-5"><b>Address</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_address">
+      </div>
+
+      <p class="m-5"><b>City</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_city">
+      </div>
+      <p class="m-5"><b>State</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_state">
+      </div>
+      <p class="m-5"><b>Zip Code</b></p>
+      <div class="control m-5">
+        <input class="input" type="text" id="order_zip">
+      </div>
+      <div class="columns">
+        <div class="column is-8"></div>
+        <button id="back_button" class="button m-2">Back</button>
+        <button id="shipping_submit" class="button m-2 has-background-grey-lighter">Next</button>
+      </div>
     </div>
-  
-    <p class = "m-5"><b>City</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_city">
-    </div>
-    <p class = "m-5"><b>State</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_state">
-    </div>
-    <p class = "m-5"><b>Zip Code</b></p>
-    <div class="control m-5">
-      <input class="input" type="text" id="order_zip">
-    </div>
-    <div class="columns">
-      <div class="column is-8"></div>
-      <button id="back_button" class="button m-2">Back</button>
-      <button id="shipping_submit" class="button m-2 has-background-grey-lighter">Next</button>
-    </div>
-    </div>
-    
+
   </div>
 
 
@@ -1408,7 +1452,7 @@
       <div class="control m-5">
         <input class="input" type="text" id="user_venmo">
       </div>
-      <p class = "m-5">*Please note $8 has been added on to your total to account for shipping</p>
+      <p class="m-5">*Please note $8 has been added on to your total to account for shipping</p>
       <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
       <div class="columns">
         <div class="column is-8"></div>
