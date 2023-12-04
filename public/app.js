@@ -1109,6 +1109,43 @@ auth.onAuthStateChanged((user) => {
   }
 })
 
+// order details for admin account
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    //display customer orders
+    db.collection("Orders")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let orderhtml = ``;
+        docs.forEach((doc) => {
+          //still need to get customer name from customer db
+          orderhtml += `<div class="box">
+            <div>
+            <h3 id="type"class="subtitle is-5">Order</h3>    
+            </div>
+            <div>Customer Name:</div>
+            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc.data().createdAt.toDate().getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+            <div>Email: ${doc.data().combinedData[0].email}</div>
+            <div>Total: $${doc.data().total}</div>
+            <div>Venmo: @${doc.data().user_venmo}</div>
+            <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${doc.data().zip}</div>
+            <br>`
+          let items = doc.data().combinedData
+          items.forEach((item) => {
+            orderhtml += `<p>${completed_product_html(item)}</p>`
+          })
+          orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Order Completed!</div>
+            </div>
+            </div>`;
+        })
+        document.querySelector("#adminOrders").innerHTML += orderhtml;
+      }).catch((error) => {
+        console.error("Error getting documents: ", error);
+      });
+  }
+})
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
