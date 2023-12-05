@@ -878,8 +878,8 @@ function bunting_info() {
       .doc("buntings")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[0];
-        let message = doc.data().options[0];
+        let prc = doc.data().bprice1;
+        let message = doc.data().boption1;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#bColor1").value,
@@ -903,8 +903,8 @@ function bunting_info() {
       .doc("buntings")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[1];
-        let message = doc.data().options[1];
+        let prc = doc.data().bprice2;
+        let message = doc.data().boption2;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#bColor1").value,
@@ -928,8 +928,8 @@ function bunting_info() {
       .doc("buntings")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[2];
-        let message = doc.data().options[2];
+        let prc = doc.data().bprice3;
+        let message = doc.data().bprice3;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#bColor1").value,
@@ -953,8 +953,8 @@ function bunting_info() {
       .doc("buntings")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[3];
-        let message = doc.data().options[3];
+        let prc = doc.data().boption4;
+        let message = doc.data().bprice4;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#bColor1").value,
@@ -1003,8 +1003,8 @@ function garland_info() {
       .doc("garlands")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[0];
-        let message = doc.data().options[0];
+        let prc = doc.data().gprice1;
+        let message = doc.data().goption1;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#gColor1").value,
@@ -1026,8 +1026,8 @@ function garland_info() {
       .doc("garlands")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[1];
-        let message = doc.data().options[1];
+        let prc = doc.data().gprice2;
+        let message = doc.data().goption2;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#gColor1").value,
@@ -1049,8 +1049,8 @@ function garland_info() {
       .doc("garlands")
       .get()
       .then((doc) => {
-        let prc = doc.data().prices[2];
-        let message = doc.data().options[2];
+        let prc = doc.data().gprice3;
+        let message = doc.data().goption3;
         let orderItem = {
           email: auth.currentUser.email,
           color1: document.querySelector("#gColor1").value,
@@ -1737,7 +1737,7 @@ db.collection("Admin_Edits")
     document.querySelector(
       "#bunt_option4"
     ).innerHTML = ` <input type="radio" name="bunt-choice">
-   ${doc.data().boption4} ($${doc.data().boption4})`;
+   ${doc.data().boption4} ($${doc.data().bprice4})`;
   });
 
 db.collection("Admin_Edits")
