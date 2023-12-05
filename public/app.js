@@ -730,10 +730,10 @@ function bunting_info() {
         let message = doc.data().options[0];
         let orderItem = {
           email: auth.currentUser.email,
-          color1: document.querySelector("#bcolor1").value,
-          color2: document.querySelector("#bcolor2").value,
-          color3: document.querySelector("#bcolor3").value,
-          color4: document.querySelector("#bcolor4").value,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
           letterType: letters,
           productType: "Bunting",
           message: message,
@@ -755,10 +755,10 @@ function bunting_info() {
         let message = doc.data().options[1];
         let orderItem = {
           email: auth.currentUser.email,
-          color1: document.querySelector("#bcolor1").value,
-          color2: document.querySelector("#bcolor2").value,
-          color3: document.querySelector("#bcolor3").value,
-          color4: document.querySelector("#bcolor4").value,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
           letterType: letters,
           productType: "Bunting",
           message: message,
@@ -780,10 +780,10 @@ function bunting_info() {
         let message = doc.data().options[2];
         let orderItem = {
           email: auth.currentUser.email,
-          color1: document.querySelector("#bcolor1").value,
-          color2: document.querySelector("#bcolor2").value,
-          color3: document.querySelector("#bcolor3").value,
-          color4: document.querySelector("#bcolor4").value,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
           letterType: letters,
           productType: "Bunting",
           message: message,
@@ -805,10 +805,10 @@ function bunting_info() {
         let message = doc.data().options[3];
         let orderItem = {
           email: auth.currentUser.email,
-          color1: document.querySelector("#bcolor1").value,
-          color2: document.querySelector("#bcolor2").value,
-          color3: document.querySelector("#bcolor3").value,
-          color4: document.querySelector("#bcolor4").value,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
           letterType: letters,
           productType: "Bunting",
           message: message,
