@@ -691,6 +691,7 @@ addToCartPen.addEventListener("click", (event) => {
 // // //reset the form
 // document.querySelector("#penPersonal").value = "";
 
+//connects bunting
 function bunting_info() {
   let radio_buttons = document.getElementsByName("bunt-choice");
   let letter_type = document.getElementsByName("letters");
@@ -809,39 +810,127 @@ function bunting_info() {
 addToCartBun.addEventListener("click", (event) => {
   event.preventDefault();
   bunting_info();
+
+  // reset
+  let ele = document.getElementsByName("bunt-choice");
+  for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+
+  let letters = document.getElementsByName("letters");
+  for (var i = 0; i < letters.length; i++) letters[i].checked = false;
+
+  r_e("bColor1").selectedIndex = 0;
+  r_e("bColor2").selectedIndex = 0;
+  r_e("bColor3").selectedIndex = 0;
+  r_e("bColor4").selectedIndex = 0;
 });
 
+function garland_info() {
+  let radio_buttons = document.getElementsByName("gar-choice");
+
+  if (radio_buttons[0].checked) {
+    db.collection("Admin_Edits")
+      .doc("garlands")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[0];
+        let message = doc.data().options[0];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#gColor1").value,
+          color2: document.querySelector("#gColor2").value,
+          color3: document.querySelector("#gColor3").value,
+          productType: "Garland",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[1].checked) {
+    db.collection("Admin_Edits")
+      .doc("garlands")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[1];
+        let message = doc.data().options[1];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#gColor1").value,
+          color2: document.querySelector("#gColor2").value,
+          color3: document.querySelector("#gColor3").value,
+          productType: "Garland",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[2].checked) {
+    db.collection("Admin_Edits")
+      .doc("garlands")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().prices[2];
+        let message = doc.data().options[2];
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#gColor1").value,
+          color2: document.querySelector("#gColor2").value,
+          color3: document.querySelector("#gColor3").value,
+          productType: "Garland",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else {
+    alert("Please select message!");
+  }
+}
 addToCartGar.addEventListener("click", (event) => {
   event.preventDefault();
+  garland_info();
 
-  let orderItem = {
-    email: auth.currentUser.email,
-    color1: document.querySelector("#gColor1").value,
-    color2: document.querySelector("#gColor2").value,
-    color3: document.querySelector("#gColor3").value,
-    color4: document.querySelector("#gColor4").value,
-    productType: "Garland",
-    size: document.querySelector("#garSize").value,
-    price: getPrice2(document.querySelector("#garSize").value),
-  };
+  //reset
+  let ele = document.getElementsByName("gar-choice");
+  for (var i = 0; i < ele.length; i++) ele[i].checked = false;
 
-  db.collection("OrderItems")
-    .add(orderItem)
-    .then(() => alert("Added to Cart!"));
+  r_e("gColor1").selectedIndex = 0;
+  r_e("gColor2").selectedIndex = 0;
+  r_e("gColor3").selectedIndex = 0;
 });
 
 addToCartMS.addEventListener("click", (event) => {
   event.preventDefault();
 
-  let orderItem = {
-    email: auth.currentUser.email,
-    productType: "Milestone Set",
-    price: 48,
-  };
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      let prc = doc.data().price;
 
-  db.collection("OrderItems")
-    .add(orderItem)
-    .then(() => alert("Added to Cart!"));
+      let orderItem = {
+        email: auth.currentUser.email,
+        productType: "Milestone Set",
+        price: prc,
+      };
+      db.collection("OrderItems")
+        .add(orderItem)
+        .then(() => alert("Added to Cart!"));
+    });
 });
 
 function product_html(doc) {
@@ -1235,7 +1324,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#gar_option1"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().options[0]} ($${doc.data().prices[0]})`;
   });
 db.collection("Admin_Edits")
@@ -1244,7 +1333,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#gar_option2"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().options[1]} ($${doc.data().prices[1]})`;
   });
 db.collection("Admin_Edits")
@@ -1253,7 +1342,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#gar_option3"
-    ).innerHTML = ` <input type="radio" name="answer">
+    ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().options[2]} ($${doc.data().prices[2]})`;
   });
 
