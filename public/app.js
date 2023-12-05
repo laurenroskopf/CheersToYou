@@ -227,6 +227,74 @@ function configure_nav_bar(user) {
   }
 }
 
+function product_html(doc) {
+  html = "";
+  if (doc.data().productType == "Pennant") {
+    html += `<p>Pennant Color: ${doc.data().pennantColor}</p>
+    <p>Edge Color: ${doc.data().edgeColor}</p>
+    <p>Font Color: ${doc.data().fontColor}<p>
+    <p>Customization: ${doc.data().customization}</p>`;
+  }
+
+  if (doc.data().productType == "Bunting") {
+    html += `<p>Flag Color 1: ${doc.data().color1}</p>
+    <p>Flag Color 2: ${doc.data().color2}</p>
+    <p>Flag Color 3: ${doc.data().color3}<p>
+    <p>Flag Color 4: ${doc.data().color4}<p>
+    <p>Letter Type: ${doc.data().letterType}</p>
+    <p>Message: ${doc.data().message}</p>`;
+  }
+
+  if (doc.data().productType == "Garland") {
+    html += `<p>Flag Color 1: ${doc.data().color1}</p>
+    <p>Flag Color 2: ${doc.data().color2}</p>
+    <p>Flag Color 3: ${doc.data().color3}<p>
+    <p>Flag Color 4: ${doc.data().color4}<p>
+    <p>Size: ${doc.data().size}<p>`;
+  }
+
+  return html;
+}
+
+
+// shopping cart data
+function load_sc() {
+  let html = ``;
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      db.collection("OrderItems")
+        .get()
+        .then((data) => {
+          let docs = data.docs;
+          docs.forEach((doc) => {
+            if (auth.currentUser.email == doc.data().email) {
+              html += `<div class="box pb-6 m-3 pr-0 columns">
+                <div class="column is-2">
+                  <figure class="image is-square">
+                    <img src="pennants.png" alt="Product 1" />
+                  </figure>
+                </div>
+                <div class="column is-4">
+                  <h3 id="type"class="subtitle is-5">${doc.data().productType
+                }</h3>
+                  <p>${product_html(doc)}</p>
+                </div>
+    
+                <div class="column">$${parseFloat(doc.data().price).toFixed(
+                  2
+                )}</div>
+                <div onclick="del_doc('${doc.id
+                }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+              </div>`;
+            }
+          });
+          document.querySelector("#cart").innerHTML = html;
+        });
+    }
+  });
+  return html;
+}
+
 // sign-up modal link
 signupbtn.addEventListener("click", () => {
   signup_modal.classList.add("is-active");
@@ -649,6 +717,7 @@ function del_doc(id) {
     .doc(id)
     .delete()
     .then(() => alert("Product deleted"));
+  load_sc();
 }
 
 //delete when order fulfilled
@@ -827,7 +896,6 @@ function bunting_info() {
 addToCartBun.addEventListener("click", (event) => {
   event.preventDefault();
   bunting_info();
-  alert(r_e("bColor1").value);
   // reset
   let ele = document.getElementsByName("bunt-choice");
   for (var i = 0; i < ele.length; i++) ele[i].checked = false;
@@ -951,80 +1019,6 @@ addToCartMS.addEventListener("click", (event) => {
     });
 });
 
-function product_html(doc) {
-  html = "";
-  if (doc.data().productType == "Pennant") {
-    html += `<p>Pennant Color: ${doc.data().pennantColor}</p>
-    <p>Edge Color: ${doc.data().edgeColor}</p>
-    <p>Font Color: ${doc.data().fontColor}<p>
-    <p>Customization: ${doc.data().customization}</p>`;
-  }
-
-  if (doc.data().productType == "Bunting") {
-    html += `<p>Flag Color 1: ${doc.data().color1}</p>
-    <p>Flag Color 2: ${doc.data().color2}</p>
-    <p>Flag Color 3: ${doc.data().color3}<p>
-    <p>Flag Color 4: ${doc.data().color4}<p>
-    <p>Letter Type: ${doc.data().letterType}</p>
-    <p>Message: ${doc.data().message}</p>`;
-  }
-
-  if (doc.data().productType == "Garland") {
-    html += `<p>Flag Color 1: ${doc.data().color1}</p>
-    <p>Flag Color 2: ${doc.data().color2}</p>
-    <p>Flag Color 3: ${doc.data().color3}<p>
-    <p>Flag Color 4: ${doc.data().color4}<p>
-    <p>Size: ${doc.data().size}<p>`;
-  }
-
-  return html;
-}
-
-// shopping cart data
-function load_sc() {
-  let html = ``;
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      db.collection("OrderItems")
-        .get()
-        .then((data) => {
-          let docs = data.docs;
-          docs.forEach((doc) => {
-            if (auth.currentUser.email == doc.data().email) {
-              html += `<div class="box pb-6 m-3 pr-0 columns">
-                <div class="column is-2">
-                  <figure class="image is-square">
-                    <img src="pennants.png" alt="Product 1" />
-                  </figure>
-                </div>
-                <div class="column is-4">
-                  <h3 id="type"class="subtitle is-5">${doc.data().productType
-                }</h3>
-                  <p>${product_html(doc)}</p>
-                </div>
-    
-                <div class="column">$${parseFloat(doc.data().price).toFixed(
-                  2
-                )}</div>
-                <div onclick="del_doc('${doc.id
-                }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-              </div>`;
-            }
-          });
-          document.querySelector("#cart").innerHTML = html;
-        });
-    }
-  });
-  return html;
-}
-
-function del_docreq(id) {
-  db.collection("ContactForm")
-    .doc(id)
-    .delete()
-    .then(() => alert("Message deleted"));
-  load_contact();
-}
 
 //load contact us form data
 function load_contact() {
@@ -1051,6 +1045,16 @@ function load_contact() {
       document.querySelector("#Contactreq").innerHTML += html;
     });
 }
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+  load_contact();
+}
+
+
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -1486,6 +1490,7 @@ r_e("order_agree").addEventListener("click", (e) => {
     });
 
   alert("Thanks for Ordering from Cheers to You!");
+  load_sc();
 });
 
 function completed_product_html(doc) {
