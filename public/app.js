@@ -153,8 +153,8 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
+  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -1155,9 +1155,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1636,7 +1636,7 @@ function load_account() {
           let orderhtml = ``;
           docs.forEach((doc) => {
             if (auth.currentUser.email == doc.data().combinedData[0].email) {
-              orderhtml += `<div class="column is-full">
+              orderhtml += `<div class="box">
                 <div>
                   <h3 id="type"class="subtitle is-5">Order</h3>    
                 </div>
