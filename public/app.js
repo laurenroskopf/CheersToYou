@@ -256,6 +256,42 @@ function product_html(doc) {
   return html;
 }
 
+function completed_product_html(doc) {
+  html = "";
+  if (doc.productType == "Pennant") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Pennant Color: ${doc.pennantColor}</p>
+    <p>Edge Color: ${doc.edgeColor}</p>
+    <p>Font Color: ${doc.fontColor}<p>
+    <p>Customization: ${doc.customization}</p>`;
+  }
+
+  if (doc.productType == "Bunting") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Letter Type: ${doc.letterType}</p>
+    <p>Message: ${doc.message}</p>`;
+  }
+
+  if (doc.productType == "Garland") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Size: ${doc.size}<p>`;
+  }
+
+  if (doc.productType == "Milestone Set") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>`;
+  }
+
+  return html;
+}
+
 
 // shopping cart data
 function load_sc() {
@@ -293,6 +329,50 @@ function load_sc() {
     }
   });
   return html;
+}
+
+// order details for admin account
+function load_order() {
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      //display customer orders
+      db.collection("Orders")
+        .get()
+        .then((data) => {
+          let docs = data.docs;
+          let orderhtml = ``;
+          docs.forEach((doc) => {
+            //still need to get customer name from customer db
+            orderhtml += `<div class="box">
+              <div>
+              <h3 id="type"class="subtitle is-5">Order</h3>    
+              </div>
+              <div>Customer Name:</div>
+              <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
+                .data()
+                .createdAt.toDate()
+                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+              <div>Email: ${doc.data().combinedData[0].email}</div>
+              <div>Total: $${doc.data().total}</div>
+              <div>Venmo: @${doc.data().user_venmo}</div>
+              <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${doc.data().zip
+              }</div>
+              <br>`;
+            let items = doc.data().combinedData;
+            items.forEach((item) => {
+              orderhtml += `<p>${completed_product_html(item)}</p>`;
+            });
+            orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Order Completed!</div>
+              </div>
+              </div>`;
+          });
+          document.querySelector("#adminOrders").innerHTML += orderhtml;
+        })
+        .catch((error) => {
+          console.error("Error getting documents: ", error);
+        });
+    }
+  });
 }
 
 // sign-up modal link
@@ -692,6 +772,7 @@ ordernav.addEventListener("click", (event) => {
       section.classList.remove("is-active");
     }
   });
+  load_order();
 });
 
 //contact form requests admin page
@@ -708,6 +789,7 @@ contactreqnav.addEventListener("click", (event) => {
       section.classList.remove("is-active");
     }
   });
+  load_contact();
 });
 
 //adding order to shopping cart
@@ -725,7 +807,7 @@ function del_order(id) {
   db.collection("Orders")
     .doc(id)
     .delete()
-    .then(() => alert("Order deleted"));
+    .then(() => alert("Order Completed!"));
 }
 
 function get_price(doc_name) {
@@ -1493,41 +1575,6 @@ r_e("order_agree").addEventListener("click", (e) => {
   load_sc();
 });
 
-function completed_product_html(doc) {
-  html = "";
-  if (doc.productType == "Pennant") {
-    html += `<h6>${doc.productType} - $${doc.price}</h6>
-    <p>Pennant Color: ${doc.pennantColor}</p>
-    <p>Edge Color: ${doc.edgeColor}</p>
-    <p>Font Color: ${doc.fontColor}<p>
-    <p>Customization: ${doc.customization}</p>`;
-  }
-
-  if (doc.productType == "Bunting") {
-    html += `<h6>${doc.productType} - $${doc.price}</h6>
-    <p>Flag Color 1: ${doc.color1}</p>
-    <p>Flag Color 2: ${doc.color2}</p>
-    <p>Flag Color 3: ${doc.color3}<p>
-    <p>Flag Color 4: ${doc.color4}<p>
-    <p>Letter Type: ${doc.letterType}</p>
-    <p>Message: ${doc.message}</p>`;
-  }
-
-  if (doc.productType == "Garland") {
-    html += `<h6>${doc.productType} - $${doc.price}</h6>
-    <p>Flag Color 1: ${doc.color1}</p>
-    <p>Flag Color 2: ${doc.color2}</p>
-    <p>Flag Color 3: ${doc.color3}<p>
-    <p>Flag Color 4: ${doc.color4}<p>
-    <p>Size: ${doc.size}<p>`;
-  }
-
-  if (doc.productType == "Milestone Set") {
-    html += `<h6>${doc.productType} - $${doc.price}</h6>`;
-  }
-
-  return html;
-}
 
 // account details
 auth.onAuthStateChanged((user) => {
@@ -1587,47 +1634,8 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-// order details for admin account
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    //display customer orders
-    db.collection("Orders")
-      .get()
-      .then((data) => {
-        let docs = data.docs;
-        let orderhtml = ``;
-        docs.forEach((doc) => {
-          //still need to get customer name from customer db
-          orderhtml += `<div class="box">
-            <div>
-            <h3 id="type"class="subtitle is-5">Order</h3>    
-            </div>
-            <div>Customer Name:</div>
-            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-              .data()
-              .createdAt.toDate()
-              .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
-            <div>Email: ${doc.data().combinedData[0].email}</div>
-            <div>Total: $${doc.data().total}</div>
-            <div>Venmo: @${doc.data().user_venmo}</div>
-            <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${doc.data().zip
-            }</div>
-            <br>`;
-          let items = doc.data().combinedData;
-          items.forEach((item) => {
-            orderhtml += `<p>${completed_product_html(item)}</p>`;
-          });
-          orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Order Completed!</div>
-            </div>
-            </div>`;
-        });
-        document.querySelector("#adminOrders").innerHTML += orderhtml;
-      })
-      .catch((error) => {
-        console.error("Error getting documents: ", error);
-      });
-  }
-});
+
+
 
 var slideIndex = 1;
 showSlides(slideIndex);
