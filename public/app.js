@@ -1540,7 +1540,7 @@ auth.onAuthStateChanged((user) => {
           <p>Phone Number: ${doc.data().PhoneNumber}</p>`;
           }
         });
-        document.querySelector("#AccountDetails").innerHTML += custhtml;
+        document.querySelector("#AccountDetails").innerHTML = custhtml;
       })
       .catch((error) => {
         console.error("Error getting documents: ", error);
@@ -1564,8 +1564,7 @@ auth.onAuthStateChanged((user) => {
                 .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
               <div>Total: $${doc.data().total}</div>
               <div>Venmo: @${doc.data().user_venmo}</div>
-              <div>Shipping Address: ${doc.data().address} ${doc.data().state
-              } ${doc.data().zip}</div>
+              <div>Shipping Address: ${doc.data().address} ${doc.data().city}, ${doc.data().state} ${doc.data().zip}</div>
               <br>`;
             let items = doc.data().combinedData;
             items.forEach((item) => {
@@ -1758,7 +1757,7 @@ function images(coll, d, content1, input1) {
           document.querySelector(
             content1
           ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${doc.data().url
-            }" /></p>`;
+          }" /></p>`;
         });
     });
 }
