@@ -840,7 +840,7 @@ function garland_info() {
           color2: document.querySelector("#gColor2").value,
           color3: document.querySelector("#gColor3").value,
           productType: "Garland",
-          message: message,
+          size: message,
           price: prc,
         };
 
@@ -863,7 +863,7 @@ function garland_info() {
           color2: document.querySelector("#gColor2").value,
           color3: document.querySelector("#gColor3").value,
           productType: "Garland",
-          message: message,
+          size: message,
           price: prc,
         };
 
@@ -886,7 +886,7 @@ function garland_info() {
           color2: document.querySelector("#gColor2").value,
           color3: document.querySelector("#gColor3").value,
           productType: "Garland",
-          message: message,
+          size: message,
           price: prc,
         };
 
