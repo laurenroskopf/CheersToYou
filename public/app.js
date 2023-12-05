@@ -461,6 +461,8 @@ auth.onAuthStateChanged((user) => {
       r_e("pennant_home_edit_div").classList.remove("is-hidden");
       r_e("pennant_product_edit_div").classList.remove("is-hidden");
       r_e("pennant_product_edit_div").classList.add("is-active");
+      r_e("pennant_price_edit_div").classList.remove("is-hidden");
+      r_e("pennant_price_edit_div").classList.add("is-active");
       r_e("bunting_product_edit_div").classList.add("is-active");
       r_e("bunting_product_edit_div").classList.remove("is-hidden");
       r_e("bunting_home_edit_div").classList.remove("is-hidden");
@@ -1402,6 +1404,39 @@ db.collection("Admin_Edits")
       }</p>`;
   });
 
+//submit edits to pennant price on product page
+
+r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .update({
+      price: document.querySelector("#pennant_price_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#pennant_price"
+      ).innerHTML = `$<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+    });
+  document.querySelector("#pennant_price_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("pennants")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#pennant_price"
+    ).innerHTML = `$<p id = pennant_price class = "is-size-4">$${
+      doc.data().price
+    }</p>`;
+  });
 //submit edits to home page pennant description
 
 r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
@@ -1584,7 +1619,7 @@ auth.onAuthStateChanged((user) => {
       .get()
       .then((data) => {
         let docs = data.docs;
-        let custhtml = ``;;
+        let custhtml = ``;
         docs.forEach((doc) => {
           if (auth.currentUser.email == doc.data().UserEmail) {
             custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
