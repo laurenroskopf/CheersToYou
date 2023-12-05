@@ -138,7 +138,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -838,9 +838,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1322,7 +1322,7 @@ auth.onAuthStateChanged((user) => {
     //display order details
     db.collection("Customers").get().then((data) => {
       let docs = data.docs
-      let custhtml = ``
+      let custhtml = ``;
       docs.forEach((doc) => {
         if (auth.currentUser.email == doc.data().UserEmail) {
           custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
@@ -1330,7 +1330,7 @@ auth.onAuthStateChanged((user) => {
           <p>Phone Number: ${doc.data().PhoneNumber}</p>`
         }
       })
-      document.querySelector("#details").innerHTML += custhtml;
+      document.querySelector("#AccountDetails").innerHTML += custhtml;
     }).catch((error) => {
       console.error("Error getting documents: ", error);
     });
@@ -1340,10 +1340,10 @@ auth.onAuthStateChanged((user) => {
       .get()
       .then((data) => {
         let docs = data.docs;
-        let orderhtml = `<h3>Order Details</h3>`;
+        let orderhtml = ``;
         docs.forEach((doc) => {
           if (auth.currentUser.email == doc.data().combinedData[0].email) {
-            orderhtml += `<div class="box">
+            orderhtml += `<div class="column is-full">
               <div>
                 <h3 id="type"class="subtitle is-5">Order</h3>    
               </div>
@@ -1361,7 +1361,7 @@ auth.onAuthStateChanged((user) => {
             </div>`;
           }
         });
-        document.querySelector("#details").innerHTML += orderhtml;
+        document.querySelector("#OrderDetails").innerHTML += orderhtml;
       }).catch((error) => {
         console.error("Error getting documents: ", error);
       });
