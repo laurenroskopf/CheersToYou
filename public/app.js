@@ -346,6 +346,22 @@ auth.onAuthStateChanged((user) => {
       r_e("maker_edit_div").classList.remove("is-hidden");
       r_e("maker_title_div").classList.remove("is-hidden");
       r_e("maker_title_div").classList.add("is-active");
+      r_e("pennant_home_edit_div").classList.add("is-active");
+      r_e("pennant_home_edit_div").classList.remove("is-hidden");
+      r_e("pennant_product_edit_div").classList.remove("is-hidden");
+      r_e("pennant_product_edit_div").classList.add("is-active");
+      r_e("bunting_product_edit_div").classList.add("is-active");
+      r_e("bunting_product_edit_div").classList.remove("is-hidden");
+      r_e("bunting_home_edit_div").classList.remove("is-hidden");
+      r_e("bunting_home_edit_div").classList.add("is-active");
+      r_e("garland_product_edit_div").classList.add("is-active");
+      r_e("garland_product_edit_div").classList.remove("is-hidden");
+      r_e("garland_home_edit_div").classList.remove("is-hidden");
+      r_e("garland_home_edit_div").classList.add("is-active");
+      r_e("milestone_home_edit_div").classList.remove("is-hidden");
+      r_e("milestone_home_edit_div").classList.add("is-active");
+      r_e("milestone_product_edit_div").classList.remove("is-hidden");
+      r_e("milestone_product_edit_div").classList.add("is-active");
       //update = part 2
     }
   }
@@ -581,14 +597,14 @@ homegar1.addEventListener("click", () => {
   });
 });
 
-//banners page
+//buntings page
 homeban1.addEventListener("click", () => {
-  banners.classList.add("is-active");
-  banners.classList.remove("is-hidden");
+  buntings.classList.add("is-active");
+  buntings.classList.remove("is-hidden");
 
   var allSections = document.querySelectorAll(".content"); // Select all sections by class
   allSections.forEach((section) => {
-    if (section.id != "Banners") {
+    if (section.id != "Buntings") {
       section.classList.add("is-hidden"); // Hide other sections
       section.classList.remove("is-active");
     }
@@ -648,7 +664,23 @@ function del_doc(id) {
     .doc(id)
     .delete()
     .then(() => alert("Product deleted"));
-  load_sc_data();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order deleted"));
+}
+
+function get_price(doc_name) {
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      prc = doc.data().price;
+    });
 }
 
 function get_price(doc_name) {
@@ -1052,6 +1084,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
     (r_e("email_cmf").value = ""),
     (r_e("phone_cmf").value = ""),
     (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1102,6 +1137,243 @@ auth.onAuthStateChanged((user) => {
 //   }
 // )
 
+//submit edits to milestones description product page
+
+r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .update({
+      product_de: document.querySelector("#milestone_product_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      document.querySelector("#milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      }</p>`;
+    });
+
+  document.querySelector("#milestone_product_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("milestones")
+  .get()
+  .then((doc) => {
+    document.querySelector("#milestone_product_section").innerHTML = `<p>${
+      doc.data().product_de
+    }</p>`;
+  });
+
+//submit edits to milestones description home page
+
+r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .update({
+      home_de: document.querySelector("#milestone_home_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      document.querySelector("#milestone_home_section").innerHTML = `<p>${
+        doc.data().home_de
+      }</p>`;
+    });
+
+  document.querySelector("#milestone_home_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("milestones")
+  .get()
+  .then((doc) => {
+    document.querySelector("#milestone_home_section").innerHTML = `<p>${
+      doc.data().home_de
+    }</p>`;
+  });
+
+//submit edits to garland home page
+
+r_e("submit_garland_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      home_des: document.querySelector("#garland_home_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector("#garland_home_section").innerHTML = `<p>${
+        doc.data().home_des
+      }</p>`;
+    });
+  document.querySelector("#garland_home_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector("#garland_home_section").innerHTML = `<p>${
+      doc.data().home_des
+    }</p>`;
+  });
+
+//submit edits to garland description product page
+
+r_e("submit_garland_product_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      product_des: document.querySelector("#garland_product_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
+    });
+  document.querySelector("#garland_product_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector("#garland_product_section").innerHTML = `<p>${
+      doc.data().product_des
+    }</p>`;
+  });
+
+//submit edits to buntings description home page
+
+r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      home_desc: document.querySelector("#bunting_home_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector("#bunting_home_section").innerHTML = `<p>${
+        doc.data().home_desc
+      }</p>`;
+    });
+  document.querySelector("#bunting_home_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector("#bunting_home_section").innerHTML = `<p>${
+      doc.data().home_desc
+    }</p>`;
+  });
+
+//submit edits to buntings description on product page
+r_e("submit_bunting_product_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      product_desc: document.querySelector("#bunting_product_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
+    });
+  document.querySelector("#bunting_product_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector("#bunting_product_section").innerHTML = `<p>${
+      doc.data().product_desc
+    }</p>`;
+  });
+
+//submit edits to pennant description on product page
+
+r_e("submit_pennant_product_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .update({
+      product_description: document.querySelector("#pennant_product_edits")
+        .value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
+    });
+  document.querySelector("#pennant_product_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("pennants")
+  .get()
+  .then((doc) => {
+    document.querySelector("#pennant_body_section").innerHTML = `<p>${
+      doc.data().product_description
+    }</p>`;
+  });
+
+//submit edits to home page pennant description
+
+r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .update({
+      home_description: document.querySelector("#pennant_home_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      document.querySelector("#pennant_home_section").innerHTML = `<p>${
+        doc.data().home_description
+      }</p>`;
+    });
+  document.querySelector("#pennant_home_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("pennants")
+  .get()
+  .then((doc) => {
+    document.querySelector("#pennant_home_section").innerHTML = `<p>${
+      doc.data().home_description
+    }</p>`;
+  });
+
 //submit edits to maker page
 r_e("submit_maker_title_edits").addEventListener("click", (event) => {
   event.preventDefault();
@@ -1119,6 +1391,7 @@ r_e("submit_maker_title_edits").addEventListener("click", (event) => {
         "#maker_title_section"
       ).innerHTML = `<p class="title">${doc.data().title}</p>`;
     });
+  document.querySelector("#maker_title_edits").value = "";
 });
 
 db.collection("Admin_Edits")
@@ -1146,6 +1419,7 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
         doc.data().message
       }</p>`;
     });
+  document.querySelector("#maker_edits").value = "";
 });
 
 db.collection("Admin_Edits")
@@ -1204,6 +1478,7 @@ r_e("shipping_submit").addEventListener("click", (event) => {
   zip = r_e("order_zip").value;
 });
 
+//submitted orders to db
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
 
@@ -1243,6 +1518,146 @@ r_e("order_agree").addEventListener("click", (e) => {
     });
 
   alert("Thanks for Ordering from Cheers to You!");
+});
+
+function completed_product_html(doc) {
+  html = "";
+  if (doc.productType == "Pennant") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Pennant Color: ${doc.pennantColor}</p>
+    <p>Edge Color: ${doc.edgeColor}</p>
+    <p>Font Color: ${doc.fontColor}<p>
+    <p>Customization: ${doc.customization}</p>`;
+  }
+
+  if (doc.productType == "Bunting") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Letter Type: ${doc.letterType}</p>
+    <p>Message: ${doc.message}</p>`;
+  }
+
+  if (doc.productType == "Garland") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>
+    <p>Flag Color 1: ${doc.color1}</p>
+    <p>Flag Color 2: ${doc.color2}</p>
+    <p>Flag Color 3: ${doc.color3}<p>
+    <p>Flag Color 4: ${doc.color4}<p>
+    <p>Size: ${doc.size}<p>`;
+  }
+
+  if (doc.productType == "Milestone Set") {
+    html += `<h6>${doc.productType} - $${doc.price}</h6>`;
+  }
+
+  return html;
+}
+
+// account details
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    //display order details
+    db.collection("Customers")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let custhtml = ``;
+        docs.forEach((doc) => {
+          if (auth.currentUser.email == doc.data().UserEmail) {
+            custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
+          <p>Email: ${doc.data().UserEmail}</p>
+          <p>Phone Number: ${doc.data().PhoneNumber}</p>`;
+          }
+        });
+        document.querySelector("#details").innerHTML += custhtml;
+      })
+      .catch((error) => {
+        console.error("Error getting documents: ", error);
+      });
+
+    //display customer orders
+    db.collection("Orders")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let orderhtml = `<h3>Order Details</h3>`;
+        docs.forEach((doc) => {
+          if (auth.currentUser.email == doc.data().combinedData[0].email) {
+            orderhtml += `<div class="box">
+              <div>
+                <h3 id="type"class="subtitle is-5">Order</h3>    
+              </div>
+            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
+              .data()
+              .createdAt.toDate()
+              .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+              <div>Total: $${doc.data().total}</div>
+              <div>Venmo: @${doc.data().user_venmo}</div>
+              <div>Shipping Address: ${doc.data().address} ${
+              doc.data().state
+            } ${doc.data().zip}</div>
+              <br>`;
+            let items = doc.data().combinedData;
+            items.forEach((item) => {
+              orderhtml += `<p>${completed_product_html(item)}</p>`;
+            });
+            orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Cancel Order</div>
+            </div>
+            </div>`;
+          }
+        });
+        document.querySelector("#details").innerHTML += orderhtml;
+      })
+      .catch((error) => {
+        console.error("Error getting documents: ", error);
+      });
+  }
+});
+
+// order details for admin account
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    //display customer orders
+    db.collection("Orders")
+      .get()
+      .then((data) => {
+        let docs = data.docs;
+        let orderhtml = ``;
+        docs.forEach((doc) => {
+          //still need to get customer name from customer db
+          orderhtml += `<div class="box">
+            <div>
+            <h3 id="type"class="subtitle is-5">Order</h3>    
+            </div>
+            <div>Customer Name:</div>
+            <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
+            .data()
+            .createdAt.toDate()
+            .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+            <div>Email: ${doc.data().combinedData[0].email}</div>
+            <div>Total: $${doc.data().total}</div>
+            <div>Venmo: @${doc.data().user_venmo}</div>
+            <div>Shipping Address: ${doc.data().address} ${doc.data().state} ${
+            doc.data().zip
+          }</div>
+            <br>`;
+          let items = doc.data().combinedData;
+          items.forEach((item) => {
+            orderhtml += `<p>${completed_product_html(item)}</p>`;
+          });
+          orderhtml += `<div onclick="del_order('${doc.id}')" class="is-clickable button">Order Completed!</div>
+            </div>
+            </div>`;
+        });
+        document.querySelector("#adminOrders").innerHTML += orderhtml;
+      })
+      .catch((error) => {
+        console.error("Error getting documents: ", error);
+      });
+  }
 });
 
 var slideIndex = 1;
