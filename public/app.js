@@ -155,7 +155,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -1074,12 +1074,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
   (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1740,3 +1737,90 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector("#ms_price").innerHTML = `$${doc.data().price}`;
   });
+
+
+
+
+//function to insert an image 
+function images(coll, d, content1, input1) {
+
+
+  // 7. Getting the image ready
+  let file = document.querySelector(input1).files[0];
+  let image = new Date() + "_" + file.name;
+
+  const task = ref.child(image).put(file);
+
+  task
+    .then(snapshot => snapshot.ref.getDownloadURL())
+    .then(url => {
+      // Url is ready now
+      // 4. Object
+
+
+      db.collection(coll)
+        .doc(d)
+        .update({
+          url: url
+        });
+
+      db.collection(coll)
+        .doc(d)
+        .get()
+        .then((doc) => {
+          document.querySelector(
+            content1
+          ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${doc.data().url}" /></p>`
+        });
+
+
+
+    })
+
+
+
+}
+
+
+
+r_e('buntings_submit_image').addEventListener('click', () => {
+  images("Admin_Edits", "buntings", "#buntings_image", "#input_buntings");
+
+
+});
+
+
+
+//this was in the event listener above
+
+// // 7. Getting the image ready
+// let file = document.querySelector('#maker_image_input').files[0];
+// let image = new Date() + "_" + file.name;
+
+// const task = ref.child(image).put(file);
+
+// task
+//   .then(snapshot => snapshot.ref.getDownloadURL())
+//   .then(url => {
+//     // Url is ready now
+//     // 4. Object
+
+
+//     db.collection("Admin_Edits")
+//       .doc("maker_body_edit")
+//       .update({
+//         url: url
+//       });
+
+//     db.collection("Admin_Edits")
+//       .doc("maker_body_edit")
+//       .get()
+//       .then((doc) => {
+//         document.querySelector(
+//           "#maker_image"
+//         ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${doc.data().url}" /></p>`
+//       });
+
+
+
+//   })
