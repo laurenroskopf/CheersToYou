@@ -1676,30 +1676,38 @@ function load_account() {
   });
 }
 
-//carousel functions
-var slideIndex = 1;
+//Carousel 
+let slideIndex = 1;
 showSlides(slideIndex);
 
+// Next/previous controls
 function plusSlides(n) {
-  showSlides((slideIndex += n));
+  showSlides(slideIndex += n);
 }
 
+// Thumbnail image controls
 function currentSlide(n) {
-  showSlides((slideIndex = n));
+  showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("item-slide");
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {
-    slideIndex = 1;
+    slideIndex = 1
   }
   if (n < 1) {
-    slideIndex = slides.length;
+    slideIndex = slides.length
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
 
 //adding prices
@@ -1833,9 +1841,9 @@ r_e("submit_maker_image").addEventListener("click", (e) => {
 });
 
 
-r_e("buntings_submit_image").addEventListener("click", () => {
-  images("Admin_Edits", "buntings", "#buntings_image", "#input_buntings");
-});
+// r_e("buntings_submit_image").addEventListener("click", () => {
+//   images("Admin_Edits", "buntings", "#buntings_image", "#input_buntings");
+// });
 
 //this was in the event listener above
 
