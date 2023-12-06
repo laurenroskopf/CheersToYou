@@ -153,8 +153,8 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
+  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -1667,6 +1667,7 @@ function load_account() {
   });
 }
 
+//carousel functions
 var slideIndex = 1;
 showSlides(slideIndex);
 
