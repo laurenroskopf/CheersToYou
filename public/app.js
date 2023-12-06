@@ -153,8 +153,8 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
+  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -599,6 +599,8 @@ makernav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+
+
 });
 
 //contact me
@@ -1159,6 +1161,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
   (r_e("email_cmf").value = ""),
   (r_e("phone_cmf").value = ""),
   (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1477,6 +1482,9 @@ r_e("submit_maker_title_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#maker_title_section"
       ).innerHTML = `<p class="title">${doc.data().title}</p>`;
+
+      alert('temp1234')
+      r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
     });
   document.querySelector("#maker_title_edits").value = "";
 });
@@ -1488,6 +1496,7 @@ db.collection("Admin_Edits")
     document.querySelector(
       "#maker_title_section"
     ).innerHTML = `<p class="title">${doc.data().title}</p>`;
+    r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
   });
 
 r_e("submit_maker_edits").addEventListener("click", (event) => {
@@ -1777,6 +1786,7 @@ db.collection("Admin_Edits")
 
 //function to insert an image
 function images(coll, d, content1, input1) {
+
   // 7. Getting the image ready
   let file = document.querySelector(input1).files[0];
   let image = new Date() + "_" + file.name;
@@ -1789,21 +1799,38 @@ function images(coll, d, content1, input1) {
       // Url is ready now
       // 4. Object
 
+      alert('a');
+
       db.collection(coll).doc(d).update({
         url: url,
       });
 
-      db.collection(coll)
-        .doc(d)
-        .get()
-        .then((doc) => {
-          document.querySelector(
-            content1
-          ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${doc.data().url
-            }" /></p>`;
-        });
+      // set a delay
+
+      setTimeout(() => {
+        alert('b')
+        db.collection(coll)
+          .doc(d)
+          .get()
+          .then((doc) => {
+            document.querySelector(
+              content1
+            ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${
+            doc.data().url
+          }" /></p>`;
+          });
+      }, 1000)
+
+
+
     });
 }
+r_e("submit_maker_image").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "maker_body_edit", "#maker_image", "#maker_image_input");
+});
+
 
 r_e("buntings_submit_image").addEventListener("click", () => {
   images("Admin_Edits", "buntings", "#buntings_image", "#input_buntings");
