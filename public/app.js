@@ -52,7 +52,6 @@ r_e("signup_form").addEventListener("submit", (e) => {
   let lastname = r_e("lastname").value;
   let email = r_e("email").value;
   let phonenumber = r_e("phonenumber").value;
-  let address = r_e("address").value;
   let password = r_e("password").value;
 
   // Ceate the user in firebase
@@ -79,7 +78,6 @@ r_e("signup_form").addEventListener("submit", (e) => {
     LastName: lastname,
     UserEmail: email,
     PhoneNumber: phonenumber,
-    HomeAddress: address,
   };
 
   db.collection("Customers").add(p1);
