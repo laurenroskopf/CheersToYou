@@ -2042,14 +2042,6 @@ r_e("back_button").addEventListener("click", (event) => {
   r_e("address_modal").classList.add("is-hidden");
 });
 
-//accept payment
-r_e("order_agree").addEventListener("click", (event) => {
-  event.preventDefault();
-  r_e("venmo_modal").classList.add("is-hidden");
-  configure_message_bar(`Order successfully submitted`);
-  load_sc();
-});
-
 //back or exit
 r_e("payment_back_button").addEventListener("click", (event) => {
   event.preventDefault();
@@ -2082,6 +2074,8 @@ r_e("shipping_submit").addEventListener("click", (event) => {
 //submitted orders to db
 r_e("order_agree").addEventListener("click", (e) => {
   e.preventDefault(); //prevent default behaviour of browser (no page refresh)
+  r_e("venmo_modal").classList.add("is-hidden");
+  configure_message_bar(`Order successfully submitted`);
 
   const ordersData = [];
 
@@ -2107,6 +2101,7 @@ r_e("order_agree").addEventListener("click", (e) => {
         state: state,
         zip: zip,
         total: total,
+        email: auth.currentUser.email,
       });
       console.log("added to db");
 
@@ -2152,7 +2147,7 @@ function load_account() {
           let docs = data.docs;
           let orderhtml = ``;
           docs.forEach((doc) => {
-            if (auth.currentUser.email == doc.data().combinedData[0].email) {
+            if (auth.currentUser.email == doc.data().email) {
               orderhtml += `<div class="box">
                 <div>
                   <h3 id="type"class="subtitle is-5">Order</h3>    
