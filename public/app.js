@@ -522,6 +522,12 @@ auth.onAuthStateChanged((user) => {
       r_e("home_garland_div_image").classList.add("is-active");
       r_e("home_milestone_div_image").classList.remove("is-hidden");
       r_e("home_milestone_div_image").classList.add("is-active");
+      r_e("gallery1_div_image").classList.remove("is-hidden");
+      r_e("gallery1_div_image").classList.add("is-active");
+      r_e("gallery2_div_image").classList.remove("is-hidden");
+      r_e("gallery2_div_image").classList.add("is-active");
+      r_e("gallery3_div_image").classList.remove("is-hidden");
+      r_e("gallery3_div_image").classList.add("is-active");
     }
   }
 });
@@ -1318,6 +1324,54 @@ db.collection("Admin_Edits")
   .get()
   .then((doc) => {
     r_e("milestone_image_home").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+
+
+//submit gallery photo1
+
+r_e("gallery1_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery1", "#gallery1_image", "#gallery1_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery1")
+  .get()
+  .then((doc) => {
+    r_e("gallery1_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+
+//submit gallery photo2
+
+r_e("gallery2_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery2", "#gallery2_image", "#gallery2_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery2")
+  .get()
+  .then((doc) => {
+    r_e("gallery2_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo3
+
+r_e("gallery3_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery3", "#gallery3_image", "#gallery3_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery3")
+  .get()
+  .then((doc) => {
+    r_e("gallery3_image").innerHTML = `<img src="${doc.data().url}" />`
   });
 
 
