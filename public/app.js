@@ -1,4 +1,5 @@
 //Shopping cart html
+let slideIndex = 1;
 
 //variables associated with signing up
 let signupbtn = document.querySelector("#signupbtn");
@@ -555,6 +556,7 @@ pennantnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, 'mySlidesPen')
 });
 
 //garlands page
@@ -569,6 +571,7 @@ garlandsnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, 'mySlidesGar')
 });
 
 //banners page
@@ -583,6 +586,7 @@ buntingnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, 'mySlidesBun')
 });
 
 //milestonesets page
@@ -597,6 +601,7 @@ msnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, 'mySlidesMS')
 });
 
 //gallery page
@@ -1636,6 +1641,7 @@ db.collection("Admin_Edits")
 r_e("checkout").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("address_modal").classList.add("is-active");
+  load_sc();
 });
 
 r_e("back_button").addEventListener("click", (event) => {
@@ -1785,22 +1791,20 @@ function load_account() {
 }
 
 //Carousel
-let slideIndex = 1;
-showSlides(slideIndex);
 
 // Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
+function plusSlides(n, className) {
+  showSlides((slideIndex += n), className);
 }
 
 // Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
+function currentSlide(n, className) {
+  showSlides((slideIndex = n), className);
 }
 
-function showSlides(n) {
+function showSlides(n, className) {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
+  let slides = document.getElementsByClassName(className);
   let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {
     slideIndex = 1;
