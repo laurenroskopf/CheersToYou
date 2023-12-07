@@ -528,6 +528,26 @@ auth.onAuthStateChanged((user) => {
       r_e("gallery2_div_image").classList.add("is-active");
       r_e("gallery3_div_image").classList.remove("is-hidden");
       r_e("gallery3_div_image").classList.add("is-active");
+      r_e("gallery4_div_image").classList.remove("is-hidden");
+      r_e("gallery4_div_image").classList.add("is-active");
+      r_e("gallery5_div_image").classList.remove("is-hidden");
+      r_e("gallery5_div_image").classList.add("is-active");
+      r_e("gallery6_div_image").classList.remove("is-hidden");
+      r_e("gallery6_div_image").classList.add("is-active");
+      r_e("gallery7_div_image").classList.remove("is-hidden");
+      r_e("gallery7_div_image").classList.add("is-active");
+      r_e("gallery8_div_image").classList.remove("is-hidden");
+      r_e("gallery8_div_image").classList.add("is-active");
+      r_e("gallery9_div_image").classList.remove("is-hidden");
+      r_e("gallery9_div_image").classList.add("is-active");
+      r_e("gallery10_div_image").classList.remove("is-hidden");
+      r_e("gallery10_div_image").classList.add("is-active");
+      r_e("gallery11_div_image").classList.remove("is-hidden");
+      r_e("gallery11_div_image").classList.add("is-active");
+      r_e("gallery12_div_image").classList.remove("is-hidden");
+      r_e("gallery12_div_image").classList.add("is-active");
+      r_e("gallery13_div_image").classList.remove("is-hidden");
+      r_e("gallery13_div_image").classList.add("is-active");
     }
   }
 });
@@ -1235,7 +1255,7 @@ function images(coll, d, content1, input1) {
       // Url is ready now
       // 4. Object
 
-      alert('a');
+
 
       db.collection(coll).doc(d).update({
         url: url,
@@ -1244,7 +1264,7 @@ function images(coll, d, content1, input1) {
       // set a delay
 
       setTimeout(() => {
-        alert('b')
+
         db.collection(coll)
           .doc(d)
           .get()
@@ -1373,6 +1393,152 @@ db.collection("Admin_Edits")
   .then((doc) => {
     r_e("gallery3_image").innerHTML = `<img src="${doc.data().url}" />`
   });
+
+//submit gallery photo4
+
+r_e("gallery4_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery4", "#gallery4_image", "#gallery4_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery4")
+  .get()
+  .then((doc) => {
+    r_e("gallery4_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo5
+
+r_e("gallery5_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery5", "#gallery5_image", "#gallery5_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery5")
+  .get()
+  .then((doc) => {
+    r_e("gallery5_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+
+//submit gallery photo6
+
+
+r_e("gallery6_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery6", "#gallery6_image", "#gallery6_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery6")
+  .get()
+  .then((doc) => {
+    r_e("gallery6_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo7
+r_e("gallery7_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery7", "#gallery7_image", "#gallery7_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery7")
+  .get()
+  .then((doc) => {
+    r_e("gallery7_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo8
+r_e("gallery8_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery8", "#gallery8_image", "#gallery8_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery8")
+  .get()
+  .then((doc) => {
+    r_e("gallery8_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo9
+r_e("gallery9_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery9", "#gallery9_image", "#gallery9_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery9")
+  .get()
+  .then((doc) => {
+    r_e("gallery9_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo10
+r_e("gallery10_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery10", "#gallery10_image", "#gallery10_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery10")
+  .get()
+  .then((doc) => {
+    r_e("gallery10_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo11
+r_e("gallery11_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery11", "#gallery11_image", "#gallery11_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery11")
+  .get()
+  .then((doc) => {
+    r_e("gallery11_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo12
+r_e("gallery12_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery12", "#gallery12_image", "#gallery12_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery12")
+  .get()
+  .then((doc) => {
+    r_e("gallery12_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit gallery photo13
+r_e("gallery13_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "gallery13", "#gallery13_image", "#gallery13_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("gallery13")
+  .get()
+  .then((doc) => {
+    r_e("gallery13_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
 
 
 //submit edits to milestones description product page
