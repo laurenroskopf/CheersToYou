@@ -1,4 +1,5 @@
 //Shopping cart html
+let slideIndex = 1;
 
 //variables associated with signing up
 let signupbtn = document.querySelector("#signupbtn");
@@ -52,7 +53,6 @@ r_e("signup_form").addEventListener("submit", (e) => {
   let lastname = r_e("lastname").value;
   let email = r_e("email").value;
   let phonenumber = r_e("phonenumber").value;
-  let address = r_e("address").value;
   let password = r_e("password").value;
 
   // Ceate the user in firebase
@@ -79,7 +79,6 @@ r_e("signup_form").addEventListener("submit", (e) => {
     LastName: lastname,
     UserEmail: email,
     PhoneNumber: phonenumber,
-    HomeAddress: address,
   };
 
   db.collection("Customers").add(p1);
@@ -147,19 +146,19 @@ r_e("signin_form").addEventListener("submit", (e) => {
     })
     .catch((err) => {
       //catch any arror
-      signin_modal.querySelector(".error").innerHTML = err.message;
+      alert("Error with Sign in. Please try again");
     });
 });
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
   auth.signOut().then(() => {});
-  auth.signOut().then(() => {});
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
   contactbut.classList.add("is-hidden");
   r_e("accountbutton").classList.remove("is-hidden");
+  location.reload();
 });
 
 // track user authentication status with onauthstatechanged
@@ -233,6 +232,7 @@ function product_html(doc) {
     html += `<p>Pennant Color: ${doc.data().pennantColor}</p>
     <p>Edge Color: ${doc.data().edgeColor}</p>
     <p>Font Color: ${doc.data().fontColor}<p>
+    <p>Tab Color: ${doc.data().tabColor}<p>
     <p>Customization: ${doc.data().customization}</p>`;
   }
 
@@ -263,6 +263,7 @@ function completed_product_html(doc) {
     <p>Pennant Color: ${doc.pennantColor}</p>
     <p>Edge Color: ${doc.edgeColor}</p>
     <p>Font Color: ${doc.fontColor}<p>
+    <p>Tab Color: ${doc.tabColor}<p>
     <p>Customization: ${doc.customization}</p>`;
   }
 
@@ -357,8 +358,8 @@ function load_order() {
               <div>Total: $${doc.data().total}</div>
               <div>Venmo: @${doc.data().user_venmo}</div>
               <div>Shipping Address: ${doc.data().address} ${
-              doc.data().state
-            } ${doc.data().zip}</div>
+              doc.data().city
+            }, ${doc.data().state} ${doc.data().zip}</div>
               <br>`;
             let items = doc.data().combinedData;
             items.forEach((item) => {
@@ -529,6 +530,46 @@ auth.onAuthStateChanged((user) => {
       r_e("gar_price3_edit_div").classList.add("is-active");
       r_e("gar_words3_edit_div").classList.remove("is-hidden");
       r_e("gar_words3_edit_div").classList.add("is-active");
+      r_e("maker_image_div").classList.remove("is-hidden");
+      r_e("maker_image_div").classList.add("is-active");
+      r_e("home_bunting_div_image").classList.remove("is-hidden");
+      r_e("home_bunting_div_image").classList.add("is-active");
+      r_e("home_pennant_div_image").classList.remove("is-hidden");
+      r_e("home_pennant_div_image").classList.add("is-active");
+      r_e("home_garland_div_image").classList.remove("is-hidden");
+      r_e("home_garland_div_image").classList.add("is-active");
+      r_e("home_milestone_div_image").classList.remove("is-hidden");
+      r_e("home_milestone_div_image").classList.add("is-active");
+      r_e("gallery1_div_image").classList.remove("is-hidden");
+      r_e("gallery1_div_image").classList.add("is-active");
+      r_e("gallery2_div_image").classList.remove("is-hidden");
+      r_e("gallery2_div_image").classList.add("is-active");
+      r_e("gallery3_div_image").classList.remove("is-hidden");
+      r_e("gallery3_div_image").classList.add("is-active");
+      r_e("gallery4_div_image").classList.remove("is-hidden");
+      r_e("gallery4_div_image").classList.add("is-active");
+      r_e("gallery5_div_image").classList.remove("is-hidden");
+      r_e("gallery5_div_image").classList.add("is-active");
+      r_e("gallery6_div_image").classList.remove("is-hidden");
+      r_e("gallery6_div_image").classList.add("is-active");
+      r_e("gallery7_div_image").classList.remove("is-hidden");
+      r_e("gallery7_div_image").classList.add("is-active");
+      r_e("gallery8_div_image").classList.remove("is-hidden");
+      r_e("gallery8_div_image").classList.add("is-active");
+      r_e("gallery9_div_image").classList.remove("is-hidden");
+      r_e("gallery9_div_image").classList.add("is-active");
+      r_e("gallery10_div_image").classList.remove("is-hidden");
+      r_e("gallery10_div_image").classList.add("is-active");
+      r_e("gallery11_div_image").classList.remove("is-hidden");
+      r_e("gallery11_div_image").classList.add("is-active");
+      r_e("gallery12_div_image").classList.remove("is-hidden");
+      r_e("gallery12_div_image").classList.add("is-active");
+      r_e("gallery13_div_image").classList.remove("is-hidden");
+      r_e("gallery13_div_image").classList.add("is-active");
+      r_e("pencar1_div_image").classList.remove("is-hidden");
+      r_e("pencar1_div_image").classList.add("is-active");
+      r_e("pencar2_div_image").classList.remove("is-hidden");
+      r_e("pencar2_div_image").classList.add("is-active");
     }
   }
 });
@@ -562,6 +603,7 @@ pennantnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, "mySlidesPen");
 });
 
 //garlands page
@@ -576,6 +618,7 @@ garlandsnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, "mySlidesGar");
 });
 
 //banners page
@@ -590,6 +633,7 @@ buntingnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, "mySlidesBun");
 });
 
 //milestonesets page
@@ -604,6 +648,7 @@ msnav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
+  showSlides(slideIndex, "mySlidesMS");
 });
 
 //gallery page
@@ -869,6 +914,7 @@ let addToCartBun = document.querySelector("#addBunting");
 let addToCartGar = document.querySelector("#addGarland");
 let addToCartMS = document.querySelector("#addMS");
 let addToCartCust = document.querySelector("#addCustom");
+
 addToCartPen.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -883,6 +929,7 @@ addToCartPen.addEventListener("click", (event) => {
         pennantColor: document.querySelector("#penColor").value,
         edgeColor: document.querySelector("#edgeColorPen").value,
         fontColor: document.querySelector("#fontColorPen").value,
+        tabColor: document.querySelector("#tabColorPen").value,
         customization: document.querySelector("#penPersonal").value,
         productType: "Pennant",
         price: prc,
@@ -1193,15 +1240,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
     (r_e("email_cmf").value = ""),
     (r_e("phone_cmf").value = ""),
     (r_e("message_cmf").value = "");
-  (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
 });
 
 //click checkout button
-
-//subtotal area
-let subtotal = 0;
 
 //adding total to modal
 auth.onAuthStateChanged((user) => {
@@ -1212,7 +1253,7 @@ auth.onAuthStateChanged((user) => {
       .then((order) => {
         let total = 8;
         order.forEach((doc) => {
-          total += doc.data().price;
+          total += parseInt(doc.data().price);
         });
         document.querySelector(
           "#venmo_total"
@@ -1220,31 +1261,305 @@ auth.onAuthStateChanged((user) => {
       });
   }
 });
-//updates to home page
-// r_e("submit_maker_edits").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   db.collection('Admin_Edits').doc('maker_body_edit').update({
 
-//     message: document.querySelector('#maker_edits').value,
+//function to insert an image
+function images(coll, d, content1, input1) {
+  // 7. Getting the image ready
+  let file = document.querySelector(input1).files[0];
+  let image = new Date() + "_" + file.name;
 
-//   })
+  const task = ref.child(image).put(file);
 
-//   db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-//     (doc) => {
+  task
+    .then((snapshot) => snapshot.ref.getDownloadURL())
+    .then((url) => {
+      // Url is ready now
+      // 4. Object
 
-//       document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+      db.collection(coll).doc(d).update({
+        url: url,
+      });
 
-//     }
-//   )
+      // set a delay
 
-// });
+      setTimeout(() => {
+        db.collection(coll)
+          .doc(d)
+          .get()
+          .then((doc) => {
+            document.querySelector(content1).innerHTML = `<img src="${
+              doc.data().url
+            }" />`;
+          });
+      }, 1000);
+    });
+}
 
-// db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-//   (doc) => {
+//submit maker image
+r_e("submit_maker_image").addEventListener("click", (e) => {
+  e.preventDefault();
+  images(
+    "Admin_Edits",
+    "maker_body_edit",
+    "#maker_image",
+    "#maker_image_input"
+  );
+  // r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
+});
 
-//     document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
-//   }
-// )
+//submit buntings home picture
+r_e("submit_bunting_home_image").addEventListener("click", (e) => {
+  e.preventDefault();
+  images(
+    "Admin_Edits",
+    "bunting_home",
+    "#bunting_image_home",
+    "#bunting_home_image_input"
+  );
+});
+db.collection("Admin_Edits")
+  .doc("bunting_home")
+  .get()
+  .then((doc) => {
+    r_e("bunting_image_home").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit pennants home picture
+r_e("submit_pennant_home_image").addEventListener("click", (e) => {
+  e.preventDefault();
+  images(
+    "Admin_Edits",
+    "pennant_home",
+    "#pennant_image_home",
+    "#pennant_home_image_input"
+  );
+});
+db.collection("Admin_Edits")
+  .doc("pennant_home")
+  .get()
+  .then((doc) => {
+    r_e("pennant_image_home").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit garland home picture
+r_e("submit_garland_home_image").addEventListener("click", (e) => {
+  e.preventDefault();
+  images(
+    "Admin_Edits",
+    "garland_home",
+    "#garland_image_home",
+    "#garland_home_image_input"
+  );
+});
+db.collection("Admin_Edits")
+  .doc("garland_home")
+  .get()
+  .then((doc) => {
+    r_e("garland_image_home").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit milestone home picture
+r_e("submit_milestone_home_image").addEventListener("click", (e) => {
+  e.preventDefault();
+  images(
+    "Admin_Edits",
+    "milestone_home",
+    "#milestone_image_home",
+    "#milestone_home_image_input"
+  );
+});
+db.collection("Admin_Edits")
+  .doc("milestone_home")
+  .get()
+  .then((doc) => {
+    r_e("milestone_image_home").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo1
+
+r_e("gallery1_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery1", "#gallery1_image", "#gallery1_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery1")
+  .get()
+  .then((doc) => {
+    r_e("gallery1_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo2
+
+r_e("gallery2_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery2", "#gallery2_image", "#gallery2_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery2")
+  .get()
+  .then((doc) => {
+    r_e("gallery2_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo3
+
+r_e("gallery3_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery3", "#gallery3_image", "#gallery3_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery3")
+  .get()
+  .then((doc) => {
+    r_e("gallery3_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo4
+
+r_e("gallery4_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery4", "#gallery4_image", "#gallery4_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery4")
+  .get()
+  .then((doc) => {
+    r_e("gallery4_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo5
+
+r_e("gallery5_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery5", "#gallery5_image", "#gallery5_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery5")
+  .get()
+  .then((doc) => {
+    r_e("gallery5_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo6
+
+r_e("gallery6_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery6", "#gallery6_image", "#gallery6_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery6")
+  .get()
+  .then((doc) => {
+    r_e("gallery6_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo7
+r_e("gallery7_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery7", "#gallery7_image", "#gallery7_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery7")
+  .get()
+  .then((doc) => {
+    r_e("gallery7_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo8
+r_e("gallery8_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery8", "#gallery8_image", "#gallery8_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery8")
+  .get()
+  .then((doc) => {
+    r_e("gallery8_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo9
+r_e("gallery9_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery9", "#gallery9_image", "#gallery9_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery9")
+  .get()
+  .then((doc) => {
+    r_e("gallery9_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo10
+r_e("gallery10_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery10", "#gallery10_image", "#gallery10_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery10")
+  .get()
+  .then((doc) => {
+    r_e("gallery10_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo11
+r_e("gallery11_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery11", "#gallery11_image", "#gallery11_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery11")
+  .get()
+  .then((doc) => {
+    r_e("gallery11_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo12
+r_e("gallery12_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery12", "#gallery12_image", "#gallery12_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery12")
+  .get()
+  .then((doc) => {
+    r_e("gallery12_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gallery photo13
+r_e("gallery13_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "gallery13", "#gallery13_image", "#gallery13_input");
+});
+db.collection("Admin_Edits")
+  .doc("gallery13")
+  .get()
+  .then((doc) => {
+    r_e("gallery13_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit pen car 1
+r_e("pencar1_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "pencar1", "#pencar1_image", "#pencar1_input");
+});
+db.collection("Admin_Edits")
+  .doc("pencar1")
+  .get()
+  .then((doc) => {
+    r_e("pencar1_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit pen car 2
+r_e("pencar2_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "pencar2", "#pencar2_image", "#pencar2_input");
+});
+db.collection("Admin_Edits")
+  .doc("pencar2")
+  .get()
+  .then((doc) => {
+    r_e("pencar2_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
 
 //submit edits to milestones description product page
 
@@ -1533,8 +1848,7 @@ r_e("submit_maker_title_edits").addEventListener("click", (event) => {
         "#maker_title_section"
       ).innerHTML = `<p class="title">${doc.data().title}</p>`;
 
-      alert("temp1234");
-      r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`;
+      //r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
     });
   document.querySelector("#maker_title_edits").value = "";
 });
@@ -1581,6 +1895,7 @@ db.collection("Admin_Edits")
 r_e("checkout").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("address_modal").classList.add("is-active");
+  load_sc();
 });
 
 r_e("back_button").addEventListener("click", (event) => {
@@ -1593,6 +1908,7 @@ r_e("order_agree").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo_modal").classList.add("is-hidden");
   configure_message_bar(`Order successfully submitted`);
+  load_sc();
 });
 
 //back or exit
@@ -1640,7 +1956,7 @@ r_e("order_agree").addEventListener("click", (e) => {
       });
       let total = 8;
       order.forEach((doc) => {
-        total += doc.data().price;
+        total += parseInt(doc.data().price);
       });
       const date = new Date();
       db.collection("Orders").add({
@@ -1729,20 +2045,22 @@ function load_account() {
   });
 }
 
-var slideIndex = 1;
-showSlides(slideIndex);
+//Carousel
 
-function plusSlides(n) {
-  showSlides((slideIndex += n));
+// Next/previous controls
+function plusSlides(n, className) {
+  showSlides((slideIndex += n), className);
 }
 
-function currentSlide(n) {
-  showSlides((slideIndex = n));
+// Thumbnail image controls
+function currentSlide(n, className) {
+  showSlides((slideIndex = n), className);
 }
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("item-slide");
+function showSlides(n, className) {
+  let i;
+  let slides = document.getElementsByClassName(className);
+  let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -1752,6 +2070,11 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
 
 //adding prices
@@ -2190,6 +2513,94 @@ db.collection("Admin_Edits")
   .get()
   .then((doc) => {
     document.querySelector(
+      "#gar_option2"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+    ${doc.data().goption2} ($${doc.data().gprice2})`;
+  });
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option1"
+    ).innerHTML = ` <input type="radio" name="gar-choice">
+   ${doc.data().goption1} ($${doc.data().gprice1})`;
+  });
+// change options
+r_e("submit_gar_words1_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      goption1: document.querySelector("#gar_words1_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+          ${doc.data().goption1} ($${doc.data().gprice1})`;
+    });
+  document.querySelector("#gar_words1_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option1"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+        ${doc.data().goption1} ($${doc.data().gprice1})`;
+  });
+
+//change price
+r_e("submit_gar_price1_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      gprice1: document.querySelector("#gar_price1_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+        ${doc.data().goption1} ($${doc.data().gprice1})`;
+    });
+  document.querySelector("#gar_price1_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option1"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+    ${doc.data().goption1} ($${doc.data().gprice1})`;
+  });
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option2"
+    ).innerHTML = ` <input type="radio" name="gar-choice">
+   ${doc.data().goption2} ($${doc.data().gprice2})`;
+  });
+
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
       "#gar_option3"
     ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().goption3} ($${doc.data().gprice3})`;
@@ -2291,57 +2702,6 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector("#ms_price").innerHTML = `$${doc.data().price}`;
   });
-
-//function to insert an image
-function images(coll, d, content1, input1) {
-  // 7. Getting the image ready
-  let file = document.querySelector(input1).files[0];
-  let image = new Date() + "_" + file.name;
-
-  const task = ref.child(image).put(file);
-
-  task
-    .then((snapshot) => snapshot.ref.getDownloadURL())
-    .then((url) => {
-      // Url is ready now
-      // 4. Object
-
-      alert("a");
-
-      db.collection(coll).doc(d).update({
-        url: url,
-      });
-
-      // set a delay
-
-      setTimeout(() => {
-        alert("b");
-        db.collection(coll)
-          .doc(d)
-          .get()
-          .then((doc) => {
-            document.querySelector(
-              content1
-            ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${
-              doc.data().url
-            }" /></p>`;
-          });
-      }, 1000);
-    });
-}
-r_e("submit_maker_image").addEventListener("click", (e) => {
-  e.preventDefault();
-  images(
-    "Admin_Edits",
-    "maker_body_edit",
-    "#maker_image",
-    "#maker_image_input"
-  );
-});
-
-r_e("buntings_submit_image").addEventListener("click", () => {
-  images("Admin_Edits", "buntings", "#buntings_image", "#input_buntings");
-});
 
 //this was in the event listener above
 

@@ -220,21 +220,26 @@
   <!-- index.html content -->
   <div>
     <br>
-    <br>
-    <br>
   </div>
   <div id="Index" class="content">
-    <div class="container p-6">
+    <div class="container">
       <div class="columns">
-        <div class="column">
+        <div class="column"></div>
+        <div class="column is-one-third mr-6">
           <!--Pennants Card-->
           <div class="card">
 
             <!--Pennants Image-->
 
             <div class="card-image">
+              <div id="home_pennant_div_image" class="is-hidden">
+                <input id="pennant_home_image_input" type="file">
+                <button class="button" id="submit_pennant_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homepen" href="#"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+                <a id="homepen" href="#">
+                  <div id="pennant_image_home"></div>
+                </a>
               </figure>
               <!--Pennants Information-->
               <div class="card-content">
@@ -260,15 +265,22 @@
           </div>
         </div>
         <!--Buntings Card-->
-        <div class="column">
+        <div class="column is-one-third ml-6">
           <div class="card">
             <!--Buntings Image-->
             <div class="card-image">
+              <div id="home_bunting_div_image" class="is-hidden">
+                <input id="bunting_home_image_input" type="file">
+                <button class="button" id="submit_bunting_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homeban" href="#"><img src="./imagesCheersToYou/IMG_7408.jpg" alt="" /></a>
+                <a id="homeban" href="#">
+                  <div id="bunting_image_home"> </div>
+                </a>
               </figure>
               <!--Buntings Information-->
               <div class="card-content">
+
                 <p class="is-size-4 has-text-centered has-text-weight-bold">
                   <a id="homeban1" href="#" class="has-text-black">BUNTINGS</a>
                 </p>
@@ -295,16 +307,23 @@
             </div>
           </div>
         </div>
+        <div class="column"></div>
       </div>
       <div class="columns">
-
-        <div class="column">
+        <div class="column"></div>
+        <div class="column is-one-third mr-6">
           <!--Garlands Card-->
           <div class="card">
             <!--Garlands Image-->
             <div class="card-image">
+              <div id="home_garland_div_image" class="is-hidden">
+                <input id="garland_home_image_input" type="file">
+                <button class="button" id="submit_garland_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homegar" href="#"><img src="./imagesCheersToYou/IMG_6074.jpg" alt="" /></a>
+                <a id="homegar" href="#">
+                  <div id="garland_image_home"></div>
+                </a>
               </figure>
               <!--Garlands Information-->
               <div class="card-content">
@@ -336,12 +355,18 @@
         </div>
 
         <!--Milestone Set Card-->
-        <div class="column">
+        <div class="column is-one-third ml-6">
           <div class="card">
             <!--Milestone Set Image-->
             <div class="card-image">
+              <div id="home_milestone_div_image" class="is-hidden">
+                <input id="milestone_home_image_input" type="file">
+                <button class="button" id="submit_milestone_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homems" href="#"><img src="./imagesCheersToYou/IMG_6862.jpg" alt="" /></a>
+                <a id="homems" href="#">
+                  <div id="milestone_image_home"></div>
+                </a>
               </figure>
               <!--Milestone Set Information-->
               <div class="card-content">
@@ -367,7 +392,7 @@
             </div>
           </div>
         </div>
-
+        <div class="column"></div>
       </div>
     </div>
   </div>
@@ -383,38 +408,51 @@
     </div>
     <div><br></div>
     <div class="container">
-      <div class="column">
-        <section>
-          <div id="slider">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by5 is-covered">
-                  <img src="./imagesCheersToYou/IMG_0714.jpg" alt="" />
-                </figure>
-              </div>
-              <div class="card-content slider-text ">
-              </div>
-            </div>
-            <div class="card ">
-              <div class="card-image">
-                <figure class="image is-4by5 is-covered">
-                  <img src="./imagesCheersToYou/IMG_3786.jpg" alt="" />
-                </figure>
-              </div>
-              <div class="card-content slider-text ">
-              </div>
-            </div>
-            <div class="card ">
-              <div class="card-image">
-                <p class="image is-4by5 is-covered">
-                  <img src="./imagesCheersToYou/IMG_6064.jpg" alt="" />
-                </p>
-              </div>
-              <div class="card-content slider-text ">
-              </div>
-            </div>
+      <div class="column p-6">
+        <!-- Slideshow container -->
+        <div id="pencar1_div_image" class="is-hidden">
+          <input id="pencar1_input" type="file">
+          <button class="button" id="pencar1_image_submit">Submit Image 1</button>
+        </div>
+        <div id="pencar2_div_image" class="is-hidden">
+          <input id="pencar2_input" type="file">
+          <button class="button" id="pencar2_image_submit">Submit Image 2</button>
+        </div>
+        <div id="pencar3_div_image" class="is-hidden">
+          <input id="pencar3_input" type="file">
+          <button class="button" id="pencar3_image_submit">Submit Image 3</button>
+        </div>
+        <div class="slideshow-container">
+
+          <!-- Full-width images with number and caption text -->
+
+          <div class="mySlidesPen fade">
+            <div class="numbertext">1 / 3</div>
+            <div id="pencar1_image"></div>
           </div>
-        </section>
+
+          <div class="mySlidesPen fade">
+            <div class="numbertext">2 / 3</div>
+            <div id="pencar2_image"></div>
+          </div>
+
+          <div class="mySlidesPen fade">
+            <div class="numbertext">3 / 3</div>
+            <div id="pencar3_image"></div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1, 'mySlidesPen')">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 'mySlidesPen')">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1, 'mySlidesPen')"></span>
+          <span class="dot" onclick="currentSlide(2, 'mySlidesPen')"></span>
+          <span class="dot" onclick="currentSlide(3, 'mySlidesPen')"></span>
+        </div>
       </div>
       <div class="column">
         <h2>Pennant</h2>
@@ -441,7 +479,6 @@
                   <div class="select">
                     <select id="penColor">
                       <option value="none" selected disabled hidden>Select </option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -499,7 +536,6 @@
                   <div class="select">
                     <select id="edgeColorPen">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -554,7 +590,59 @@
                   <div class="select">
                     <select id="fontColorPen">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
+                      <option>Lavender</option>
+                      <option>Thistle</option>
+                      <option>Opal</option>
+                      <option>Peacock</option>
+                      <option>Aqua</option>
+                      <option>Midnight</option>
+                      <option>Blue</option>
+                      <option>Saltwater</option>
+                      <option>Icicle</option>
+                      <option>Magenta</option>
+                      <option>Flamingo</option>
+                      <option>Peony</option>
+                      <option>Mustard</option>
+                      <option>Ochre</option>
+                      <option>Ecru</option>
+                      <option>Butter</option>
+                      <option>Dandelion</option>
+                      <option>Black</option>
+                      <option>Graphite</option>
+                      <option>Smoke</option>
+                      <option>Silver</option>
+                      <option>White</option>
+                      <option>Brown</option>
+                      <option>Nutmeg</option>
+                      <option>Latte</option>
+                      <option>Shortbread</option>
+                      <option>Oatmeal</option>
+                      <option>Rose</option>
+                      <option>Grapefruit</option>
+                      <option>Blush</option>
+                      <option>Crimson</option>
+                      <option>Red</option>
+                      <option>Copper</option>
+                      <option>Marigold</option>
+                      <option>Moss</option>
+                      <option>Citron</option>
+                      <option>Mint</option>
+                      <option>Sage</option>
+                      <option>Olive</option>
+                      <option>Evergreen</option>
+                      <option>Kelly</option>
+                      <option>Chartreuse</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <h4>Tab Color</h4>
+
+                <div class="control">
+                  <div class="select">
+                    <select id="tabColorPen">
+                      <option value="none" selected disabled hidden>Select</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -602,8 +690,6 @@
                 </div>
               </div>
             </div>
-
-
             <h4>Personalization</h4>
             <input id="penPersonal" class="input" type="text">
             <p></p>
@@ -625,13 +711,23 @@
               <button class="button" id="submit_pennant_product_edits">Submit New Pennant Description</button>
             </div>
 
-
-
-        </p>
-
+            <p class="has-text-weight-bold is-italic is-small">This product is intended for decorative purposes only -
+              it is
+              not
+              a toy.
+              Please hang out of the reach of children.
+            </p>
+            <p class="has-text-weight-bold is-italic is-small">
+              Actual colors may differ slightly from colors on your screen due to different screen resolutions and
+              color
+              depths.
+            </p>
       </div>
+      </p>
+
     </div>
-    <div> <br></div>
+  </div>
+  <div> <br></div>
   </div>
 
 
@@ -642,13 +738,39 @@
         Please sign in to checkout!
       </p>
     </div>
-    <div><br></div>
     <div class="container">
-      <div class="column">
-        <div id="buntings_image"></div>
-        <input id="input_buntings" type="file">
-        <button id="buntings_submit_image">Submit</button>
-        <img src="materials.jpg" width="400" height="500" alt="Banners">
+      <div class="column p-6">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlidesBun fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./imagesCheersToYou/IMG_4178.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlidesBun fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./imagesCheersToYou/IMG_3299.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlidesBun fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./imagesCheersToYou/IMG_4174.jpg" style="width:100%">
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1, 'mySlidesBun')">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 'mySlidesBun')">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1, 'mySlidesBun')"></span>
+          <span class="dot" onclick="currentSlide(2, 'mySlidesBun')"></span>
+          <span class="dot" onclick="currentSlide(3, 'mySlidesBun')"></span>
+        </div>
       </div>
       <div class="column">
 
@@ -791,7 +913,6 @@
                   <div class="select">
                     <select id="bColor1">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -1026,7 +1147,17 @@
               </div>
               <button class="button" id="submit_bunting_product_edits">Submit New Buntings Description</button>
             </div>
-
+            <p class="has-text-weight-bold is-italic is-small">This product is intended for decorative purposes only -
+              it is
+              not
+              a toy.
+              Please hang out of the reach of children.
+            </p>
+            <p class="has-text-weight-bold is-italic is-small">
+              Actual colors may differ slightly from colors on your screen due to different screen resolutions and
+              color
+              depths.
+            </p>
         </p>
       </div>
     </div>
@@ -1040,10 +1171,39 @@
         Please sign in to checkout!
       </p>
     </div>
-    <div><br></div>
     <div class="container">
-      <div class="column">
-        <img src="materials.jpg" width="400" height="500" alt="Garlands">
+      <div class="column p-6">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlidesGar fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./imagesCheersToYou/IMG_4178.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlidesGar fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./imagesCheersToYou/IMG_3299.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlidesGar fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./imagesCheersToYou/IMG_4174.jpg" style="width:100%">
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1, 'mySlidesGar')">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 'mySlidesGar')">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1, 'mySlidesGar')"></span>
+          <span class="dot" onclick="currentSlide(2, 'mySlidesGar')"></span>
+          <span class="dot" onclick="currentSlide(3, 'mySlidesGar')"></span>
+        </div>
       </div>
       <div class="column">
         <h2>Garland</h2>
@@ -1138,7 +1298,6 @@
                   <div class="select">
                     <select id="gColor1">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -1389,10 +1548,39 @@
         Please sign in to checkout!
       </p>
     </div>
-    <div><br></div>
     <div class="container">
-      <div class="column">
-        <img src="materials.jpg" width="400" height="500" alt="Banners">
+      <div class="column p-6">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlidesMS fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./imagesCheersToYou/IMG_4178.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlidesMS fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./imagesCheersToYou/IMG_3299.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlidesMS fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./imagesCheersToYou/IMG_4174.jpg" style="width:100%">
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1, 'mySlidesMS')">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 'mySlidesMS')">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1, 'mySlidesMS')"></span>
+          <span class="dot" onclick="currentSlide(2, 'mySlidesMS')"></span>
+          <span class="dot" onclick="currentSlide(3, 'mySlidesMS')"></span>
+        </div>
       </div>
       <div class="column">
 
@@ -1428,11 +1616,17 @@
               </div>
               <button class="button" id="submit_milestone_product_edits">Submit New Milestone Description</button>
             </div>
-
-
-
-
-
+            <p class="has-text-weight-bold is-italic is-small">This product is intended for decorative purposes only -
+              it is
+              not
+              a toy.
+              Please hang out of the reach of children.
+            </p>
+            <p class="has-text-weight-bold is-italic is-small">
+              Actual colors may differ slightly from colors on your screen due to different screen resolutions and
+              color
+              depths.
+            </p>
         </p>
       </div>
     </div>
@@ -1442,57 +1636,108 @@
 
   <!-- gallery.html content -->
   <div id="Gallery" class="content is-hidden">
-    <div>
-      <br>
-      <br>
-    </div>
 
     <div class="container">
       <div class="tile is-vertical p-3">
+        <div id="gallery1_div_image" class="is-hidden">
+          <input id="gallery1_input" type="file">
+          <button class="button" id="gallery1_image_submit">Submit Image</button>
+        </div>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_8361.jpg" />
+
+          <div id="gallery1_image"></div>
         </article>
+
+        <div id="gallery2_div_image" class="is-hidden">
+          <input id="gallery2_input" type="file">
+          <button class="button" id="gallery2_image_submit">Submit Image</button>
+        </div>
+
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_2599.jpg" />
+          <div id="gallery2_image"></div>
         </article>
+        <div id="gallery3_div_image" class="is-hidden">
+          <input id="gallery3_input" type="file">
+          <button class="button" id="gallery3_image_submit">Submit Image</button>
+        </div>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_6053.jpg" />
-        </article>
-      </div>
-      <div class="tile is-vertical p-3">
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_4174.jpg" />
-        </article>
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_4178.jpg" />
-        </article>
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_6064.jpg" />
-        </article>
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_6081.jpg" />
-        </article>
-      </div>
-      <div class="tile is-vertical p-3">
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_7340.jpg" />
-        </article>
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_5429.jpg" />
-        </article>
-        <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_6289.jpg" />
+          <div id="gallery3_image"></div>
         </article>
       </div>
       <div class="tile is-vertical p-3">
+        <div id="gallery4_div_image" class="is-hidden">
+          <input id="gallery4_input" type="file">
+          <button class="button" id="gallery4_image_submit">Submit Image</button>
+        </div>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_4146.jpg" />
+          <div id="gallery4_image"></div>
         </article>
+        <div id="gallery5_div_image" class="is-hidden">
+          <input id="gallery5_input" type="file">
+          <button class="button" id="gallery5_image_submit">Submit Image</button>
+        </div>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_5405.jpg" />
+          <div id="gallery5_image"></div>
         </article>
+        <div id="gallery6_div_image" class="is-hidden">
+          <input id="gallery6_input" type="file">
+          <button class="button" id="gallery6_image_submit">Submit Image</button>
+        </div>
         <article class="tile box">
-          <img src="./imagesCheersToYou/IMG_6129.jpg" />
+          <div id="gallery6_image"></div>
+        </article>
+        <div id="gallery7_div_image" class="is-hidden">
+          <input id="gallery7_input" type="file">
+          <button class="button" id="gallery7_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery7_image"></div>
+        </article>
+      </div>
+      <div class="tile is-vertical p-3">
+        <div id="gallery8_div_image" class="is-hidden">
+          <input id="gallery8_input" type="file">
+          <button class="button" id="gallery8_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery8_image"></div>
+        </article>
+        <div id="gallery9_div_image" class="is-hidden">
+          <input id="gallery9_input" type="file">
+          <button class="button" id="gallery9_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery9_image"></div>
+        </article>
+        <div id="gallery10_div_image" class="is-hidden">
+          <input id="gallery10_input" type="file">
+          <button class="button" id="gallery10_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery10_image"></div>
+        </article>
+      </div>
+      <div class="tile is-vertical p-3">
+        <div id="gallery11_div_image" class="is-hidden">
+          <input id="gallery11_input" type="file">
+          <button class="button" id="gallery11_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery11_image"></div>
+        </article>
+        <div id="gallery12_div_image" class="is-hidden">
+          <input id="gallery12_input" type="file">
+          <button class="button" id="gallery12_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery12_image"></div>
+        </article>
+        <div id="gallery13_div_image" class="is-hidden">
+          <input id="gallery13_input" type="file">
+          <button class="button" id="gallery13_image_submit">Submit Image</button>
+        </div>
+        <article class="tile box">
+          <div id="gallery13_image"></div>
         </article>
       </div>
     </div>
@@ -1507,23 +1752,17 @@
     </div>
     <div class="container">
       <div class="columns">
-        <div class="column is-6 ml-5 mt-4 mb-5">
+        <div class="column is-one-third ml-6 mr-6 mb-6">
 
-
-          <input id="maker_image_input" type="file">
-          <button class="button" id="submit_maker_image">Submit Image</button>
+          <div id="maker_image_div" class="is-hidden">
+            <input id="maker_image_input" type="file">
+            <button class="button" id="submit_maker_image">Submit Image</button>
+          </div>
           <div id="maker_image"></div>
-          <!-- <figure class="image is-3by3 pl-6 pr-6 pb-6">
-            <img id="maker_image" src="alice.png" alt="Alice">
-          </figure> -->
-
 
         </div>
         <div class="column mr-5 mt-4 mb-5">
           <div>
-
-
-
             <p id="maker_title_section" class="title">MEET THE MAKER</p>
             <div class="is-hidden" id="maker_title_div">
               <div class="field ">
@@ -1558,11 +1797,6 @@
 
   <!-- contact us form content -->
   <div id="Contact" class="content is-hidden">
-    <div>
-      <br>
-      <br>
-      <br>
-    </div>
     <div class="p-4">
       <p class="title has-text-centered">CONTACT ME</p>
       <p class="has-text-centered has-text-weight-bold">Submit Questions, Concerns, or Custom Art Requests</p>
