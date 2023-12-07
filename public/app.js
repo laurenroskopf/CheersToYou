@@ -515,6 +515,20 @@ auth.onAuthStateChanged((user) => {
       r_e("bunting_price4_edit_div").classList.add("is-active");
       r_e("bunting_words4_edit_div").classList.remove("is-hidden");
       r_e("bunting_words4_edit_div").classList.add("is-active");
+      r_e("ms_price_edit_div").classList.remove("is-hidden");
+      r_e("ms_price_edit_div").classList.add("is-active");
+      r_e("gar_price1_edit_div").classList.remove("is-hidden");
+      r_e("gar_price1_edit_div").classList.add("is-active");
+      r_e("gar_words1_edit_div").classList.remove("is-hidden");
+      r_e("gar_words1_edit_div").classList.add("is-active");
+      r_e("gar_price2_edit_div").classList.remove("is-hidden");
+      r_e("gar_price2_edit_div").classList.add("is-active");
+      r_e("gar_words2_edit_div").classList.remove("is-hidden");
+      r_e("gar_words2_edit_div").classList.add("is-active");
+      r_e("gar_price3_edit_div").classList.remove("is-hidden");
+      r_e("gar_price3_edit_div").classList.add("is-active");
+      r_e("gar_words3_edit_div").classList.remove("is-hidden");
+      r_e("gar_words3_edit_div").classList.add("is-active");
     }
   }
 });
@@ -2032,6 +2046,66 @@ db.collection("Admin_Edits")
     ).innerHTML = `<input type="radio" name="bunt-choice">
     ${doc.data().boption4} ($${doc.data().bprice4})`;
   });
+// change options
+r_e("submit_gar_words2_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      goption2: document.querySelector("#gar_words2_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option2"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+          ${doc.data().goption2} ($${doc.data().gprice2})`;
+    });
+  document.querySelector("#gar_words2_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option2"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+        ${doc.data().goption2} ($${doc.data().gprice2})`;
+  });
+
+//change price
+r_e("submit_gar_price2_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      gprice2: document.querySelector("#gar_price2_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option2"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+        ${doc.data().goption2} ($${doc.data().gprice2})`;
+    });
+  document.querySelector("#gar_price2_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option2"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+    ${doc.data().goption2} ($${doc.data().gprice2})`;
+  });
 db.collection("Admin_Edits")
   .doc("garlands")
   .get()
@@ -2040,6 +2114,66 @@ db.collection("Admin_Edits")
       "#gar_option1"
     ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().goption1} ($${doc.data().gprice1})`;
+  });
+// change options
+r_e("submit_gar_words1_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      goption1: document.querySelector("#gar_words1_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+          ${doc.data().goption1} ($${doc.data().gprice1})`;
+    });
+  document.querySelector("#gar_words1_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option1"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+        ${doc.data().goption1} ($${doc.data().gprice1})`;
+  });
+
+//change price
+r_e("submit_gar_price1_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      gprice1: document.querySelector("#gar_price1_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+        ${doc.data().goption1} ($${doc.data().gprice1})`;
+    });
+  document.querySelector("#gar_price1_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option1"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+    ${doc.data().goption1} ($${doc.data().gprice1})`;
   });
 db.collection("Admin_Edits")
   .doc("garlands")
@@ -2050,6 +2184,7 @@ db.collection("Admin_Edits")
     ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().goption2} ($${doc.data().gprice2})`;
   });
+
 db.collection("Admin_Edits")
   .doc("garlands")
   .get()
@@ -2059,7 +2194,97 @@ db.collection("Admin_Edits")
     ).innerHTML = ` <input type="radio" name="gar-choice">
    ${doc.data().goption3} ($${doc.data().gprice3})`;
   });
+// change options
+r_e("submit_gar_words3_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      goption3: document.querySelector("#gar_words3_edits").value,
+    });
 
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option3"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+          ${doc.data().goption3} ($${doc.data().gprice3})`;
+    });
+  document.querySelector("#gar_words3_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option3"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+        ${doc.data().goption3} ($${doc.data().gprice3})`;
+  });
+
+//change price
+r_e("submit_gar_price3_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      gprice3: document.querySelector("#gar_price3_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#gar_option3"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+        ${doc.data().goption3} ($${doc.data().gprice3})`;
+    });
+  document.querySelector("#gar_price2_edits").value = "";
+});
+db.collection("Admin_Edits")
+  .doc("garlands")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#gar_option3"
+    ).innerHTML = `<input type="radio" name="gar-choice">
+    ${doc.data().goption3} ($${doc.data().gprice3})`;
+  });
+r_e("submit_ms_price_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .update({
+      price: document.querySelector("#ms_price_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#ms_price"
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+    });
+  document.querySelector("#ms_price_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("milestones")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#ms_price"
+    ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+      doc.data().price
+    }</p>`;
+  });
 db.collection("Admin_Edits")
   .doc("milestones")
   .get()
