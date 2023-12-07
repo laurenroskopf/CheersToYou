@@ -147,7 +147,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
     })
     .catch((err) => {
       //catch any arror
-      signin_modal.querySelector(".error").innerHTML = err.message;
+      alert("Error with Sign in. Please try again");
     });
 });
 
