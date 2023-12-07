@@ -310,15 +310,17 @@ function load_sc() {
                   </figure>
                 </div>
                 <div class="column is-4">
-                  <h3 id="type"class="subtitle is-5">${doc.data().productType
-                }</h3>
+                  <h3 id="type"class="subtitle is-5">${
+                    doc.data().productType
+                  }</h3>
                   <p>${product_html(doc)}</p>
                 </div>
     
                 <div class="column">$${parseFloat(doc.data().price).toFixed(
                   2
                 )}</div>
-                <div onclick="del_doc('${doc.id
+                <div onclick="del_doc('${
+                  doc.id
                 }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
               </div>`;
             }
@@ -348,14 +350,15 @@ function load_order() {
               </div>
               <div>Customer Name:</div>
               <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-                .data()
-                .createdAt.toDate()
-                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+              .data()
+              .createdAt.toDate()
+              .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
               <div>Email: ${doc.data().combinedData[0].email}</div>
               <div>Total: $${doc.data().total}</div>
               <div>Venmo: @${doc.data().user_venmo}</div>
-              <div>Shipping Address: ${doc.data().address} ${doc.data().state
-              } ${doc.data().zip}</div>
+              <div>Shipping Address: ${doc.data().address} ${
+              doc.data().state
+            } ${doc.data().zip}</div>
               <br>`;
             let items = doc.data().combinedData;
             items.forEach((item) => {
@@ -496,6 +499,32 @@ auth.onAuthStateChanged((user) => {
       r_e("milestone_home_edit_div").classList.add("is-active");
       r_e("milestone_product_edit_div").classList.remove("is-hidden");
       r_e("milestone_product_edit_div").classList.add("is-active");
+      r_e("bunting_price1_edit_div").classList.remove("is-hidden");
+      r_e("bunting_price1_edit_div").classList.add("is-active");
+      r_e("bunting_words1_edit_div").classList.remove("is-hidden");
+      r_e("bunting_words1_edit_div").classList.add("is-active");
+      r_e("bunting_price2_edit_div").classList.remove("is-hidden");
+      r_e("bunting_price2_edit_div").classList.add("is-active");
+      r_e("bunting_words2_edit_div").classList.remove("is-hidden");
+      r_e("bunting_words2_edit_div").classList.add("is-active");
+      r_e("bunting_price3_edit_div").classList.remove("is-hidden");
+      r_e("bunting_price3_edit_div").classList.add("is-active");
+      r_e("bunting_words3_edit_div").classList.remove("is-hidden");
+      r_e("bunting_words3_edit_div").classList.add("is-active");
+      r_e("bunting_price4_edit_div").classList.remove("is-hidden");
+      r_e("bunting_price4_edit_div").classList.add("is-active");
+      r_e("bunting_words4_edit_div").classList.remove("is-hidden");
+      r_e("bunting_words4_edit_div").classList.add("is-active");
+      r_e("maker_image_div").classList.remove("is-hidden");
+      r_e("maker_image_div").classList.add("is-active");
+      r_e("home_bunting_div_image").classList.remove("is-hidden");
+      r_e("home_bunting_div_image").classList.add("is-active");
+      r_e("home_pennant_div_image").classList.remove("is-hidden");
+      r_e("home_pennant_div_image").classList.add("is-active");
+      r_e("home_garland_div_image").classList.remove("is-hidden");
+      r_e("home_garland_div_image").classList.add("is-active");
+      r_e("home_milestone_div_image").classList.remove("is-hidden");
+      r_e("home_milestone_div_image").classList.add("is-active");
     }
   }
 });
@@ -599,8 +628,6 @@ makernav.addEventListener("click", () => {
       section.classList.remove("is-active");
     }
   });
-
-
 });
 
 //contact me
@@ -1124,8 +1151,9 @@ function load_contact() {
 
             <!-- need to change to js -->
 
-            <div onclick="del_docreq('${doc.id
-          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            <div onclick="del_docreq('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       });
       document.querySelector("#Contactreq").innerHTML += html;
@@ -1188,31 +1216,114 @@ auth.onAuthStateChanged((user) => {
       });
   }
 });
-//updates to home page
-// r_e("submit_maker_edits").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   db.collection('Admin_Edits').doc('maker_body_edit').update({
 
-//     message: document.querySelector('#maker_edits').value,
+//function to insert an image
+function images(coll, d, content1, input1) {
 
-//   })
+  // 7. Getting the image ready
+  let file = document.querySelector(input1).files[0];
+  let image = new Date() + "_" + file.name;
 
-//   db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-//     (doc) => {
+  const task = ref.child(image).put(file);
 
-//       document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
+  task
+    .then((snapshot) => snapshot.ref.getDownloadURL())
+    .then((url) => {
+      // Url is ready now
+      // 4. Object
 
-//     }
-//   )
+      alert('a');
 
-// });
+      db.collection(coll).doc(d).update({
+        url: url,
+      });
 
-// db.collection('Admin_Edits').doc('maker_body_edit').get().then(
-//   (doc) => {
+      // set a delay
 
-//     document.querySelector('#maker_section').innerHTML = `<p>${doc.data().message}</p>`
-//   }
-// )
+      setTimeout(() => {
+        alert('b')
+        db.collection(coll)
+          .doc(d)
+          .get()
+          .then((doc) => {
+            document.querySelector(
+              content1
+            ).innerHTML = `<img src="${
+            doc.data().url
+          }" />`;
+          });
+      }, 1000)
+
+
+
+    });
+}
+
+//submit maker image
+r_e("submit_maker_image").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "maker_body_edit", "#maker_image", "#maker_image_input");
+  // r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
+});
+
+//submit buntings home picture
+r_e("submit_bunting_home_image").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "bunting_home", "#bunting_image_home", "#bunting_home_image_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("bunting_home")
+  .get()
+  .then((doc) => {
+    r_e("bunting_image_home").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+
+//submit pennants home picture
+r_e("submit_pennant_home_image").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "pennant_home", "#pennant_image_home", "#pennant_home_image_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("pennant_home")
+  .get()
+  .then((doc) => {
+    r_e("pennant_image_home").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit garland home picture
+r_e("submit_garland_home_image").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "garland_home", "#garland_image_home", "#garland_home_image_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("garland_home")
+  .get()
+  .then((doc) => {
+    r_e("garland_image_home").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit milestone home picture
+r_e("submit_milestone_home_image").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "milestone_home", "#milestone_image_home", "#milestone_home_image_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("milestone_home")
+  .get()
+  .then((doc) => {
+    r_e("milestone_image_home").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
 
 //submit edits to milestones description product page
 
@@ -1228,8 +1339,9 @@ r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
     .doc("milestones")
     .get()
     .then((doc) => {
-      document.querySelector("#milestone_product_section").innerHTML = `<p>${doc.data().product_de
-        }</p>`;
+      document.querySelector("#milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      }</p>`;
     });
 
   document.querySelector("#milestone_product_edits").value = "";
@@ -1238,8 +1350,9 @@ db.collection("Admin_Edits")
   .doc("milestones")
   .get()
   .then((doc) => {
-    document.querySelector("#milestone_product_section").innerHTML = `<p>${doc.data().product_de
-      }</p>`;
+    document.querySelector("#milestone_product_section").innerHTML = `<p>${
+      doc.data().product_de
+    }</p>`;
   });
 
 //submit edits to milestones description home page
@@ -1256,8 +1369,9 @@ r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
     .doc("milestones")
     .get()
     .then((doc) => {
-      document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
-        }</p>`;
+      document.querySelector("#milestone_home_section").innerHTML = `<p>${
+        doc.data().home_de
+      }</p>`;
     });
 
   document.querySelector("#milestone_home_edits").value = "";
@@ -1266,8 +1380,9 @@ db.collection("Admin_Edits")
   .doc("milestones")
   .get()
   .then((doc) => {
-    document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
-      }</p>`;
+    document.querySelector("#milestone_home_section").innerHTML = `<p>${
+      doc.data().home_de
+    }</p>`;
   });
 
 //submit edits to garland home page
@@ -1284,8 +1399,9 @@ r_e("submit_garland_home_edits").addEventListener("click", (event) => {
     .doc("garlands")
     .get()
     .then((doc) => {
-      document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
-        }</p>`;
+      document.querySelector("#garland_home_section").innerHTML = `<p>${
+        doc.data().home_des
+      }</p>`;
     });
   document.querySelector("#garland_home_edits").value = "";
 });
@@ -1293,8 +1409,9 @@ db.collection("Admin_Edits")
   .doc("garlands")
   .get()
   .then((doc) => {
-    document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
-      }</p>`;
+    document.querySelector("#garland_home_section").innerHTML = `<p>${
+      doc.data().home_des
+    }</p>`;
   });
 
 //submit edits to garland description product page
@@ -1311,8 +1428,9 @@ r_e("submit_garland_product_edits").addEventListener("click", (event) => {
     .doc("garlands")
     .get()
     .then((doc) => {
-      document.querySelector("#garland_product_section").innerHTML = `<p>${doc.data().product_des
-        }</p>`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
     });
   document.querySelector("#garland_product_edits").value = "";
 });
@@ -1320,8 +1438,9 @@ db.collection("Admin_Edits")
   .doc("garlands")
   .get()
   .then((doc) => {
-    document.querySelector("#garland_product_section").innerHTML = `<p>${doc.data().product_des
-      }</p>`;
+    document.querySelector("#garland_product_section").innerHTML = `<p>${
+      doc.data().product_des
+    }</p>`;
   });
 
 //submit edits to buntings description home page
@@ -1338,8 +1457,9 @@ r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
     .doc("buntings")
     .get()
     .then((doc) => {
-      document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
-        }</p>`;
+      document.querySelector("#bunting_home_section").innerHTML = `<p>${
+        doc.data().home_desc
+      }</p>`;
     });
   document.querySelector("#bunting_home_edits").value = "";
 });
@@ -1348,8 +1468,9 @@ db.collection("Admin_Edits")
   .doc("buntings")
   .get()
   .then((doc) => {
-    document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
-      }</p>`;
+    document.querySelector("#bunting_home_section").innerHTML = `<p>${
+      doc.data().home_desc
+    }</p>`;
   });
 
 //submit edits to buntings description on product page
@@ -1365,8 +1486,9 @@ r_e("submit_bunting_product_edits").addEventListener("click", (event) => {
     .doc("buntings")
     .get()
     .then((doc) => {
-      document.querySelector("#bunting_product_section").innerHTML = `<p>${doc.data().product_desc
-        }</p>`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
     });
   document.querySelector("#bunting_product_edits").value = "";
 });
@@ -1374,8 +1496,9 @@ db.collection("Admin_Edits")
   .doc("buntings")
   .get()
   .then((doc) => {
-    document.querySelector("#bunting_product_section").innerHTML = `<p>${doc.data().product_desc
-      }</p>`;
+    document.querySelector("#bunting_product_section").innerHTML = `<p>${
+      doc.data().product_desc
+    }</p>`;
   });
 
 //submit edits to pennant description on product page
@@ -1393,8 +1516,9 @@ r_e("submit_pennant_product_edits").addEventListener("click", (event) => {
     .doc("pennants")
     .get()
     .then((doc) => {
-      document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
-        }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
     });
   document.querySelector("#pennant_product_edits").value = "";
 });
@@ -1403,8 +1527,9 @@ db.collection("Admin_Edits")
   .doc("pennants")
   .get()
   .then((doc) => {
-    document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
-      }</p>`;
+    document.querySelector("#pennant_body_section").innerHTML = `<p>${
+      doc.data().product_description
+    }</p>`;
   });
 
 //submit edits to pennant price on product page
@@ -1423,8 +1548,9 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
     .then((doc) => {
       document.querySelector(
         "#pennant_price"
-      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -1435,8 +1561,9 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#pennant_price"
-    ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-      }</p>`;
+    ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+      doc.data().price
+    }</p>`;
   });
 //submit edits to home page pennant description
 
@@ -1452,8 +1579,9 @@ r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
     .doc("pennants")
     .get()
     .then((doc) => {
-      document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
-        }</p>`;
+      document.querySelector("#pennant_home_section").innerHTML = `<p>${
+        doc.data().home_description
+      }</p>`;
     });
   document.querySelector("#pennant_home_edits").value = "";
 });
@@ -1462,9 +1590,11 @@ db.collection("Admin_Edits")
   .doc("pennants")
   .get()
   .then((doc) => {
-    document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
-      }</p>`;
+    document.querySelector("#pennant_home_section").innerHTML = `<p>${
+      doc.data().home_description
+    }</p>`;
   });
+
 
 //submit edits to maker page
 r_e("submit_maker_title_edits").addEventListener("click", (event) => {
@@ -1483,8 +1613,8 @@ r_e("submit_maker_title_edits").addEventListener("click", (event) => {
         "#maker_title_section"
       ).innerHTML = `<p class="title">${doc.data().title}</p>`;
 
-      alert('temp1234')
-      r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
+
+      //r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
     });
   document.querySelector("#maker_title_edits").value = "";
 });
@@ -1496,7 +1626,7 @@ db.collection("Admin_Edits")
     document.querySelector(
       "#maker_title_section"
     ).innerHTML = `<p class="title">${doc.data().title}</p>`;
-    r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
+    r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`;
   });
 
 r_e("submit_maker_edits").addEventListener("click", (event) => {
@@ -1511,8 +1641,9 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
     .doc("maker_body_edit")
     .get()
     .then((doc) => {
-      document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
-        }</p>`;
+      document.querySelector("#maker_section").innerHTML = `<p>${
+        doc.data().message
+      }</p>`;
     });
   document.querySelector("#maker_edits").value = "";
 });
@@ -1521,8 +1652,9 @@ db.collection("Admin_Edits")
   .doc("maker_body_edit")
   .get()
   .then((doc) => {
-    document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
-      }</p>`;
+    document.querySelector("#maker_section").innerHTML = `<p>${
+      doc.data().message
+    }</p>`;
   });
 
 //shipping modal
@@ -1651,13 +1783,14 @@ function load_account() {
                   <h3 id="type"class="subtitle is-5">Order</h3>    
                 </div>
               <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-                  .data()
-                  .createdAt.toDate()
-                  .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+                .data()
+                .createdAt.toDate()
+                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
                 <div>Total: $${doc.data().total}</div>
                 <div>Venmo: @${doc.data().user_venmo}</div>
-                <div>Shipping Address: ${doc.data().address} ${doc.data().city
-                }, ${doc.data().state} ${doc.data().zip}</div>
+                <div>Shipping Address: ${doc.data().address} ${
+                doc.data().city
+              }, ${doc.data().state} ${doc.data().zip}</div>
                 <br>`;
               let items = doc.data().combinedData;
               items.forEach((item) => {
@@ -1676,18 +1809,18 @@ function load_account() {
   });
 }
 
-//Carousel 
+//Carousel
 let slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
@@ -1695,10 +1828,10 @@ function showSlides(n) {
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {
-    slideIndex = 1
+    slideIndex = 1;
   }
   if (n < 1) {
-    slideIndex = slides.length
+    slideIndex = slides.length;
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
@@ -1728,6 +1861,68 @@ db.collection("Admin_Edits")
    ${doc.data().boption1} ($${doc.data().bprice1})`;
   });
 
+//change words
+r_e("submit_bunting_words1_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      boption1: document.querySelector("#bunting_words1_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+        ${doc.data().boption1} ($${doc.data().bprice1})`;
+    });
+  document.querySelector("#bunting_words1_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option1"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+      ${doc.data().boption1} ($${doc.data().bprice1})`;
+  });
+
+//change price
+r_e("submit_bunting_price1_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      bprice1: document.querySelector("#bunting_price1_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+      ${doc.data().boption1} ($${doc.data().bprice1})`;
+    });
+  document.querySelector("#bunting_price1_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option1"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+    ${doc.data().boption1} ($${doc.data().bprice1})`;
+  });
+
 db.collection("Admin_Edits")
   .doc("buntings")
   .get()
@@ -1738,6 +1933,67 @@ db.collection("Admin_Edits")
    ${doc.data().boption2} ($${doc.data().bprice2})`;
   });
 
+//change words
+r_e("submit_bunting_words2_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      boption2: document.querySelector("#bunting_words2_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+        ${doc.data().boption2} ($${doc.data().bprice2})`;
+    });
+  document.querySelector("#bunting_words2_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option2"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+      ${doc.data().boption2} ($${doc.data().bprice2})`;
+  });
+
+//change price
+r_e("submit_bunting_price2_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      bprice2: document.querySelector("#bunting_price2_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+      ${doc.data().boption2} ($${doc.data().bprice2})`;
+    });
+  document.querySelector("#bunting_price2_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option2"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+    ${doc.data().boption2} ($${doc.data().bprice2})`;
+  });
 db.collection("Admin_Edits")
   .doc("buntings")
   .get()
@@ -1747,7 +2003,67 @@ db.collection("Admin_Edits")
     ).innerHTML = ` <input type="radio" name="bunt-choice">
    ${doc.data().boption3} ($${doc.data().bprice3})`;
   });
+//change words
+r_e("submit_bunting_words3_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      boption3: document.querySelector("#bunting_words3_edits").value,
+    });
 
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+        ${doc.data().boption3} ($${doc.data().bprice3})`;
+    });
+  document.querySelector("#bunting_words3_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option3"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+      ${doc.data().boption3} ($${doc.data().bprice3})`;
+  });
+
+//change price
+r_e("submit_bunting_price3_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      bprice3: document.querySelector("#bunting_price3_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+      ${doc.data().boption3} ($${doc.data().bprice3})`;
+    });
+  document.querySelector("#bunting_price3_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option3"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+    ${doc.data().boption3} ($${doc.data().bprice3})`;
+  });
 db.collection("Admin_Edits")
   .doc("buntings")
   .get()
@@ -1758,6 +2074,67 @@ db.collection("Admin_Edits")
    ${doc.data().boption4} ($${doc.data().bprice4})`;
   });
 
+//change words
+r_e("submit_bunting_words4_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      boption4: document.querySelector("#bunting_words4_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+        ${doc.data().boption4} ($${doc.data().bprice4})`;
+    });
+  document.querySelector("#bunting_words4_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option4"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+      ${doc.data().boption4} ($${doc.data().bprice4})`;
+  });
+
+//change price
+r_e("submit_bunting_price4_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      bprice4: document.querySelector("#bunting_price4_edits").value,
+    });
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = ` <input type="radio" name="bunt-choice">
+      ${doc.data().boption4} ($${doc.data().bprice4})`;
+    });
+  document.querySelector("#bunting_price4_edits").value = "";
+});
+
+db.collection("Admin_Edits")
+  .doc("buntings")
+  .get()
+  .then((doc) => {
+    document.querySelector(
+      "#bunt_option4"
+    ).innerHTML = `<input type="radio" name="bunt-choice">
+    ${doc.data().boption4} ($${doc.data().bprice4})`;
+  });
 db.collection("Admin_Edits")
   .doc("garlands")
   .get()
@@ -1793,57 +2170,9 @@ db.collection("Admin_Edits")
     document.querySelector("#ms_price").innerHTML = `$${doc.data().price}`;
   });
 
-//function to insert an image
-function images(coll, d, content1, input1) {
-
-  // 7. Getting the image ready
-  let file = document.querySelector(input1).files[0];
-  let image = new Date() + "_" + file.name;
-
-  const task = ref.child(image).put(file);
-
-  task
-    .then((snapshot) => snapshot.ref.getDownloadURL())
-    .then((url) => {
-      // Url is ready now
-      // 4. Object
-
-      alert('a');
-
-      db.collection(coll).doc(d).update({
-        url: url,
-      });
-
-      // set a delay
-
-      setTimeout(() => {
-        alert('b')
-        db.collection(coll)
-          .doc(d)
-          .get()
-          .then((doc) => {
-            document.querySelector(
-              content1
-            ).innerHTML = `<p class=" has-text-centered m-3"><img width="200" src="${
-            doc.data().url
-          }" /></p>`;
-          });
-      }, 1000)
 
 
 
-    });
-}
-r_e("submit_maker_image").addEventListener("click", (e) => {
-
-  e.preventDefault();
-  images("Admin_Edits", "maker_body_edit", "#maker_image", "#maker_image_input");
-});
-
-
-// r_e("buntings_submit_image").addEventListener("click", () => {
-//   images("Admin_Edits", "buntings", "#buntings_image", "#input_buntings");
-// });
 
 //this was in the event listener above
 

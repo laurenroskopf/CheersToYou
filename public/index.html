@@ -234,8 +234,14 @@
             <!--Pennants Image-->
 
             <div class="card-image">
+              <div id="home_pennant_div_image" class="is-hidden">
+                <input id="pennant_home_image_input" type="file">
+                <button class="button" id="submit_pennant_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homepen" href="#"><img src="./imagesCheersToYou/IMG_0695.jpg" alt="" /></a>
+                <a id="homepen" href="#">
+                  <div id="pennant_image_home"></div>
+                </a>
               </figure>
               <!--Pennants Information-->
               <div class="card-content">
@@ -265,11 +271,18 @@
           <div class="card">
             <!--Buntings Image-->
             <div class="card-image">
+              <div id="home_bunting_div_image" class="is-hidden">
+                <input id="bunting_home_image_input" type="file">
+                <button class="button" id="submit_bunting_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homeban" href="#"><img src="./imagesCheersToYou/IMG_7408.jpg" alt="" /></a>
+                <a id="homeban" href="#">
+                  <div id="bunting_image_home"> </div>
+                </a>
               </figure>
               <!--Buntings Information-->
               <div class="card-content">
+
                 <p class="is-size-4 has-text-centered has-text-weight-bold">
                   <a id="homeban1" href="#" class="has-text-black">BUNTINGS</a>
                 </p>
@@ -305,8 +318,14 @@
           <div class="card">
             <!--Garlands Image-->
             <div class="card-image">
+              <div id="home_garland_div_image" class="is-hidden">
+                <input id="garland_home_image_input" type="file">
+                <button class="button" id="submit_garland_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homegar" href="#"><img src="./imagesCheersToYou/IMG_6074.jpg" alt="" /></a>
+                <a id="homegar" href="#">
+                  <div id="garland_image_home"></div>
+                </a>
               </figure>
               <!--Garlands Information-->
               <div class="card-content">
@@ -342,8 +361,14 @@
           <div class="card">
             <!--Milestone Set Image-->
             <div class="card-image">
+              <div id="home_milestone_div_image" class="is-hidden">
+                <input id="milestone_home_image_input" type="file">
+                <button class="button" id="submit_milestone_home_image">Submit Image</button>
+              </div>
               <figure class="image is-6by4 pt-5">
-                <a id="homems" href="#"><img src="./imagesCheersToYou/IMG_6862.jpg" alt="" /></a>
+                <a id="homems" href="#">
+                  <div id="milestone_image_home"></div>
+                </a>
               </figure>
               <!--Milestone Set Information-->
               <div class="card-content">
@@ -443,7 +468,6 @@
                   <div class="select">
                     <select id="penColor">
                       <option value="none" selected disabled hidden>Select </option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -501,7 +525,6 @@
                   <div class="select">
                     <select id="edgeColorPen">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -556,7 +579,59 @@
                   <div class="select">
                     <select id="fontColorPen">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
+                      <option>Lavender</option>
+                      <option>Thistle</option>
+                      <option>Opal</option>
+                      <option>Peacock</option>
+                      <option>Aqua</option>
+                      <option>Midnight</option>
+                      <option>Blue</option>
+                      <option>Saltwater</option>
+                      <option>Icicle</option>
+                      <option>Magenta</option>
+                      <option>Flamingo</option>
+                      <option>Peony</option>
+                      <option>Mustard</option>
+                      <option>Ochre</option>
+                      <option>Ecru</option>
+                      <option>Butter</option>
+                      <option>Dandelion</option>
+                      <option>Black</option>
+                      <option>Graphite</option>
+                      <option>Smoke</option>
+                      <option>Silver</option>
+                      <option>White</option>
+                      <option>Brown</option>
+                      <option>Nutmeg</option>
+                      <option>Latte</option>
+                      <option>Shortbread</option>
+                      <option>Oatmeal</option>
+                      <option>Rose</option>
+                      <option>Grapefruit</option>
+                      <option>Blush</option>
+                      <option>Crimson</option>
+                      <option>Red</option>
+                      <option>Copper</option>
+                      <option>Marigold</option>
+                      <option>Moss</option>
+                      <option>Citron</option>
+                      <option>Mint</option>
+                      <option>Sage</option>
+                      <option>Olive</option>
+                      <option>Evergreen</option>
+                      <option>Kelly</option>
+                      <option>Chartreuse</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <h4>Tab Color</h4>
+  
+                <div class="control">
+                  <div class="select">
+                    <select id="tabColorPen">
+                      <option value="none" selected disabled hidden>Select</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -604,8 +679,6 @@
                 </div>
               </div>
             </div>
-
-
             <h4>Personalization</h4>
             <input id="penPersonal" class="input" type="text">
             <p></p>
@@ -626,6 +699,12 @@
               </div>
               <button class="button" id="submit_pennant_product_edits">Submit New Pennant Description</button>
             </div>
+            </div>
+
+            
+
+            
+            
 
 
 
@@ -693,21 +772,101 @@
 
 
                   </label>
+                  <div class="is-hidden" id="bunting_words1_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new wording for this option"
+                          id="bunting_words1_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_words1_edits">Submit New Bunting Wording</button>
+                  </div>
+                  <div class="is-hidden" id="bunting_price1_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new price for this option (whole number)"
+                          id="bunting_price1_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_price1_edits">Submit New Bunting Price</button>
+                  </div>
                   <br>
                   <label class="radio p-1" id=bunt_option2>
 
 
                   </label>
+                  <div class="is-hidden" id="bunting_words2_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new wording for this option"
+                          id="bunting_words2_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_words2_edits">Submit New Bunting Wording</button>
+                  </div>
+                  <div class="is-hidden" id="bunting_price2_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new price for this option (whole number)"
+                          id="bunting_price2_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_price2_edits">Submit New Bunting Price</button>
+                  </div>
                   <br>
                   <label class="radio p-1" id=bunt_option3>
 
 
                   </label>
+                  <div class="is-hidden" id="bunting_words3_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new wording for this option"
+                          id="bunting_words3_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_words3_edits">Submit New Bunting Wording</button>
+                  </div>
+                  <div class="is-hidden" id="bunting_price3_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new price for this option (whole number)"
+                          id="bunting_price3_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_price3_edits">Submit New Bunting Price</button>
+                  </div>
                   <br>
                   <label class="radio p-1" id=bunt_option4>
 
 
                   </label>
+                  <div class="is-hidden" id="bunting_words4_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new wording for this option"
+                          id="bunting_words4_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_words4_edits">Submit New Bunting Wording</button>
+                  </div>
+                  <div class="is-hidden" id="bunting_price4_edit_div">
+                    <div class="field ">
+
+                      <div class="control">
+                        <input type="text" class="input" placeholder="Enter new price for this option (whole number)"
+                          id="bunting_price4_edits">
+                      </div>
+                    </div>
+                    <button class="button" id="submit_bunting_price4_edits">Submit New Bunting Price</button>
+                  </div>
 
                 </div>
               </div>
@@ -740,7 +899,6 @@
                   <div class="select">
                     <select id="bColor1">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -1058,7 +1216,6 @@
                   <div class="select">
                     <select id="gColor1">
                       <option value="none" selected disabled hidden>Select</option>
-                      <option>None</option>
                       <option>Lavender</option>
                       <option>Thistle</option>
                       <option>Opal</option>
@@ -1448,14 +1605,11 @@
       <div class="columns">
         <div class="column is-6 ml-5 mt-4 mb-5">
 
-
-          <input id="maker_image_input" type="file">
-          <button class="button" id="submit_maker_image">Submit Image</button>
+          <div id="maker_image_div" class="is-hidden">
+            <input id="maker_image_input" type="file">
+            <button class="button" id="submit_maker_image">Submit Image</button>
+          </div>
           <div id="maker_image"></div>
-          <!-- <figure class="image is-3by3 pl-6 pr-6 pb-6">
-            <img id="maker_image" src="alice.png" alt="Alice">
-          </figure> -->
-
 
         </div>
         <div class="column mr-5 mt-4 mb-5">
