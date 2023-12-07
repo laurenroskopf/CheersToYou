@@ -590,6 +590,9 @@ auth.onAuthStateChanged((user) => {
       r_e("milecar2_div_image").classList.add("is-active");
       r_e("milecar3_div_image").classList.remove("is-hidden");
       r_e("milecar3_div_image").classList.add("is-active");
+      r_e("logo_div_image").classList.remove("is-hidden");
+      r_e("logo_div_image").classList.add("is-active");
+
     }
   }
 });
@@ -1701,6 +1704,17 @@ db.collection("Admin_Edits")
     r_e("milecar3_image").innerHTML = `<img src="${doc.data().url}" />`;
   });
 
+//submit logo
+r_e("submit_logo_image").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "logo", "#logo_image", "#logo_image_input");
+});
+db.collection("Admin_Edits")
+  .doc("logo")
+  .get()
+  .then((doc) => {
+    r_e("logo_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
 
 //submit edits to milestones description product page
 
