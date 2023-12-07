@@ -549,6 +549,10 @@ auth.onAuthStateChanged((user) => {
       r_e("gallery12_div_image").classList.add("is-active");
       r_e("gallery13_div_image").classList.remove("is-hidden");
       r_e("gallery13_div_image").classList.add("is-active");
+      r_e("pencar1_div_image").classList.remove("is-hidden");
+      r_e("pencar1_div_image").classList.add("is-active");
+      r_e("pencar2_div_image").classList.remove("is-hidden");
+      r_e("pencar2_div_image").classList.add("is-active");
     }
   }
 });
@@ -1540,6 +1544,33 @@ db.collection("Admin_Edits")
     r_e("gallery13_image").innerHTML = `<img src="${doc.data().url}" />`
   });
 
+//submit pen car 1
+r_e("pencar1_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "pencar1", "#pencar1_image", "#pencar1_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("pencar1")
+  .get()
+  .then((doc) => {
+    r_e("pencar1_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
+
+//submit pen car 2
+r_e("pencar2_image_submit").addEventListener("click", (e) => {
+
+  e.preventDefault();
+  images("Admin_Edits", "pencar2", "#pencar2_image", "#pencar2_input");
+
+});
+db.collection("Admin_Edits")
+  .doc("pencar2")
+  .get()
+  .then((doc) => {
+    r_e("pencar2_image").innerHTML = `<img src="${doc.data().url}" />`
+  });
 
 
 //submit edits to milestones description product page
