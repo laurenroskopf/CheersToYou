@@ -570,6 +570,26 @@ auth.onAuthStateChanged((user) => {
       r_e("pencar1_div_image").classList.add("is-active");
       r_e("pencar2_div_image").classList.remove("is-hidden");
       r_e("pencar2_div_image").classList.add("is-active");
+      r_e("pencar3_div_image").classList.remove("is-hidden");
+      r_e("pencar3_div_image").classList.add("is-active");
+      r_e("garcar1_div_image").classList.add("is-active");
+      r_e("garcar1_div_image").classList.remove("is-hidden");
+      r_e("garcar2_div_image").classList.remove("is-hidden");
+      r_e("garcar2_div_image").classList.add("is-active");
+      r_e("garcar3_div_image").classList.remove("is-hidden");
+      r_e("garcar3_div_image").classList.add("is-active");
+      r_e("buntcar1_div_image").classList.add("is-active");
+      r_e("buntcar1_div_image").classList.remove("is-hidden");
+      r_e("buntcar2_div_image").classList.add("is-active");
+      r_e("buntcar2_div_image").classList.remove("is-hidden");
+      r_e("buntcar3_div_image").classList.add("is-active");
+      r_e("buntcar3_div_image").classList.remove("is-hidden");
+      r_e("milecar1_div_image").classList.remove("is-hidden");
+      r_e("milecar1_div_image").classList.add("is-active");
+      r_e("milecar2_div_image").classList.remove("is-hidden");
+      r_e("milecar2_div_image").classList.add("is-active");
+      r_e("milecar3_div_image").classList.remove("is-hidden");
+      r_e("milecar3_div_image").classList.add("is-active");
     }
   }
 });
@@ -1237,9 +1257,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //click checkout button
@@ -1560,6 +1580,127 @@ db.collection("Admin_Edits")
   .then((doc) => {
     r_e("pencar2_image").innerHTML = `<img src="${doc.data().url}" />`;
   });
+
+//submit pen car 3
+r_e("pencar3_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "pencar3", "#pencar3_image", "#pencar3_input");
+});
+db.collection("Admin_Edits")
+  .doc("pencar3")
+  .get()
+  .then((doc) => {
+    r_e("pencar3_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gar car 1
+r_e("garcar1_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "garcar1", "#garcar1_image", "#garcar1_input");
+});
+db.collection("Admin_Edits")
+  .doc("garcar1")
+  .get()
+  .then((doc) => {
+    r_e("garcar1_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gar car 2
+r_e("garcar2_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "garcar2", "#garcar2_image", "#garcar2_input");
+});
+db.collection("Admin_Edits")
+  .doc("garcar2")
+  .get()
+  .then((doc) => {
+    r_e("garcar2_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit gar car 3
+r_e("garcar3_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "garcar3", "#garcar3_image", "#garcar3_input");
+});
+db.collection("Admin_Edits")
+  .doc("garcar3")
+  .get()
+  .then((doc) => {
+    r_e("garcar3_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit bunt car 1
+r_e("buntcar1_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "buntcar1", "#buntcar1_image", "#buntcar1_input");
+});
+db.collection("Admin_Edits")
+  .doc("buntcar1")
+  .get()
+  .then((doc) => {
+    r_e("buntcar1_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit bunt car 2
+r_e("buntcar2_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "buntcar2", "#buntcar2_image", "#buntcar2_input");
+});
+db.collection("Admin_Edits")
+  .doc("buntcar2")
+  .get()
+  .then((doc) => {
+    r_e("buntcar2_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit bunt car 3
+r_e("buntcar3_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "buntcar3", "#buntcar3_image", "#buntcar3_input");
+});
+db.collection("Admin_Edits")
+  .doc("buntcar3")
+  .get()
+  .then((doc) => {
+    r_e("buntcar3_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+
+//submit mile car 1
+r_e("milecar1_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "milecar1", "#milecar1_image", "#milecar1_input");
+});
+db.collection("Admin_Edits")
+  .doc("milecar1")
+  .get()
+  .then((doc) => {
+    r_e("milecar1_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
+//submit mile car 2
+r_e("milecar2_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "milecar2", "#milecar2_image", "#milecar2_input");
+});
+db.collection("Admin_Edits")
+  .doc("milecar2")
+  .get()
+  .then((doc) => {
+    r_e("milecar2_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+//submit mile car 3
+r_e("milecar3_image_submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  images("Admin_Edits", "milecar3", "#milecar3_image", "#milecar3_input");
+});
+db.collection("Admin_Edits")
+  .doc("milecar3")
+  .get()
+  .then((doc) => {
+    r_e("milecar3_image").innerHTML = `<img src="${doc.data().url}" />`;
+  });
+
 
 //submit edits to milestones description product page
 
