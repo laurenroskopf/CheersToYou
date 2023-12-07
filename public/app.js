@@ -434,11 +434,11 @@ let accountnav = document.querySelector("#accountpg");
 //variables for home page
 let homepen = document.querySelector("#homepen");
 let homegar = document.querySelector("#homegar");
-let homeban = document.querySelector("#homeban");
+let homebun = document.querySelector("#homebun");
 let homems = document.querySelector("#homems");
 let homepen1 = document.querySelector("#homepen1");
 let homegar1 = document.querySelector("#homegar1");
-let homeban1 = document.querySelector("#homeban1");
+let homebun1 = document.querySelector("#homebun1");
 let homems1 = document.querySelector("#homems1");
 let homeframe1 = document.querySelector("#homeframe1");
 let homecust1 = document.querySelector("#homecust1");
@@ -641,7 +641,7 @@ garlandsnav.addEventListener("click", () => {
   showSlides(slideIndex, "mySlidesGar");
 });
 
-//banners page
+//buntings page
 buntingnav.addEventListener("click", () => {
   buntings.classList.add("is-active");
   buntings.classList.remove("is-hidden");
@@ -774,13 +774,13 @@ homegar.addEventListener("click", () => {
 });
 
 //banners page
-homeban.addEventListener("click", () => {
-  banners.classList.add("is-active");
-  banners.classList.remove("is-hidden");
+homebun.addEventListener("click", () => {
+  buntings.classList.add("is-active");
+  buntings.classList.remove("is-hidden");
 
   var allSections = document.querySelectorAll(".content"); // Select all sections by class
   allSections.forEach((section) => {
-    if (section.id != "Banners") {
+    if (section.id != "Buntings") {
       section.classList.add("is-hidden"); // Hide other sections
       section.classList.remove("is-active");
     }
@@ -835,7 +835,7 @@ homegar1.addEventListener("click", () => {
 });
 
 //buntings page
-homeban1.addEventListener("click", () => {
+homebun1.addEventListener("click", () => {
   buntings.classList.add("is-active");
   buntings.classList.remove("is-hidden");
 
