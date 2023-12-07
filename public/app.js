@@ -233,6 +233,7 @@ function product_html(doc) {
     <p>Edge Color: ${doc.data().edgeColor}</p>
     <p>Font Color: ${doc.data().fontColor}<p>
     <p>Tab Color: ${doc.data().tabColor}<p>
+    <p>Lettering: ${doc.data().lettering}<p>
     <p>Customization: ${doc.data().customization}</p>`;
   }
 
@@ -264,6 +265,7 @@ function completed_product_html(doc) {
     <p>Edge Color: ${doc.edgeColor}</p>
     <p>Font Color: ${doc.fontColor}<p>
     <p>Tab Color: ${doc.tabColor}<p>
+    <p>Lettering: ${doc.data().lettering}<p>
     <p>Customization: ${doc.customization}</p>`;
   }
 
@@ -956,6 +958,7 @@ addToCartPen.addEventListener("click", (event) => {
         edgeColor: document.querySelector("#edgeColorPen").value,
         fontColor: document.querySelector("#fontColorPen").value,
         tabColor: document.querySelector("#tabColorPen").value,
+        lettering: document.querySelector("#letteringPen").value,
         customization: document.querySelector("#penPersonal").value,
         productType: "Pennant",
         price: prc,
