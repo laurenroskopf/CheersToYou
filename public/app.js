@@ -16,6 +16,17 @@ function r_e(id) {
   return document.querySelector(`#${id}`);
 }
 
+//add and hide using classlist
+function isHidden(id) {
+  r_e(id).classList.add("is-hidden")
+  r_e(id).classList.remove("is-active")
+}
+
+function active(id) {
+  r_e(id).classList.remove("is-hidden")
+  r_e(id).classList.add("is-active")
+}
+
 //update doc
 function update_doc(ele, id) {
   let inputs = ele.parentNode.querySelectorAll("input");
@@ -832,142 +843,72 @@ auth.onAuthStateChanged((user) => {
       contactbut.classList.add("is-active");
       contactbut.classList.remove("is-hidden");
       r_e("accountbutton").classList.add("is-hidden");
-      r_e("maker_edit_div").classList.add("is-active");
-      r_e("maker_edit_div").classList.remove("is-hidden");
-      r_e("maker_title_div").classList.remove("is-hidden");
-      r_e("maker_title_div").classList.add("is-active");
-      r_e("pennant_home_edit_div").classList.add("is-active");
-      r_e("pennant_home_edit_div").classList.remove("is-hidden");
-      r_e("pennant_product_edit_div").classList.remove("is-hidden");
-      r_e("pennant_product_edit_div").classList.add("is-active");
-      r_e("pennant_price_edit_div").classList.remove("is-hidden");
-      r_e("pennant_price_edit_div").classList.add("is-active");
-      r_e("bunting_product_edit_div").classList.add("is-active");
-      r_e("bunting_product_edit_div").classList.remove("is-hidden");
-      r_e("bunting_home_edit_div").classList.remove("is-hidden");
-      r_e("bunting_home_edit_div").classList.add("is-active");
-      r_e("garland_product_edit_div").classList.add("is-active");
-      r_e("garland_product_edit_div").classList.remove("is-hidden");
-      r_e("garland_home_edit_div").classList.remove("is-hidden");
-      r_e("garland_home_edit_div").classList.add("is-active");
-      r_e("milestone_home_edit_div").classList.remove("is-hidden");
-      r_e("milestone_home_edit_div").classList.add("is-active");
-      r_e("milestone_product_edit_div").classList.remove("is-hidden");
-      r_e("milestone_product_edit_div").classList.add("is-active");
-      //update = part 2
-      r_e("accountbutton").classList.add("is-hidden");
-      r_e("maker_edit_div").classList.add("is-active");
-      r_e("maker_edit_div").classList.remove("is-hidden");
-      r_e("maker_title_div").classList.remove("is-hidden");
-      r_e("maker_title_div").classList.add("is-active");
-      r_e("pennant_home_edit_div").classList.add("is-active");
-      r_e("pennant_home_edit_div").classList.remove("is-hidden");
-      r_e("pennant_product_edit_div").classList.remove("is-hidden");
-      r_e("pennant_product_edit_div").classList.add("is-active");
-      r_e("bunting_product_edit_div").classList.add("is-active");
-      r_e("bunting_product_edit_div").classList.remove("is-hidden");
-      r_e("bunting_home_edit_div").classList.remove("is-hidden");
-      r_e("bunting_home_edit_div").classList.add("is-active");
-      r_e("garland_product_edit_div").classList.add("is-active");
-      r_e("garland_product_edit_div").classList.remove("is-hidden");
-      r_e("garland_home_edit_div").classList.remove("is-hidden");
-      r_e("garland_home_edit_div").classList.add("is-active");
-      r_e("milestone_home_edit_div").classList.remove("is-hidden");
-      r_e("milestone_home_edit_div").classList.add("is-active");
-      r_e("milestone_product_edit_div").classList.remove("is-hidden");
-      r_e("milestone_product_edit_div").classList.add("is-active");
-      r_e("bunting_price1_edit_div").classList.remove("is-hidden");
-      r_e("bunting_price1_edit_div").classList.add("is-active");
-      r_e("bunting_words1_edit_div").classList.remove("is-hidden");
-      r_e("bunting_words1_edit_div").classList.add("is-active");
-      r_e("bunting_price2_edit_div").classList.remove("is-hidden");
-      r_e("bunting_price2_edit_div").classList.add("is-active");
-      r_e("bunting_words2_edit_div").classList.remove("is-hidden");
-      r_e("bunting_words2_edit_div").classList.add("is-active");
-      r_e("bunting_price3_edit_div").classList.remove("is-hidden");
-      r_e("bunting_price3_edit_div").classList.add("is-active");
-      r_e("bunting_words3_edit_div").classList.remove("is-hidden");
-      r_e("bunting_words3_edit_div").classList.add("is-active");
-      r_e("bunting_price4_edit_div").classList.remove("is-hidden");
-      r_e("bunting_price4_edit_div").classList.add("is-active");
-      r_e("bunting_words4_edit_div").classList.remove("is-hidden");
-      r_e("bunting_words4_edit_div").classList.add("is-active");
-      r_e("ms_price_edit_div").classList.remove("is-hidden");
-      r_e("ms_price_edit_div").classList.add("is-active");
-      r_e("gar_price1_edit_div").classList.remove("is-hidden");
-      r_e("gar_price1_edit_div").classList.add("is-active");
-      r_e("gar_words1_edit_div").classList.remove("is-hidden");
-      r_e("gar_words1_edit_div").classList.add("is-active");
-      r_e("gar_price2_edit_div").classList.remove("is-hidden");
-      r_e("gar_price2_edit_div").classList.add("is-active");
-      r_e("gar_words2_edit_div").classList.remove("is-hidden");
-      r_e("gar_words2_edit_div").classList.add("is-active");
-      r_e("gar_price3_edit_div").classList.remove("is-hidden");
-      r_e("gar_price3_edit_div").classList.add("is-active");
-      r_e("gar_words3_edit_div").classList.remove("is-hidden");
-      r_e("gar_words3_edit_div").classList.add("is-active");
-      r_e("maker_image_div").classList.remove("is-hidden");
-      r_e("maker_image_div").classList.add("is-active");
-      r_e("home_bunting_div_image").classList.remove("is-hidden");
-      r_e("home_bunting_div_image").classList.add("is-active");
-      r_e("home_pennant_div_image").classList.remove("is-hidden");
-      r_e("home_pennant_div_image").classList.add("is-active");
-      r_e("home_garland_div_image").classList.remove("is-hidden");
-      r_e("home_garland_div_image").classList.add("is-active");
-      r_e("home_milestone_div_image").classList.remove("is-hidden");
-      r_e("home_milestone_div_image").classList.add("is-active");
-      r_e("gallery1_div_image").classList.remove("is-hidden");
-      r_e("gallery1_div_image").classList.add("is-active");
-      r_e("gallery2_div_image").classList.remove("is-hidden");
-      r_e("gallery2_div_image").classList.add("is-active");
-      r_e("gallery3_div_image").classList.remove("is-hidden");
-      r_e("gallery3_div_image").classList.add("is-active");
-      r_e("gallery4_div_image").classList.remove("is-hidden");
-      r_e("gallery4_div_image").classList.add("is-active");
-      r_e("gallery5_div_image").classList.remove("is-hidden");
-      r_e("gallery5_div_image").classList.add("is-active");
-      r_e("gallery6_div_image").classList.remove("is-hidden");
-      r_e("gallery6_div_image").classList.add("is-active");
-      r_e("gallery7_div_image").classList.remove("is-hidden");
-      r_e("gallery7_div_image").classList.add("is-active");
-      r_e("gallery8_div_image").classList.remove("is-hidden");
-      r_e("gallery8_div_image").classList.add("is-active");
-      r_e("gallery9_div_image").classList.remove("is-hidden");
-      r_e("gallery9_div_image").classList.add("is-active");
-      r_e("gallery10_div_image").classList.remove("is-hidden");
-      r_e("gallery10_div_image").classList.add("is-active");
-      r_e("gallery11_div_image").classList.remove("is-hidden");
-      r_e("gallery11_div_image").classList.add("is-active");
-      r_e("gallery12_div_image").classList.remove("is-hidden");
-      r_e("gallery12_div_image").classList.add("is-active");
-      r_e("gallery13_div_image").classList.remove("is-hidden");
-      r_e("gallery13_div_image").classList.add("is-active");
-      r_e("pencar1_div_image").classList.remove("is-hidden");
-      r_e("pencar1_div_image").classList.add("is-active");
-      r_e("pencar2_div_image").classList.remove("is-hidden");
-      r_e("pencar2_div_image").classList.add("is-active");
-      r_e("pencar3_div_image").classList.remove("is-hidden");
-      r_e("pencar3_div_image").classList.add("is-active");
-      r_e("garcar1_div_image").classList.add("is-active");
-      r_e("garcar1_div_image").classList.remove("is-hidden");
-      r_e("garcar2_div_image").classList.remove("is-hidden");
-      r_e("garcar2_div_image").classList.add("is-active");
-      r_e("garcar3_div_image").classList.remove("is-hidden");
-      r_e("garcar3_div_image").classList.add("is-active");
-      r_e("buntcar1_div_image").classList.add("is-active");
-      r_e("buntcar1_div_image").classList.remove("is-hidden");
-      r_e("buntcar2_div_image").classList.add("is-active");
-      r_e("buntcar2_div_image").classList.remove("is-hidden");
-      r_e("buntcar3_div_image").classList.add("is-active");
-      r_e("buntcar3_div_image").classList.remove("is-hidden");
-      r_e("milecar1_div_image").classList.remove("is-hidden");
-      r_e("milecar1_div_image").classList.add("is-active");
-      r_e("milecar2_div_image").classList.remove("is-hidden");
-      r_e("milecar2_div_image").classList.add("is-active");
-      r_e("milecar3_div_image").classList.remove("is-hidden");
-      r_e("milecar3_div_image").classList.add("is-active");
-      r_e("logo_div_image").classList.remove("is-hidden");
-      r_e("logo_div_image").classList.add("is-active");
+
+      //editing buttons
+      //maker page editing
+      active("maker_edit_div")
+      active("maker_title_div")
+      active("maker_image_div")
+      //pennants editing
+      active("pennant_home_edit_div")
+      active("pennant_product_edit_div")
+      active("pennant_price_edit_div")
+      active("home_pennant_div_image")
+      active("pencar1_div_image")
+      active("pencar2_div_image")
+      active("pencar3_div_image")
+      //bunting editing
+      active("bunting_product_edit_div")
+      active("bunting_home_edit_div")
+      active("bunting_price1_edit_div")
+      active("bunting_price2_edit_div")
+      active("bunting_price3_edit_div")
+      active("bunting_price4_edit_div")
+      active("bunting_words1_edit_div")
+      active("bunting_words2_edit_div")
+      active("bunting_words3_edit_div")
+      active("bunting_words4_edit_div")
+      active("home_bunting_div_image")
+      active("buntcar1_div_image")
+      active("buntcar2_div_image")
+      active("buntcar3_div_image")
+      //garland editing
+      active("garland_product_edit_div")
+      active("garland_home_edit_div")
+      active("gar_price1_edit_div")
+      active("gar_price2_edit_div")
+      active("gar_price3_edit_div")
+      active("gar_words1_edit_div")
+      active("gar_words2_edit_div")
+      active("gar_words3_edit_div")
+      active("home_garland_div_image")
+      active("garcar1_div_image")
+      active("garcar2_div_image")
+      active("garcar3_div_image")
+      //ms editing
+      active("milestone_home_edit_div")
+      active("milestone_product_edit_div")
+      active("ms_price_edit_div")
+      active("home_milestone_div_image")
+      active("milecar1_div_image")
+      active("milecar2_div_image")
+      active("milecar3_div_image")
+      //gallery editing
+      active("gallery1_div_image")
+      active("gallery2_div_image")
+      active("gallery3_div_image")
+      active("gallery4_div_image")
+      active("gallery5_div_image")
+      active("gallery6_div_image")
+      active("gallery7_div_image")
+      active("gallery8_div_image")
+      active("gallery9_div_image")
+      active("gallery10_div_image")
+      active("gallery11_div_image")
+      active("gallery12_div_image")
+      active("gallery13_div_image")
+      //edit logo
+      active("logo_div_image")
     }
   }
 });
