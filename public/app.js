@@ -84,23 +84,6 @@ r_e("signup_form").addEventListener("submit", (e) => {
   db.collection("Customers").add(p1);
 });
 
-function getSelectedButton(button_label) {
-  // var ele = document.getElementsByName(button_label);
-  // if (ele[0].checked) {
-  //   return "Option 1";
-  // }
-  // if (ele[1].checked) {
-  //   return "Option 2";
-  // }
-  // if (ele[2].checked) {
-  //   return "Option 3";
-  // }
-  // if (ele[3].checked) {
-  //   return "Option 4";
-  // } else {
-  // }
-  //  document.getElementById("result").innerHTML = "Choosen: "+ele[i].value;
-}
 
 //garland price function
 function getPrice(item) {
@@ -152,7 +135,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   orderbut.classList.remove("is-active");
   orderbut.classList.add("is-hidden");
   contactbut.classList.remove("is-active");
@@ -309,17 +292,15 @@ function load_sc() {
               html += `<div class="box pb-6 m-3 pr-0 columns">
                 
                 <div class="column is-4">
-                  <h3 id="type"class="subtitle is-5">${
-                    doc.data().productType
-                  }</h3>
+                  <h3 id="type"class="subtitle is-5">${doc.data().productType
+                }</h3>
                   <p>${product_html(doc)}</p>
                 </div>
     
                 <div class="column">$${parseFloat(doc.data().price).toFixed(
                   2
                 )}</div>
-                <div onclick="del_doc('${
-                  doc.id
+                <div onclick="del_doc('${doc.id
                 }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
               </div>`;
             }
@@ -349,15 +330,14 @@ function load_order() {
               </div>
               <div>Customer Name:</div>
               <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-              .data()
-              .createdAt.toDate()
-              .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+                .data()
+                .createdAt.toDate()
+                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
               <div>Email: ${doc.data().combinedData[0].email}</div>
               <div>Total: $${doc.data().total}</div>
               <div>Venmo: @${doc.data().user_venmo}</div>
-              <div>Shipping Address: ${doc.data().address} ${
-              doc.data().city
-            }, ${doc.data().state} ${doc.data().zip}</div>
+              <div>Shipping Address: ${doc.data().address} ${doc.data().city
+              }, ${doc.data().state} ${doc.data().zip}</div>
               <br>`;
             let items = doc.data().combinedData;
             items.forEach((item) => {
@@ -374,6 +354,404 @@ function load_order() {
         });
     }
   });
+}
+
+// account details
+function load_account() {
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      //display order details
+      db.collection("Customers")
+        .get()
+        .then((data) => {
+          let docs = data.docs;
+          let custhtml = ``;
+          docs.forEach((doc) => {
+            if (auth.currentUser.email == doc.data().UserEmail) {
+              custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
+            <p>Email: ${doc.data().UserEmail}</p>
+            <p>Phone Number: ${doc.data().PhoneNumber}</p>`;
+            }
+          });
+          document.querySelector("#AccountDetails").innerHTML = custhtml;
+        })
+        .catch((error) => {
+          console.error("Error getting documents: ", error);
+        });
+
+      //display customer orders
+      db.collection("Orders")
+        .get()
+        .then((data) => {
+          let docs = data.docs;
+          let orderhtml = ``;
+          docs.forEach((doc) => {
+            if (auth.currentUser.email == doc.data().email) {
+              orderhtml += `<div class="box">
+                <div>
+                  <h3 id="type"class="subtitle is-5">Order</h3>    
+                </div>
+              <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
+                  .data()
+                  .createdAt.toDate()
+                  .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+                <div>Total: $${doc.data().total}</div>
+                <div>Venmo: @${doc.data().user_venmo}</div>
+                <div>Shipping Address: ${doc.data().address} ${doc.data().city
+                }, ${doc.data().state} ${doc.data().zip}</div>
+                <br>`;
+              let items = doc.data().combinedData;
+              items.forEach((item) => {
+                orderhtml += `<p>${completed_product_html(item)}</p>`;
+              });
+              orderhtml += `</div>
+              </div>`;
+            }
+          });
+          document.querySelector("#OrderDetails").innerHTML = orderhtml;
+        })
+        .catch((error) => {
+          console.error("Error getting documents: ", error);
+        });
+    }
+  });
+}
+
+//function to make all other content divs hidden
+function hide(id) {
+  var allSections = document.querySelectorAll(".content"); // Select all sections by class
+  allSections.forEach((section) => {
+    if (section.id != id) {
+      section.classList.add("is-hidden"); // Hide other sections
+      section.classList.remove("is-active");
+    }
+  });
+}
+
+function del_doc(id) {
+  db.collection("OrderItems")
+    .doc(id)
+    .delete()
+    .then(() => alert("Product deleted"));
+  load_sc();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order Completed!"));
+  load_order();
+}
+
+function get_price(doc_name) {
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      prc = doc.data().price;
+    });
+}
+
+function get_price(doc_name) {
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      prc = doc.data().price;
+    });
+}
+
+//Carousel
+
+// Next/previous controls
+function plusSlides(n, className) {
+  showSlides((slideIndex += n), className);
+}
+
+// Thumbnail image controls
+function currentSlide(n, className) {
+  showSlides((slideIndex = n), className);
+}
+
+function showSlides(n, className) {
+  let i;
+  let slides = document.getElementsByClassName(className);
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
+
+//connects bunting
+function bunting_info() {
+  let radio_buttons = document.getElementsByName("bunt-choice");
+  let letter_type = document.getElementsByName("letters");
+  let letters = "";
+  if (letter_type[0].checked) {
+    letters = "UPPERCASE";
+  }
+  if (letter_type[1].checked) {
+    letters = "lowercase";
+  }
+  if (radio_buttons[0].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().bprice1;
+        let message = doc.data().boption1;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[1].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().bprice2;
+        let message = doc.data().boption2;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[2].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().bprice3;
+        let message = doc.data().bprice3;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[3].checked) {
+    db.collection("Admin_Edits")
+      .doc("buntings")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().boption4;
+        let message = doc.data().bprice4;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#bColor1").value,
+          color2: document.querySelector("#bColor2").value,
+          color3: document.querySelector("#bColor3").value,
+          color4: document.querySelector("#bColor4").value,
+          letterType: letters,
+          productType: "Bunting",
+          message: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else {
+    alert("Please select message!");
+  }
+}
+
+function garland_info() {
+  let radio_buttons = document.getElementsByName("gar-choice");
+
+  if (radio_buttons[0].checked) {
+    db.collection("Admin_Edits")
+      .doc("garlands")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().gprice1;
+        let message = doc.data().goption1;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#gColor1").value,
+          color2: document.querySelector("#gColor2").value,
+          color3: document.querySelector("#gColor3").value,
+          productType: "Garland",
+          size: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[1].checked) {
+    db.collection("Admin_Edits")
+      .doc("garlands")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().gprice2;
+        let message = doc.data().goption2;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#gColor1").value,
+          color2: document.querySelector("#gColor2").value,
+          color3: document.querySelector("#gColor3").value,
+          productType: "Garland",
+          size: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else if (radio_buttons[2].checked) {
+    db.collection("Admin_Edits")
+      .doc("garlands")
+      .get()
+      .then((doc) => {
+        let prc = doc.data().gprice3;
+        let message = doc.data().goption3;
+        let orderItem = {
+          email: auth.currentUser.email,
+          color1: document.querySelector("#gColor1").value,
+          color2: document.querySelector("#gColor2").value,
+          color3: document.querySelector("#gColor3").value,
+          productType: "Garland",
+          size: message,
+          price: prc,
+        };
+
+        console.log(orderItem);
+
+        db.collection("OrderItems")
+          .add(orderItem)
+          .then(() => alert("Added to Cart!"));
+      });
+  } else {
+    alert("Please select message!");
+  }
+}
+
+//load contact us form data
+function load_contact() {
+  db.collection("ContactForm")
+    .get()
+    .then((data) => {
+      let docs = data.docs;
+      let html = ``;
+      docs.forEach((doc) => {
+        html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column">
+              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+              <p>Email: ${doc.data().Email}</p>
+              <p> Phone: ${doc.data().Phone}</p>
+              <p> Message: ${doc.data().Message}</p>
+            </div>
+
+            <!-- need to change to js -->
+
+            <div onclick="del_docreq('${doc.id
+          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          </div>`;
+      });
+      document.querySelector("#Contactreq").innerHTML += html;
+    });
+}
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+  load_contact();
+}
+
+//function to insert an image
+function images(coll, d, content1, input1) {
+  // 7. Getting the image ready
+  let file = document.querySelector(input1).files[0];
+  let image = new Date() + "_" + file.name;
+
+  const task = ref.child(image).put(file);
+
+  task
+    .then((snapshot) => snapshot.ref.getDownloadURL())
+    .then((url) => {
+      // Url is ready now
+      // 4. Object
+
+      db.collection(coll).doc(d).update({
+        url: url,
+      });
+
+      // set a delay
+
+      setTimeout(() => {
+        db.collection(coll)
+          .doc(d)
+          .get()
+          .then((doc) => {
+            document.querySelector(content1).innerHTML = `<img src="${doc.data().url
+              }" />`;
+          });
+      }, 1000);
+    });
 }
 
 // sign-up modal link
@@ -594,16 +972,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-//function to make all other content divs hidden
-function hide(id) {
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != id) {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
-}
+
 
 
 //home page
@@ -792,40 +1161,7 @@ contactreqnav.addEventListener("click", (event) => {
 
 //adding order to shopping cart
 
-function del_doc(id) {
-  db.collection("OrderItems")
-    .doc(id)
-    .delete()
-    .then(() => alert("Product deleted"));
-  load_sc();
-}
 
-//delete when order fulfilled
-function del_order(id) {
-  db.collection("Orders")
-    .doc(id)
-    .delete()
-    .then(() => alert("Order Completed!"));
-  load_order();
-}
-
-function get_price(doc_name) {
-  db.collection("Admin_Edits")
-    .doc("pennants")
-    .get()
-    .then((doc) => {
-      prc = doc.data().price;
-    });
-}
-
-function get_price(doc_name) {
-  db.collection("Admin_Edits")
-    .doc("pennants")
-    .get()
-    .then((doc) => {
-      prc = doc.data().price;
-    });
-}
 
 let addToCartPen = document.querySelector("#addPennant");
 let addToCartBun = document.querySelector("#addBunting");
@@ -861,121 +1197,7 @@ addToCartPen.addEventListener("click", (event) => {
 // // //reset the form
 // document.querySelector("#penPersonal").value = "";
 
-//connects bunting
-function bunting_info() {
-  let radio_buttons = document.getElementsByName("bunt-choice");
-  let letter_type = document.getElementsByName("letters");
-  let letters = "";
-  if (letter_type[0].checked) {
-    letters = "UPPERCASE";
-  }
-  if (letter_type[1].checked) {
-    letters = "lowercase";
-  }
-  if (radio_buttons[0].checked) {
-    db.collection("Admin_Edits")
-      .doc("buntings")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().bprice1;
-        let message = doc.data().boption1;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#bColor1").value,
-          color2: document.querySelector("#bColor2").value,
-          color3: document.querySelector("#bColor3").value,
-          color4: document.querySelector("#bColor4").value,
-          letterType: letters,
-          productType: "Bunting",
-          message: message,
-          price: prc,
-        };
 
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else if (radio_buttons[1].checked) {
-    db.collection("Admin_Edits")
-      .doc("buntings")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().bprice2;
-        let message = doc.data().boption2;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#bColor1").value,
-          color2: document.querySelector("#bColor2").value,
-          color3: document.querySelector("#bColor3").value,
-          color4: document.querySelector("#bColor4").value,
-          letterType: letters,
-          productType: "Bunting",
-          message: message,
-          price: prc,
-        };
-
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else if (radio_buttons[2].checked) {
-    db.collection("Admin_Edits")
-      .doc("buntings")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().bprice3;
-        let message = doc.data().bprice3;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#bColor1").value,
-          color2: document.querySelector("#bColor2").value,
-          color3: document.querySelector("#bColor3").value,
-          color4: document.querySelector("#bColor4").value,
-          letterType: letters,
-          productType: "Bunting",
-          message: message,
-          price: prc,
-        };
-
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else if (radio_buttons[3].checked) {
-    db.collection("Admin_Edits")
-      .doc("buntings")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().boption4;
-        let message = doc.data().bprice4;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#bColor1").value,
-          color2: document.querySelector("#bColor2").value,
-          color3: document.querySelector("#bColor3").value,
-          color4: document.querySelector("#bColor4").value,
-          letterType: letters,
-          productType: "Bunting",
-          message: message,
-          price: prc,
-        };
-
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else {
-    alert("Please select message!");
-  }
-}
 
 addToCartBun.addEventListener("click", (event) => {
   event.preventDefault();
@@ -994,82 +1216,7 @@ addToCartBun.addEventListener("click", (event) => {
   }, 2000);
 });
 
-function garland_info() {
-  let radio_buttons = document.getElementsByName("gar-choice");
 
-  if (radio_buttons[0].checked) {
-    db.collection("Admin_Edits")
-      .doc("garlands")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().gprice1;
-        let message = doc.data().goption1;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#gColor1").value,
-          color2: document.querySelector("#gColor2").value,
-          color3: document.querySelector("#gColor3").value,
-          productType: "Garland",
-          size: message,
-          price: prc,
-        };
-
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else if (radio_buttons[1].checked) {
-    db.collection("Admin_Edits")
-      .doc("garlands")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().gprice2;
-        let message = doc.data().goption2;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#gColor1").value,
-          color2: document.querySelector("#gColor2").value,
-          color3: document.querySelector("#gColor3").value,
-          productType: "Garland",
-          size: message,
-          price: prc,
-        };
-
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else if (radio_buttons[2].checked) {
-    db.collection("Admin_Edits")
-      .doc("garlands")
-      .get()
-      .then((doc) => {
-        let prc = doc.data().gprice3;
-        let message = doc.data().goption3;
-        let orderItem = {
-          email: auth.currentUser.email,
-          color1: document.querySelector("#gColor1").value,
-          color2: document.querySelector("#gColor2").value,
-          color3: document.querySelector("#gColor3").value,
-          productType: "Garland",
-          size: message,
-          price: prc,
-        };
-
-        console.log(orderItem);
-
-        db.collection("OrderItems")
-          .add(orderItem)
-          .then(() => alert("Added to Cart!"));
-      });
-  } else {
-    alert("Please select message!");
-  }
-}
 addToCartGar.addEventListener("click", (event) => {
   event.preventDefault();
   garland_info();
@@ -1103,40 +1250,7 @@ addToCartMS.addEventListener("click", (event) => {
     });
 });
 
-//load contact us form data
-function load_contact() {
-  db.collection("ContactForm")
-    .get()
-    .then((data) => {
-      let docs = data.docs;
-      let html = ``;
-      docs.forEach((doc) => {
-        html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column">
-              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
-              <p>Email: ${doc.data().Email}</p>
-              <p> Phone: ${doc.data().Phone}</p>
-              <p> Message: ${doc.data().Message}</p>
-            </div>
 
-            <!-- need to change to js -->
-
-            <div onclick="del_docreq('${
-              doc.id
-            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
-      });
-      document.querySelector("#Contactreq").innerHTML += html;
-    });
-}
-
-function del_docreq(id) {
-  db.collection("ContactForm")
-    .doc(id)
-    .delete()
-    .then(() => alert("Message deleted"));
-  load_contact();
-}
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
@@ -1181,38 +1295,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-//function to insert an image
-function images(coll, d, content1, input1) {
-  // 7. Getting the image ready
-  let file = document.querySelector(input1).files[0];
-  let image = new Date() + "_" + file.name;
 
-  const task = ref.child(image).put(file);
-
-  task
-    .then((snapshot) => snapshot.ref.getDownloadURL())
-    .then((url) => {
-      // Url is ready now
-      // 4. Object
-
-      db.collection(coll).doc(d).update({
-        url: url,
-      });
-
-      // set a delay
-
-      setTimeout(() => {
-        db.collection(coll)
-          .doc(d)
-          .get()
-          .then((doc) => {
-            document.querySelector(content1).innerHTML = `<img src="${
-              doc.data().url
-            }" />`;
-          });
-      }, 1000);
-    });
-}
 
 //submit maker image
 r_e("submit_maker_image").addEventListener("click", (e) => {
@@ -1625,9 +1708,8 @@ r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
     .doc("milestones")
     .get()
     .then((doc) => {
-      document.querySelector("#milestone_product_section").innerHTML = `<p>${
-        doc.data().product_de
-      }</p>`;
+      document.querySelector("#milestone_product_section").innerHTML = `<p>${doc.data().product_de
+        }</p>`;
     });
 
   document.querySelector("#milestone_product_edits").value = "";
@@ -1636,9 +1718,8 @@ db.collection("Admin_Edits")
   .doc("milestones")
   .get()
   .then((doc) => {
-    document.querySelector("#milestone_product_section").innerHTML = `<p>${
-      doc.data().product_de
-    }</p>`;
+    document.querySelector("#milestone_product_section").innerHTML = `<p>${doc.data().product_de
+      }</p>`;
   });
 
 //submit edits to milestones description home page
@@ -1655,9 +1736,8 @@ r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
     .doc("milestones")
     .get()
     .then((doc) => {
-      document.querySelector("#milestone_home_section").innerHTML = `<p>${
-        doc.data().home_de
-      }</p>`;
+      document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
+        }</p>`;
     });
 
   document.querySelector("#milestone_home_edits").value = "";
@@ -1666,9 +1746,8 @@ db.collection("Admin_Edits")
   .doc("milestones")
   .get()
   .then((doc) => {
-    document.querySelector("#milestone_home_section").innerHTML = `<p>${
-      doc.data().home_de
-    }</p>`;
+    document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
+      }</p>`;
   });
 
 //submit edits to garland home page
@@ -1685,9 +1764,8 @@ r_e("submit_garland_home_edits").addEventListener("click", (event) => {
     .doc("garlands")
     .get()
     .then((doc) => {
-      document.querySelector("#garland_home_section").innerHTML = `<p>${
-        doc.data().home_des
-      }</p>`;
+      document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
+        }</p>`;
     });
   document.querySelector("#garland_home_edits").value = "";
 });
@@ -1695,9 +1773,8 @@ db.collection("Admin_Edits")
   .doc("garlands")
   .get()
   .then((doc) => {
-    document.querySelector("#garland_home_section").innerHTML = `<p>${
-      doc.data().home_des
-    }</p>`;
+    document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
+      }</p>`;
   });
 
 //submit edits to garland description product page
@@ -1714,9 +1791,8 @@ r_e("submit_garland_product_edits").addEventListener("click", (event) => {
     .doc("garlands")
     .get()
     .then((doc) => {
-      document.querySelector("#garland_product_section").innerHTML = `<p>${
-        doc.data().product_des
-      }</p>`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${doc.data().product_des
+        }</p>`;
     });
   document.querySelector("#garland_product_edits").value = "";
 });
@@ -1724,9 +1800,8 @@ db.collection("Admin_Edits")
   .doc("garlands")
   .get()
   .then((doc) => {
-    document.querySelector("#garland_product_section").innerHTML = `<p>${
-      doc.data().product_des
-    }</p>`;
+    document.querySelector("#garland_product_section").innerHTML = `<p>${doc.data().product_des
+      }</p>`;
   });
 
 //submit edits to buntings description home page
@@ -1743,9 +1818,8 @@ r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
     .doc("buntings")
     .get()
     .then((doc) => {
-      document.querySelector("#bunting_home_section").innerHTML = `<p>${
-        doc.data().home_desc
-      }</p>`;
+      document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
+        }</p>`;
     });
   document.querySelector("#bunting_home_edits").value = "";
 });
@@ -1754,9 +1828,8 @@ db.collection("Admin_Edits")
   .doc("buntings")
   .get()
   .then((doc) => {
-    document.querySelector("#bunting_home_section").innerHTML = `<p>${
-      doc.data().home_desc
-    }</p>`;
+    document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
+      }</p>`;
   });
 
 //submit edits to buntings description on product page
@@ -1772,9 +1845,8 @@ r_e("submit_bunting_product_edits").addEventListener("click", (event) => {
     .doc("buntings")
     .get()
     .then((doc) => {
-      document.querySelector("#bunting_product_section").innerHTML = `<p>${
-        doc.data().product_desc
-      }</p>`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${doc.data().product_desc
+        }</p>`;
     });
   document.querySelector("#bunting_product_edits").value = "";
 });
@@ -1782,9 +1854,8 @@ db.collection("Admin_Edits")
   .doc("buntings")
   .get()
   .then((doc) => {
-    document.querySelector("#bunting_product_section").innerHTML = `<p>${
-      doc.data().product_desc
-    }</p>`;
+    document.querySelector("#bunting_product_section").innerHTML = `<p>${doc.data().product_desc
+      }</p>`;
   });
 
 //submit edits to pennant description on product page
@@ -1802,9 +1873,8 @@ r_e("submit_pennant_product_edits").addEventListener("click", (event) => {
     .doc("pennants")
     .get()
     .then((doc) => {
-      document.querySelector("#pennant_body_section").innerHTML = `<p>${
-        doc.data().product_description
-      }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
+        }</p>`;
     });
   document.querySelector("#pennant_product_edits").value = "";
 });
@@ -1813,9 +1883,8 @@ db.collection("Admin_Edits")
   .doc("pennants")
   .get()
   .then((doc) => {
-    document.querySelector("#pennant_body_section").innerHTML = `<p>${
-      doc.data().product_description
-    }</p>`;
+    document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
+      }</p>`;
   });
 
 //submit edits to pennant price on product page
@@ -1834,8 +1903,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
     .then((doc) => {
       document.querySelector(
         "#pennant_price"
-      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
-        doc.data().price
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
       }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
@@ -1847,8 +1915,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#pennant_price"
-    ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
-      doc.data().price
+    ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
     }</p>`;
   });
 //submit edits to home page pennant description
@@ -1865,9 +1932,8 @@ r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
     .doc("pennants")
     .get()
     .then((doc) => {
-      document.querySelector("#pennant_home_section").innerHTML = `<p>${
-        doc.data().home_description
-      }</p>`;
+      document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
+        }</p>`;
     });
   document.querySelector("#pennant_home_edits").value = "";
 });
@@ -1876,9 +1942,8 @@ db.collection("Admin_Edits")
   .doc("pennants")
   .get()
   .then((doc) => {
-    document.querySelector("#pennant_home_section").innerHTML = `<p>${
-      doc.data().home_description
-    }</p>`;
+    document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
+      }</p>`;
   });
 
 //submit edits to maker page
@@ -1925,9 +1990,8 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
     .doc("maker_body_edit")
     .get()
     .then((doc) => {
-      document.querySelector("#maker_section").innerHTML = `<p>${
-        doc.data().message
-      }</p>`;
+      document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
+        }</p>`;
     });
   document.querySelector("#maker_edits").value = "";
 });
@@ -1936,9 +2000,8 @@ db.collection("Admin_Edits")
   .doc("maker_body_edit")
   .get()
   .then((doc) => {
-    document.querySelector("#maker_section").innerHTML = `<p>${
-      doc.data().message
-    }</p>`;
+    document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
+      }</p>`;
   });
 
 //shipping modal
@@ -2028,99 +2091,9 @@ r_e("order_agree").addEventListener("click", (e) => {
   load_sc();
 });
 
-// account details
-function load_account() {
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      //display order details
-      db.collection("Customers")
-        .get()
-        .then((data) => {
-          let docs = data.docs;
-          let custhtml = ``;
-          docs.forEach((doc) => {
-            if (auth.currentUser.email == doc.data().UserEmail) {
-              custhtml += `<p>${doc.data().FirstName} ${doc.data().LastName}</p>
-            <p>Email: ${doc.data().UserEmail}</p>
-            <p>Phone Number: ${doc.data().PhoneNumber}</p>`;
-            }
-          });
-          document.querySelector("#AccountDetails").innerHTML = custhtml;
-        })
-        .catch((error) => {
-          console.error("Error getting documents: ", error);
-        });
 
-      //display customer orders
-      db.collection("Orders")
-        .get()
-        .then((data) => {
-          let docs = data.docs;
-          let orderhtml = ``;
-          docs.forEach((doc) => {
-            if (auth.currentUser.email == doc.data().email) {
-              orderhtml += `<div class="box">
-                <div>
-                  <h3 id="type"class="subtitle is-5">Order</h3>    
-                </div>
-              <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-                .data()
-                .createdAt.toDate()
-                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
-                <div>Total: $${doc.data().total}</div>
-                <div>Venmo: @${doc.data().user_venmo}</div>
-                <div>Shipping Address: ${doc.data().address} ${
-                doc.data().city
-              }, ${doc.data().state} ${doc.data().zip}</div>
-                <br>`;
-              let items = doc.data().combinedData;
-              items.forEach((item) => {
-                orderhtml += `<p>${completed_product_html(item)}</p>`;
-              });
-              orderhtml += `</div>
-              </div>`;
-            }
-          });
-          document.querySelector("#OrderDetails").innerHTML = orderhtml;
-        })
-        .catch((error) => {
-          console.error("Error getting documents: ", error);
-        });
-    }
-  });
-}
 
-//Carousel
 
-// Next/previous controls
-function plusSlides(n, className) {
-  showSlides((slideIndex += n), className);
-}
-
-// Thumbnail image controls
-function currentSlide(n, className) {
-  showSlides((slideIndex = n), className);
-}
-
-function showSlides(n, className) {
-  let i;
-  let slides = document.getElementsByClassName(className);
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-}
 
 //adding prices
 db.collection("Admin_Edits")
@@ -2646,8 +2619,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
     .then((doc) => {
       document.querySelector(
         "#ms_price"
-      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
-        doc.data().price
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
       }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
@@ -2659,8 +2631,7 @@ db.collection("Admin_Edits")
   .then((doc) => {
     document.querySelector(
       "#ms_price"
-    ).innerHTML = `<p id = ms_price class = "is-size-4">$${
-      doc.data().price
+    ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
     }</p>`;
   });
 db.collection("Admin_Edits")
