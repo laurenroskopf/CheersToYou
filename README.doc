@@ -4,6 +4,7 @@ Group 2 - Kate Pramenko, Lauren Roskopf, Olivia Janza, Abby VanOoyen
 
 Firebase Link: http://cheers-to-you-eaa8c.firebaseapp.com
 
+
 Trello Boards
 Sprint 1: https://trello.com/invite/b/z93wsBge/ATTI414015c285010ceca570dbb7ea38aa119A0A3F53/sprint-1
 Project Overview: https://trello.com/invite/b/xxzeju1M/ATTI7e1c624c4bd7d144d3db63028d63d81eE009906B/cheers-to-you-design
@@ -597,13 +598,13 @@ What did you do yesterday?
 Kate:
 Olivia: Yesterday I started adding the upload photo input features
 Abby: worked on Admin edits 
-Lauren:
+Lauren: Fixed product details in shopping cart
 
 What are you planning to do today?
 Kate:
 Olivia:  Today I am continuing to add upload features to the photos
 Abby: work on admin edits 
-Lauren: 
+Lauren: Update checkout process to include address
 
 Any problems are you facing?
 Kate:
@@ -617,13 +618,13 @@ What did you do yesterday?
 Kate:
 Olivia: 
 Abby: Worked on Admin Edits
-Lauren:
+Lauren: Updated checkout process
 
 What are you planning to do today?
 Kate:
 Olivia:  
 Abby: trying to tackle the carousel again 
-Lauren: 
+Lauren: Reformat product pages
 
 Any problems are you facing?
 Kate:
@@ -638,19 +639,19 @@ What did you do yesterday?
 Kate:
 Olivia: 
 Abby: Finished Carousel 
-Lauren:
+Lauren: Reformatted product pages
 
 What are you planning to do today?
 Kate:
 Olivia:  
 Abby: work on pennant template and last minute design items
-Lauren: 
+Lauren: Add prices to database and make them editable
 
 Any problems are you facing?
 Kate:
 Olivia: 
 Abby: None
-Lauren: 
+Lauren: Difficulties changing prices first time. 
 
 
 
@@ -660,19 +661,19 @@ What did you do yesterday?
 Kate:
 Olivia: 
 Abby: Finished the pennant template and last minute design items
-Lauren:
+Lauren: Edited prices and added them to database
 
 What are you planning to do today?
 Kate:
 Olivia:  
 Abby: resizing images to fit the desired look 
-Lauren: 
+Lauren: Security rules
 
 Any problems are you facing?
 Kate:
 Olivia: 
 Abby: None
-Lauren:
+Lauren: Security rules causing access problems + ran out of bandwidth space on firebase.
 
 
 Day 10
