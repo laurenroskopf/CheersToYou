@@ -689,9 +689,9 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
-            
+
             <div class="columns">
               <div class="column is-one-third">
                 <h4>Lettering</h4>
@@ -710,7 +710,7 @@
                 <div><button id="addPennant" class="signedin button"> Add to Cart</button></div>
               </div>
             </div>
-            
+
             <img src="allColors.png" alt="colors" width="500" height="500">
 
             <br><br>
@@ -1937,6 +1937,10 @@
           </figure>
           <p id="AccountDetails"></p>
         </div>
+        <h2>Payment Info</h2>
+
+        <hr>
+        <img src="Venmo_QRCode.png" alt="">
       </div>
       <div class="column is-three-quarters">
         <h2>Order Details</h2>
@@ -1988,20 +1992,30 @@
     <div class="modal-content has-background-white p-3">
       <!--Sign Up Modal Title -->
       <h1 class="title p-5">Payment Confirmation</h1>
+      <div class="columns">
+        <div class="column is-8">
+          <div id="venmo_total">
+          </div>
 
-      <div id="venmo_total">
+          <img src="venmo_icon.png" class="image is-32x32 ml-5">
+
+
+          <h6 class="m-5 is-size-5">
+            Please Venmo the total to @alicegalaszewski!
+          </h6>
+          <h6 class="m-5 is-size-5">Enter your Venmo:</h6>
+          <div class="control m-5">
+            <input class="input" type="text" id="user_venmo">
+          </div>
+          <p class="m-5">*Please note $8 has been added on to your total to account for shipping</p>
+          <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
+        </div>
+
+        <div class="column is-4">
+          <img src="Venmo_QRCode.png" alt="">
+        </div>
       </div>
 
-      <img src="venmo_icon.png" class="image is-32x32 ml-5">
-      <h6 class="m-5 is-size-5">
-        Please Venmo the total to @cheerstoyoudesign!
-      </h6>
-      <h6 class="m-5 is-size-5">Enter your Venmo:</h6>
-      <div class="control m-5">
-        <input class="input" type="text" id="user_venmo">
-      </div>
-      <p class="m-5">*Please note $8 has been added on to your total to account for shipping</p>
-      <p class="m-5"><i>Email cheerstoyoudesign@gmail.com with any questions.</i></p>
       <div class="columns">
         <div class="column is-8"></div>
         <button id="payment_back_button" class="button m-2">Back</button>
