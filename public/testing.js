@@ -54,6 +54,19 @@ async function go() {
   //delete item fron shopping cart
   await page.click("#cart > div:nth-child(1) > div.is-clickable > i");
 
+  //sign out
+  await page.click("#signoutbtn");
+  //set 2 delay
+  await new Promise((r) => setTimeout(r, 2000));
+  //sign in as admin
+  await page.click("#signinbtn");
+
+  //enter admin info
+  await page.type("#email", "alice28512@gmail.com");
+  await page.type("#password", "!Admin01");
+
+  await page.click("#buntingspg");
+
   browser.close();
 }
 
