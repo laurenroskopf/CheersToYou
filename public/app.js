@@ -596,6 +596,18 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
+//function to make all other content divs hidden
+function hide(id) {
+  var allSections = document.querySelectorAll(".content"); // Select all sections by class
+  allSections.forEach((section) => {
+    if (section.id != id) {
+      section.classList.add("is-hidden"); // Hide other sections
+      section.classList.remove("is-active");
+    }
+  });
+}
+
+
 //home page
 
 homenav.addEventListener("click", (event) => {
@@ -604,13 +616,7 @@ homenav.addEventListener("click", (event) => {
   home.classList.add("is-active");
   home.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Index") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Index")
 });
 
 //pennants page
@@ -618,13 +624,7 @@ pennantnav.addEventListener("click", () => {
   pennants.classList.add("is-active");
   pennants.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "pen") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("pen")
   showSlides(slideIndex, "mySlidesPen");
 });
 
@@ -633,13 +633,7 @@ garlandsnav.addEventListener("click", () => {
   garlands.classList.add("is-active");
   garlands.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Garlands") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Garlands")
   showSlides(slideIndex, "mySlidesGar");
 });
 
@@ -648,13 +642,7 @@ buntingnav.addEventListener("click", () => {
   buntings.classList.add("is-active");
   buntings.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Buntings") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Buntings")
   showSlides(slideIndex, "mySlidesBun");
 });
 
@@ -663,13 +651,7 @@ msnav.addEventListener("click", () => {
   ms.classList.add("is-active");
   ms.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Milestone") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Milestone")
   showSlides(slideIndex, "mySlidesMS");
 });
 
@@ -678,13 +660,7 @@ gallerynav.addEventListener("click", () => {
   gallery.classList.add("is-active");
   gallery.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Gallery") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Gallery")
 });
 
 //about us
@@ -692,13 +668,7 @@ makernav.addEventListener("click", () => {
   maker.classList.add("is-active");
   maker.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Maker") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Maker")
 });
 
 //contact me
@@ -706,13 +676,7 @@ contactnav.addEventListener("click", () => {
   contact.classList.add("is-active");
   contact.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Contact") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Contact")
 });
 
 //shopping cart
@@ -720,13 +684,7 @@ scnav.addEventListener("click", () => {
   shop.classList.add("is-active");
   shop.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Shopping") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Shopping")
   load_sc();
 });
 
@@ -734,13 +692,7 @@ accountnav.addEventListener("click", () => {
   account.classList.add("is-active");
   account.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Account") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Account")
   load_account();
 });
 
@@ -750,13 +702,7 @@ homepen.addEventListener("click", () => {
   pennants.classList.add("is-active");
   pennants.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "pen") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("pen")
   showSlides(slideIndex, "mySlidesPen");
 });
 
@@ -765,13 +711,7 @@ homegar.addEventListener("click", () => {
   garlands.classList.add("is-active");
   garlands.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Garlands") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Garlands")
   showSlides(slideIndex, "mySlidesGar");
 });
 
@@ -780,13 +720,7 @@ homebun.addEventListener("click", () => {
   buntings.classList.add("is-active");
   buntings.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Buntings") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Buntings")
   showSlides(slideIndex, "mySlidesBun");
 });
 
@@ -795,13 +729,7 @@ homems.addEventListener("click", () => {
   ms.classList.add("is-active");
   ms.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Milestone") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Milestone")
   showSlides(slideIndex, "mySlidesMS");
 });
 
@@ -811,13 +739,7 @@ homepen1.addEventListener("click", () => {
   pennants.classList.add("is-active");
   pennants.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "pen") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("pen")
   showSlides(slideIndex, "mySlidesPen");
 });
 
@@ -826,13 +748,7 @@ homegar1.addEventListener("click", () => {
   garlands.classList.add("is-active");
   garlands.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Garlands") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Garlands")
   showSlides(slideIndex, "mySlidesGar");
 });
 
@@ -841,13 +757,7 @@ homebun1.addEventListener("click", () => {
   buntings.classList.add("is-active");
   buntings.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Buntings") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Buntings")
   showSlides(slideIndex, "mySlidesBun");
 });
 
@@ -856,13 +766,7 @@ homems1.addEventListener("click", () => {
   ms.classList.add("is-active");
   ms.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Milestone") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Milestone")
   showSlides(slideIndex, "mySlidesMS");
 });
 
@@ -873,13 +777,7 @@ ordernav.addEventListener("click", (event) => {
   orders.classList.add("is-active");
   orders.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Orders") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Orders")
   load_order();
 });
 
@@ -890,13 +788,7 @@ contactreqnav.addEventListener("click", (event) => {
   contactreq.classList.add("is-active");
   contactreq.classList.remove("is-hidden");
 
-  var allSections = document.querySelectorAll(".content"); // Select all sections by class
-  allSections.forEach((section) => {
-    if (section.id != "Contactreq") {
-      section.classList.add("is-hidden"); // Hide other sections
-      section.classList.remove("is-active");
-    }
-  });
+  hide("Contactreq")
   load_contact();
 });
 
