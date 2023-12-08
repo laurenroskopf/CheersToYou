@@ -147,10 +147,8 @@ r_e("signin_form").addEventListener("submit", (e) => {
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
   auth.signOut().then(() => { });
-  orderbut.classList.remove("is-active");
-  orderbut.classList.add("is-hidden");
-  contactbut.classList.remove("is-active");
-  contactbut.classList.add("is-hidden");
+  isHidden("orderbutton")
+  isHidden("contactbutton")
   r_e("accountbutton").classList.remove("is-hidden");
   location.reload();
 });
@@ -786,62 +784,12 @@ signin_modalbg.addEventListener("click", () => {
 //variables for adding to cart
 let addBtn = document.querySelector("#addBtn");
 
-//single page app
-//variables for divs
-
-let pennants = document.querySelector("#pen");
-let garlands = document.querySelector("#Garlands");
-let buntings = document.querySelector("#Buntings");
-let ms = document.querySelector("#Milestone");
-let gallery = document.querySelector("#Gallery");
-let maker = document.querySelector("#Maker");
-let shop = document.querySelector("#Shopping");
-let contact = document.querySelector("#Contact");
-//admin divs
-let orders = document.querySelector("#Orders");
-let contactreq = document.querySelector("#Contactreq");
-//account div
-let account = document.querySelector("#Account");
-
-//variables for navbar
-let homenav = document.querySelector("#homepg");
-let pennantnav = document.querySelector("#pennantspg");
-let garlandsnav = document.querySelector("#garlandspg");
-let buntingnav = document.querySelector("#buntingpg");
-let msnav = document.querySelector("#milestonepg");
-let gallerynav = document.querySelector("#gallerypg");
-let makernav = document.querySelector("#makerpg");
-let scnav = document.querySelector("#shoppingCart");
-let contactnav = document.querySelector("#contactpg");
-//admin buttons
-let ordernav = document.querySelector("#orderpg");
-let orderbut = document.querySelector("#orderbutton");
-let contactreqnav = document.querySelector("#contactreqpg");
-let contactbut = document.querySelector("#contactbutton");
-//account button
-let accountnav = document.querySelector("#accountpg");
-
-//variables for home page
-let homepen = document.querySelector("#homepen");
-let homegar = document.querySelector("#homegar");
-let homebun = document.querySelector("#homebun");
-let homems = document.querySelector("#homems");
-let homepen1 = document.querySelector("#homepen1");
-let homegar1 = document.querySelector("#homegar1");
-let homebun1 = document.querySelector("#homebun1");
-let homems1 = document.querySelector("#homems1");
-let homeframe1 = document.querySelector("#homeframe1");
-let homecust1 = document.querySelector("#homecust1");
-
 auth.onAuthStateChanged((user) => {
   if (user) {
     if (auth.currentUser.email == "alice28512@gmail.com") {
       //add navbar for orders & contact form
-
-      orderbut.classList.add("is-active");
-      orderbut.classList.remove("is-hidden");
-      contactbut.classList.add("is-active");
-      contactbut.classList.remove("is-hidden");
+      active("orderbutton")
+      active("contactbutton")
       r_e("accountbutton").classList.add("is-hidden");
 
       //editing buttons
@@ -913,67 +861,68 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
+//single page app
 //home page
-homenav.addEventListener("click", (event) => {
+r_e("homepg").addEventListener("click", (event) => {
   event.preventDefault();
   active("Index")
   hide("Index")
 });
 
 //pennants page
-pennantnav.addEventListener("click", () => {
+r_e("pennantspg").addEventListener("click", () => {
   active("pen")
   hide("pen")
   showSlides(slideIndex, "mySlidesPen");
 });
 
 //garlands page
-garlandsnav.addEventListener("click", () => {
+r_e("garlandspg").addEventListener("click", () => {
   active("Garlands")
   hide("Garlands")
   showSlides(slideIndex, "mySlidesGar");
 });
 
 //buntings page
-buntingnav.addEventListener("click", () => {
+r_e("buntingpg").addEventListener("click", () => {
   active("Buntings");
   hide("Buntings")
   showSlides(slideIndex, "mySlidesBun");
 });
 
 //milestonesets page
-msnav.addEventListener("click", () => {
+r_e("milestonepg").addEventListener("click", () => {
   active("Milestone")
   hide("Milestone")
   showSlides(slideIndex, "mySlidesMS");
 });
 
 //gallery page
-gallerynav.addEventListener("click", () => {
+r_e("gallerypg").addEventListener("click", () => {
   active("Gallery")
   hide("Gallery")
 });
 
 //about us
-makernav.addEventListener("click", () => {
+r_e("makerpg").addEventListener("click", () => {
   active("Maker")
   hide("Maker")
 });
 
 //contact me
-contactnav.addEventListener("click", () => {
+r_e("contactpg").addEventListener("click", () => {
   active("Contact")
   hide("Contact")
 });
 
 //shopping cart
-scnav.addEventListener("click", () => {
+r_e("shoppingCart").addEventListener("click", () => {
   active("Shopping")
   hide("Shopping")
   load_sc();
 });
 
-accountnav.addEventListener("click", () => {
+r_e("accountpg").addEventListener("click", () => {
   active("Account")
   hide("Account")
   load_account();
@@ -981,28 +930,28 @@ accountnav.addEventListener("click", () => {
 
 //home page picture links
 //pennants page
-homepen.addEventListener("click", () => {
+r_e("homepen").addEventListener("click", () => {
   active("pen")
   hide("pen")
   showSlides(slideIndex, "mySlidesPen");
 });
 
 //garlands page
-homegar.addEventListener("click", () => {
+r_e("homegar").addEventListener("click", () => {
   active("Garlands")
   hide("Garlands")
   showSlides(slideIndex, "mySlidesGar");
 });
 
 //banners page
-homebun.addEventListener("click", () => {
+r_e("homebun").addEventListener("click", () => {
   active("Buntings")
   hide("Buntings")
   showSlides(slideIndex, "mySlidesBun");
 });
 
 //milestonesets page
-homems.addEventListener("click", () => {
+r_e("homems").addEventListener("click", () => {
   active("Milestone")
   hide("Milestone")
   showSlides(slideIndex, "mySlidesMS");
@@ -1010,58 +959,50 @@ homems.addEventListener("click", () => {
 
 //home page word links
 //pennants page
-homepen1.addEventListener("click", () => {
+r_e("homepen1").addEventListener("click", () => {
   active("pen")
   hide("pen")
   showSlides(slideIndex, "mySlidesPen");
 });
 
 //garlands page
-homegar1.addEventListener("click", () => {
+r_e("homegar1").addEventListener("click", () => {
   active("Garlands")
   hide("Garlands")
   showSlides(slideIndex, "mySlidesGar");
 });
 
 //buntings page
-homebun1.addEventListener("click", () => {
+r_e("homebun1").addEventListener("click", () => {
   active("Buntings")
   hide("Buntings")
   showSlides(slideIndex, "mySlidesBun");
 });
 
 //milestonesets page
-homems1.addEventListener("click", () => {
+r_e("homems1").addEventListener("click", () => {
   active("Milestone")
   hide("Milestone")
   showSlides(slideIndex, "mySlidesMS");
 });
 
 //orders admin page
-ordernav.addEventListener("click", (event) => {
+r_e("orderpg").addEventListener("click", (event) => {
   event.preventDefault();
-
   active("Orders")
   hide("Orders")
   load_order();
 });
 
 //contact form requests admin page
-contactreqnav.addEventListener("click", (event) => {
+r_e("contactreqpg").addEventListener("click", (event) => {
   event.preventDefault();
   active("Contactreq")
   hide("Contactreq")
   load_contact();
 });
 
-//adding order to shopping cart
-let addToCartPen = document.querySelector("#addPennant");
-let addToCartBun = document.querySelector("#addBunting");
-let addToCartGar = document.querySelector("#addGarland");
-let addToCartMS = document.querySelector("#addMS");
-let addToCartCust = document.querySelector("#addCustom");
-
-addToCartPen.addEventListener("click", (event) => {
+r_e("addPennant").addEventListener("click", (event) => {
   event.preventDefault();
 
   db.collection("Admin_Edits")
@@ -1086,12 +1027,8 @@ addToCartPen.addEventListener("click", (event) => {
         .then(() => alert("Added to Cart!"));
     });
 });
-// // //reset the form
-// document.querySelector("#penPersonal").value = "";
 
-
-
-addToCartBun.addEventListener("click", (event) => {
+r_e("addBunting").addEventListener("click", (event) => {
   event.preventDefault();
   bunting_info();
   // reset
@@ -1108,8 +1045,7 @@ addToCartBun.addEventListener("click", (event) => {
   }, 2000);
 });
 
-
-addToCartGar.addEventListener("click", (event) => {
+r_e("addGarland").addEventListener("click", (event) => {
   event.preventDefault();
   garland_info();
 
@@ -1122,7 +1058,7 @@ addToCartGar.addEventListener("click", (event) => {
   r_e("gColor3").selectedIndex = 0;
 });
 
-addToCartMS.addEventListener("click", (event) => {
+r_e("addMS").addEventListener("click", (event) => {
   event.preventDefault();
 
   db.collection("Admin_Edits")
@@ -1141,8 +1077,6 @@ addToCartMS.addEventListener("click", (event) => {
         .then(() => alert("Added to Cart!"));
     });
 });
-
-
 
 //contact us form
 r_e("contactme_form").addEventListener("click", (e) => {
