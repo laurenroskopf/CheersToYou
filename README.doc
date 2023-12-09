@@ -492,10 +492,15 @@ Sprint 3
 
 Sprint 3 User stories
 
-USER STORY 1: 
+USER STORY 1: As the owner, I want to see a page with all of my orders, and I want to be able to change out pictures and products. 
 
-USER STORY 2: 
+USER STORY 2: As a user, I want to be able to check out and get an email confirmation with my order. 
 
+USER STORY 3: As a user, I want to add items to my cart and only see those products.  
+
+USER STORY 4: As an owner, I want to protect my data and my customer’s data with security measures. 
+
+User Story 5: As a user, I want to see consistent fonts and a well designed website.
 
 
 Day 1
@@ -534,20 +539,20 @@ Lauren: None
 Day 3
 
 What did you do yesterday?
-Kate:
+Kate: Yesterday I started working on getting database data on the orders page.
 Olivia: Yesterday I continued with admin features for the products.
 Abby: Started the carousel
 Lauren: Changed format of shopping cart
 
 What are you planning to do today?
-Kate:
+Kate: Continue to do my work from yesterday and I added an account page
 Olivia: Today I plan to continue adding the admin capabilities to change product styles/images
 Abby: product pricing depending on size or writing
 Lauren: Work on refresh/load data function
 
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: None
 Abby: issues with carousel 
 Lauren: Can't figure out refresh function
@@ -555,19 +560,19 @@ Lauren: Can't figure out refresh function
 Day 4
 
 What did you do yesterday?
-Kate:
+Kate: The admin orders page and the account page
 Olivia:Yesterday I added abilities for admin to change product names / features
 Abby: Pricing for products pages
 Lauren: Worked on load data function
 
 What are you planning to do today?
-Kate:
+Kate: Format the data for the admin orders and account page
 Olivia: Today I plan to allow the admin to change product details descriptions
 Abby: Gallery page formatting 
 Lauren: Edit the names of product details in database
 
 Any problems are you facing?
-Kate:
+Kate:None
 Olivia: none
 Abby: Still issues with carousel 
 Lauren: None
@@ -575,19 +580,19 @@ Lauren: None
 Day 5
 
 What did you do yesterday?
-Kate:
+Kate: Format the data for the admin orders and account page
 Olivia: Yesterday I finished adding admin product detail features. 
 Abby: Gallery page 
 Lauren: Edit the names of product details
 
 What are you planning to do today?
-Kate:
+Kate: Admin capability to change photos
 Olivia: Today I plan to make the admin be able to change photos. 
 Abby: working on admin edits 
 Lauren: Fix product details in shopping cart
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: None
 Abby: None 
 Lauren: None
@@ -595,19 +600,19 @@ Lauren: None
 Day 6 
 
 What did you do yesterday?
-Kate:
+Kate: Admin capability to change photos
 Olivia: Yesterday I started adding the upload photo input features
 Abby: worked on Admin edits 
 Lauren: Fixed product details in shopping cart
 
 What are you planning to do today?
-Kate:
+Kate: Continue working on admin editing capabilities
 Olivia:  Today I am continuing to add upload features to the photos
 Abby: work on admin edits 
 Lauren: Update checkout process to include address
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: None
 Abby: issues with saving admin edits 
 Lauren: None
@@ -615,19 +620,19 @@ Lauren: None
 Day 7
 
 What did you do yesterday?
-Kate:
+Kate: Continue working on admin editing capabilities
 Olivia: Yesterday I continued adding upload features to photos.
 Abby: Worked on Admin Edits
 Lauren: Updated checkout process
 
 What are you planning to do today?
-Kate:
+Kate: Working on the carousel for each product page
 Olivia:  Today I plan to complete the admin side for editing all photos.
 Abby: trying to tackle the carousel again 
 Lauren: Reformat product pages
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: None
 Abby: NO
 Lauren: None
@@ -636,19 +641,19 @@ Lauren: None
 Day 8
 
 What did you do yesterday?
-Kate:
+Kate: Working on the carousel for each product page
 Olivia: Yestday I finished adding all photos to database for admin.
 Abby: Finished Carousel 
 Lauren: Reformatted product pages
 
 What are you planning to do today?
-Kate:
+Kate: Edit checkout database to include more information
 Olivia:  Today I added admin's ability to see contact form inputs
 Abby: work on pennant template and last minute design items
 Lauren: Add prices to database and make them editable
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: None
 Abby: None
 Lauren: Difficulties changing prices first time. 
@@ -658,19 +663,19 @@ Lauren: Difficulties changing prices first time.
 Day 9
 
 What did you do yesterday?
-Kate:
+Kate: Edit checkout database to include more information
 Olivia: Yesterday I continued adding features only admin can see.
 Abby: Finished the pennant template and last minute design items
 Lauren: Edited prices and added them to database
 
 What are you planning to do today?
-Kate:
+Kate: Make functions to make code more organized and readable
 Olivia:  Today I plan to finish up final edits with text boxes and photos admin can edit.
 Abby: resizing images to fit the desired look 
 Lauren: Security rules
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: None
 Abby: None
 Lauren: Security rules causing access problems + ran out of bandwidth space on firebase.
@@ -679,19 +684,19 @@ Lauren: Security rules causing access problems + ran out of bandwidth space on f
 Day 10
 
 What did you do yesterday?
-Kate:
+Kate: Make functions to make code more organized and readable
 Olivia: 
 Abby: worked on resizing images
 Lauren:
 
 What are you planning to do today?
-Kate:
+Kate: Make more functions to decrease lines of code in our app.js
 Olivia:  
 Abby: milestone 4 wrap up files 
 Lauren: 
 
 Any problems are you facing?
-Kate:
+Kate: None
 Olivia: 
 Abby: None
 Lauren:
