@@ -437,22 +437,7 @@ function hide(id) {
   });
 }
 
-function del_doc(id) {
-  db.collection("OrderItems")
-    .doc(id)
-    .delete()
-    .then(() => alert("Product deleted"));
-  load_sc();
-}
 
-//delete when order fulfilled
-function del_order(id) {
-  db.collection("Orders")
-    .doc(id)
-    .delete()
-    .then(() => alert("Order Completed!"));
-  load_order();
-}
 
 function get_price(doc_name) {
   db.collection("Admin_Edits")
@@ -729,6 +714,23 @@ function del_docreq(id) {
     .delete()
     .then(() => alert("Message deleted"));
   load_contact();
+}
+
+function del_doc(id) {
+  db.collection("OrderItems")
+    .doc(id)
+    .delete()
+    .then(() => alert("Product deleted"));
+  load_sc();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order Completed!"));
+  load_order();
 }
 
 //function to insert an image
@@ -1883,6 +1885,7 @@ r_e("order_agree").addEventListener("click", (e) => {
     .where("email", "==", auth.currentUser.email)
     .get()
     .then((order) => {
+      load_sc()
       order.forEach((doc) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
