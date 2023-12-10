@@ -704,12 +704,24 @@ Lauren:
 Sprint 3 Review
 1. What did you learn from during this sprint?
 
+We had a lot of group work and communication during this sprint because we knew this was our last sprint to finalize our website for our client. We planned ahead and learned more about how much time we needed to estimate to get certain portions of our work done. We also had a lot of client communication during this sprint where we had to be on top of our work to stay on time with the client. Another issue tha came up was with the security rules and using too much bandwidth. On day 9, we were unable to work on our website because we used over 1GB of bandwidth that day. 
+
 2. What did go well? Why?
+
+As a group, there were several key factors that contributed to the success of our final site. First and foremost, our approach of splitting up tasks was crucial in ensuring a well-organized workflow. At the beginning of each sprint, we went through each task in the sprint backlog and assigned specific tasks to each team member based on their strengths. The continuous communication between group members was another part of the project that worked well. Regular daily stand-ups as well as our group chat allowed for the entire group to be on the same page. We were able to share updates and communicate any issues so that they could be resolved as soon as possible in a collaborative manner. Furthermore, our team did a great job of communicating with the client throughout the entire process. This ensured that the client was well-informed about the progress, and any adjustments or feedback were promptly incorporated. Overall, our ability to split tasks effectively, maintain strong internal communication, and keep the client engaged throughout the project contributed significantly to the successful outcome of our project.
 
 3. What didn’t go well? Why not?
 
+During the third sprint, our main focus was on developing the administrative capabilities for our site. Up until this sprint, everything was hardcoded but we needed to modify it so that it was editable from the admin perspective. In an effort to balance functionality with site designs, potential security concerns, and existing components, we started to run into many issues. This was mostly attributed to the fact that much of what we started to do in sprint 3 was completely new and not something that any of us had any experience with administration capability. For the stuff we did in sprints 1 and 2, we were able to reference previous projects we had completed but sprint 3 had unique features that we did not really know exactly how to approach. Similar to how we approached our major issues in sprints 1 and 2, we worked as a group to solve our issues and attended office hours when group collaboration still was not enough to figure out the issues.
+
 4. How can you make things better next time?
+
+We would've loved to add more features to the website, but we ran out of time. One feature that we would have liked to add if we had more time would be an interactive pennant that would allow customers to test out different color combinations. This would have required us to figure out a way to make a template in the HTML that the background color hex code would change when certain buttons were clicked. This was not a top priority item for Alice, but if we had extra time this would have been something we would have liked to figure out. Another feature that would have been cool to add would be showing the color next to the text in the drop-down. This was another item that was not a priority for Alice but would have been something we could have explored if we had more time.
 
 5. Are you satisfied with what you already completed?
 
+Yes, we are satisfied with our final project. It is fully functioning and we're glad that we were able to build a website for our client to use and have the ability to update without our help. Even though it took a lot more effort to add the updateable sections under the admin login, it will help our client out in the long run to keep her website updated for years to come.
+
 6. Which group was invited? What are your observations/notes? Everybody was present?
+
+We met with group 1 and group 3 and everyone was present to reflect on our last sprint. Group 1 had similar issues to us with random errors populating from all working so much to finish our websites. Group 3 also had similar issues to us especially because we have very similar website concepts.
