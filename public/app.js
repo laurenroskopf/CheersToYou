@@ -257,7 +257,7 @@ function completed_product_html(doc) {
     <p>Edge Color: ${doc.edgeColor}</p>
     <p>Font Color: ${doc.fontColor}<p>
     <p>Tab Color: ${doc.tabColor}<p>
-    <p>Lettering: ${doc.data().lettering}<p>
+    <p>Lettering: ${doc.lettering}<p>
     <p>Customization: ${doc.customization}</p>`;
   }
 
