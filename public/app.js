@@ -289,6 +289,7 @@ function completed_product_html(doc) {
 // shopping cart data
 function load_sc() {
   let html = ``;
+  console.log("refresh pls")
   auth.onAuthStateChanged((user) => {
     if (user) {
       db.collection("OrderItems")
@@ -308,8 +309,7 @@ function load_sc() {
                 <div class="column">$${parseFloat(doc.data().price).toFixed(
                   2
                 )}</div>
-                <div onclick="del_doc('${doc.id
-                }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+                <div onclick="del_doc('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
               </div>`;
             }
           });
@@ -317,7 +317,6 @@ function load_sc() {
         });
     }
   });
-  return html;
 }
 
 // order details for admin account
@@ -423,6 +422,53 @@ function load_account() {
         });
     }
   });
+}
+
+//load contact us form data
+function load_contact() {
+  db.collection("ContactForm")
+    .get()
+    .then((data) => {
+      let docs = data.docs;
+      let html = ``;
+      docs.forEach((doc) => {
+        html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column">
+              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+              <p>Email: ${doc.data().Email}</p>
+              <p> Phone: ${doc.data().Phone}</p>
+              <p> Message: ${doc.data().Message}</p>
+            </div>
+            <div onclick="del_docreq('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i>
+            </div></div>`;
+      });
+      document.querySelector("#adminContact").innerHTML = html;
+    });
+}
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+  load_contact();
+}
+
+function del_doc(id) {
+  db.collection("OrderItems")
+    .doc(id)
+    .delete()
+    .then(() => alert("Product deleted"));
+  load_sc();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order Completed!"));
+  load_order();
 }
 
 //function to make all other content divs hidden
@@ -679,52 +725,7 @@ function garland_info() {
   }
 }
 
-//load contact us form data
-function load_contact() {
-  db.collection("ContactForm")
-    .get()
-    .then((data) => {
-      let docs = data.docs;
-      let html = ``;
-      docs.forEach((doc) => {
-        html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column">
-              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
-              <p>Email: ${doc.data().Email}</p>
-              <p> Phone: ${doc.data().Phone}</p>
-              <p> Message: ${doc.data().Message}</p>
-            </div>
-            <div onclick="del_docreq('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i>
-            </div></div>`;
-      });
-      document.querySelector("#adminContact").innerHTML = html;
-    });
-}
 
-function del_docreq(id) {
-  db.collection("ContactForm")
-    .doc(id)
-    .delete()
-    .then(() => alert("Message deleted"));
-  load_contact();
-}
-
-function del_doc(id) {
-  db.collection("OrderItems")
-    .doc(id)
-    .delete()
-    .then(() => alert("Product deleted"));
-  load_sc();
-}
-
-//delete when order fulfilled
-function del_order(id) {
-  db.collection("Orders")
-    .doc(id)
-    .delete()
-    .then(() => alert("Order Completed!"));
-  load_order();
-}
 
 //function to insert an image
 function images(coll, d, content1, input1, fieldName) {
@@ -1095,25 +1096,6 @@ r_e("contactme_form").addEventListener("click", (e) => {
     (r_e("message_cmf").value = "");
 });
 
-//click checkout button
-
-//adding total to modal
-// auth.onAuthStateChanged((user) => {
-//   if (user) {
-//     db.collection("OrderItems")
-//       .where("email", "==", auth.currentUser.email)
-//       .get()
-//       .then((order) => {
-//         let total = 8;
-//         order.forEach((doc) => {
-//           total += parseInt(doc.data().price);
-//         });
-//         document.querySelector(
-//           "#venmo_total"
-//         ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
-//       });
-//   }
-// });
 
 //submit maker image
 r_e("submit_maker_image").addEventListener("click", (e) => {
@@ -1732,7 +1714,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -2461,7 +2443,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
 });
