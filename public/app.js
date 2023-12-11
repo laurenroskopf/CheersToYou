@@ -1148,14 +1148,14 @@ r_e("submit_bunting_home_image").addEventListener("click", (e) => {
     "#bunting_home_image_input"
   );
 });
-db.collection("Admin_Edits")
+// db.collection("Admin_Edits")
 
-  .doc("bunting_home")
-  .get()
-  .then((doc) => {
-    alert("hello");
-    r_e("bunting_image_home").innerHTML = `<img src="${doc.data().url}" />`;
-  });
+//   .doc("bunting_home")
+//   .get()
+//   .then((doc) => {
+//     alert("hello");
+//     r_e("bunting_image_home").innerHTML = `<img src="${doc.data().url}" />`;
+//   });
 
 //submit pennants home picture
 r_e("submit_pennant_home_image").addEventListener("click", (e) => {
