@@ -145,7 +145,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => { });
+  auth.signOut().then(() => {});
   isHidden("orderbutton");
   isHidden("contactbutton");
   r_e("accountbutton").classList.remove("is-hidden");
@@ -289,6 +289,7 @@ function completed_product_html(doc) {
 // shopping cart data
 function load_sc() {
   let html = ``;
+  console.log("refresh pls")
   auth.onAuthStateChanged((user) => {
     if (user) {
       db.collection("OrderItems")
@@ -308,8 +309,7 @@ function load_sc() {
                 <div class="column">$${parseFloat(doc.data().price).toFixed(
                   2
                 )}</div>
-                <div onclick="del_doc('${doc.id
-                }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+                <div onclick="del_doc('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
               </div>`;
             }
           });
@@ -317,7 +317,6 @@ function load_sc() {
         });
     }
   });
-  return html;
 }
 
 // order details for admin account
@@ -423,6 +422,53 @@ function load_account() {
         });
     }
   });
+}
+
+//load contact us form data
+function load_contact() {
+  db.collection("ContactForm")
+    .get()
+    .then((data) => {
+      let docs = data.docs;
+      let html = ``;
+      docs.forEach((doc) => {
+        html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column">
+              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+              <p>Email: ${doc.data().Email}</p>
+              <p> Phone: ${doc.data().Phone}</p>
+              <p> Message: ${doc.data().Message}</p>
+            </div>
+            <div onclick="del_docreq('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i>
+            </div></div>`;
+      });
+      document.querySelector("#adminContact").innerHTML = html;
+    });
+}
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+  load_contact();
+}
+
+function del_doc(id) {
+  db.collection("OrderItems")
+    .doc(id)
+    .delete()
+    .then(() => alert("Product deleted"));
+  load_sc();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order Completed!"));
+  load_order();
 }
 
 //function to make all other content divs hidden
@@ -679,59 +725,10 @@ function garland_info() {
   }
 }
 
-//load contact us form data
-function load_contact() {
-  db.collection("ContactForm")
-    .get()
-    .then((data) => {
-      let docs = data.docs;
-      let html = ``;
-      docs.forEach((doc) => {
-        html += `<div class="box pb-6 m-3 pr-0 columns">
-            <div class="column">
-              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
-              <p>Email: ${doc.data().Email}</p>
-              <p> Phone: ${doc.data().Phone}</p>
-              <p> Message: ${doc.data().Message}</p>
-            </div>
 
-            <!-- need to change to js -->
-
-            <div onclick="del_docreq('${doc.id
-          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
-      });
-      document.querySelector("#Contactreq").innerHTML += html;
-    });
-}
-
-function del_docreq(id) {
-  db.collection("ContactForm")
-    .doc(id)
-    .delete()
-    .then(() => alert("Message deleted"));
-  load_contact();
-}
-
-function del_doc(id) {
-  db.collection("OrderItems")
-    .doc(id)
-    .delete()
-    .then(() => alert("Product deleted"));
-  load_sc();
-}
-
-//delete when order fulfilled
-function del_order(id) {
-  db.collection("Orders")
-    .doc(id)
-    .delete()
-    .then(() => alert("Order Completed!"));
-  load_order();
-}
 
 //function to insert an image
-function images(coll, d, content1, input1) {
+function images(coll, d, content1, input1, fieldName) {
   // 7. Getting the image ready
   let file = document.querySelector(input1).files[0];
   let image = new Date() + "_" + file.name;
@@ -743,10 +740,9 @@ function images(coll, d, content1, input1) {
     .then((url) => {
       // Url is ready now
       // 4. Object
-
-      db.collection(coll).doc(d).update({
-        url: url,
-      });
+      const updateObject = {};
+      updateObject[fieldName] = url;
+      db.collection(coll).doc(d).update(updateObject);
 
       // set a delay
 
@@ -755,7 +751,7 @@ function images(coll, d, content1, input1) {
           .doc(d)
           .get()
           .then((doc) => {
-            document.querySelector(content1).innerHTML = `<img src="${doc.data().url
+            document.querySelector(content1).innerHTML = `<img src="${doc.data()[fieldName]
               }" />`;
           });
       }, 1000);
@@ -900,6 +896,24 @@ r_e("milestonepg").addEventListener("click", () => {
 r_e("gallerypg").addEventListener("click", () => {
   active("Gallery");
   hide("Gallery");
+  db.collection("Admin_Edits")
+    .doc("galleryAll")
+    .get()
+    .then((doc) => {
+      r_e("gallery1_image").innerHTML = `<img src="${doc.data().gallery1}" />`;
+      r_e("gallery2_image").innerHTML = `<img src="${doc.data().gallery2}" />`;
+      r_e("gallery3_image").innerHTML = `<img src="${doc.data().gallery3}" />`;
+      r_e("gallery4_image").innerHTML = `<img src="${doc.data().gallery4}" />`;
+      r_e("gallery5_image").innerHTML = `<img src="${doc.data().gallery5}" />`;
+      r_e("gallery6_image").innerHTML = `<img src="${doc.data().gallery6}" />`;
+      r_e("gallery7_image").innerHTML = `<img src="${doc.data().gallery7}" />`;
+      r_e("gallery8_image").innerHTML = `<img src="${doc.data().gallery8}" />`;
+      r_e("gallery9_image").innerHTML = `<img src="${doc.data().gallery9}" />`;
+      r_e("gallery10_image").innerHTML = `<img src="${doc.data().gallery10}" />`;
+      r_e("gallery11_image").innerHTML = `<img src="${doc.data().gallery11}" />`;
+      r_e("gallery12_image").innerHTML = `<img src="${doc.data().gallery12}" />`;
+      r_e("gallery13_image").innerHTML = `<img src="${doc.data().gallery13}" />`;
+    });
 });
 
 //about us
@@ -1095,30 +1109,11 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
-//click checkout button
-
-//adding total to modal
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    db.collection("OrderItems")
-      .where("email", "==", auth.currentUser.email)
-      .get()
-      .then((order) => {
-        let total = 8;
-        order.forEach((doc) => {
-          total += parseInt(doc.data().price);
-        });
-        document.querySelector(
-          "#venmo_total"
-        ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
-      });
-  }
-});
 
 //submit maker image
 r_e("submit_maker_image").addEventListener("click", (e) => {
@@ -1137,9 +1132,10 @@ r_e("submit_bunting_home_image").addEventListener("click", (e) => {
   e.preventDefault();
   images(
     "Admin_Edits",
-    "bunting_home",
+    "buntings",
     "#bunting_image_home",
-    "#bunting_home_image_input"
+    "#bunting_home_image_input",
+    "buntings_home_url"
   );
 });
 // db.collection("Admin_Edits")
@@ -1206,7 +1202,7 @@ r_e("submit_milestone_home_image").addEventListener("click", (e) => {
 
 r_e("gallery1_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery1", "#gallery1_image", "#gallery1_input");
+  images("Admin_Edits", "galleryAll", "#gallery1_image", "#gallery1_input", "gallery1");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery1")
@@ -1219,7 +1215,7 @@ r_e("gallery1_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery2_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery2", "#gallery2_image", "#gallery2_input");
+  images("Admin_Edits", "galleryAll", "#gallery2_image", "#gallery2_input", "gallery2");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery2")
@@ -1232,7 +1228,7 @@ r_e("gallery2_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery3_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery3", "#gallery3_image", "#gallery3_input");
+  images("Admin_Edits", "galleryAll", "#gallery3_image", "#gallery3_input", "gallery3");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery3")
@@ -1245,7 +1241,7 @@ r_e("gallery3_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery4_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery4", "#gallery4_image", "#gallery4_input");
+  images("Admin_Edits", "galleryAll", "#gallery4_image", "#gallery4_input", "gallery4");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery4")
@@ -1258,7 +1254,7 @@ r_e("gallery4_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery5_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery5", "#gallery5_image", "#gallery5_input");
+  images("Admin_Edits", "galleryAll", "#gallery5_image", "#gallery5_input", "gallery5");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery5")
@@ -1271,7 +1267,7 @@ r_e("gallery5_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery6_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery6", "#gallery6_image", "#gallery6_input");
+  images("Admin_Edits", "galleryAll", "#gallery6_image", "#gallery6_input", "gallery6");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery6")
@@ -1283,7 +1279,7 @@ r_e("gallery6_image_submit").addEventListener("click", (e) => {
 //submit gallery photo7
 r_e("gallery7_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery7", "#gallery7_image", "#gallery7_input");
+  images("Admin_Edits", "galleryAll", "#gallery7_image", "#gallery7_input", "gallery7");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery7")
@@ -1295,7 +1291,7 @@ r_e("gallery7_image_submit").addEventListener("click", (e) => {
 //submit gallery photo8
 r_e("gallery8_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery8", "#gallery8_image", "#gallery8_input");
+  images("Admin_Edits", "galleryAll", "#gallery8_image", "#gallery8_input", "gallery8");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery8")
@@ -1307,7 +1303,7 @@ r_e("gallery8_image_submit").addEventListener("click", (e) => {
 //submit gallery photo9
 r_e("gallery9_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery9", "#gallery9_image", "#gallery9_input");
+  images("Admin_Edits", "galleryAll", "#gallery9_image", "#gallery9_input", "gallery9");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery9")
@@ -1319,7 +1315,7 @@ r_e("gallery9_image_submit").addEventListener("click", (e) => {
 //submit gallery photo10
 r_e("gallery10_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery10", "#gallery10_image", "#gallery10_input");
+  images("Admin_Edits", "galleryAll", "#gallery10_image", "#gallery10_input", "gallery10");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery10")
@@ -1331,7 +1327,7 @@ r_e("gallery10_image_submit").addEventListener("click", (e) => {
 //submit gallery photo11
 r_e("gallery11_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery11", "#gallery11_image", "#gallery11_input");
+  images("Admin_Edits", "galleryAll", "#gallery11_image", "#gallery11_input", "gallery11");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery11")
@@ -1343,7 +1339,7 @@ r_e("gallery11_image_submit").addEventListener("click", (e) => {
 //submit gallery photo12
 r_e("gallery12_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery12", "#gallery12_image", "#gallery12_input");
+  images("Admin_Edits", "galleryAll", "#gallery12_image", "#gallery12_input", "gallery12");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery12")
@@ -1355,7 +1351,7 @@ r_e("gallery12_image_submit").addEventListener("click", (e) => {
 //submit gallery photo13
 r_e("gallery13_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "gallery13", "#gallery13_image", "#gallery13_input");
+  images("Admin_Edits", "galleryAll", "#gallery13_image", "#gallery13_input", "gallery13");
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery13")
@@ -1736,7 +1732,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -1843,7 +1839,6 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
 r_e("checkout").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("address_modal").classList.add("is-active");
-  load_sc();
 });
 
 r_e("back_button").addEventListener("click", (event) => {
@@ -1866,6 +1861,7 @@ r_e("shipping_modalbg").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("address_modal").classList.add("is-hidden");
 });
+
 let address = "";
 let city = "";
 let state = "";
@@ -1878,6 +1874,18 @@ r_e("shipping_submit").addEventListener("click", (event) => {
   city = r_e("order_city").value;
   state = r_e("order_state").value;
   zip = r_e("order_zip").value;
+  db.collection("OrderItems")
+    .where("email", "==", auth.currentUser.email)
+    .get()
+    .then((order) => {
+      let total = 8;
+      order.forEach((doc) => {
+        total += parseInt(doc.data().price);
+      });
+      document.querySelector(
+        "#venmo_total"
+      ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
+    });
 });
 
 //submitted orders to db
@@ -1892,7 +1900,6 @@ r_e("order_agree").addEventListener("click", (e) => {
     .where("email", "==", auth.currentUser.email)
     .get()
     .then((order) => {
-      load_sc();
       order.forEach((doc) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
@@ -2454,7 +2461,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
 });
