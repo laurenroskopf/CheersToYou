@@ -1103,22 +1103,22 @@ r_e("contactme_form").addEventListener("click", (e) => {
 //click checkout button
 
 //adding total to modal
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    db.collection("OrderItems")
-      .where("email", "==", auth.currentUser.email)
-      .get()
-      .then((order) => {
-        let total = 8;
-        order.forEach((doc) => {
-          total += parseInt(doc.data().price);
-        });
-        document.querySelector(
-          "#venmo_total"
-        ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
-      });
-  }
-});
+// auth.onAuthStateChanged((user) => {
+//   if (user) {
+//     db.collection("OrderItems")
+//       .where("email", "==", auth.currentUser.email)
+//       .get()
+//       .then((order) => {
+//         let total = 8;
+//         order.forEach((doc) => {
+//           total += parseInt(doc.data().price);
+//         });
+//         document.querySelector(
+//           "#venmo_total"
+//         ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
+//       });
+//   }
+// });
 
 //submit maker image
 r_e("submit_maker_image").addEventListener("click", (e) => {
@@ -1736,7 +1736,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -1843,7 +1843,6 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
 r_e("checkout").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("address_modal").classList.add("is-active");
-  load_sc();
 });
 
 r_e("back_button").addEventListener("click", (event) => {
@@ -1866,6 +1865,7 @@ r_e("shipping_modalbg").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("address_modal").classList.add("is-hidden");
 });
+
 let address = "";
 let city = "";
 let state = "";
@@ -1878,6 +1878,16 @@ r_e("shipping_submit").addEventListener("click", (event) => {
   city = r_e("order_city").value;
   state = r_e("order_state").value;
   zip = r_e("order_zip").value;
+  db.collection("OrderItems")
+    .where("email", "==", auth.currentUser.email)
+    .get()
+    .then((order) => {
+      let total = 8;
+      order.forEach((doc) => {
+        total += parseInt(doc.data().price);
+      });
+      document.querySelector("#venmo_total").innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
+    })
 });
 
 //submitted orders to db
@@ -1892,7 +1902,7 @@ r_e("order_agree").addEventListener("click", (e) => {
     .where("email", "==", auth.currentUser.email)
     .get()
     .then((order) => {
-      load_sc();
+
       order.forEach((doc) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
@@ -2454,7 +2464,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
 });
