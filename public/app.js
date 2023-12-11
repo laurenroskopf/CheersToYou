@@ -694,14 +694,10 @@ function load_contact() {
               <p> Phone: ${doc.data().Phone}</p>
               <p> Message: ${doc.data().Message}</p>
             </div>
-
-            <!-- need to change to js -->
-
-            <div onclick="del_docreq('${doc.id
-          }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
-          </div>`;
+            <div onclick="del_docreq('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i>
+            </div></div>`;
       });
-      document.querySelector("#Contactreq").innerHTML += html;
+      document.querySelector("#adminContact").innerHTML = html;
     });
 }
 
