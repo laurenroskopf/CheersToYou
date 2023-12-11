@@ -727,7 +727,7 @@ function del_order(id) {
 }
 
 //function to insert an image
-function images(coll, d, content1, input1) {
+function images(coll, d, content1, input1, fieldName) {
   // 7. Getting the image ready
   let file = document.querySelector(input1).files[0];
   let image = new Date() + "_" + file.name;
@@ -739,10 +739,9 @@ function images(coll, d, content1, input1) {
     .then((url) => {
       // Url is ready now
       // 4. Object
-
-      db.collection(coll).doc(d).update({
-        url: url,
-      });
+      const updateObject = {};
+      updateObject[fieldName] = url;
+      db.collection(coll).doc(d).update(updateObject);
 
       // set a delay
 
@@ -751,7 +750,7 @@ function images(coll, d, content1, input1) {
           .doc(d)
           .get()
           .then((doc) => {
-            document.querySelector(content1).innerHTML = `<img src="${doc.data().url
+            document.querySelector(content1).innerHTML = `<img src="${doc.data()[fieldName]
               }" />`;
           });
       }, 1000);
@@ -1133,9 +1132,10 @@ r_e("submit_bunting_home_image").addEventListener("click", (e) => {
   e.preventDefault();
   images(
     "Admin_Edits",
-    "bunting_home",
+    "buntings",
     "#bunting_image_home",
-    "#bunting_home_image_input"
+    "#bunting_home_image_input",
+    "buntings_home_url"
   );
 });
 // db.collection("Admin_Edits")
@@ -1732,7 +1732,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-      }</p>`;
+        }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -1882,8 +1882,10 @@ r_e("shipping_submit").addEventListener("click", (event) => {
       order.forEach((doc) => {
         total += parseInt(doc.data().price);
       });
-      document.querySelector("#venmo_total").innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
-    })
+      document.querySelector(
+        "#venmo_total"
+      ).innerHTML += `<h6 class ="m-5 is-size-4"> <b>Your total is $${total}<b></h6>`;
+    });
 });
 
 //submitted orders to db
@@ -1898,7 +1900,6 @@ r_e("order_agree").addEventListener("click", (e) => {
     .where("email", "==", auth.currentUser.email)
     .get()
     .then((order) => {
-
       order.forEach((doc) => {
         // Push each order's data into the array
         ordersData.push(doc.data());
@@ -2460,7 +2461,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-      }</p>`;
+        }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
 });
