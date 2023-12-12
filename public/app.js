@@ -335,7 +335,7 @@ function load_order() {
               <div>
               <h3 id="type"class="subtitle is-5">Order</h3>    
               </div>
-              <div>Customer Name:</div>
+              <div>Customer Name: ${doc.data().fname} ${doc.data().lname}</div>
               <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
                 .data()
                 .createdAt.toDate()
@@ -2156,10 +2156,14 @@ let address = "";
 let city = "";
 let state = "";
 let zip = "";
+let fname = "";
+let lname = "";
 r_e("shipping_submit").addEventListener("click", (event) => {
   event.preventDefault();
   r_e("venmo_modal").classList.add("is-active");
   r_e("address_modal").classList.add("is-hidden");
+  fname = r_e("order_fname").value;
+  lname = r_e("order_lname").value;
   address = r_e("order_address").value;
   city = r_e("order_city").value;
   state = r_e("order_state").value;
@@ -2209,6 +2213,8 @@ r_e("order_agree").addEventListener("click", (e) => {
         zip: zip,
         total: total,
         email: auth.currentUser.email,
+        fname: fname,
+        lname: lname
       });
 
       order.forEach((doc) => {
