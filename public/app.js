@@ -289,7 +289,6 @@ function completed_product_html(doc) {
 // shopping cart data
 function load_sc() {
   let html = ``;
-  console.log("refresh pls")
   auth.onAuthStateChanged((user) => {
     if (user) {
       db.collection("OrderItems")
@@ -301,15 +300,18 @@ function load_sc() {
               html += `<div class="box pb-6 m-3 pr-0 columns">
                 
                 <div class="column is-4">
-                  <h3 id="type"class="subtitle is-5">${doc.data().productType
-                }</h3>
+                  <h3 id="type"class="subtitle is-5">${
+                    doc.data().productType
+                  }</h3>
                   <p>${product_html(doc)}</p>
                 </div>
     
                 <div class="column">$${parseFloat(doc.data().price).toFixed(
                   2
                 )}</div>
-                <div onclick="del_doc('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+                <div onclick="del_doc('${
+                  doc.id
+                }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
               </div>`;
             }
           });
@@ -337,14 +339,15 @@ function load_order() {
               </div>
               <div>Customer Name:</div>
               <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-                .data()
-                .createdAt.toDate()
-                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+              .data()
+              .createdAt.toDate()
+              .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
               <div>Email: ${doc.data().combinedData[0].email}</div>
               <div>Total: $${doc.data().total}</div>
               <div>Venmo: @${doc.data().user_venmo}</div>
-              <div>Shipping Address: ${doc.data().address} ${doc.data().city
-              }, ${doc.data().state} ${doc.data().zip}</div>
+              <div>Shipping Address: ${doc.data().address} ${
+              doc.data().city
+            }, ${doc.data().state} ${doc.data().zip}</div>
               <br>`;
             let items = doc.data().combinedData;
             items.forEach((item) => {
@@ -399,13 +402,14 @@ function load_account() {
                   <h3 id="type"class="subtitle is-5">Order</h3>    
                 </div>
               <div>Ordered on ${doc.data().createdAt.toDate().getMonth()}/${doc
-                  .data()
-                  .createdAt.toDate()
-                  .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
+                .data()
+                .createdAt.toDate()
+                .getDate()}/${doc.data().createdAt.toDate().getFullYear()}</div>
                 <div>Total: $${doc.data().total}</div>
                 <div>Venmo: @${doc.data().user_venmo}</div>
-                <div>Shipping Address: ${doc.data().address} ${doc.data().city
-                }, ${doc.data().state} ${doc.data().zip}</div>
+                <div>Shipping Address: ${doc.data().address} ${
+                doc.data().city
+              }, ${doc.data().state} ${doc.data().zip}</div>
                 <br>`;
               let items = doc.data().combinedData;
               items.forEach((item) => {
@@ -439,7 +443,9 @@ function load_contact() {
               <p> Phone: ${doc.data().Phone}</p>
               <p> Message: ${doc.data().Message}</p>
             </div>
-            <div onclick="del_docreq('${doc.id}')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i>
+            <div onclick="del_docreq('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i>
             </div></div>`;
       });
       document.querySelector("#adminContact").innerHTML = html;
@@ -562,8 +568,6 @@ function bunting_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -586,8 +590,6 @@ function bunting_info() {
           message: message,
           price: prc,
         };
-
-        console.log(orderItem);
 
         db.collection("OrderItems")
           .add(orderItem)
@@ -612,8 +614,6 @@ function bunting_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -636,8 +636,6 @@ function bunting_info() {
           message: message,
           price: prc,
         };
-
-        console.log(orderItem);
 
         db.collection("OrderItems")
           .add(orderItem)
@@ -668,8 +666,6 @@ function garland_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -690,8 +686,6 @@ function garland_info() {
           size: message,
           price: prc,
         };
-
-        console.log(orderItem);
 
         db.collection("OrderItems")
           .add(orderItem)
@@ -714,8 +708,6 @@ function garland_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -725,7 +717,57 @@ function garland_info() {
   }
 }
 
+//load contact us form data
+function load_contact() {
+  db.collection("ContactForm")
+    .get()
+    .then((data) => {
+      let docs = data.docs;
+      let html = ``;
+      docs.forEach((doc) => {
+        html += `<div class="box pb-6 m-3 pr-0 columns">
+            <div class="column">
+              <h2 id="type"class="subtitle is-5"> Name: ${doc.data().Name}</h2>
+              <p>Email: ${doc.data().Email}</p>
+              <p> Phone: ${doc.data().Phone}</p>
+              <p> Message: ${doc.data().Message}</p>
+            </div>
 
+            <!-- need to change to js -->
+
+            <div onclick="del_docreq('${
+              doc.id
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+          </div>`;
+      });
+      document.querySelector("#Contactreq").innerHTML += html;
+    });
+}
+
+function del_docreq(id) {
+  db.collection("ContactForm")
+    .doc(id)
+    .delete()
+    .then(() => alert("Message deleted"));
+  load_contact();
+}
+
+function del_doc(id) {
+  db.collection("OrderItems")
+    .doc(id)
+    .delete()
+    .then(() => alert("Product deleted"));
+  load_sc();
+}
+
+//delete when order fulfilled
+function del_order(id) {
+  db.collection("Orders")
+    .doc(id)
+    .delete()
+    .then(() => alert("Order Completed!"));
+  load_order();
+}
 
 //function to insert an image
 function images(coll, d, content1, input1, fieldName) {
@@ -751,8 +793,9 @@ function images(coll, d, content1, input1, fieldName) {
           .doc(d)
           .get()
           .then((doc) => {
-            document.querySelector(content1).innerHTML = `<img src="${doc.data()[fieldName]
-              }" />`;
+            document.querySelector(content1).innerHTML = `<img src="${
+              doc.data()[fieldName]
+            }" />`;
           });
       }, 1000);
     });
@@ -869,6 +912,21 @@ r_e("pennantspg").addEventListener("click", () => {
   active("pen");
   hide("pen");
   showSlides(slideIndex, "mySlidesPen");
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      r_e("pencar1_image").innerHTML = `<img src="${
+        doc.data().pennant_image1
+      }" />`;
+      r_e("pencar2_image").innerHTML = `<img src="${
+        doc.data().pennant_image2
+      }" />`;
+      r_e("pencar3_image").innerHTML = `<img src="${
+        doc.data().pennant_image3
+      }" />`;
+    });
 });
 
 //garlands page
@@ -876,6 +934,21 @@ r_e("garlandspg").addEventListener("click", () => {
   active("Garlands");
   hide("Garlands");
   showSlides(slideIndex, "mySlidesGar");
+
+  db.collection("Admin_Edits")
+    .doc("garcar1")
+    .get()
+    .then((doc) => {
+      r_e("garcar1_image").innerHTML = `<img src="${
+        doc.data().garland_image1
+      }" />`;
+      r_e("garcar2_image").innerHTML = `<img src="${
+        doc.data().garland_image2
+      }" />`;
+      r_e("garcar3_image").innerHTML = `<img src="${
+        doc.data().garland_image3
+      }" />`;
+    });
 });
 
 //buntings page
@@ -883,6 +956,21 @@ r_e("buntingpg").addEventListener("click", () => {
   active("Buntings");
   hide("Buntings");
   showSlides(slideIndex, "mySlidesBun");
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      r_e("buntcar1_image").innerHTML = `<img src="${
+        doc.data().bunting_image1
+      }" />`;
+      r_e("buntcar2_image").innerHTML = `<img src="${
+        doc.data().bunting_image2
+      }" />`;
+      r_e("buntcar3_image").innerHTML = `<img src="${
+        doc.data().bunting_image3
+      }" />`;
+    });
 });
 
 //milestonesets page
@@ -890,6 +978,21 @@ r_e("milestonepg").addEventListener("click", () => {
   active("Milestone");
   hide("Milestone");
   showSlides(slideIndex, "mySlidesMS");
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      r_e("milecar1_image").innerHTML = `<img src="${
+        doc.data().milestone_image1
+      }" />`;
+      r_e("milecar2_image").innerHTML = `<img src="${
+        doc.data().milestone_image2
+      }" />`;
+      r_e("milecar3_image").innerHTML = `<img src="${
+        doc.data().milestone_image3
+      }" />`;
+    });
 });
 
 //gallery page
@@ -909,10 +1012,18 @@ r_e("gallerypg").addEventListener("click", () => {
       r_e("gallery7_image").innerHTML = `<img src="${doc.data().gallery7}" />`;
       r_e("gallery8_image").innerHTML = `<img src="${doc.data().gallery8}" />`;
       r_e("gallery9_image").innerHTML = `<img src="${doc.data().gallery9}" />`;
-      r_e("gallery10_image").innerHTML = `<img src="${doc.data().gallery10}" />`;
-      r_e("gallery11_image").innerHTML = `<img src="${doc.data().gallery11}" />`;
-      r_e("gallery12_image").innerHTML = `<img src="${doc.data().gallery12}" />`;
-      r_e("gallery13_image").innerHTML = `<img src="${doc.data().gallery13}" />`;
+      r_e("gallery10_image").innerHTML = `<img src="${
+        doc.data().gallery10
+      }" />`;
+      r_e("gallery11_image").innerHTML = `<img src="${
+        doc.data().gallery11
+      }" />`;
+      r_e("gallery12_image").innerHTML = `<img src="${
+        doc.data().gallery12
+      }" />`;
+      r_e("gallery13_image").innerHTML = `<img src="${
+        doc.data().gallery13
+      }" />`;
     });
 });
 
@@ -920,6 +1031,20 @@ r_e("gallerypg").addEventListener("click", () => {
 r_e("makerpg").addEventListener("click", () => {
   active("Maker");
   hide("Maker");
+  db.collection("Admin_Edits")
+    .doc("maker_body_edit")
+    .get()
+    .then((doc) => {
+      document.querySelector("#maker_section").innerHTML = `<p>${
+        doc.data().message
+      }</p>`;
+      document.querySelector("#maker_image").innerHTML = `<img src="${
+        doc.data().url
+      }" />`;
+      document.querySelector("#maker_title_section").innerHTML = `<p>${
+        doc.data().title
+      }</p>`;
+    });
 });
 
 //contact me
@@ -1109,11 +1234,10 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
-
 
 //submit maker image
 r_e("submit_maker_image").addEventListener("click", (e) => {
@@ -1122,9 +1246,9 @@ r_e("submit_maker_image").addEventListener("click", (e) => {
     "Admin_Edits",
     "maker_body_edit",
     "#maker_image",
-    "#maker_image_input"
+    "#maker_image_input",
+    "url"
   );
-  // r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
 });
 
 //submit buntings home picture
@@ -1202,7 +1326,13 @@ r_e("submit_milestone_home_image").addEventListener("click", (e) => {
 
 r_e("gallery1_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery1_image", "#gallery1_input", "gallery1");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery1_image",
+    "#gallery1_input",
+    "gallery1"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery1")
@@ -1215,7 +1345,13 @@ r_e("gallery1_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery2_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery2_image", "#gallery2_input", "gallery2");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery2_image",
+    "#gallery2_input",
+    "gallery2"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery2")
@@ -1228,7 +1364,13 @@ r_e("gallery2_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery3_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery3_image", "#gallery3_input", "gallery3");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery3_image",
+    "#gallery3_input",
+    "gallery3"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery3")
@@ -1241,7 +1383,13 @@ r_e("gallery3_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery4_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery4_image", "#gallery4_input", "gallery4");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery4_image",
+    "#gallery4_input",
+    "gallery4"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery4")
@@ -1254,7 +1402,13 @@ r_e("gallery4_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery5_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery5_image", "#gallery5_input", "gallery5");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery5_image",
+    "#gallery5_input",
+    "gallery5"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery5")
@@ -1267,7 +1421,13 @@ r_e("gallery5_image_submit").addEventListener("click", (e) => {
 
 r_e("gallery6_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery6_image", "#gallery6_input", "gallery6");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery6_image",
+    "#gallery6_input",
+    "gallery6"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery6")
@@ -1279,7 +1439,13 @@ r_e("gallery6_image_submit").addEventListener("click", (e) => {
 //submit gallery photo7
 r_e("gallery7_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery7_image", "#gallery7_input", "gallery7");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery7_image",
+    "#gallery7_input",
+    "gallery7"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery7")
@@ -1291,7 +1457,13 @@ r_e("gallery7_image_submit").addEventListener("click", (e) => {
 //submit gallery photo8
 r_e("gallery8_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery8_image", "#gallery8_input", "gallery8");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery8_image",
+    "#gallery8_input",
+    "gallery8"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery8")
@@ -1303,7 +1475,13 @@ r_e("gallery8_image_submit").addEventListener("click", (e) => {
 //submit gallery photo9
 r_e("gallery9_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery9_image", "#gallery9_input", "gallery9");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery9_image",
+    "#gallery9_input",
+    "gallery9"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery9")
@@ -1315,7 +1493,13 @@ r_e("gallery9_image_submit").addEventListener("click", (e) => {
 //submit gallery photo10
 r_e("gallery10_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery10_image", "#gallery10_input", "gallery10");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery10_image",
+    "#gallery10_input",
+    "gallery10"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery10")
@@ -1327,7 +1511,13 @@ r_e("gallery10_image_submit").addEventListener("click", (e) => {
 //submit gallery photo11
 r_e("gallery11_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery11_image", "#gallery11_input", "gallery11");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery11_image",
+    "#gallery11_input",
+    "gallery11"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery11")
@@ -1339,7 +1529,13 @@ r_e("gallery11_image_submit").addEventListener("click", (e) => {
 //submit gallery photo12
 r_e("gallery12_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery12_image", "#gallery12_input", "gallery12");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery12_image",
+    "#gallery12_input",
+    "gallery12"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery12")
@@ -1351,7 +1547,13 @@ r_e("gallery12_image_submit").addEventListener("click", (e) => {
 //submit gallery photo13
 r_e("gallery13_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "galleryAll", "#gallery13_image", "#gallery13_input", "gallery13");
+  images(
+    "Admin_Edits",
+    "galleryAll",
+    "#gallery13_image",
+    "#gallery13_input",
+    "gallery13"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("gallery13")
@@ -1363,7 +1565,13 @@ r_e("gallery13_image_submit").addEventListener("click", (e) => {
 //submit pen car 1
 r_e("pencar1_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "pencar1", "#pencar1_image", "#pencar1_input");
+  images(
+    "Admin_Edits",
+    "pennants",
+    "#pencar1_image",
+    "#pencar1_input",
+    "pennant_image1"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("pencar1")
@@ -1375,7 +1583,13 @@ r_e("pencar1_image_submit").addEventListener("click", (e) => {
 //submit pen car 2
 r_e("pencar2_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "pencar2", "#pencar2_image", "#pencar2_input");
+  images(
+    "Admin_Edits",
+    "pennants",
+    "#pencar2_image",
+    "#pencar2_input",
+    "pennant_image2"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("pencar2")
@@ -1387,7 +1601,13 @@ r_e("pencar2_image_submit").addEventListener("click", (e) => {
 //submit pen car 3
 r_e("pencar3_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "pencar3", "#pencar3_image", "#pencar3_input");
+  images(
+    "Admin_Edits",
+    "pennants",
+    "#pencar3_image",
+    "#pencar3_input",
+    "pennant_image3"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("pencar3")
@@ -1399,7 +1619,13 @@ r_e("pencar3_image_submit").addEventListener("click", (e) => {
 //submit gar car 1
 r_e("garcar1_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "garcar1", "#garcar1_image", "#garcar1_input");
+  images(
+    "Admin_Edits",
+    "garlands",
+    "#garcar1_image",
+    "#garcar1_input",
+    "garland_image1"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("garcar1")
@@ -1411,7 +1637,13 @@ r_e("garcar1_image_submit").addEventListener("click", (e) => {
 //submit gar car 2
 r_e("garcar2_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "garcar2", "#garcar2_image", "#garcar2_input");
+  images(
+    "Admin_Edits",
+    "garlands",
+    "#garcar2_image",
+    "#garcar2_input",
+    "garland_image2"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("garcar2")
@@ -1423,7 +1655,13 @@ r_e("garcar2_image_submit").addEventListener("click", (e) => {
 //submit gar car 3
 r_e("garcar3_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "garcar3", "#garcar3_image", "#garcar3_input");
+  images(
+    "Admin_Edits",
+    "garlands",
+    "#garcar3_image",
+    "#garcar3_input",
+    "garland_image3"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("garcar3")
@@ -1435,7 +1673,13 @@ r_e("garcar3_image_submit").addEventListener("click", (e) => {
 //submit bunt car 1
 r_e("buntcar1_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "buntcar1", "#buntcar1_image", "#buntcar1_input");
+  images(
+    "Admin_Edits",
+    "buntings",
+    "#buntcar1_image",
+    "#buntcar1_input",
+    "bunting_image1"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("buntcar1")
@@ -1447,7 +1691,13 @@ r_e("buntcar1_image_submit").addEventListener("click", (e) => {
 //submit bunt car 2
 r_e("buntcar2_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "buntcar2", "#buntcar2_image", "#buntcar2_input");
+  images(
+    "Admin_Edits",
+    "buntings",
+    "#buntcar2_image",
+    "#buntcar2_input",
+    "bunting_image2"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("buntcar2")
@@ -1459,7 +1709,13 @@ r_e("buntcar2_image_submit").addEventListener("click", (e) => {
 //submit bunt car 3
 r_e("buntcar3_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "buntcar3", "#buntcar3_image", "#buntcar3_input");
+  images(
+    "Admin_Edits",
+    "buntings",
+    "#buntcar3_image",
+    "#buntcar3_input",
+    "bunting_image3"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("buntcar3")
@@ -1471,7 +1727,13 @@ r_e("buntcar3_image_submit").addEventListener("click", (e) => {
 //submit mile car 1
 r_e("milecar1_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "milecar1", "#milecar1_image", "#milecar1_input");
+  images(
+    "Admin_Edits",
+    "milestones",
+    "#milecar1_image",
+    "#milecar1_input",
+    "milestones_image1"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("milecar1")
@@ -1483,7 +1745,13 @@ r_e("milecar1_image_submit").addEventListener("click", (e) => {
 //submit mile car 2
 r_e("milecar2_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "milecar2", "#milecar2_image", "#milecar2_input");
+  images(
+    "Admin_Edits",
+    "milestones",
+    "#milecar2_image",
+    "#milecar2_input",
+    "milestones_image2"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("milecar2")
@@ -1494,7 +1762,13 @@ r_e("milecar2_image_submit").addEventListener("click", (e) => {
 //submit mile car 3
 r_e("milecar3_image_submit").addEventListener("click", (e) => {
   e.preventDefault();
-  images("Admin_Edits", "milecar3", "#milecar3_image", "#milecar3_input");
+  images(
+    "Admin_Edits",
+    "milestones",
+    "#milecar3_image",
+    "#milecar3_input",
+    "milestones_image3"
+  );
 });
 // db.collection("Admin_Edits")
 //   .doc("milecar3")
@@ -1529,8 +1803,9 @@ r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
     .doc("milestones")
     .get()
     .then((doc) => {
-      document.querySelector("#milestone_product_section").innerHTML = `<p>${doc.data().product_de
-        }</p>`;
+      document.querySelector("#milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      }</p>`;
     });
 
   document.querySelector("#milestone_product_edits").value = "";
@@ -1558,8 +1833,9 @@ r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
     .doc("milestones")
     .get()
     .then((doc) => {
-      document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
-        }</p>`;
+      document.querySelector("#milestone_home_section").innerHTML = `<p>${
+        doc.data().home_de
+      }</p>`;
     });
 
   document.querySelector("#milestone_home_edits").value = "";
@@ -1587,8 +1863,9 @@ r_e("submit_garland_home_edits").addEventListener("click", (event) => {
     .doc("garlands")
     .get()
     .then((doc) => {
-      document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
-        }</p>`;
+      document.querySelector("#garland_home_section").innerHTML = `<p>${
+        doc.data().home_des
+      }</p>`;
     });
   document.querySelector("#garland_home_edits").value = "";
 });
@@ -1615,8 +1892,9 @@ r_e("submit_garland_product_edits").addEventListener("click", (event) => {
     .doc("garlands")
     .get()
     .then((doc) => {
-      document.querySelector("#garland_product_section").innerHTML = `<p>${doc.data().product_des
-        }</p>`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
     });
   document.querySelector("#garland_product_edits").value = "";
 });
@@ -1643,8 +1921,9 @@ r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
     .doc("buntings")
     .get()
     .then((doc) => {
-      document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
-        }</p>`;
+      document.querySelector("#bunting_home_section").innerHTML = `<p>${
+        doc.data().home_desc
+      }</p>`;
     });
   document.querySelector("#bunting_home_edits").value = "";
 });
@@ -1671,8 +1950,9 @@ r_e("submit_bunting_product_edits").addEventListener("click", (event) => {
     .doc("buntings")
     .get()
     .then((doc) => {
-      document.querySelector("#bunting_product_section").innerHTML = `<p>${doc.data().product_desc
-        }</p>`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
     });
   document.querySelector("#bunting_product_edits").value = "";
 });
@@ -1700,8 +1980,9 @@ r_e("submit_pennant_product_edits").addEventListener("click", (event) => {
     .doc("pennants")
     .get()
     .then((doc) => {
-      document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
-        }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
     });
   document.querySelector("#pennant_product_edits").value = "";
 });
@@ -1731,7 +2012,8 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
     .then((doc) => {
       document.querySelector(
         "#pennant_price"
-      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
       }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
@@ -1761,8 +2043,9 @@ r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
     .doc("pennants")
     .get()
     .then((doc) => {
-      document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
-        }</p>`;
+      document.querySelector("#pennant_home_section").innerHTML = `<p>${
+        doc.data().home_description
+      }</p>`;
     });
   document.querySelector("#pennant_home_edits").value = "";
 });
@@ -1792,8 +2075,6 @@ r_e("submit_maker_title_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#maker_title_section"
       ).innerHTML = `<p class="title">${doc.data().title}</p>`;
-
-      //r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
     });
   document.querySelector("#maker_title_edits").value = "";
 });
@@ -1820,8 +2101,9 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
     .doc("maker_body_edit")
     .get()
     .then((doc) => {
-      document.querySelector("#maker_section").innerHTML = `<p>${doc.data().message
-        }</p>`;
+      document.querySelector("#maker_section").innerHTML = `<p>${
+        doc.data().message
+      }</p>`;
     });
   document.querySelector("#maker_edits").value = "";
 });
@@ -1838,12 +2120,12 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
 //shipping modal
 r_e("checkout").addEventListener("click", (event) => {
   event.preventDefault();
-  r_e("address_modal").classList.add("is-active");
+  active("address_modal");
 });
 
 r_e("back_button").addEventListener("click", (event) => {
   event.preventDefault();
-  r_e("address_modal").classList.add("is-hidden");
+  isHidden("address_modal");
 });
 
 //back or exit
@@ -1920,7 +2202,6 @@ r_e("order_agree").addEventListener("click", (e) => {
         total: total,
         email: auth.currentUser.email,
       });
-      console.log("added to db");
 
       order.forEach((doc) => {
         db.collection("OrderItems").doc(doc.id).delete();
@@ -2460,7 +2741,8 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
     .then((doc) => {
       document.querySelector(
         "#ms_price"
-      ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+        doc.data().price
       }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
