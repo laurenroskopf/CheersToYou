@@ -838,7 +838,7 @@ auth.onAuthStateChanged((user) => {
       active("pencar3_div_image");
       //bunting editing
       active("bunting_product_edit_div");
-      //active("bunting_home_edit_div");
+      active("bunting_home_edit_div");
       active("bunting_price1_edit_div");
       active("bunting_price2_edit_div");
       active("bunting_price3_edit_div");
@@ -853,7 +853,7 @@ auth.onAuthStateChanged((user) => {
       active("buntcar3_div_image");
       //garland editing
       active("garland_product_edit_div");
-      //active("garland_home_edit_div");
+      active("garland_home_edit_div");
       active("gar_price1_edit_div");
       active("gar_price2_edit_div");
       active("gar_price3_edit_div");
@@ -865,7 +865,7 @@ auth.onAuthStateChanged((user) => {
       active("garcar2_div_image");
       active("garcar3_div_image");
       //ms editing
-      //active("milestone_home_edit_div");
+      active("milestone_home_edit_div");
       active("milestone_product_edit_div");
       active("ms_price_edit_div");
       //active("home_milestone_div_image");
@@ -916,6 +916,12 @@ r_e("pennantspg").addEventListener("click", () => {
         }" />`;
       r_e("pencar3_image").innerHTML = `<img src="${doc.data().pennant_image3
         }" />`;
+      document.querySelector(
+        "#pennant_price"
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
+        }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
+        }</p>`;
     });
 });
 
@@ -966,6 +972,22 @@ r_e("buntingpg").addEventListener("click", () => {
         }" />`;
       r_e("buntcar3_image").innerHTML = `<img src="${doc.data().bunting_image3
         }" />`;
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+              ${doc.data().boption1} ($${doc.data().bprice1})`;
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                ${doc.data().boption2} ($${doc.data().bprice2})`;
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                  ${doc.data().boption3} ($${doc.data().bprice3})`;
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                              ${doc.data().boption4} ($${doc.data().bprice4})`;
     });
 });
 
@@ -985,10 +1007,11 @@ r_e("milestonepg").addEventListener("click", () => {
         }" />`;
       r_e("milecar3_image").innerHTML = `<img src="${doc.data().milestones_image3
         }" />`;
+      document.querySelector("#ms_price").innerHTML = `$${doc.data().price}`;
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-      }</p>`;
+        }</p>`;
     });
 });
 
@@ -1996,7 +2019,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-      }</p>`;
+        }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -2629,8 +2652,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-      }</p>`;
+        }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
 });
-
