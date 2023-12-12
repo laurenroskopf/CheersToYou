@@ -63,8 +63,8 @@
     <div class="column"></div>
   </div>
 
+  <!-- Nav Bar -->
   <nav class="navbar is-flex is-justify-content-center" role="navigation" aria-label="main navigation">
-
     <div class="navbar-brand">
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -73,10 +73,11 @@
       </a>
     </div>
     <div id="navbarBasicExample" class="navbar">
+      <!-- Home Page Nav Bar Button -->
       <a class="navbar-item has-text-black" id="homepg">
         Home
       </a>
-      <!-- Dropdown -->
+      <!-- Products Dropdown -->
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link has-text-black">Products</a>
         <div class="navbar-dropdown">
@@ -94,13 +95,15 @@
           </a>
         </div>
       </div>
-      <!-- End Dropdown -->
+      <!--Gallery Nav bar Button -->
       <a class="navbar-item has-text-black" id="gallerypg">
         Gallery
       </a>
+      <!--Meet the Maker Nav bar Button -->
       <a class="navbar-item has-text-black" id="makerpg">
         Meet the Maker
       </a>
+      <!--Contact Me Nav bar Button -->
       <a class="navbar-item has-text-black" id="contactpg">
         Contact Me
       </a>
@@ -224,13 +227,12 @@
   <div id="Index" class="content">
     <div class="container">
       <div class="columns">
+        <!--Spacer Column-->
         <div class="column"></div>
         <div class="column is-one-third mr-6">
           <!--Pennants Card-->
           <div class="card">
-
             <!--Pennants Image-->
-
             <div class="card-image">
               <div id="home_pennant_div_image" class="is-hidden">
                 <input id="pennant_home_image_input" type="file">
@@ -249,6 +251,7 @@
                 <hr />
                 <!--Pennants Description-->
                 <p id="pennant_home_section"></p>
+                <!-- Admin Edit input field -->
                 <div class="is-hidden" id="pennant_home_edit_div">
                   <div class="field ">
 
@@ -286,13 +289,11 @@
                 </p>
                 <hr />
                 <!--Buntings Description-->
-
                 <p id="bunting_home_section">It’s someone’s birthday? Got the job? Passed the test?
                   Make a happy day even happier with these cheerful buntings! </p>
-
                 <div class="is-hidden" id="bunting_home_edit_div">
                   <div class="field ">
-
+                    <!-- Admin Edit input field -->
                     <div class="control">
                       <textarea class="textarea"
                         placeholder="Add new description here. Type <br> to make paragraph breaks."
@@ -307,9 +308,11 @@
             </div>
           </div>
         </div>
+        <!-- Spacer Column-->
         <div class="column"></div>
       </div>
       <div class="columns">
+        <!-- Spacer Column-->
         <div class="column"></div>
         <div class="column is-one-third mr-6">
           <!--Garlands Card-->
@@ -335,11 +338,10 @@
                 <p id="garland_home_section">Celebrate the everyday with this colorful, felt garland.
                   It’s the perfect finishing touch in a nursery, bedroom, or playroom!
                   Coordinate with a Name Pennant to create a custom set.
-
                 </p>
                 <div class="is-hidden" id="garland_home_edit_div">
                   <div class="field ">
-
+                    <!-- Admin Edit input field -->
                     <div class="control">
                       <textarea class="textarea"
                         placeholder="Add new description here. Type <br> to make paragraph breaks."
@@ -348,7 +350,6 @@
                   </div>
                   <button class="button" id="submit_garland_home_edits">Submit New Garlands Description</button>
                 </div>
-
               </div>
             </div>
           </div>
@@ -378,7 +379,7 @@
                 <p id="milestone_home_section">Description</p>
                 <div class="is-hidden" id="milestone_home_edit_div">
                   <div class="field ">
-
+                    <!-- Admin Edit input field -->
                     <div class="control">
                       <textarea class="textarea"
                         placeholder="Add new description here. Type <br> to make paragraph breaks."
@@ -392,14 +393,14 @@
             </div>
           </div>
         </div>
+        <!-- Spacer Column-->
         <div class="column"></div>
       </div>
     </div>
   </div>
   </div>
 
-  <!-- pennant.html content -->
-
+  <!-- pennant page content -->
   <div id="pen" class="content is-hidden">
     <div class="signedout signInBar has-text-white">
       <p class="has-text-centered ">
@@ -409,7 +410,7 @@
     <div><br></div>
     <div class="container">
       <div class="column p-6">
-        <!-- Slideshow container -->
+        <!-- Carousel Admin EDits  -->
         <div id="pencar1_div_image" class="is-hidden">
           <input id="pencar1_input" type="file">
           <button class="button" id="pencar1_image_submit">Submit Image 1</button>
@@ -423,9 +424,7 @@
           <button class="button" id="pencar3_image_submit">Submit Image 3</button>
         </div>
         <div class="slideshow-container">
-
-          <!-- Full-width images with number and caption text -->
-
+          <!-- Carousel Images and Text  -->
           <div class="mySlidesPen fade">
             <div class="numbertext">1 / 3</div>
             <div id="pencar1_image"></div>
@@ -441,19 +440,20 @@
             <div id="pencar3_image"></div>
           </div>
 
-          <!-- Next and previous buttons -->
+          <!-- Carousel Next and previous buttons -->
           <a class="prev" onclick="plusSlides(-1, 'mySlidesPen')">&#10094;</a>
           <a class="next" onclick="plusSlides(1, 'mySlidesPen')">&#10095;</a>
         </div>
         <br>
 
-        <!-- The dots/circles -->
+        <!-- Carousel Dots  -->
         <div style="text-align:center">
           <span class="dot" onclick="currentSlide(1, 'mySlidesPen')"></span>
           <span class="dot" onclick="currentSlide(2, 'mySlidesPen')"></span>
           <span class="dot" onclick="currentSlide(3, 'mySlidesPen')"></span>
         </div>
       </div>
+      <!-- Pennant Page text -->
       <div class="column">
         <h2>Pennant</h2>
         <p>
@@ -468,13 +468,12 @@
             </div>
             <button class="button" id="submit_pennant_price_edits">Submit New Pennant Price</button>
           </div>
-
+          <!--Pannant Ordering Form -->
           <form>
-
             <div class="columns">
               <div class="column">
                 <h4>Pennant Color</h4>
-
+                <!--Pennant Color Options -->
                 <div class="control">
                   <div class="select">
                     <select id="penColor">
@@ -521,15 +520,11 @@
                       <option>Evergreen</option>
                       <option>Kelly</option>
                       <option>Chartreuse</option>
-
-
-
                     </select>
                   </div>
-
                 </div>
               </div>
-
+              <!--Edge Color Options -->
               <div class="column">
                 <h4>Edge Color</h4>
                 <div class="control">
@@ -582,10 +577,9 @@
                   </div>
                 </div>
               </div>
-
+              <!--Font color options -->
               <div class="column">
                 <h4>Font Color</h4>
-
                 <div class="control">
                   <div class="select">
                     <select id="fontColorPen">
@@ -636,9 +630,9 @@
                   </div>
                 </div>
               </div>
+              <!--Tab color options -->
               <div class="column">
                 <h4>Tab Color</h4>
-
                 <div class="control">
                   <div class="select">
                     <select id="tabColorPen">
@@ -689,9 +683,8 @@
                   </div>
                 </div>
               </div>
-
             </div>
-
+            <!--Form Letter options  -->
             <div class="columns">
               <div class="column is-one-third">
                 <h4>Lettering</h4>
@@ -703,6 +696,7 @@
                   </select>
                 </div>
               </div>
+              <!--Personalization options -->
               <div class="column is-two-thirds">
                 <h4>Personalization (7-8 letters max)</h4>
                 <input id="penPersonal" class="input" type="text">
@@ -710,15 +704,15 @@
                 <div><button id="addPennant" class="signedin button"> Add to Cart</button></div>
               </div>
             </div>
-
+            <!--Color Option image -->
             <img src="allColors.png" alt="colors" width="500" height="500">
-
+            <!--Product Details -->
             <br><br>
             <p class="has-text-weight-bold is-italic"> Details</p>
             <p id="pennant_body_section"></p>
             <div class="is-hidden" id="pennant_product_edit_div">
+              <!--Admin edit submission field  -->
               <div class="field ">
-
                 <div class="control">
                   <textarea class="textarea" placeholder="Add new description here. Type <br> to make paragraph breaks."
                     id="pennant_product_edits"></textarea>
@@ -756,7 +750,7 @@
     </div>
     <div class="container">
       <div class="column p-6">
-        <!-- Slideshow container -->
+        <!-- Carousel container -->
         <div id="buntcar1_div_image" class="is-hidden">
           <input id="buntcar1_input" type="file">
           <button class="button" id="buntcar1_image_submit">Submit Image 1</button>
@@ -770,7 +764,6 @@
           <button class="button" id="buntcar3_image_submit">Submit Image 3</button>
         </div>
         <div class="slideshow-container">
-
           <!-- Full-width images with number and caption text -->
           <div class="mySlidesBun fade">
             <div class="numbertext">1 / 3</div>
