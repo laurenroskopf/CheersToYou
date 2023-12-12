@@ -833,7 +833,7 @@ auth.onAuthStateChanged((user) => {
       active("maker_title_div");
       active("maker_image_div");
       //pennants editing
-      active("pennant_home_edit_div");
+      //active("pennant_home_edit_div");
       active("pennant_product_edit_div");
       active("pennant_price_edit_div");
       //active("home_pennant_div_image");
@@ -842,7 +842,7 @@ auth.onAuthStateChanged((user) => {
       active("pencar3_div_image");
       //bunting editing
       active("bunting_product_edit_div");
-      active("bunting_home_edit_div");
+      //active("bunting_home_edit_div");
       active("bunting_price1_edit_div");
       active("bunting_price2_edit_div");
       active("bunting_price3_edit_div");
@@ -857,7 +857,7 @@ auth.onAuthStateChanged((user) => {
       active("buntcar3_div_image");
       //garland editing
       active("garland_product_edit_div");
-      active("garland_home_edit_div");
+      //active("garland_home_edit_div");
       active("gar_price1_edit_div");
       active("gar_price2_edit_div");
       active("gar_price3_edit_div");
@@ -869,7 +869,7 @@ auth.onAuthStateChanged((user) => {
       active("garcar2_div_image");
       active("garcar3_div_image");
       //ms editing
-      active("milestone_home_edit_div");
+      //active("milestone_home_edit_div");
       active("milestone_product_edit_div");
       active("ms_price_edit_div");
       //active("home_milestone_div_image");
