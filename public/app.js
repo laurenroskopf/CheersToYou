@@ -1127,6 +1127,29 @@ r_e("homepen").addEventListener("click", () => {
   active("pen");
   hide("pen");
   showSlides(slideIndex, "mySlidesPen");
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      r_e("pencar1_image").innerHTML = `<img src="${
+        doc.data().pennant_image1
+      }" />`;
+      r_e("pencar2_image").innerHTML = `<img src="${
+        doc.data().pennant_image2
+      }" />`;
+      r_e("pencar3_image").innerHTML = `<img src="${
+        doc.data().pennant_image3
+      }" />`;
+      document.querySelector(
+        "#pennant_price"
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
+    });
 });
 
 //garlands page
@@ -1134,6 +1157,36 @@ r_e("homegar").addEventListener("click", () => {
   active("Garlands");
   hide("Garlands");
   showSlides(slideIndex, "mySlidesGar");
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      r_e("garcar1_image").innerHTML = `<img src="${
+        doc.data().garland_image1
+      }" />`;
+      r_e("garcar2_image").innerHTML = `<img src="${
+        doc.data().garland_image2
+      }" />`;
+      r_e("garcar3_image").innerHTML = `<img src="${
+        doc.data().garland_image3
+      }" />`;
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption1} ($${doc.data().gprice1})`;
+      document.querySelector(
+        "#gar_option2"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+                   ${doc.data().goption2} ($${doc.data().gprice2})`;
+      document.querySelector(
+        "#gar_option3"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption3} ($${doc.data().gprice3})`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
+    });
 });
 
 //banners page
@@ -1141,6 +1194,40 @@ r_e("homebun").addEventListener("click", () => {
   active("Buntings");
   hide("Buntings");
   showSlides(slideIndex, "mySlidesBun");
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      r_e("buntcar1_image").innerHTML = `<img src="${
+        doc.data().bunting_image1
+      }" />`;
+      r_e("buntcar2_image").innerHTML = `<img src="${
+        doc.data().bunting_image2
+      }" />`;
+      r_e("buntcar3_image").innerHTML = `<img src="${
+        doc.data().bunting_image3
+      }" />`;
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+              ${doc.data().boption1} ($${doc.data().bprice1})`;
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                ${doc.data().boption2} ($${doc.data().bprice2})`;
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                  ${doc.data().boption3} ($${doc.data().bprice3})`;
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                              ${doc.data().boption4} ($${doc.data().bprice4})`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
+    });
 });
 
 //milestonesets page
@@ -1148,6 +1235,29 @@ r_e("homems").addEventListener("click", () => {
   active("Milestone");
   hide("Milestone");
   showSlides(slideIndex, "mySlidesMS");
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      r_e("milecar1_image").innerHTML = `<img src="${
+        doc.data().milestones_image1
+      }" />`;
+      r_e("milecar2_image").innerHTML = `<img src="${
+        doc.data().milestones_image2
+      }" />`;
+      r_e("milecar3_image").innerHTML = `<img src="${
+        doc.data().milestones_image3
+      }" />`;
+      r_e("milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      } </p>`;
+      document.querySelector(
+        "#ms_price"
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+    });
 });
 
 //home page word links
@@ -1156,6 +1266,29 @@ r_e("homepen1").addEventListener("click", () => {
   active("pen");
   hide("pen");
   showSlides(slideIndex, "mySlidesPen");
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      r_e("pencar1_image").innerHTML = `<img src="${
+        doc.data().pennant_image1
+      }" />`;
+      r_e("pencar2_image").innerHTML = `<img src="${
+        doc.data().pennant_image2
+      }" />`;
+      r_e("pencar3_image").innerHTML = `<img src="${
+        doc.data().pennant_image3
+      }" />`;
+      document.querySelector(
+        "#pennant_price"
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
+    });
 });
 
 //garlands page
@@ -1163,6 +1296,36 @@ r_e("homegar1").addEventListener("click", () => {
   active("Garlands");
   hide("Garlands");
   showSlides(slideIndex, "mySlidesGar");
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      r_e("garcar1_image").innerHTML = `<img src="${
+        doc.data().garland_image1
+      }" />`;
+      r_e("garcar2_image").innerHTML = `<img src="${
+        doc.data().garland_image2
+      }" />`;
+      r_e("garcar3_image").innerHTML = `<img src="${
+        doc.data().garland_image3
+      }" />`;
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption1} ($${doc.data().gprice1})`;
+      document.querySelector(
+        "#gar_option2"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+                   ${doc.data().goption2} ($${doc.data().gprice2})`;
+      document.querySelector(
+        "#gar_option3"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption3} ($${doc.data().gprice3})`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
+    });
 });
 
 //buntings page
@@ -1170,6 +1333,40 @@ r_e("homebun1").addEventListener("click", () => {
   active("Buntings");
   hide("Buntings");
   showSlides(slideIndex, "mySlidesBun");
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      r_e("buntcar1_image").innerHTML = `<img src="${
+        doc.data().bunting_image1
+      }" />`;
+      r_e("buntcar2_image").innerHTML = `<img src="${
+        doc.data().bunting_image2
+      }" />`;
+      r_e("buntcar3_image").innerHTML = `<img src="${
+        doc.data().bunting_image3
+      }" />`;
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+              ${doc.data().boption1} ($${doc.data().bprice1})`;
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                ${doc.data().boption2} ($${doc.data().bprice2})`;
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                  ${doc.data().boption3} ($${doc.data().bprice3})`;
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                              ${doc.data().boption4} ($${doc.data().bprice4})`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
+    });
 });
 
 //milestonesets page
@@ -1177,6 +1374,29 @@ r_e("homems1").addEventListener("click", () => {
   active("Milestone");
   hide("Milestone");
   showSlides(slideIndex, "mySlidesMS");
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      r_e("milecar1_image").innerHTML = `<img src="${
+        doc.data().milestones_image1
+      }" />`;
+      r_e("milecar2_image").innerHTML = `<img src="${
+        doc.data().milestones_image2
+      }" />`;
+      r_e("milecar3_image").innerHTML = `<img src="${
+        doc.data().milestones_image3
+      }" />`;
+      r_e("milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      } </p>`;
+      document.querySelector(
+        "#ms_price"
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+    });
 });
 
 //orders admin page
@@ -1291,9 +1511,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //submit maker image
