@@ -936,7 +936,7 @@ r_e("garlandspg").addEventListener("click", () => {
   showSlides(slideIndex, "mySlidesGar");
 
   db.collection("Admin_Edits")
-    .doc("garcar1")
+    .doc("garlands")
     .get()
     .then((doc) => {
       r_e("garcar1_image").innerHTML = `<img src="${
@@ -984,13 +984,13 @@ r_e("milestonepg").addEventListener("click", () => {
     .get()
     .then((doc) => {
       r_e("milecar1_image").innerHTML = `<img src="${
-        doc.data().milestone_image1
+        doc.data().milestones_image1
       }" />`;
       r_e("milecar2_image").innerHTML = `<img src="${
-        doc.data().milestone_image2
+        doc.data().milestones_image2
       }" />`;
       r_e("milecar3_image").innerHTML = `<img src="${
-        doc.data().milestone_image3
+        doc.data().milestones_image3
       }" />`;
     });
 });
