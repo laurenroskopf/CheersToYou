@@ -289,35 +289,32 @@ function completed_product_html(doc) {
 // shopping cart data
 function load_sc() {
   let html = ``;
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      db.collection("OrderItems")
-        .get()
-        .then((data) => {
-          let docs = data.docs;
-          docs.forEach((doc) => {
-            if (auth.currentUser.email == doc.data().email) {
-              html += `<div class="box pb-6 m-3 pr-0 columns">
+  db.collection("OrderItems")
+    .get()
+    .then((data) => {
+      let docs = data.docs;
+      docs.forEach((doc) => {
+        if (auth.currentUser.email == doc.data().email) {
+          html += `<div class="box pb-6 m-3 pr-0 columns">
                 
                 <div class="column is-4">
                   <h3 id="type"class="subtitle is-5">${doc.data().productType
-                }</h3>
+            }</h3>
                   <p>${product_html(doc)}</p>
                 </div>
     
                 <div class="column">$${parseFloat(doc.data().price).toFixed(
-                  2
-                )}</div>
+              2
+            )}</div>
                 <div onclick="del_doc('${doc.id
-                }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
+            }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
               </div>`;
-            }
-          });
-          document.querySelector("#cart").innerHTML = html;
-        });
-    }
-  });
+        }
+      });
+      document.querySelector("#cart").innerHTML = html;
+    });
 }
+
 
 // order details for admin account
 function load_order() {
