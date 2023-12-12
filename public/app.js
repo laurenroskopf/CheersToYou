@@ -734,7 +734,7 @@ function load_contact() {
           }')" class="is-clickable "><i class="fa-regular fa-trash-can is-size-4 mr-5"></i></div>
           </div>`;
       });
-      document.querySelector("#Contactreq").innerHTML += html;
+      document.querySelector("#adminContact").innerHTML = html;
     });
 }
 
@@ -919,7 +919,7 @@ r_e("pennantspg").addEventListener("click", () => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
       document.querySelector("#pennant_body_section").innerHTML = `<p>${doc.data().product_description
         }</p>`;
     });
@@ -1011,7 +1011,7 @@ r_e("milestonepg").addEventListener("click", () => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
 });
 
@@ -2019,7 +2019,7 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#pennant_price"
       ).innerHTML = `<p id = pennant_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#pennant_price_edits").value = "";
 });
@@ -2652,7 +2652,7 @@ r_e("submit_ms_price_edits").addEventListener("click", (event) => {
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${doc.data().price
-        }</p>`;
+      }</p>`;
     });
   document.querySelector("#ms_price_edits").value = "";
 });
