@@ -841,7 +841,7 @@ auth.onAuthStateChanged((user) => {
       active("maker_title_div");
       active("maker_image_div");
       //pennants editing
-      //active("pennant_home_edit_div");
+      active("pennant_home_edit_div");
       active("pennant_product_edit_div");
       active("pennant_price_edit_div");
       //active("home_pennant_div_image");
@@ -850,7 +850,7 @@ auth.onAuthStateChanged((user) => {
       active("pencar3_div_image");
       //bunting editing
       active("bunting_product_edit_div");
-      //active("bunting_home_edit_div");
+      active("bunting_home_edit_div");
       active("bunting_price1_edit_div");
       active("bunting_price2_edit_div");
       active("bunting_price3_edit_div");
@@ -865,7 +865,7 @@ auth.onAuthStateChanged((user) => {
       active("buntcar3_div_image");
       //garland editing
       active("garland_product_edit_div");
-      //active("garland_home_edit_div");
+      active("garland_home_edit_div");
       active("gar_price1_edit_div");
       active("gar_price2_edit_div");
       active("gar_price3_edit_div");
@@ -877,7 +877,7 @@ auth.onAuthStateChanged((user) => {
       active("garcar2_div_image");
       active("garcar3_div_image");
       //ms editing
-      //active("milestone_home_edit_div");
+      active("milestone_home_edit_div");
       active("milestone_product_edit_div");
       active("ms_price_edit_div");
       //active("home_milestone_div_image");
@@ -973,6 +973,9 @@ r_e("garlandspg").addEventListener("click", () => {
         "#gar_option3"
       ).innerHTML = `<input type="radio" name="gar-choice">
               ${doc.data().goption3} ($${doc.data().gprice3})`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
     });
 });
 
@@ -1011,6 +1014,9 @@ r_e("buntingpg").addEventListener("click", () => {
         "#bunt_option4"
       ).innerHTML = `<input type="radio" name="bunt-choice">
                               ${doc.data().boption4} ($${doc.data().bprice4})`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
     });
 });
 
@@ -1033,7 +1039,9 @@ r_e("milestonepg").addEventListener("click", () => {
       r_e("milecar3_image").innerHTML = `<img src="${
         doc.data().milestones_image3
       }" />`;
-      document.querySelector("#ms_price").innerHTML = `$${doc.data().price}`;
+      r_e("milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      } </p>`;
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${
@@ -1119,6 +1127,29 @@ r_e("homepen").addEventListener("click", () => {
   active("pen");
   hide("pen");
   showSlides(slideIndex, "mySlidesPen");
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      r_e("pencar1_image").innerHTML = `<img src="${
+        doc.data().pennant_image1
+      }" />`;
+      r_e("pencar2_image").innerHTML = `<img src="${
+        doc.data().pennant_image2
+      }" />`;
+      r_e("pencar3_image").innerHTML = `<img src="${
+        doc.data().pennant_image3
+      }" />`;
+      document.querySelector(
+        "#pennant_price"
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
+    });
 });
 
 //garlands page
@@ -1126,6 +1157,36 @@ r_e("homegar").addEventListener("click", () => {
   active("Garlands");
   hide("Garlands");
   showSlides(slideIndex, "mySlidesGar");
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      r_e("garcar1_image").innerHTML = `<img src="${
+        doc.data().garland_image1
+      }" />`;
+      r_e("garcar2_image").innerHTML = `<img src="${
+        doc.data().garland_image2
+      }" />`;
+      r_e("garcar3_image").innerHTML = `<img src="${
+        doc.data().garland_image3
+      }" />`;
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption1} ($${doc.data().gprice1})`;
+      document.querySelector(
+        "#gar_option2"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+                   ${doc.data().goption2} ($${doc.data().gprice2})`;
+      document.querySelector(
+        "#gar_option3"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption3} ($${doc.data().gprice3})`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
+    });
 });
 
 //banners page
@@ -1133,6 +1194,40 @@ r_e("homebun").addEventListener("click", () => {
   active("Buntings");
   hide("Buntings");
   showSlides(slideIndex, "mySlidesBun");
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      r_e("buntcar1_image").innerHTML = `<img src="${
+        doc.data().bunting_image1
+      }" />`;
+      r_e("buntcar2_image").innerHTML = `<img src="${
+        doc.data().bunting_image2
+      }" />`;
+      r_e("buntcar3_image").innerHTML = `<img src="${
+        doc.data().bunting_image3
+      }" />`;
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+              ${doc.data().boption1} ($${doc.data().bprice1})`;
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                ${doc.data().boption2} ($${doc.data().bprice2})`;
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                  ${doc.data().boption3} ($${doc.data().bprice3})`;
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                              ${doc.data().boption4} ($${doc.data().bprice4})`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
+    });
 });
 
 //milestonesets page
@@ -1140,6 +1235,29 @@ r_e("homems").addEventListener("click", () => {
   active("Milestone");
   hide("Milestone");
   showSlides(slideIndex, "mySlidesMS");
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      r_e("milecar1_image").innerHTML = `<img src="${
+        doc.data().milestones_image1
+      }" />`;
+      r_e("milecar2_image").innerHTML = `<img src="${
+        doc.data().milestones_image2
+      }" />`;
+      r_e("milecar3_image").innerHTML = `<img src="${
+        doc.data().milestones_image3
+      }" />`;
+      r_e("milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      } </p>`;
+      document.querySelector(
+        "#ms_price"
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+    });
 });
 
 //home page word links
@@ -1148,6 +1266,29 @@ r_e("homepen1").addEventListener("click", () => {
   active("pen");
   hide("pen");
   showSlides(slideIndex, "mySlidesPen");
+
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      r_e("pencar1_image").innerHTML = `<img src="${
+        doc.data().pennant_image1
+      }" />`;
+      r_e("pencar2_image").innerHTML = `<img src="${
+        doc.data().pennant_image2
+      }" />`;
+      r_e("pencar3_image").innerHTML = `<img src="${
+        doc.data().pennant_image3
+      }" />`;
+      document.querySelector(
+        "#pennant_price"
+      ).innerHTML = `<p id = pennant_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+      document.querySelector("#pennant_body_section").innerHTML = `<p>${
+        doc.data().product_description
+      }</p>`;
+    });
 });
 
 //garlands page
@@ -1155,6 +1296,36 @@ r_e("homegar1").addEventListener("click", () => {
   active("Garlands");
   hide("Garlands");
   showSlides(slideIndex, "mySlidesGar");
+
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      r_e("garcar1_image").innerHTML = `<img src="${
+        doc.data().garland_image1
+      }" />`;
+      r_e("garcar2_image").innerHTML = `<img src="${
+        doc.data().garland_image2
+      }" />`;
+      r_e("garcar3_image").innerHTML = `<img src="${
+        doc.data().garland_image3
+      }" />`;
+      document.querySelector(
+        "#gar_option1"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption1} ($${doc.data().gprice1})`;
+      document.querySelector(
+        "#gar_option2"
+      ).innerHTML = ` <input type="radio" name="gar-choice">
+                   ${doc.data().goption2} ($${doc.data().gprice2})`;
+      document.querySelector(
+        "#gar_option3"
+      ).innerHTML = `<input type="radio" name="gar-choice">
+              ${doc.data().goption3} ($${doc.data().gprice3})`;
+      document.querySelector("#garland_product_section").innerHTML = `<p>${
+        doc.data().product_des
+      }</p>`;
+    });
 });
 
 //buntings page
@@ -1162,6 +1333,40 @@ r_e("homebun1").addEventListener("click", () => {
   active("Buntings");
   hide("Buntings");
   showSlides(slideIndex, "mySlidesBun");
+
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      r_e("buntcar1_image").innerHTML = `<img src="${
+        doc.data().bunting_image1
+      }" />`;
+      r_e("buntcar2_image").innerHTML = `<img src="${
+        doc.data().bunting_image2
+      }" />`;
+      r_e("buntcar3_image").innerHTML = `<img src="${
+        doc.data().bunting_image3
+      }" />`;
+      document.querySelector(
+        "#bunt_option1"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+              ${doc.data().boption1} ($${doc.data().bprice1})`;
+      document.querySelector(
+        "#bunt_option2"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                ${doc.data().boption2} ($${doc.data().bprice2})`;
+      document.querySelector(
+        "#bunt_option3"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                  ${doc.data().boption3} ($${doc.data().bprice3})`;
+      document.querySelector(
+        "#bunt_option4"
+      ).innerHTML = `<input type="radio" name="bunt-choice">
+                              ${doc.data().boption4} ($${doc.data().bprice4})`;
+      document.querySelector("#bunting_product_section").innerHTML = `<p>${
+        doc.data().product_desc
+      }</p>`;
+    });
 });
 
 //milestonesets page
@@ -1169,6 +1374,29 @@ r_e("homems1").addEventListener("click", () => {
   active("Milestone");
   hide("Milestone");
   showSlides(slideIndex, "mySlidesMS");
+
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      r_e("milecar1_image").innerHTML = `<img src="${
+        doc.data().milestones_image1
+      }" />`;
+      r_e("milecar2_image").innerHTML = `<img src="${
+        doc.data().milestones_image2
+      }" />`;
+      r_e("milecar3_image").innerHTML = `<img src="${
+        doc.data().milestones_image3
+      }" />`;
+      r_e("milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      } </p>`;
+      document.querySelector(
+        "#ms_price"
+      ).innerHTML = `<p id = ms_price class = "is-size-4">$${
+        doc.data().price
+      }</p>`;
+    });
 });
 
 //orders admin page
@@ -1870,24 +2098,25 @@ r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
 
 //submit edits to milestones description home page
 
-// r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   db.collection("Admin_Edits")
-//     .doc("milestones")
-//     .update({
-//       home_de: document.querySelector("#milestone_home_edits").value,
-//     });
+r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .update({
+      home_de: document.querySelector("#milestone_home_edits").value,
+    });
 
-//   db.collection("Admin_Edits")
-//     .doc("milestones")
-//     .get()
-//     .then((doc) => {
-//       document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
-//         }</p>`;
-//     });
+  db.collection("Admin_Edits")
+    .doc("milestones")
+    .get()
+    .then((doc) => {
+      document.querySelector("#milestone_home_section").innerHTML = `<p>${
+        doc.data().home_de
+      }</p>`;
+    });
 
-//   document.querySelector("#milestone_home_edits").value = "";
-// });
+  document.querySelector("#milestone_home_edits").value = "";
+});
 // db.collection("Admin_Edits")
 //   .doc("milestones")
 //   .get()
@@ -1899,23 +2128,24 @@ r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
 
 //submit edits to garland home page
 
-// r_e("submit_garland_home_edits").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   db.collection("Admin_Edits")
-//     .doc("garlands")
-//     .update({
-//       home_des: document.querySelector("#garland_home_edits").value,
-//     });
+r_e("submit_garland_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .update({
+      home_des: document.querySelector("#garland_home_edits").value,
+    });
 
-//   db.collection("Admin_Edits")
-//     .doc("garlands")
-//     .get()
-//     .then((doc) => {
-//       document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
-//         }</p>`;
-//     });
-//   document.querySelector("#garland_home_edits").value = "";
-// });
+  db.collection("Admin_Edits")
+    .doc("garlands")
+    .get()
+    .then((doc) => {
+      document.querySelector("#garland_home_section").innerHTML = `<p>${
+        doc.data().home_des
+      }</p>`;
+    });
+  document.querySelector("#garland_home_edits").value = "";
+});
 // db.collection("Admin_Edits")
 //   .doc("garlands")
 //   .get()
@@ -1956,23 +2186,24 @@ r_e("submit_garland_product_edits").addEventListener("click", (event) => {
 
 //submit edits to buntings description home page
 
-// r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   db.collection("Admin_Edits")
-//     .doc("buntings")
-//     .update({
-//       home_desc: document.querySelector("#bunting_home_edits").value,
-//     });
+r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .update({
+      home_desc: document.querySelector("#bunting_home_edits").value,
+    });
 
-//   db.collection("Admin_Edits")
-//     .doc("buntings")
-//     .get()
-//     .then((doc) => {
-//       document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
-//         }</p>`;
-//     });
-//   document.querySelector("#bunting_home_edits").value = "";
-// });
+  db.collection("Admin_Edits")
+    .doc("buntings")
+    .get()
+    .then((doc) => {
+      document.querySelector("#bunting_home_section").innerHTML = `<p>${
+        doc.data().home_desc
+      }</p>`;
+    });
+  document.querySelector("#bunting_home_edits").value = "";
+});
 
 // db.collection("Admin_Edits")
 //   .doc("buntings")
@@ -2077,23 +2308,24 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
 //   });
 // //submit edits to home page pennant description
 
-// r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   db.collection("Admin_Edits")
-//     .doc("pennants")
-//     .update({
-//       home_description: document.querySelector("#pennant_home_edits").value,
-//     });
+r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
+  event.preventDefault();
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .update({
+      home_description: document.querySelector("#pennant_home_edits").value,
+    });
 
-//   db.collection("Admin_Edits")
-//     .doc("pennants")
-//     .get()
-//     .then((doc) => {
-//       document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
-//         }</p>`;
-//     });
-//   document.querySelector("#pennant_home_edits").value = "";
-// });
+  db.collection("Admin_Edits")
+    .doc("pennants")
+    .get()
+    .then((doc) => {
+      document.querySelector("#pennant_home_section").innerHTML = `<p>${
+        doc.data().home_description
+      }</p>`;
+    });
+  document.querySelector("#pennant_home_edits").value = "";
+});
 
 // db.collection("Admin_Edits")
 //   .doc("pennants")
