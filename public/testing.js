@@ -4,14 +4,14 @@ const puppeteer = require("puppeteer");
 async function go() {
   const browser = await puppeteer.launch({
     headless: false,
-    slowMo: 15,
+    slowMo: 100,
   });
 
   const page = await browser.newPage();
 
   //access the site to be tested
 
-  await page.goto("https://cheers-to-you-eaa8c.firebaseapp.com/");
+  await page.goto("https://cheers-to-you-eaa8c.web.app/");
 
   //user click the sign-in button
   await page.click("#signinbtn");
@@ -34,9 +34,6 @@ async function go() {
 
   //  //set 2 delay
   await new Promise((r) => setTimeout(r, 2000));
-  //   //selecting options for pennant
-
-  //await page.type("#penPersonal", "Testing");
 
   //   //submit order
   await page.click("#addMS");
@@ -44,21 +41,26 @@ async function go() {
     console.log(`Dialog message: ${dialog.message()}`);
     await dialog.dismiss();
   })
-  //set 2 delay
-  await new Promise((r) => setTimeout(r, 2000));
 
   //checking shopping cart
   await page.click("#shoppingCart");
 
   //delete item fron shopping cart
-  //await page.click("#cart > div > div.is-clickable");
-  //set 2 delay
+  await page.click("#cart > div > div.is-clickable > i");
+  page.on('dialog', async (dialog) => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    await dialog.dismiss();
+  })
+
+  //set 5 delay
   await new Promise((r) => setTimeout(r, 5000));
 
   //sign out
   await page.click("#signoutbtn");
+
   //set 2 delay
   await new Promise((r) => setTimeout(r, 2000));
+
   //sign in as admin
   await page.click("#signinbtn");
 
@@ -66,7 +68,16 @@ async function go() {
   await page.type("#email_", "alice28512@gmail.com");
   await page.type("#password_", "!Admin01");
 
-  await page.click("#buntingspg");
+  await page.click("#makerpg");
+
+  //set 5 delay
+  await new Promise((r) => setTimeout(r, 10000));
+
+  //sign out
+  await page.click("#signoutbtn");
+
+  //set 5 delay
+  await new Promise((r) => setTimeout(r, 5000));
 
   browser.close();
 }
