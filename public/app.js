@@ -656,6 +656,7 @@ function garland_info() {
           color1: document.querySelector("#gColor1").value,
           color2: document.querySelector("#gColor2").value,
           color3: document.querySelector("#gColor3").value,
+          color4: document.querySelector("#gColor4").value,
           productType: "Garland",
           size: message,
           price: prc,
@@ -677,6 +678,7 @@ function garland_info() {
           color1: document.querySelector("#gColor1").value,
           color2: document.querySelector("#gColor2").value,
           color3: document.querySelector("#gColor3").value,
+          color4: document.querySelector("#gColor4").value,
           productType: "Garland",
           size: message,
           price: prc,
@@ -698,6 +700,7 @@ function garland_info() {
           color1: document.querySelector("#gColor1").value,
           color2: document.querySelector("#gColor2").value,
           color3: document.querySelector("#gColor3").value,
+          color4: document.querySelector("#gColor4").value,
           productType: "Garland",
           size: message,
           price: prc,
@@ -1203,10 +1206,12 @@ r_e("addGarland").addEventListener("click", (event) => {
   //reset
   let ele = document.getElementsByName("gar-choice");
   for (var i = 0; i < ele.length; i++) ele[i].checked = false;
-
-  r_e("gColor1").selectedIndex = 0;
-  r_e("gColor2").selectedIndex = 0;
-  r_e("gColor3").selectedIndex = 0;
+  setTimeout(() => {
+    r_e("gColor1").selectedIndex = 0;
+    r_e("gColor2").selectedIndex = 0;
+    r_e("gColor3").selectedIndex = 0;
+    r_e("gColor4").selectedIndex = 0;
+  }, 2000);
 });
 
 r_e("addMS").addEventListener("click", (event) => {
