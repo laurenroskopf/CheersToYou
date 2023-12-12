@@ -37,20 +37,20 @@ async function go() {
 
   //   //submit order
   await page.click("#addMS");
-  page.on('dialog', async (dialog) => {
+  page.on("dialog", async (dialog) => {
     console.log(`Dialog message: ${dialog.message()}`);
     await dialog.dismiss();
-  })
+  });
 
   //checking shopping cart
   await page.click("#shoppingCart");
 
   //delete item fron shopping cart
   await page.click("#cart > div > div.is-clickable > i");
-  page.on('dialog', async (dialog) => {
+  page.on("dialog", async (dialog) => {
     console.log(`Dialog message: ${dialog.message()}`);
-    await dialog.dismiss();
-  })
+    //await dialog.dismiss();
+  });
 
   //set 5 delay
   await new Promise((r) => setTimeout(r, 5000));
@@ -67,6 +67,10 @@ async function go() {
   //enter admin info
   await page.type("#email_", "alice28512@gmail.com");
   await page.type("#password_", "!Admin01");
+
+  await page.click(
+    "#signin_form > div.field.is-grouped > div.control > button"
+  );
 
   await page.click("#makerpg");
 
