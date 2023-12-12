@@ -841,7 +841,7 @@ auth.onAuthStateChanged((user) => {
       active("maker_title_div");
       active("maker_image_div");
       //pennants editing
-      active("pennant_home_edit_div");
+      //active("pennant_home_edit_div");
       active("pennant_product_edit_div");
       active("pennant_price_edit_div");
       //active("home_pennant_div_image");
@@ -850,7 +850,7 @@ auth.onAuthStateChanged((user) => {
       active("pencar3_div_image");
       //bunting editing
       active("bunting_product_edit_div");
-      active("bunting_home_edit_div");
+      //active("bunting_home_edit_div");
       active("bunting_price1_edit_div");
       active("bunting_price2_edit_div");
       active("bunting_price3_edit_div");
@@ -865,7 +865,7 @@ auth.onAuthStateChanged((user) => {
       active("buntcar3_div_image");
       //garland editing
       active("garland_product_edit_div");
-      active("garland_home_edit_div");
+      //active("garland_home_edit_div");
       active("gar_price1_edit_div");
       active("gar_price2_edit_div");
       active("gar_price3_edit_div");
@@ -877,7 +877,7 @@ auth.onAuthStateChanged((user) => {
       active("garcar2_div_image");
       active("garcar3_div_image");
       //ms editing
-      active("milestone_home_edit_div");
+      //active("milestone_home_edit_div");
       active("milestone_product_edit_div");
       active("ms_price_edit_div");
       //active("home_milestone_div_image");
@@ -1283,9 +1283,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-    (r_e("email_cmf").value = ""),
-    (r_e("phone_cmf").value = ""),
-    (r_e("message_cmf").value = "");
+  (r_e("email_cmf").value = ""),
+  (r_e("phone_cmf").value = ""),
+  (r_e("message_cmf").value = "");
 });
 
 //submit maker image
@@ -1870,25 +1870,24 @@ r_e("submit_milestone_product_edits").addEventListener("click", (event) => {
 
 //submit edits to milestones description home page
 
-r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
-  event.preventDefault();
-  db.collection("Admin_Edits")
-    .doc("milestones")
-    .update({
-      home_de: document.querySelector("#milestone_home_edits").value,
-    });
+// r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   db.collection("Admin_Edits")
+//     .doc("milestones")
+//     .update({
+//       home_de: document.querySelector("#milestone_home_edits").value,
+//     });
 
-  db.collection("Admin_Edits")
-    .doc("milestones")
-    .get()
-    .then((doc) => {
-      document.querySelector("#milestone_home_section").innerHTML = `<p>${
-        doc.data().home_de
-      }</p>`;
-    });
+//   db.collection("Admin_Edits")
+//     .doc("milestones")
+//     .get()
+//     .then((doc) => {
+//       document.querySelector("#milestone_home_section").innerHTML = `<p>${doc.data().home_de
+//         }</p>`;
+//     });
 
-  document.querySelector("#milestone_home_edits").value = "";
-});
+//   document.querySelector("#milestone_home_edits").value = "";
+// });
 // db.collection("Admin_Edits")
 //   .doc("milestones")
 //   .get()
@@ -1900,24 +1899,23 @@ r_e("submit_milestone_home_edits").addEventListener("click", (event) => {
 
 //submit edits to garland home page
 
-r_e("submit_garland_home_edits").addEventListener("click", (event) => {
-  event.preventDefault();
-  db.collection("Admin_Edits")
-    .doc("garlands")
-    .update({
-      home_des: document.querySelector("#garland_home_edits").value,
-    });
+// r_e("submit_garland_home_edits").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   db.collection("Admin_Edits")
+//     .doc("garlands")
+//     .update({
+//       home_des: document.querySelector("#garland_home_edits").value,
+//     });
 
-  db.collection("Admin_Edits")
-    .doc("garlands")
-    .get()
-    .then((doc) => {
-      document.querySelector("#garland_home_section").innerHTML = `<p>${
-        doc.data().home_des
-      }</p>`;
-    });
-  document.querySelector("#garland_home_edits").value = "";
-});
+//   db.collection("Admin_Edits")
+//     .doc("garlands")
+//     .get()
+//     .then((doc) => {
+//       document.querySelector("#garland_home_section").innerHTML = `<p>${doc.data().home_des
+//         }</p>`;
+//     });
+//   document.querySelector("#garland_home_edits").value = "";
+// });
 // db.collection("Admin_Edits")
 //   .doc("garlands")
 //   .get()
@@ -1958,24 +1956,23 @@ r_e("submit_garland_product_edits").addEventListener("click", (event) => {
 
 //submit edits to buntings description home page
 
-r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
-  event.preventDefault();
-  db.collection("Admin_Edits")
-    .doc("buntings")
-    .update({
-      home_desc: document.querySelector("#bunting_home_edits").value,
-    });
+// r_e("submit_bunting_home_edits").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   db.collection("Admin_Edits")
+//     .doc("buntings")
+//     .update({
+//       home_desc: document.querySelector("#bunting_home_edits").value,
+//     });
 
-  db.collection("Admin_Edits")
-    .doc("buntings")
-    .get()
-    .then((doc) => {
-      document.querySelector("#bunting_home_section").innerHTML = `<p>${
-        doc.data().home_desc
-      }</p>`;
-    });
-  document.querySelector("#bunting_home_edits").value = "";
-});
+//   db.collection("Admin_Edits")
+//     .doc("buntings")
+//     .get()
+//     .then((doc) => {
+//       document.querySelector("#bunting_home_section").innerHTML = `<p>${doc.data().home_desc
+//         }</p>`;
+//     });
+//   document.querySelector("#bunting_home_edits").value = "";
+// });
 
 // db.collection("Admin_Edits")
 //   .doc("buntings")
@@ -2080,24 +2077,23 @@ r_e("submit_pennant_price_edits").addEventListener("click", (event) => {
 //   });
 // //submit edits to home page pennant description
 
-r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
-  event.preventDefault();
-  db.collection("Admin_Edits")
-    .doc("pennants")
-    .update({
-      home_description: document.querySelector("#pennant_home_edits").value,
-    });
+// r_e("submit_pennant_home_edits").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   db.collection("Admin_Edits")
+//     .doc("pennants")
+//     .update({
+//       home_description: document.querySelector("#pennant_home_edits").value,
+//     });
 
-  db.collection("Admin_Edits")
-    .doc("pennants")
-    .get()
-    .then((doc) => {
-      document.querySelector("#pennant_home_section").innerHTML = `<p>${
-        doc.data().home_description
-      }</p>`;
-    });
-  document.querySelector("#pennant_home_edits").value = "";
-});
+//   db.collection("Admin_Edits")
+//     .doc("pennants")
+//     .get()
+//     .then((doc) => {
+//       document.querySelector("#pennant_home_section").innerHTML = `<p>${doc.data().home_description
+//         }</p>`;
+//     });
+//   document.querySelector("#pennant_home_edits").value = "";
+// });
 
 // db.collection("Admin_Edits")
 //   .doc("pennants")
