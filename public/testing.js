@@ -14,45 +14,46 @@ async function go() {
   await page.goto("https://cheers-to-you-eaa8c.firebaseapp.com/");
 
   //user click the sign-in button
+  await page.click("#signinbtn");
 
-  await page.click("#signupbtn");
-
-  //user twill provide email/password to sign up
-
-  await page.type("#firstname", "Lauren");
-  await page.type("#lastname", "Roskopf");
-  await page.type("#email", "test@test.com");
-  await page.type("#phonenumber", "2621112222");
-  await page.type("#password", "test1234");
+  //user will provide email/password to sign up
+  await page.type("#email_", "test@test.com");
+  await page.type("#password_", "test1234");
 
   //user clicks on the submit button
 
   await page.click(
-    "#signup_form > div.field.is-grouped > div.control > button"
+    "#signin_form > div.field.is-grouped > div.control > button"
   );
 
   //set 2 delay
   await new Promise((r) => setTimeout(r, 2000));
 
   //test clicking on product
-  await page.click("#pennantspg");
+  await page.click("#milestonepg");
 
   //  //set 2 delay
   await new Promise((r) => setTimeout(r, 2000));
   //   //selecting options for pennant
 
-  await page.type("#penPersonal", "Testing");
+  //await page.type("#penPersonal", "Testing");
 
   //   //submit order
-  await page.click("#addPennant");
+  await page.click("#addMS");
+  page.on('dialog', async (dialog) => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    await dialog.dismiss();
+  })
   //set 2 delay
   await new Promise((r) => setTimeout(r, 2000));
 
   //checking shopping cart
-  await page.click("#shoppingCart > i");
+  await page.click("#shoppingCart");
 
   //delete item fron shopping cart
-  await page.click("#cart > div:nth-child(1) > div.is-clickable > i");
+  //await page.click("#cart > div > div.is-clickable");
+  //set 2 delay
+  await new Promise((r) => setTimeout(r, 5000));
 
   //sign out
   await page.click("#signoutbtn");
@@ -62,8 +63,8 @@ async function go() {
   await page.click("#signinbtn");
 
   //enter admin info
-  await page.type("#email", "alice28512@gmail.com");
-  await page.type("#password", "!Admin01");
+  await page.type("#email_", "alice28512@gmail.com");
+  await page.type("#password_", "!Admin01");
 
   await page.click("#buntingspg");
 
