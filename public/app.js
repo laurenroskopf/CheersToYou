@@ -1033,7 +1033,9 @@ r_e("milestonepg").addEventListener("click", () => {
       r_e("milecar3_image").innerHTML = `<img src="${
         doc.data().milestones_image3
       }" />`;
-      document.querySelector("#ms_price").innerHTML = `$${doc.data().price}`;
+      r_e("milestone_product_section").innerHTML = `<p>${
+        doc.data().product_de
+      } </p>`;
       document.querySelector(
         "#ms_price"
       ).innerHTML = `<p id = ms_price class = "is-size-4">$${
