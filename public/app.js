@@ -145,7 +145,7 @@ r_e("signin_form").addEventListener("submit", (e) => {
 
 // sign out user
 r_e("signoutbtn").addEventListener("click", () => {
-  auth.signOut().then(() => {});
+  auth.signOut().then(() => { });
   isHidden("orderbutton");
   isHidden("contactbutton");
   r_e("accountbutton").classList.remove("is-hidden");
@@ -289,7 +289,6 @@ function completed_product_html(doc) {
 // shopping cart data
 function load_sc() {
   let html = ``;
-  console.log("refresh pls")
   auth.onAuthStateChanged((user) => {
     if (user) {
       db.collection("OrderItems")
@@ -562,8 +561,6 @@ function bunting_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -586,8 +583,6 @@ function bunting_info() {
           message: message,
           price: prc,
         };
-
-        console.log(orderItem);
 
         db.collection("OrderItems")
           .add(orderItem)
@@ -612,8 +607,6 @@ function bunting_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -636,8 +629,6 @@ function bunting_info() {
           message: message,
           price: prc,
         };
-
-        console.log(orderItem);
 
         db.collection("OrderItems")
           .add(orderItem)
@@ -668,8 +659,6 @@ function garland_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -691,8 +680,6 @@ function garland_info() {
           price: prc,
         };
 
-        console.log(orderItem);
-
         db.collection("OrderItems")
           .add(orderItem)
           .then(() => alert("Added to Cart!"));
@@ -713,8 +700,6 @@ function garland_info() {
           size: message,
           price: prc,
         };
-
-        console.log(orderItem);
 
         db.collection("OrderItems")
           .add(orderItem)
@@ -1109,9 +1094,9 @@ r_e("contactme_form").addEventListener("click", (e) => {
 
   //reset the form
   (r_e("name_cmf").value = ""),
-  (r_e("email_cmf").value = ""),
-  (r_e("phone_cmf").value = ""),
-  (r_e("message_cmf").value = "");
+    (r_e("email_cmf").value = ""),
+    (r_e("phone_cmf").value = ""),
+    (r_e("message_cmf").value = "");
 });
 
 
@@ -1838,12 +1823,12 @@ r_e("submit_maker_edits").addEventListener("click", (event) => {
 //shipping modal
 r_e("checkout").addEventListener("click", (event) => {
   event.preventDefault();
-  r_e("address_modal").classList.add("is-active");
-});
+  active("address_modal")
+})
 
 r_e("back_button").addEventListener("click", (event) => {
   event.preventDefault();
-  r_e("address_modal").classList.add("is-hidden");
+  isHidden("address_modal")
 });
 
 //back or exit
@@ -1920,7 +1905,6 @@ r_e("order_agree").addEventListener("click", (e) => {
         total: total,
         email: auth.currentUser.email,
       });
-      console.log("added to db");
 
       order.forEach((doc) => {
         db.collection("OrderItems").doc(doc.id).delete();
