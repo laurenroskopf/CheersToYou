@@ -39,21 +39,21 @@ async function go() {
   await page.click("#addMS");
   page.on("dialog", async (dialog) => {
     console.log(`Dialog message: ${dialog.message()}`);
-    await dialog.dismiss();
+    //await dialog.dismiss();
   });
 
   //checking shopping cart
   await page.click("#shoppingCart");
 
   //delete item fron shopping cart
-  await page.click("#cart > div > div.is-clickable > i");
+  await page.click("#cart > div:nth-child(1) > div.is-clickable" || "#cart > div:nth-child(1) > div.is-clickable > i");
   page.on("dialog", async (dialog) => {
     console.log(`Dialog message: ${dialog.message()}`);
-    //await dialog.dismiss();
+    await dialog.dismiss();
   });
 
   //set 5 delay
-  await new Promise((r) => setTimeout(r, 5000));
+  await new Promise((r) => setTimeout(r, 2000));
 
   //sign out
   await page.click("#signoutbtn");
@@ -79,6 +79,8 @@ async function go() {
 
   //sign out
   await page.click("#signoutbtn");
+
+  await page.click("#makerpg");
 
   //set 5 delay
   await new Promise((r) => setTimeout(r, 5000));
