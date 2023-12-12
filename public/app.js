@@ -905,6 +905,18 @@ r_e("gallerypg").addEventListener("click", () => {
 r_e("makerpg").addEventListener("click", () => {
   active("Maker");
   hide("Maker");
+  db.collection("Admin_Edits")
+    .doc("maker_body_edit")
+    .get()
+    .then((doc) => {
+      document.querySelector("#maker_section").innerHTML = `<p>${
+      doc.data().message
+    }</p>`;
+      document.querySelector("#maker_image").innerHTML = `<img src="${doc.data().url}" />`;
+      document.querySelector("#maker_title_section").innerHTML = `<p>${
+      doc.data().title
+    }</p>`;
+    });
 });
 
 //contact me
@@ -1107,9 +1119,10 @@ r_e("submit_maker_image").addEventListener("click", (e) => {
     "Admin_Edits",
     "maker_body_edit",
     "#maker_image",
-    "#maker_image_input"
+    "#maker_image_input",
+    "url"
   );
-  // r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
+
 });
 
 //submit buntings home picture
@@ -1778,7 +1791,7 @@ r_e("submit_maker_title_edits").addEventListener("click", (event) => {
         "#maker_title_section"
       ).innerHTML = `<p class="title">${doc.data().title}</p>`;
 
-      //r_e("maker_image").innerHTML = `<img src="${doc.data().url}" />`
+
     });
   document.querySelector("#maker_title_edits").value = "";
 });
